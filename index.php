@@ -1,10 +1,13 @@
 <?php
 /**
- * PDF Studio 1.0.0 — single-file PDF and document workbench.
- * Minimum PHP: 8.2. Recommended extensions: fileinfo, mbstring, dom, xml,
+ * PDF Studio 1.1.0 — single-file PDF and document workbench.
+ * Minimum PHP: 7.2. Recommended extensions: fileinfo, mbstring, dom, xml,
  * zip, openssl, gd; optional imagick. CLI tools require proc_open.
  * Optional Composer packages (run beside index.php, never from this app):
- * composer require tecnickcom/tc-lib-pdf setasign/fpdi setasign/fpdf mpdf/mpdf dompdf/dompdf
+ * composer require setasign/fpdi setasign/fpdf mpdf/mpdf dompdf/dompdf
+ * Run Composer with the server's PHP version so it selects compatible releases.
+ * Do not use --ignore-platform-reqs. On PHP 8.2+, optionally also install:
+ * composer require tecnickcom/tc-lib-pdf
  * Ubuntu/Debian optional packages:
  * sudo apt install php-xml php-mbstring php-zip php-gd qpdf ghostscript poppler-utils \
  *   tesseract-ocr tesseract-ocr-eng libreoffice chromium imagemagick php-imagick
@@ -15,7 +18,7 @@
  */
 declare(strict_types=1);
 
-const PDFSTUDIO_VERSION = '1.0.0';
+const PDFSTUDIO_VERSION = '1.1.0';
 const PDFSTUDIO_MAX_FILE = 104857600;
 const PDFSTUDIO_MAX_PAGES = 500;
 const PDFSTUDIO_MAX_FILES = 30;
@@ -25,6 +28,29 @@ const PDFSTUDIO_OCR_SECONDS = 600;
 const PDFSTUDIO_MAX_IMAGE_PIXELS = 40000000;
 const PDFSTUDIO_MAX_HTML = 16777216;
 const PDFSTUDIO_STALE_SECONDS = 7200;
+const PDFSTUDIO_RELEASE_HISTORY = [
+  [
+    'version' => '1.1.0',
+    'date' => '2026-10-08',
+    'changes' => [
+      'See which capabilities run in your browser and which need your server.',
+      'Click the information icon beside a missing server capability for Ubuntu installation commands, setup advice and a copy button.',
+      'Check for new versions from the toolbar or System capabilities. A daily background check also highlights available updates.',
+      'Read what changed before downloading an update, and see the release notes when you open an upgraded installation.',
+      'Open What\'s new at any time to review the release history.',
+      'Run PDF Studio on PHP 7.2 and newer servers.',
+    ],
+  ],
+  [
+    'version' => '1.0.0',
+    'date' => '2026-10-08',
+    'changes' => [
+      'Edit, organize, annotate and visually sign PDFs in your browser.',
+      'Create documents with a Word-like editor and export them as PDF.',
+      'Add optional server tools for compression, passwords, text recognition and Office conversion.',
+    ],
+  ],
+];
 
 ini_set('display_errors', '0');
 ini_set('log_errors', '1');
@@ -33,23 +59,38 @@ header('Referrer-Policy: same-origin');
 header('Cache-Control: no-store, private, max-age=0');
 header('Pragma: no-cache');
 header('X-Frame-Options: SAMEORIGIN');
-if (PHP_VERSION_ID < 80200) {
+if (PHP_VERSION_ID < 70200) {
   http_response_code(500);
-  exit('PDF Studio requires PHP 8.2 or newer.');
+  exit('PDF Studio requires PHP 7.2 or newer.');
 }
 if (session_status() !== PHP_SESSION_ACTIVE) {
   session_name('PDFSTUDIO');
-  session_start([
+  $studioSessionOptions = [
     'use_strict_mode' => true,
     'use_only_cookies' => true,
     'cookie_httponly' => true,
     'cookie_secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
-    'cookie_samesite' => 'Strict',
-  ]);
+  ];
+  if (PHP_VERSION_ID >= 70300) $studioSessionOptions['cookie_samesite'] = 'Strict';
+  session_start($studioSessionOptions);
+  // PHP 7.2 has no native SameSite setting. Append it to the session cookie
+  // while preserving any other Set-Cookie headers and existing cookie options.
+  if (PHP_VERSION_ID < 70300) {
+    $studioCookieHeaders = [];
+    foreach (headers_list() as $studioHeader) {
+      if (stripos($studioHeader, 'Set-Cookie:') !== 0) continue;
+      if (strpos($studioHeader, 'Set-Cookie: ' . session_name() . '=') === 0) $studioHeader .= '; SameSite=Strict';
+      $studioCookieHeaders[] = $studioHeader;
+    }
+    if ($studioCookieHeaders) {
+      header_remove('Set-Cookie');
+      foreach ($studioCookieHeaders as $studioHeader) header($studioHeader, false);
+    }
+  }
 }
-$_SESSION['studio_csrf'] ??= bin2hex(random_bytes(32));
-$_SESSION['studio_workspace'] ??= bin2hex(random_bytes(24));
-$studioBoot = ['csrf' => $_SESSION['studio_csrf'], 'version' => PDFSTUDIO_VERSION];
+if (!isset($_SESSION['studio_csrf'])) $_SESSION['studio_csrf'] = bin2hex(random_bytes(32));
+if (!isset($_SESSION['studio_workspace'])) $_SESSION['studio_workspace'] = bin2hex(random_bytes(24));
+$studioBoot = ['csrf' => $_SESSION['studio_csrf'], 'version' => PDFSTUDIO_VERSION, 'release' => studio_release_info()];
 $studioWorkspace = $_SESSION['studio_workspace'];
 session_write_close();
 if (is_file(__DIR__ . '/vendor/autoload.php')) {
@@ -57,16 +98,34 @@ if (is_file(__DIR__ . '/vendor/autoload.php')) {
 }
 
 final class StudioError extends RuntimeException {
-  public function __construct(string $message, public int $status = 400) {
+  /** @var int */
+  public $status;
+
+  public function __construct(string $message, int $status = 400) {
     parent::__construct($message);
+    $this->status = $status;
   }
 }
 
-function studio_json(array $data, int $status = 200): never {
+function studio_json(array $data, int $status = 200): void {
   http_response_code($status);
   header('Content-Type: application/json; charset=UTF-8');
-  echo json_encode($data, JSON_UNESCAPED_SLASHES | JSON_INVALID_UTF8_SUBSTITUTE | JSON_THROW_ON_ERROR);
+  $json = json_encode($data, JSON_UNESCAPED_SLASHES | JSON_INVALID_UTF8_SUBSTITUTE);
+  if ($json === false) throw new RuntimeException('JSON encoding failed: ' . json_last_error_msg());
+  echo $json;
   exit;
+}
+
+function studio_contains(string $haystack, string $needle): bool {
+  return $needle === '' || strpos($haystack, $needle) !== false;
+}
+
+function studio_starts_with(string $haystack, string $needle): bool {
+  return $needle === '' || strncmp($haystack, $needle, strlen($needle)) === 0;
+}
+
+function studio_ends_with(string $haystack, string $needle): bool {
+  return $needle === '' || substr($haystack, -strlen($needle)) === $needle;
 }
 
 function studio_enabled(string $fn): bool {
@@ -76,7 +135,8 @@ function studio_enabled(string $fn): bool {
 function studio_ini_bytes(string $value): int {
   $value = trim($value);
   if ($value === '' || $value === '0' || $value === '-1') return PHP_INT_MAX;
-  $factor = match (strtolower(substr($value, -1))) { 'g' => 1073741824, 'm' => 1048576, 'k' => 1024, default => 1 };
+  $units = ['g' => 1073741824, 'm' => 1048576, 'k' => 1024];
+  $factor = $units[strtolower(substr($value, -1))] ?? 1;
   return (int)((float)$value * $factor);
 }
 
@@ -95,7 +155,7 @@ function studio_binary(string $name): ?string {
   if (!isset($names[$name]) || !studio_enabled('proc_open')) return $cache[$name] = null;
   $dirs = array_unique(array_merge(['/usr/bin', '/usr/local/bin', '/bin', '/snap/bin'], explode(PATH_SEPARATOR, (string)getenv('PATH'))));
   foreach ($dirs as $dir) {
-    if ($dir === '' || !str_starts_with($dir, '/')) continue;
+    if ($dir === '' || !studio_starts_with($dir, '/')) continue;
     foreach ($names[$name] as $candidate) {
       $path = realpath($dir . '/' . $candidate);
       if ($path !== false && is_file($path) && is_executable($path)) return $cache[$name] = $path;
@@ -104,13 +164,13 @@ function studio_binary(string $name): ?string {
   return $cache[$name] = null;
 }
 
-/** Array commands bypass a shell entirely. Only administrator-installed binaries
- * in the fixed tool map can be executed; no uploaded name becomes command syntax. */
+/** PHP 7.4+ executes argument arrays directly; PHP 7.2/7.3 uses a fully quoted
+ * POSIX exec command. Only binaries in the fixed tool map can be executed. */
 function studio_run(string $tool, array $args, string $cwd, int $seconds = PDFSTUDIO_PROCESS_SECONDS, bool $check = true, array $accepted = [0]): array {
   $binary = studio_binary($tool);
   if (!$binary) throw new StudioError(ucfirst($tool) . ' was not detected, or PHP proc_open is disabled.', 503);
   foreach ($args as $arg) {
-    if (!is_scalar($arg) || str_contains((string)$arg, "\0")) throw new StudioError('Invalid processing parameter.');
+    if (!is_scalar($arg) || studio_contains((string)$arg, "\0")) throw new StudioError('Invalid processing parameter.');
   }
   $command = array_merge([$binary], array_map('strval', $args));
   $limiter = studio_binary('prlimit');
@@ -122,7 +182,13 @@ function studio_run(string $tool, array $args, string $cwd, int $seconds = PDFST
   $env = ['PATH' => '/usr/local/bin:/usr/bin:/bin', 'HOME' => $cwd, 'TMPDIR' => $cwd, 'LC_ALL' => 'C.UTF-8'];
   if (getenv('TESSDATA_PREFIX')) $env['TESSDATA_PREFIX'] = (string)getenv('TESSDATA_PREFIX');
   $pipes = [];
-  $proc = proc_open($command, [0 => ['pipe', 'r'], 1 => ['pipe', 'w'], 2 => ['pipe', 'w']], $pipes, $cwd, $env, ['bypass_shell' => true]);
+  $launchCommand = $command;
+  if (PHP_VERSION_ID < 70400) {
+    // Quote every argument separately. exec replaces the shell, preserving the
+    // process ID used for timeout handling and process-group termination.
+    $launchCommand = 'exec ' . implode(' ', array_map('escapeshellarg', $command));
+  }
+  $proc = proc_open($launchCommand, [0 => ['pipe', 'r'], 1 => ['pipe', 'w'], 2 => ['pipe', 'w']], $pipes, $cwd, $env, ['bypass_shell' => true]);
   if (!is_resource($proc)) throw new StudioError('The server could not start ' . $tool . '.', 503);
   fclose($pipes[0]);
   stream_set_blocking($pipes[1], false);
@@ -137,7 +203,7 @@ function studio_run(string $tool, array $args, string $cwd, int $seconds = PDFST
       if (!$status['running']) { $exit = $status['exitcode']; break; }
       if (microtime(true) - $start > $seconds) throw new StudioError('The ' . $tool . ' operation exceeded the server time limit. Try fewer pages or a smaller file.', 408);
       if (connection_aborted()) throw new StudioError('The operation was cancelled.', 499);
-      if (str_contains(basename($cwd), 'job-') && microtime(true) - $lastBudgetCheck > 0.5) {
+      if (studio_contains(basename($cwd), 'job-') && microtime(true) - $lastBudgetCheck > 0.5) {
         studio_job_budget($cwd);
         $lastBudgetCheck = microtime(true);
       }
@@ -165,18 +231,49 @@ function studio_run(string $tool, array $args, string $cwd, int $seconds = PDFST
     $message = 'The ' . $tool . ' operation failed. The document may be malformed, unsupported, or password protected.';
     if (preg_match('/invalid password|incorrect password|password required/i', $err . $out)) $message = 'The PDF password is missing or incorrect.';
     if (preg_match('/Error opening data file|Failed loading language/i', $err . $out)) $message = 'The selected OCR language data is not installed on the server.';
-    if (str_contains($err, 'No usable sandbox') || str_contains($err, '--no-sandbox')) $message = 'Chromium requires a working server sandbox. Run PHP as an unprivileged user and enable Chromium sandboxing.';
+    if (studio_contains($err, 'No usable sandbox') || studio_contains($err, '--no-sandbox')) $message = 'Chromium requires a working server sandbox. Run PHP as an unprivileged user and enable Chromium sandboxing.';
     throw new StudioError($message, 422);
   }
   return ['code' => $exit, 'stdout' => $out, 'stderr' => $err];
 }
 
 function studio_package_version(string $package, string $class): ?string {
-  try { if (!class_exists($class)) return null; } catch (Throwable) { return null; }
+  try { if (!class_exists($class)) return null; } catch (Throwable $ignored) { return null; }
   if (class_exists('Composer\\InstalledVersions')) {
-    try { return Composer\InstalledVersions::getPrettyVersion($package) ?? 'installed'; } catch (Throwable) {}
+    try { return Composer\InstalledVersions::getPrettyVersion($package) ?? 'installed'; } catch (Throwable $ignored) {}
   }
   return 'installed';
+}
+
+function studio_release_info(): array {
+  return ['version' => PDFSTUDIO_VERSION, 'minimumPhp' => '7.2', 'releases' => PDFSTUDIO_RELEASE_HISTORY];
+}
+
+function studio_install_help(string $tool): array {
+  $php = 'php' . PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION;
+  $extensionNote = 'Install extensions for the PHP version serving this page (' . PHP_VERSION . '). These commands use matching versioned package names; that PHP version must be available in your configured Ubuntu repositories.';
+  $restartNote = 'After installing PHP extensions, restart your PHP handler: sudo systemctl restart ' . $php . '-fpm for PHP-FPM, or sudo systemctl restart apache2 for Apache. Then refresh System capabilities.';
+  $composerNotes = ['Run the Composer command in the directory containing index.php, as the application owner. Composer must run with the same PHP version as this page (' . PHP_VERSION . '); do not ignore its PHP requirements.'];
+  $composerBase = ['sudo apt update', 'sudo apt install -y composer ' . $php . '-cli ' . $php . '-xml ' . $php . '-mbstring ' . $php . '-gd'];
+  $guides = [
+    'qpdf' => ['label' => 'qpdf', 'commands' => ['sudo apt update', 'sudo apt install -y qpdf'], 'notes' => ['Some advanced options require a newer qpdf than older Ubuntu releases provide.']],
+    'gs' => ['label' => 'Ghostscript', 'commands' => ['sudo apt update', 'sudo apt install -y ghostscript'], 'notes' => []],
+    'pdfinfo' => ['label' => 'Poppler: PDF information', 'commands' => ['sudo apt update', 'sudo apt install -y poppler-utils'], 'notes' => []],
+    'pdftotext' => ['label' => 'Poppler: text extraction', 'commands' => ['sudo apt update', 'sudo apt install -y poppler-utils'], 'notes' => []],
+    'pdfimages' => ['label' => 'Poppler: embedded images', 'commands' => ['sudo apt update', 'sudo apt install -y poppler-utils'], 'notes' => []],
+    'pdftoppm' => ['label' => 'Poppler: page rendering', 'commands' => ['sudo apt update', 'sudo apt install -y poppler-utils'], 'notes' => []],
+    'tesseract' => ['label' => 'Tesseract OCR', 'commands' => ['sudo apt update', 'sudo apt install -y tesseract-ocr tesseract-ocr-eng'], 'notes' => ['For Thai recognition, also install: sudo apt install -y tesseract-ocr-tha. Other languages have their own tesseract-ocr language packages.']],
+    'libreoffice' => ['label' => 'LibreOffice', 'commands' => ['sudo apt update', 'sudo apt install -y libreoffice ' . $php . '-zip ' . $php . '-xml'], 'notes' => [$extensionNote, $restartNote, 'Office conversion also needs the PHP ZIP and DOM extensions.']],
+    'chromium' => ['label' => 'Chromium', 'commands' => ['sudo apt update', 'sudo apt install -y chromium-browser'], 'notes' => ['On current Ubuntu releases this installs Chromium through Snap. The PHP service must be able to launch it and access its private temporary job directory; Snap confinement can require additional server configuration.', 'Run PHP as an unprivileged user with a working Chromium sandbox. Installing Chromium alone does not fix a blocked sandbox.']],
+    'mpdf' => ['label' => 'mPDF', 'commands' => array_merge($composerBase, ['composer require mpdf/mpdf']), 'notes' => array_merge($composerNotes, [$extensionNote, $restartNote])],
+    'dompdf' => ['label' => 'Dompdf', 'commands' => array_merge($composerBase, ['composer require dompdf/dompdf']), 'notes' => array_merge($composerNotes, [$extensionNote, $restartNote])],
+    'fpdi' => ['label' => 'FPDI / FPDF', 'commands' => array_merge($composerBase, ['composer require setasign/fpdi setasign/fpdf']), 'notes' => $composerNotes],
+    'tc_pdf' => ['label' => 'TCPDF library (optional)', 'commands' => array_merge($composerBase, ['composer require tecnickcom/tc-lib-pdf']), 'notes' => array_merge($composerNotes, ['Current tc-lib-pdf releases require PHP 8.2 or newer. On PHP 7.2, use mPDF or Dompdf for document export. This optional library is detected only; no additional PDF Studio tool depends on it.'])],
+    'imagick' => ['label' => 'PHP Imagick (optional)', 'commands' => ['sudo apt update', 'sudo apt install -y ' . $php . '-imagick'], 'notes' => [$extensionNote, $restartNote, 'This optional extension is detected only; browser image tools remain available without it.']],
+    'zip' => ['label' => 'PHP ZIP', 'commands' => ['sudo apt update', 'sudo apt install -y ' . $php . '-zip'], 'notes' => [$extensionNote, $restartNote]],
+    'dom' => ['label' => 'PHP DOM / XML', 'commands' => ['sudo apt update', 'sudo apt install -y ' . $php . '-xml'], 'notes' => [$extensionNote, $restartNote]],
+  ];
+  return $guides[$tool] ?? ['label' => $tool, 'commands' => [], 'notes' => []];
 }
 
 function studio_capabilities(): array {
@@ -201,13 +298,14 @@ function studio_capabilities(): array {
       try {
         $result = studio_run($tool, $args, sys_get_temp_dir(), 6, false);
         $version = substr(trim(strtok(trim($result['stdout'] . "\n" . $result['stderr']), "\n") ?: 'installed'), 0, 150);
-      } catch (Throwable) { $available = false; }
+      } catch (Throwable $ignored) { $available = false; }
     }
     $tools[$tool] = ['available' => $available, 'version' => $version, 'features' => $features];
   }
+  $packageFeatures = ['mpdf' => ['HTML to PDF', 'Headers, footers, page numbering'], 'dompdf' => ['HTML to PDF'], 'fpdi' => ['Alternative PDF merge']];
   foreach (['mpdf' => ['mpdf/mpdf', 'Mpdf\\Mpdf'], 'dompdf' => ['dompdf/dompdf', 'Dompdf\\Dompdf'], 'fpdi' => ['setasign/fpdi', 'setasign\\Fpdi\\Fpdi'], 'tc_pdf' => ['tecnickcom/tc-lib-pdf', 'Com\\Tecnick\\Pdf\\Tcpdf']] as $key => [$package, $class]) {
     $version = studio_package_version($package, $class);
-    $tools[$key] = ['available' => $version !== null, 'version' => $version, 'features' => match ($key) { 'mpdf' => ['HTML to PDF', 'Headers, footers, page numbering'], 'dompdf' => ['HTML to PDF'], 'fpdi' => ['Alternative PDF merge'], default => ['PDF generation library detected'] }];
+    $tools[$key] = ['available' => $version !== null, 'version' => $version, 'features' => $packageFeatures[$key] ?? ['PDF generation library detected']];
   }
   $tools['imagick'] = ['available' => extension_loaded('imagick'), 'version' => extension_loaded('imagick') ? phpversion('imagick') : null, 'features' => ['Image processing extension detected']];
   $tools['zip'] = ['available' => class_exists('ZipArchive'), 'version' => phpversion('zip') ?: null, 'features' => ['Office archive security inspection']];
@@ -223,20 +321,34 @@ function studio_capabilities(): array {
   if ($tools['tesseract']['available']) {
     try {
       $result = studio_run('tesseract', ['--list-langs'], sys_get_temp_dir(), 6);
-      $tools['tesseract']['languages'] = array_values(array_filter(preg_split('/\R/', trim($result['stdout'])), fn($line) => preg_match('/^[a-zA-Z0-9_\/.-]+$/', $line) === 1 && $line !== 'osd'));
-    } catch (Throwable) { $tools['tesseract']['languages'] = []; }
+      $tools['tesseract']['languages'] = array_values(array_filter(preg_split('/\R/', trim($result['stdout'])), function($line) {
+        return preg_match('/^[a-zA-Z0-9_\/.-]+$/', $line) === 1 && $line !== 'osd';
+      }));
+    } catch (Throwable $ignored) { $tools['tesseract']['languages'] = []; }
   }
   if ($tools['qpdf']['available']) {
     try {
       $result = studio_run('qpdf', ['--help=all'], sys_get_temp_dir(), 6);
-      $tools['qpdf']['metadataRemoval'] = str_contains($result['stdout'], '--remove-info') && str_contains($result['stdout'], '--remove-metadata');
-      $tools['qpdf']['namedPasswords'] = str_contains($result['stdout'], '--user-password');
-    } catch (Throwable) { $tools['qpdf']['metadataRemoval'] = false; $tools['qpdf']['namedPasswords'] = false; }
+      $tools['qpdf']['metadataRemoval'] = studio_contains($result['stdout'], '--remove-info') && studio_contains($result['stdout'], '--remove-metadata');
+      $tools['qpdf']['namedPasswords'] = studio_contains($result['stdout'], '--user-password');
+    } catch (Throwable $ignored) { $tools['qpdf']['metadataRemoval'] = false; $tools['qpdf']['namedPasswords'] = false; }
   }
   $html = [];
   if ($tools['dom']['available']) foreach (['mpdf', 'dompdf', 'chromium'] as $name) if ($tools[$name]['available']) $html[] = $name;
   $merge = [];
   foreach (['qpdf', 'fpdi'] as $name) if ($tools[$name]['available']) $merge[] = $name;
+  foreach ($tools as $name => &$details) {
+    $guide = studio_install_help($name);
+    $details['source'] = 'server';
+    $details['label'] = $guide['label'];
+    $details['install'] = $guide;
+    if (isset($spec[$name]) && !studio_enabled('proc_open')) {
+      $details['reason'] = 'PHP proc_open is disabled. Ask the server administrator to enable it for this application; installing a package alone will not enable external tools.';
+    } elseif (isset($spec[$name]) && !$details['available'] && !isset($details['reason'])) {
+      $details['reason'] = 'This tool is missing from the server PATH or could not be started by PHP.';
+    }
+  }
+  unset($details);
   $maxFile = min(PDFSTUDIO_MAX_FILE, studio_ini_bytes((string)ini_get('upload_max_filesize')), max(0, studio_ini_bytes((string)ini_get('post_max_size')) - 65536));
   return $caps = ['version' => PDFSTUDIO_VERSION, 'php' => PHP_VERSION, 'limits' => ['maxFile' => $maxFile, 'maxLocalFile' => PDFSTUDIO_MAX_FILE, 'maxPages' => PDFSTUDIO_MAX_PAGES, 'maxFiles' => min(PDFSTUDIO_MAX_FILES, (int)ini_get('max_file_uploads')), 'maxOutput' => PDFSTUDIO_MAX_JOB_BYTES, 'processSeconds' => PDFSTUDIO_PROCESS_SECONDS], 'tools' => $tools, 'engines' => ['html' => $html, 'merge' => $merge], 'privacy' => 'Files are processed in private temporary directories and removed after the response.'];
 }
@@ -273,7 +385,7 @@ function studio_temp_root(): string {
   @chmod($root, 0700);
   $actual = realpath($root);
   $public = isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : false;
-  if ($actual === false || ($public && ($actual === $public || str_starts_with($actual, $public . DIRECTORY_SEPARATOR)))) throw new StudioError('The server temporary directory must be outside the public web root.', 503);
+  if ($actual === false || ($public && ($actual === $public || studio_starts_with($actual, $public . DIRECTORY_SEPARATOR)))) throw new StudioError('The server temporary directory must be outside the public web root.', 503);
   if (random_int(1, 20) === 1) {
     foreach (new DirectoryIterator($root) as $file) {
       if ($file->isDot() || $file->isLink() || !$file->isDir()) continue;
@@ -375,7 +487,7 @@ function studio_option_int(array $options, string $name, int $default, int $min,
 
 function studio_password(array $options, string $name): string {
   $value = (string)($options[$name] ?? '');
-  if (strlen($value) > 256 || str_contains($value, "\0") || str_contains($value, "\r") || str_contains($value, "\n")) throw new StudioError('Passwords must contain at most 256 bytes and no line breaks.');
+  if (strlen($value) > 256 || studio_contains($value, "\0") || studio_contains($value, "\r") || studio_contains($value, "\n")) throw new StudioError('Passwords must contain at most 256 bytes and no line breaks.');
   return $value;
 }
 
@@ -421,11 +533,11 @@ function studio_zip(array $files, string $output): void {
   } finally { fclose($stream); }
 }
 
-function studio_download(string $path, string $name, string $mime, ?int $before = null): never {
+function studio_download(string $path, string $name, string $mime, ?int $before = null): void {
   if (!is_file($path) || is_link($path)) throw new StudioError('The processor did not produce a downloadable file.', 422);
   $size = filesize($path);
   if (!$size || $size > PDFSTUDIO_MAX_JOB_BYTES) throw new StudioError('The result is empty or exceeds the output limit.', 413);
-  if ($mime === 'application/pdf' && !str_starts_with((string)file_get_contents($path, false, null, 0, 5), '%PDF-')) throw new StudioError('The processor returned an invalid PDF.', 422);
+  if ($mime === 'application/pdf' && !studio_starts_with((string)file_get_contents($path, false, null, 0, 5), '%PDF-')) throw new StudioError('The processor returned an invalid PDF.', 422);
   $name = preg_replace('/[^A-Za-z0-9_.-]/', '-', $name);
   header('Content-Type: ' . $mime);
   header('Content-Disposition: attachment; filename="' . $name . '"');
@@ -495,7 +607,7 @@ function studio_html(string $html): string {
             else $child->setAttribute('rel', 'noopener noreferrer');
           } elseif ($key === 'style') {
             $child->setAttribute('style', studio_css($value));
-          } elseif (!isset($attributes[$key]) || str_starts_with($key, 'on')) {
+          } elseif (!isset($attributes[$key]) || studio_starts_with($key, 'on')) {
             $child->removeAttribute($attr->name);
           } elseif (strlen($value) > 2000) {
             $child->removeAttribute($attr->name);
@@ -511,7 +623,8 @@ function studio_html(string $html): string {
   return $dom->saveHTML();
 }
 
-function studio_header_html(array|string|null $value): string {
+/** @param array|string|null $value */
+function studio_header_html($value): string {
   if (is_string($value)) $value = ['center' => $value];
   if (!is_array($value)) return '';
   $html = '<table width="100%" style="font-size:9pt;border-collapse:collapse"><tr>';
@@ -596,7 +709,9 @@ function studio_html_pdf(array $options, string $job): string {
             $text = substr((string)($values[$align] ?? ''), 0, 1000);
             $text = str_replace(['{{page}}', '{{pages}}'], [(string)$number, (string)$total], $text);
             $width = $fontMetrics->getTextWidth($text, $font, 9);
-            $x = match ($align) { 'left' => $m['left'] * 72 / 25.4, 'right' => ($page['width'] - $m['right']) * 72 / 25.4 - $width, default => ($page['width'] * 72 / 25.4 - $width) / 2 };
+            if ($align === 'left') $x = $m['left'] * 72 / 25.4;
+            elseif ($align === 'right') $x = ($page['width'] - $m['right']) * 72 / 25.4 - $width;
+            else $x = ($page['width'] * 72 / 25.4 - $width) / 2;
             $y = $position === 'header' ? max(4, $m['top'] * 72 / 25.4 / 2 - 5) : ($page['height'] - $m['bottom'] / 2) * 72 / 25.4 - 5;
             $canvas->text($x, $y, $text, $font, 9);
           }
@@ -619,10 +734,12 @@ function studio_html_pdf(array $options, string $job): string {
 function studio_office_validate(string $path, string $extension): void {
   if (!class_exists('ZipArchive') || !class_exists('DOMDocument')) throw new StudioError('Safe Office conversion also requires the PHP ZIP and DOM extensions.', 503);
   $zip = new ZipArchive();
-  if ($zip->open($path, ZipArchive::RDONLY) !== true) throw new StudioError('The Office document archive is invalid.', 422);
+  $readOnly = defined('ZipArchive::RDONLY') ? constant('ZipArchive::RDONLY') : 0;
+  if ($zip->open($path, $readOnly) !== true) throw new StudioError('The Office document archive is invalid.', 422);
   try {
     if ($zip->numFiles > 5000) throw new StudioError('The Office document contains too many archive entries.', 413);
-    $required = match ($extension) { 'docx' => 'word/document.xml', 'xlsx' => 'xl/workbook.xml', 'pptx' => 'ppt/presentation.xml', default => 'content.xml' };
+    $requiredParts = ['docx' => 'word/document.xml', 'xlsx' => 'xl/workbook.xml', 'pptx' => 'ppt/presentation.xml'];
+    $required = $requiredParts[$extension] ?? 'content.xml';
     if ($zip->locateName($required) === false) throw new StudioError('The document structure does not match its extension.', 422);
     $total = 0;
     for ($i = 0; $i < $zip->numFiles; $i++) {
@@ -632,7 +749,7 @@ function studio_office_validate(string $path, string $extension): void {
       if (!empty($stat['encryption_method'])) throw new StudioError('Encrypted Office documents are not supported.', 422);
       $total += $stat['size'];
       if ($total > PDFSTUDIO_MAX_JOB_BYTES || $stat['size'] > 67108864 || ($stat['comp_size'] > 0 && $stat['size'] / $stat['comp_size'] > 1000)) throw new StudioError('The Office archive exceeds safe expansion limits.', 413);
-      if (str_contains($name, '..') || str_starts_with($name, '/') || str_contains($name, '\\') || str_contains($name, ':')) throw new StudioError('The Office archive contains an unsafe path.', 422);
+      if (studio_contains($name, '..') || studio_starts_with($name, '/') || studio_contains($name, '\\') || studio_contains($name, ':')) throw new StudioError('The Office archive contains an unsafe path.', 422);
       if (preg_match('~(?:vbaproject|(?:^|/)scripts/|/embeddings/|\.(?:svg|eps|ps)$|\.html?$|\.exe$|\.dll$|\.js$|\.bas$)~i', $name)) throw new StudioError('Office conversion does not accept embedded programs, macros, HTML, SVG or PostScript content.', 422);
       if (!preg_match('/\.(?:xml|rels)$/i', $name)) continue;
       $xml = $zip->getFromIndex($i);
@@ -659,15 +776,15 @@ function studio_office_validate(string $path, string $extension): void {
 
 function studio_office_reference(string $entry, string $reference, ZipArchive $zip): void {
   $reference = rawurldecode($reference);
-  if ($reference === '' || str_starts_with($reference, '#')) return;
+  if ($reference === '' || studio_starts_with($reference, '#')) return;
   if (preg_match('~^[a-z][a-z0-9+.-]*:|^//|[\\\\\x00]~i', $reference)) throw new StudioError('Office conversion blocks remote and filesystem-linked resources.', 422);
   $reference = explode('#', $reference, 2)[0];
   // OOXML uses ../ to reach sibling package directories; normalize these
   // against the containing part and require the target to exist in the ZIP.
   $base = dirname($entry);
-  if (str_ends_with($entry, '.rels')) $base = dirname(preg_replace('~(?:^|/)_rels/~', '/', $entry));
+  if (studio_ends_with($entry, '.rels')) $base = dirname(preg_replace('~(?:^|/)_rels/~', '/', $entry));
   $base = trim($base, '/');
-  $segments = str_starts_with($reference, '/') ? [] : ($base === '.' ? [] : explode('/', $base));
+  $segments = studio_starts_with($reference, '/') ? [] : ($base === '.' ? [] : explode('/', $base));
   foreach (explode('/', ltrim($reference, '/')) as $segment) {
     if ($segment === '' || $segment === '.') continue;
     if ($segment === '..') {
@@ -746,7 +863,7 @@ function studio_protect(array $input, array $options, string $job): string {
   if (!empty($caps['tools']['qpdf']['namedPasswords'])) {
     $args = ['--encrypt', '--user-password=' . $user, '--owner-password=' . $owner, '--bits=' . $bits];
   } else {
-    if (str_starts_with($user, '-') || str_starts_with($owner, '-')) throw new StudioError('This older qpdf version requires passwords that do not begin with a hyphen. Upgrade qpdf to support arbitrary passwords.');
+    if (studio_starts_with($user, '-') || studio_starts_with($owner, '-')) throw new StudioError('This older qpdf version requires passwords that do not begin with a hyphen. Upgrade qpdf to support arbitrary passwords.');
     $args = ['--encrypt', $user, $owner, (string)$bits];
   }
   $print = (string)($options['print'] ?? 'full');
@@ -865,8 +982,8 @@ if ($studioAction !== '') {
     if ($csrf === '' || !hash_equals($studioBoot['csrf'], $csrf)) throw new StudioError('The session token is missing or expired. Reload PDF Studio and try again.', 403);
     $json = (string)($_POST['options'] ?? '{}');
     if (strlen($json) > PDFSTUDIO_MAX_HTML + 262144) throw new StudioError('The operation options exceed the size limit.', 413);
-    try { $options = json_decode($json, true, 64, JSON_THROW_ON_ERROR); }
-    catch (JsonException) { throw new StudioError('The operation settings are not valid JSON.'); }
+    $options = json_decode($json, true, 64);
+    if (json_last_error() !== JSON_ERROR_NONE) throw new StudioError('The operation settings are not valid JSON.');
     if (!is_array($options)) throw new StudioError('The operation settings must be an object.');
     @set_time_limit(($studioAction === 'ocr' ? PDFSTUDIO_OCR_SECONDS : PDFSTUDIO_PROCESS_SECONDS) + 60);
     $job = studio_job();
@@ -920,7 +1037,7 @@ if ($studioAction !== '') {
         // unexpected paths as well, preserving actual PDF validation messages.
         $report = preg_replace('~(?<![A-Za-z0-9])/(?:[A-Za-z0-9_.-]+/)+[A-Za-z0-9_.-]*~', '[private path]', $report);
         $pages = null;
-        try { $pages = studio_pdf_count($input['path'], $job, $password); } catch (StudioError) {}
+        try { $pages = studio_pdf_count($input['path'], $job, $password); } catch (StudioError $ignored) {}
         studio_json(['valid' => $result['code'] === 0, 'warnings' => $result['code'] === 3, 'report' => trim($report), 'pages' => $pages]);
       case 'extract_images':
         studio_need('pdfimages');
@@ -945,7 +1062,9 @@ if ($studioAction !== '') {
     }
   } catch (Throwable $error) {
     $reference = bin2hex(random_bytes(5));
-    $trace = array_map(fn($frame) => ($frame['file'] ?? '[internal]') . ':' . ($frame['line'] ?? 0) . ' ' . ($frame['function'] ?? ''), $error->getTrace());
+    $trace = array_map(function($frame) {
+      return ($frame['file'] ?? '[internal]') . ':' . ($frame['line'] ?? 0) . ' ' . ($frame['function'] ?? '');
+    }, $error->getTrace());
     error_log('PDF Studio error ' . $reference . ' (' . $studioAction . '): ' . $error->getMessage() . "\n" . implode("\n", $trace));
     $message = $error instanceof StudioError ? $error->getMessage() : 'The document processor could not complete this operation. Check the server log using error reference ' . $reference . '.';
     studio_json(['error' => $message, 'reference' => $reference], $error instanceof StudioError ? $error->status : 500);
@@ -1034,6 +1153,7 @@ if ($studioAction !== '') {
         <button class="icon-button" data-action="theme" aria-label="Toggle light and dark mode"><i class="fa-solid fa-circle-half-stroke"></i></button>
         <button class="icon-button" data-action="fullscreen" aria-label="Full screen"><i class="fa-solid fa-expand"></i></button>
         <button class="icon-button" data-action="capabilities" aria-label="System capabilities"><i class="fa-solid fa-sliders"></i></button>
+        <button class="icon-button position-relative" id="studioUpdatesButton" data-action="updates" aria-label="Check for updates" title="Check for updates"><i class="fa-solid fa-cloud-arrow-down"></i><span id="studioUpdateBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger" hidden aria-hidden="true">!</span></button>
       </div>
     </header>
     <aside class="app-sidebar" aria-label="Tools"><div class="sidebar-top"><span class="section-label">WORKSPACE</span><button class="icon-button d-xl-none" data-action="sidebar" aria-label="Collapse tools"><i class="fa-solid fa-bars"></i></button></div><nav id="toolNavigation"></nav><div class="sidebar-note"><i class="fa-solid fa-shield-halved"></i><span>Browser first.<small>Server uploads are explicit.</small></span></div></aside>
@@ -1177,6 +1297,9 @@ class PDFStudio {
     // The utility module can alternatively publish its registry directly.
     if(!this.tools.definitions&&!this.tools.toolDefs&&PDFTools.definitions)this.toolDefs.push(...PDFTools.definitions);
     this.renderHome();this.$('#loadingBanner').hidden=true;this.status();
+    this.updates=new StudioUpdates(this,window.PDF_STUDIO_BOOT.release);
+    this.updates.announceUpgrade();
+    this.updates.check(false);
   }
   available(def){
     const req=def.requirements||'browser';if(req==='document')return !!window.DOMPurify;if(req==='editing')return !!window.fabric&&!!window.PDFLib&&!!window.pdfjsLib;if(req==='browser')return !!window.PDFLib&&!!window.pdfjsLib;
@@ -1359,7 +1482,7 @@ class PDFStudio {
     this.$('#contextToolbar').innerHTML=html;if(!window.fabric){const needsFabric=new Set(['select','add-text','add-image','rectangle','round-rect','ellipse','line','arrow','polygon','draw','arrange','duplicate-object','unlock-all','highlight','underline-line','strike-line','note','link','whiteout','visual-redact','secure-redact','stamp','sign','checkmark','xmark','initials','date-stamp']);for(const b of this.$('#contextToolbar').querySelectorAll('button'))if(needsFabric.has(b.dataset.action)){b.disabled=true;b.title='Requires Fabric.js, which could not load.';}}
   }
   async action(id,button){
-    if(button?.closest('#toolModal')&&id!=='palette')bootstrap.Modal.getInstance(this.$('#toolModal'))?.hide();
+    if(button?.closest('#toolModal')&&!['palette','capabilities','install-help','updates','check-updates','changelog'].includes(id))bootstrap.Modal.getInstance(this.$('#toolModal'))?.hide();
     if(id==='home'){this.setMode('home');return;}
     if(id==='open'){const f=await this.pickFiles('.pdf,.pdfstudio.json,image/png,image/jpeg,image/webp,image/gif,image/bmp',true);if(f.length)await this.busy('Opening documents',j=>this.openFiles(f,j));return;}
     if(id==='create'){await this.documentEditor.show();return;}
@@ -1368,6 +1491,9 @@ class PDFStudio {
     if(id==='sidebar'){document.body.classList.toggle('sidebar-visible');return;}
     if(id==='fullscreen'){if(document.fullscreenElement)await document.exitFullscreen();else if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();else this.notify('Full-screen mode is unavailable in this browser.');return;}
     if(id==='capabilities'){this.capabilitiesDialog();return;}if(id==='palette'){this.palette();return;}
+    if(id==='install-help'){this.installHelp(button.dataset.tool);return;}
+    if(id==='updates'){this.updates?.show();return;}if(id==='check-updates'){await this.updates?.check(true);return;}
+    if(id==='changelog'){this.updates?.showChangelog();return;}
     if(id==='clear-recents'){this.recent=[];try{localStorage.removeItem('pdfstudio.recent');}catch{}this.renderRecents();return;}
     if(id==='save-project'){this.saveProjectDialog();return;}if(id==='load-project'){const f=await this.pickFiles('.json');if(f[0])await this.busy('Opening project',async()=>this.restoreProject(JSON.parse(await f[0].text())));return;}
     if(id==='restore-autosave'){const state=await this.readAutosave();if(!state)throw new Error('No local autosave is available.');await this.restoreProject(state);return;}
@@ -1536,9 +1662,26 @@ class PDFStudio {
     el.querySelector('#scanFile').addEventListener('change',async e=>{try{if(e.target.files[0]){source=await this.imageCanvas(e.target.files[0]);preview();}}catch(x){this.error(x);}});for(const control of el.querySelectorAll('input[type=range],input[type=number],select'))control.addEventListener('input',preview);el.addEventListener('hidden.bs.modal',()=>{if(source)source.width=source.height=1;},{once:true});
   }
   capabilitiesDialog(){
-    const rows=Object.entries(this.server.tools||{}).map(([name,t])=>`<tr><td><strong>${this.escape(t.label||name)}</strong></td><td>${t.available?'<span class="badge text-bg-success">Available</span>':'<span class="badge text-bg-secondary">Unavailable</span>'}</td><td>${this.escape(t.version||'—')}</td><td>${this.escape(Array.isArray(t.features)?t.features.join(', '):t.features||t.reason||'')}</td></tr>`).join('');
-    const html='<p class="small text-secondary">Browser tools run locally. Server tools use this installation and upload only when you choose them.</p><div class="table-responsive"><table class="table capability-table"><thead><tr><th>Dependency</th><th>Status</th><th>Version</th><th>Features</th></tr></thead><tbody>'+Object.entries(STUDIO_VERSIONS).map(([n,v])=>`<tr><td>${this.escape(n)}</td><td>${(n==='pdfjs'?window.pdfjsLib:n==='pdfLib'?window.PDFLib:n==='purify'?window.DOMPurify:n==='fabric'?window.fabric:n==='sortable'?window.Sortable:n==='zip'?window.JSZip:window.bootstrap)?'Available':'Unavailable'}</td><td>${v}</td><td>Browser processing</td></tr>`).join('')+rows+'<tr><td>Certificate-based PDF signing</td><td>Unavailable</td><td>—</td><td>No signing adapter is configured. Visual signatures remain available.</td></tr></tbody></table></div><div class="alert alert-info mb-0">To unlock additional server features: install qpdf for encryption, linearization, validation and structural optimization; Ghostscript for lossy compression; Poppler for embedded image/text extraction and page rendering; Tesseract plus language packs for searchable OCR; LibreOffice and PHP ZIP for Office conversion; mPDF or Dompdf for document export. Headless Chromium provides the most faithful modern HTML/CSS rendering when its sandbox is available. See the installation commands at the top of index.php.</div>';
+    const browserLabels={pdfjs:'PDF viewer',pdfLib:'PDF editing',fabric:'PDF overlays and visual signatures',purify:'Document safety',sortable:'Page ordering',zip:'ZIP exports',bootstrap:'Interface'};
+    const browserGlobals={pdfjs:'pdfjsLib',pdfLib:'PDFLib',fabric:'fabric',purify:'DOMPurify',sortable:'Sortable',zip:'JSZip',bootstrap:'bootstrap'};
+    const browserRows=Object.entries(STUDIO_VERSIONS).map(([name,version])=>`<tr data-source="browser"><td><strong>${this.escape(browserLabels[name]||name)}</strong></td><td><span class="badge text-bg-primary">Browser</span></td><td><span class="badge ${window[browserGlobals[name]]?'text-bg-success':'text-bg-secondary'}">${window[browserGlobals[name]]?'Available':'Unavailable'}</span></td><td>${this.escape(version)}</td><td>Runs locally on your device.</td></tr>`).join('');
+    const serverRows=Object.entries(this.server.tools||{}).map(([name,tool])=>`<tr data-source="server"><td><strong>${this.escape(tool.label||name)}</strong></td><td><span class="badge text-bg-dark">Server</span></td><td>${tool.available?'<span class="badge text-bg-success">Available</span>':`<span class="badge text-bg-secondary">Unavailable</span> <button type="button" class="btn btn-link btn-sm p-1" data-action="install-help" data-tool="${this.escape(name)}" title="Ubuntu installation help" aria-label="Ubuntu installation help for ${this.escape(tool.label||name)}"><i class="fa-solid fa-circle-info" aria-hidden="true"></i></button>`}</td><td>${this.escape(tool.version||'—')}</td><td>${this.escape((tool.features||[]).join(', '))}${tool.reason?`<div class="text-secondary mt-1">${this.escape(tool.reason)}</div>`:''}</td></tr>`).join('');
+    const missingServer=serverRows?'':'<tr><td colspan="5" class="text-secondary">Server capabilities could not be checked. Reload this page to try again; browser capabilities are listed above.</td></tr>';
+    const html=`<div class="d-flex flex-wrap align-items-center gap-2 mb-3"><span class="me-auto small">PDF Studio ${this.escape(window.PDF_STUDIO_BOOT.version)} · PHP ${this.escape(this.server.php||'unknown')}</span><button type="button" class="btn btn-outline-primary btn-sm" data-action="updates"><i class="fa-solid fa-cloud-arrow-down me-1"></i> Check for updates</button><button type="button" class="btn btn-outline-secondary btn-sm" data-action="changelog">What's new</button></div><p class="small text-secondary">Browser capabilities process documents on your device. Server capabilities use this installation; files are uploaded only when you choose a server operation.</p><div class="table-responsive"><table class="table capability-table"><thead><tr><th>Capability / dependency</th><th>Runs in</th><th>Status</th><th>Version</th><th>Features / details</th></tr></thead><tbody>${browserRows}${serverRows}${missingServer}</tbody></table></div><div class="alert alert-info mb-0">Click <i class="fa-solid fa-circle-info" aria-hidden="true"></i> beside an unavailable server capability for Ubuntu installation commands. Some installed tools also need permissions, extensions or server configuration before they can run.</div>`;
     this.dialog('System capabilities',html,null,{wide:true,submit:false});
+  }
+  installHelp(name){
+    const tool=this.server.tools?.[name];if(!tool)return;
+    const help=tool.install||{commands:[],notes:['No installation guide is available for this dependency.']};
+    const commands=(help.commands||[]).join('\n');
+    const notes=(help.notes||[]).map(note=>`<li>${this.escape(note)}</li>`).join('');
+    const html=`<p class="small">Run these commands in an SSH terminal on your Ubuntu server, using an account with installation permissions.</p>${tool.reason?`<div class="alert alert-warning">${this.escape(tool.reason)}</div>`:''}<label for="studioInstallCommands" class="form-label">Ubuntu installation commands</label><textarea id="studioInstallCommands" class="form-control font-monospace mb-2" rows="${Math.max(3,help.commands?.length||0)}" readonly>${this.escape(commands)}</textarea><button type="button" id="studioCopyInstall" class="btn btn-outline-primary btn-sm mb-3" ${commands?'':'disabled'}><i class="fa-regular fa-copy me-1"></i> Copy commands</button>${notes?`<ul class="small">${notes}</ul>`:''}<p class="small text-secondary">Refresh this page after installation to check availability again.</p><button type="button" class="btn btn-outline-secondary btn-sm" data-action="capabilities">Back to System capabilities</button>`;
+    this.dialog('Ubuntu setup: '+(tool.label||name),html,null,{submit:false,onOpen:modal=>{
+      modal.querySelector('#studioCopyInstall').addEventListener('click',async()=>{
+        try{await navigator.clipboard.writeText(commands);this.notify('Installation commands copied.');}
+        catch{const area=modal.querySelector('#studioInstallCommands');area.focus();area.select();this.notify('Commands selected. Press Ctrl+C or Command+C to copy.');}
+      });
+    }});
   }
   palette(){const el=this.dialog('Search tools','<input class="form-control mb-3" id="paletteQuery" type="search" placeholder="Search tools, e.g. watermark, crop, OCR" aria-label="Search tools"><div id="paletteResults"></div>',null,{submit:false});const results=el.querySelector('#paletteResults');const update=()=>{const q=el.querySelector('#paletteQuery').value.toLowerCase();results.innerHTML=this.toolDefs.filter(t=>(t.title+' '+t.group).toLowerCase().includes(q)).map(t=>`<button type="button" class="palette-result" data-action="${t.id}" ${this.available(t)?'':'disabled'}><i class="fa-solid ${t.icon||'fa-file-pdf'} me-2"></i>${this.escape(t.title)}<small class="text-secondary float-end">${this.escape(this.available(t)?t.group:'Requires '+t.requirements)}</small></button>`).join('');};update();el.querySelector('#paletteQuery').addEventListener('input',update);el.addEventListener('shown.bs.modal',()=>el.querySelector('#paletteQuery')?.focus(),{once:true});}
   base64(bytes){let out='';for(let i=0;i<bytes.length;i+=32768)out+=String.fromCharCode(...bytes.subarray(i,i+32768));return btoa(out);}
@@ -3254,6 +3397,100 @@ class PDFTools {
     const files = await this.S.pickFiles('.docx,.odt,.xlsx,.pptx');
     if (!files.length) return;
     await this.downloadServer('convert', {}, 'Converting Office document to PDF', files[0], true);
+  }
+}
+
+class StudioUpdates {
+  constructor(studio,release){
+    this.S=studio;this.local=release;this.remote=null;this.pending=null;this.error='';
+    this.repository='https://github.com/ziobit/zbpdfstudio';
+    this.raw='https://raw.githubusercontent.com/ziobit/zbpdfstudio/main/';
+    this.storageKey='pdfstudio.updates.'+location.origin+location.pathname;
+    this.state={};
+    try{this.state=JSON.parse(localStorage.getItem(this.storageKey)||'{}')||{};}catch{}
+    if(typeof this.state!=='object'||Array.isArray(this.state))this.state={};
+    try{if(this.state.manifest)this.remote=this.validateManifest(this.state.manifest);}catch{delete this.state.manifest;}
+  }
+  save(){try{localStorage.setItem(this.storageKey,JSON.stringify(this.state));}catch{}}
+  compare(a,b){
+    const left=String(a).split('.').map(Number),right=String(b).split('.').map(Number);
+    for(let i=0;i<3;i++){const difference=(left[i]||0)-(right[i]||0);if(difference)return Math.sign(difference);}
+    return 0;
+  }
+  validateManifest(value){
+    const version=/^\d{1,4}\.\d{1,4}\.\d{1,4}$/;
+    if(!value||typeof value!=='object'||!version.test(value.version)||typeof value.minimumPhp!=='string'||!/^\d{1,2}\.\d{1,2}(?:\.\d{1,2})?$/.test(value.minimumPhp)||!Array.isArray(value.releases)||!value.releases.length||value.releases.length>30)throw new Error('The update information is invalid.');
+    const seen=new Set();
+    const releases=value.releases.map(release=>{
+      if(!release||!version.test(release.version)||seen.has(release.version)||typeof release.date!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(release.date)||!Array.isArray(release.changes)||!release.changes.length||release.changes.length>40||release.changes.some(change=>typeof change!=='string'||!change.trim()||change.length>2000))throw new Error('The release notes are invalid.');
+      seen.add(release.version);return {version:release.version,date:release.date,changes:release.changes};
+    });
+    releases.sort((a,b)=>this.compare(b.version,a.version));
+    if(releases[0].version!==value.version)throw new Error('The release version does not match its notes.');
+    return {version:value.version,minimumPhp:value.minimumPhp,releases};
+  }
+  notes(releases){
+    const escape=value=>this.S.escape(value);
+    return releases.map(release=>`<section class="mb-4"><h3 class="h6">Version ${escape(release.version)} <small class="text-secondary ms-2">${escape(release.date)}</small></h3><ul class="small">${release.changes.map(change=>`<li class="mb-2">${escape(change)}</li>`).join('')}</ul></section>`).join('');
+  }
+  announceUpgrade(){
+    const previous=this.state.seenVersion;
+    if(!previous||(/^\d+\.\d+\.\d+$/.test(previous)&&this.compare(this.local.version,previous)>0))this.showChangelog(previous||null);
+    this.state.seenVersion=this.local.version;this.save();this.updateBadge();
+  }
+  showChangelog(previous=null){
+    const changes=previous?this.local.releases.filter(release=>this.compare(release.version,previous)>0&&this.compare(release.version,this.local.version)<=0):this.local.releases;
+    const intro=previous?`<div class="alert alert-success">This installation has been upgraded from ${this.S.escape(previous)} to ${this.S.escape(this.local.version)}. Here's what changed.</div>`:`<p class="small">What's new in PDF Studio ${this.S.escape(this.local.version)}. You can reopen this history from System capabilities.</p>`;
+    this.S.dialog("What's new in PDF Studio",intro+this.notes(changes),null,{wide:true,submit:false});
+  }
+  updateBadge(){
+    const available=!!this.remote&&this.compare(this.remote.version,this.local.version)>0;
+    const badge=this.S.$('#studioUpdateBadge'),button=this.S.$('#studioUpdatesButton');
+    if(badge)badge.hidden=!available;
+    if(button){const label=available?'PDF Studio '+this.remote.version+' is available':'Check for updates';button.title=label;button.setAttribute('aria-label',label);}
+  }
+  show(){
+    this.S.dialog('PDF Studio updates','<div id="studioUpdatePanel" aria-live="polite"></div>',null,{wide:true,submit:false});
+    this.render();this.check(true);
+  }
+  async check(manual=false){
+    if(this.pending){try{await this.pending;}catch{}return;}
+    const attempted=Number(this.state.lastAttemptAt)||0;
+    if(!manual&&attempted>0&&Date.now()-attempted>=0&&Date.now()-attempted<86400000){this.updateBadge();return;}
+    this.error='';this.state.lastAttemptAt=Date.now();this.save();
+    // Defer the request until pending is assigned so the loading state appears.
+    this.pending=Promise.resolve().then(()=>this.fetchManifest());this.render();
+    try{
+      this.remote=await this.pending;this.state.manifest=this.remote;this.state.lastCheckedAt=Date.now();this.save();
+      this.updateBadge();
+      if(!manual&&this.compare(this.remote.version,this.local.version)>0)this.S.notify('PDF Studio '+this.remote.version+' is available. Open Check for updates to read what changed.');
+    }catch(error){this.error=error?.name==='AbortError'?'The update check timed out. Check your connection and try again.':(error?.message||'The update check failed.');}
+    finally{this.pending=null;this.render();}
+  }
+  async fetchManifest(){
+    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),8000);
+    try{
+      const response=await fetch(this.raw+'release.json',{signal:controller.signal,credentials:'omit',cache:'no-store',referrerPolicy:'no-referrer'});
+      if(!response.ok)throw new Error('GitHub could not provide update information (HTTP '+response.status+'). Try again later.');
+      const text=await response.text();if(text.length>65536)throw new Error('The update information is too large.');
+      return this.validateManifest(JSON.parse(text));
+    }finally{clearTimeout(timer);}
+  }
+  render(){
+    const panel=this.S.$('#studioUpdatePanel');if(!panel)return;
+    const escape=value=>this.S.escape(value),latest=this.remote;
+    const available=!!latest&&this.compare(latest.version,this.local.version)>0;
+    let status=this.pending?'<div class="alert alert-info"><span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Checking GitHub for a newer version…</div>':'';
+    if(this.error)status+=`<div class="alert alert-warning">Could not check for updates: ${escape(this.error)} You can continue using PDF Studio.</div>`;
+    if(latest&&!this.pending){
+      status+=available?`<div class="alert alert-success">Version ${escape(latest.version)} is available.</div>`:`<div class="alert alert-success">${this.compare(this.local.version,latest.version)>0?'This installation is newer than the published version.':'You are using the latest published version.'}</div>`;
+    }
+    const php=this.S.server.php||'',phpMatch=php.match(/^\d+\.\d+(?:\.\d+)?/);
+    const supported=!latest||!phpMatch||this.compare(phpMatch[0],latest.minimumPhp)>=0;
+    const compatibility=available&&!supported?`<div class="alert alert-warning">This update needs PHP ${escape(latest.minimumPhp)} or newer. Your server reports PHP ${escape(php)}. Upgrade PHP before replacing index.php.</div>`:'';
+    const changes=available?latest.releases.filter(release=>this.compare(release.version,this.local.version)>0):[];
+    const instructions=available?`<h3 class="h6">How to upgrade</h3><ol class="small"><li>Back up your current index.php outside the public web directory.</li><li>Download the new index.php and replace it on your server, keeping your optional vendor directory.</li><li>Reload PDF Studio. The changes since your previous version will be shown automatically.</li></ol><p class="small">Your open document stays in this page while you download. Save it or its editable project before reloading.</p><a class="btn btn-primary btn-sm me-2" href="${this.raw}index.php" download="index.php" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Download index.php</a><a class="btn btn-outline-secondary btn-sm" href="${this.repository}/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">View changelog on GitHub</a>`:'';
+    panel.innerHTML=`<p class="small">Installed version: <strong>${escape(this.local.version)}</strong>${latest?` · Latest published version: <strong>${escape(latest.version)}</strong>`:''}</p>${status}${compatibility}${changes.length?'<h3 class="h6">What changes in this update</h3>'+this.notes(changes):''}${instructions}<div class="d-flex flex-wrap gap-2 mt-3"><button type="button" class="btn btn-outline-primary btn-sm" data-action="check-updates" ${this.pending?'disabled':''}>${this.pending?'Checking…':'Check again'}</button><button type="button" class="btn btn-outline-secondary btn-sm" data-action="changelog">What's new in this installation</button></div><p class="small text-secondary mt-3 mb-0">Checks contact GitHub for version information only. No documents are sent. Automatic checks run at most once a day.${this.state.lastCheckedAt?` Last successful check: ${escape(new Date(this.state.lastCheckedAt).toLocaleString())}.`:''}</p>`;
   }
 }
 
