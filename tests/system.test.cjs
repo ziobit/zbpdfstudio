@@ -23,11 +23,11 @@ function environment(t, url = 'https://example.test/pdf/index.php') {
     gs:{label:'Ghostscript', source:'server', available:true, version:'10.0', features:['Compression'], install:{commands:['sudo apt install -y ghostscript'],notes:[]}}
   }};
   studio.updates = new w.StudioUpdatesClass(studio, local);
-  t.after(() => w.close());
+  t.after(() => {w.StudioLanguage?.observer.disconnect();w.close();});
   return {w, studio, messages, updates:studio.updates};
 }
 
-function remote(version='1.2.0', changes=['A useful new feature.'], minimumPhp='7.2') {
+function remote(version='1.3.0', changes=['A useful new feature.'], minimumPhp='7.2') {
   return {version, minimumPhp, releases:[{version,date:'2026-10-09',changes},...local.releases]};
 }
 
@@ -79,14 +79,14 @@ test('manual update check is deduplicated, uses GitHub without credentials and d
     assert.equal(options.credentials, 'omit');
     assert.equal(options.referrerPolicy, 'no-referrer');
     assert.equal(options.body, undefined);
-    return {ok:true, text:async()=>JSON.stringify(remote('1.2.0',['Better exports.','<img src=x onerror=alert(1)>']))};
+    return {ok:true, text:async()=>JSON.stringify(remote('1.3.0',['Better exports.','<img src=x onerror=alert(1)>']))};
   };
   updates.show();
   await updates.check(true);
   assert.equal(calls, 1);
   assert.equal(w.document.querySelector('#studioUpdateBadge').hidden, false);
   const panel = w.document.querySelector('#studioUpdatePanel');
-  assert.match(panel.textContent, /Version 1\.2\.0 is available/);
+  assert.match(panel.textContent, /Version 1\.3\.0 is available/);
   assert.match(panel.textContent, /Better exports/);
   assert.equal(panel.querySelector('img'), null);
   assert.doesNotMatch(panel.textContent, /See which capabilities/);
@@ -123,7 +123,7 @@ test('update download saves the checked PHP file and keeps the document and dial
   updates.remote = updates.validateManifest(remote());
   studio.dialog('Updates','<div id="studioUpdatePanel"></div>',null,{submit:false});
   updates.render();
-  const source = php.replace("const PDFSTUDIO_VERSION = '"+local.version+"';", "const PDFSTUDIO_VERSION = '1.2.0';");
+  const source = php.replace("const PDFSTUDIO_VERSION = '"+local.version+"';", "const PDFSTUDIO_VERSION = '1.3.0';");
   let calls = 0, finish, saved;
   studio.download = (data,name,mime)=>{saved={data,name,mime};};
   w.fetch = (url,options)=>{
@@ -164,7 +164,7 @@ test('update downloads reject error pages or mismatched files and can be retried
   w.fetch = (url,options)=>new Promise((resolve,reject)=>options.signal.addEventListener('abort',()=>reject(new w.DOMException('Aborted','AbortError'))));
   await updates.download();
   assert.match(updates.downloadError, /timed out/);
-  const source = php.replace("const PDFSTUDIO_VERSION = '"+local.version+"';", "const PDFSTUDIO_VERSION = '1.2.0';");
+  const source = php.replace("const PDFSTUDIO_VERSION = '"+local.version+"';", "const PDFSTUDIO_VERSION = '1.3.0';");
   w.fetch = async()=>({ok:true,text:async()=>source});
   await updates.download();
   assert.equal(saved, 1);
@@ -180,7 +180,7 @@ test('network failures and invalid metadata do not claim the application is up t
   assert.match(w.document.querySelector('#studioUpdatePanel').textContent, /Could not check for updates/);
   assert.doesNotMatch(w.document.querySelector('#studioUpdatePanel').textContent, /latest published version\./);
   assert.equal(updates.state.manifest, undefined);
-  w.fetch = async()=>({ok:true,text:async()=>JSON.stringify({version:'1.2.0',minimumPhp:'7.2',releases:[]})});
+  w.fetch = async()=>({ok:true,text:async()=>JSON.stringify({version:'1.3.0',minimumPhp:'7.2',releases:[]})});
   await updates.check(true);
   assert.match(updates.error, /invalid/);
   assert.equal(updates.pending, null);
@@ -202,7 +202,7 @@ test('slow update checks abort and allow a retry', async t => {
 
 test('a PHP requirement is shown before the user replaces the server file', async t => {
   const {w,updates} = environment(t);
-  w.fetch = async()=>({ok:true,text:async()=>JSON.stringify(remote('1.2.0',['New export tools.'],'8.2'))});
+  w.fetch = async()=>({ok:true,text:async()=>JSON.stringify(remote('1.3.0',['New export tools.'],'8.2'))});
   updates.show();
   await updates.check(true);
   assert.match(w.document.querySelector('#studioUpdatePanel').textContent, /needs PHP 8\.2 or newer/);
@@ -225,6 +225,6 @@ test('versions are compared numerically and mismatched release metadata is rejec
   assert.equal(updates.compare('1.10.0','1.9.9'), 1);
   assert.equal(updates.compare('7.2.34','7.2'), 1);
   assert.equal(updates.compare('1.1.0','1.1.0'), 0);
-  const wrong = remote();wrong.version = '1.3.0';
+  const wrong = remote();wrong.version = '1.4.0';
   assert.throws(()=>updates.validateManifest(wrong), /does not match/);
 });

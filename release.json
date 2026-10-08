@@ -1,7 +1,16 @@
 {
-  "version": "1.1.1",
+  "version": "1.2.0",
   "minimumPhp": "7.2",
   "releases": [
+    {
+      "version": "1.2.0",
+      "date": "2026-10-08",
+      "changes": [
+        "Choose Italian, English or German without closing your document. Italian is the default language.",
+        "Work without a database. The language choice and automatic recovery use browser storage; downloadable projects keep an independent copy.",
+        "Save an editable project before upgrading; older automatic recovery copies are not transferred."
+      ]
+    },
     {
       "version": "1.1.1",
       "date": "2026-10-08",

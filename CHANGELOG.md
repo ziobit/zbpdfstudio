@@ -2,6 +2,12 @@
 
 Changes you can see and use in each release.
 
+## 1.2.0 — 2026-10-08
+
+- Choose Italian, English or German without closing your document. Italian is the default language.
+- Work without a database. The language choice and automatic recovery use browser storage; downloadable projects keep an independent copy.
+- Save an editable project before upgrading; older automatic recovery copies are not transferred.
+
 ## 1.1.1 — 2026-10-08
 
 - Update downloads now save index.php directly instead of opening its source in a new tab.
