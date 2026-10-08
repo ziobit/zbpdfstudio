@@ -1,8 +1,22 @@
+<img src="brand/pdfstudio-logo.svg" width="56" height="56" alt="PDF Studio logo">
+
 # PDF Studio
 
 A single-file PDF and document workbench. Serve `index.php` with PHP 7.2 or newer and open it in a modern browser.
 
 Browser tools edit, organize, annotate and visually sign PDFs without uploading the documents. Optional server tools add compression, password protection, text recognition and Office conversion.
+
+## Presentation website and branding
+
+Open **website.html** for the single-page presentation website. It is a self-contained HTML file with its own CSS, JavaScript, SVG logo and icons; no build, database, external fonts or libraries are required. Italian is the default. The language buttons switch to English or German and preserve the interactive preview's text and state. A language can also be selected with `?lang=it`, `?lang=en` or `?lang=de`.
+
+Deploy `website.html` beside `index.php`. The **Open PDF Studio** links open the application in the selected language. Deploying only `index.php` remains supported.
+
+The three manual links are placeholders. Upload the previously created Word manuals to `manuals/PDFStudio_Manual_Italian.docx`, `manuals/PDFStudio_Manual_English.docx` and `manuals/PDFStudio_Manual_German.docx`, or replace their URLs in `CONFIG.manuals` near the bottom of `website.html`. Change `CONFIG.app` if the editor is hosted elsewhere. If you want the presentation page at your site's root, configure your web server to serve `website.html` first or copy it as `index.html`; the editor keeps its `index.php` URL.
+
+The reusable vector mark is in `brand/pdfstudio-logo.svg`. The same mark is embedded throughout the presentation page and in its favicon. Presentation wording is maintained in the page's `COPY` catalog, with Italian, English and German entries in that order.
+
+The pricing section is promotional: Base is free for PDFs up to 5 pages, Plus is €19.99 per month for PDFs up to 49 pages, and Pro is priced on request for generally unlimited PDFs, subject to server configuration and resources. It does not implement subscriptions, billing or plan-based restrictions. The application, its version and its existing limits remain unchanged.
 
 ## Languages and storage
 
