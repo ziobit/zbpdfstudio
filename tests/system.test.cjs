@@ -59,10 +59,10 @@ test('upgrade notes appear once and contain only changes since the previous vers
   const first = new w.StudioUpdatesClass(studio, local);
   first.announceUpgrade();
   const body = w.document.querySelector('#toolModalBody').textContent;
-  assert.match(body, /upgraded from 1\.0\.0 to 1\.1\.0/);
+  assert.ok(body.includes('upgraded from 1.0.0 to '+local.version));
   assert.match(body, /Ubuntu installation commands/);
   assert.doesNotMatch(body, /Word-like editor/);
-  assert.equal(JSON.parse(w.localStorage.getItem(first.storageKey)).seenVersion, '1.1.0');
+  assert.equal(JSON.parse(w.localStorage.getItem(first.storageKey)).seenVersion, local.version);
   w.document.querySelector('#toolModalTitle').textContent = 'Untouched';
   new w.StudioUpdatesClass(studio, local).announceUpgrade();
   assert.equal(w.document.querySelector('#toolModalTitle').textContent, 'Untouched');
@@ -90,7 +90,7 @@ test('manual update check is deduplicated, uses GitHub without credentials and d
   assert.match(panel.textContent, /Better exports/);
   assert.equal(panel.querySelector('img'), null);
   assert.doesNotMatch(panel.textContent, /See which capabilities/);
-  assert.equal(panel.querySelector('a[download]').href, 'https://raw.githubusercontent.com/ziobit/zbpdfstudio/main/index.php');
+  assert.equal(panel.querySelector('[data-action="download-update"]').textContent, 'Download index.php');
   assert.equal(w.document.querySelector('#documentContent').textContent, 'Unsaved document');
   const reopened = new w.StudioUpdatesClass(studio, local);
   await reopened.check(false);
@@ -116,6 +116,60 @@ test('daily automatic checks can be forced manually and cache is scoped to each 
   updates.state.lastAttemptAt = Date.now() - 86400001;
   await updates.check(false);
   assert.equal(calls, 3);
+});
+
+test('update download saves the checked PHP file and keeps the document and dialog open', async t => {
+  const {w,studio,updates} = environment(t);
+  updates.remote = updates.validateManifest(remote());
+  studio.dialog('Updates','<div id="studioUpdatePanel"></div>',null,{submit:false});
+  updates.render();
+  const source = php.replace("const PDFSTUDIO_VERSION = '"+local.version+"';", "const PDFSTUDIO_VERSION = '1.2.0';");
+  let calls = 0, finish, saved;
+  studio.download = (data,name,mime)=>{saved={data,name,mime};};
+  w.fetch = (url,options)=>{
+    calls++;
+    assert.equal(url, 'https://raw.githubusercontent.com/ziobit/zbpdfstudio/main/index.php');
+    assert.equal(options.credentials, 'omit');
+    assert.equal(options.referrerPolicy, 'no-referrer');
+    assert.equal(options.body, undefined);
+    return new Promise(resolve=>{finish=resolve;});
+  };
+  const action = studio.action('download-update',w.document.querySelector('[data-action="download-update"]'));
+  assert.equal(w.document.querySelector('[data-action="download-update"]').disabled, true);
+  await updates.download();
+  assert.equal(calls, 1);
+  finish({ok:true,text:async()=>source});
+  await action;
+  assert.deepEqual(saved,{data:source,name:'index.php',mime:'application/x-httpd-php'});
+  assert.equal(w.document.querySelector('[data-action="download-update"]').disabled, false);
+  assert.equal(updates.downloadError, '');
+  assert.equal(w.document.querySelector('#documentContent').textContent, 'Unsaved document');
+});
+
+test('update downloads reject error pages or mismatched files and can be retried after a timeout', async t => {
+  const {w,studio,updates} = environment(t);
+  updates.remote = updates.validateManifest(remote());
+  studio.dialog('Updates','<div id="studioUpdatePanel"></div>',null,{submit:false});
+  let saved = 0;
+  studio.download = ()=>{saved++;};
+  for(const source of ['<html>Unavailable</html>',php]){
+    w.fetch = async()=>({ok:true,text:async()=>source});
+    await updates.download();
+    assert.ok(updates.downloadError);
+    assert.equal(saved, 0);
+    assert.equal(w.document.querySelector('[data-action="download-update"]').disabled, false);
+  }
+  const original = w.setTimeout.bind(w);
+  w.setTimeout = (callback,ms)=>original(callback,ms===20000?1:ms);
+  w.fetch = (url,options)=>new Promise((resolve,reject)=>options.signal.addEventListener('abort',()=>reject(new w.DOMException('Aborted','AbortError'))));
+  await updates.download();
+  assert.match(updates.downloadError, /timed out/);
+  const source = php.replace("const PDFSTUDIO_VERSION = '"+local.version+"';", "const PDFSTUDIO_VERSION = '1.2.0';");
+  w.fetch = async()=>({ok:true,text:async()=>source});
+  await updates.download();
+  assert.equal(saved, 1);
+  assert.equal(updates.downloadError, '');
+  assert.equal(w.document.querySelector('#documentContent').textContent, 'Unsaved document');
 });
 
 test('network failures and invalid metadata do not claim the application is up to date', async t => {

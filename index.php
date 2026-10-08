@@ -1,6 +1,6 @@
 <?php
 /**
- * PDF Studio 1.1.0 — single-file PDF and document workbench.
+ * PDF Studio 1.1.1 — single-file PDF and document workbench.
  * Minimum PHP: 7.2. Recommended extensions: fileinfo, mbstring, dom, xml,
  * zip, openssl, gd; optional imagick. CLI tools require proc_open.
  * Optional Composer packages (run beside index.php, never from this app):
@@ -18,7 +18,7 @@
  */
 declare(strict_types=1);
 
-const PDFSTUDIO_VERSION = '1.1.0';
+const PDFSTUDIO_VERSION = '1.1.1';
 const PDFSTUDIO_MAX_FILE = 104857600;
 const PDFSTUDIO_MAX_PAGES = 500;
 const PDFSTUDIO_MAX_FILES = 30;
@@ -29,6 +29,14 @@ const PDFSTUDIO_MAX_IMAGE_PIXELS = 40000000;
 const PDFSTUDIO_MAX_HTML = 16777216;
 const PDFSTUDIO_STALE_SECONDS = 7200;
 const PDFSTUDIO_RELEASE_HISTORY = [
+  [
+    'version' => '1.1.1',
+    'date' => '2026-10-08',
+    'changes' => [
+      'Update downloads now save index.php directly instead of opening its source in a new tab.',
+      'Retry a failed update download without leaving your open document.',
+    ],
+  ],
   [
     'version' => '1.1.0',
     'date' => '2026-10-08',
@@ -1482,7 +1490,7 @@ class PDFStudio {
     this.$('#contextToolbar').innerHTML=html;if(!window.fabric){const needsFabric=new Set(['select','add-text','add-image','rectangle','round-rect','ellipse','line','arrow','polygon','draw','arrange','duplicate-object','unlock-all','highlight','underline-line','strike-line','note','link','whiteout','visual-redact','secure-redact','stamp','sign','checkmark','xmark','initials','date-stamp']);for(const b of this.$('#contextToolbar').querySelectorAll('button'))if(needsFabric.has(b.dataset.action)){b.disabled=true;b.title='Requires Fabric.js, which could not load.';}}
   }
   async action(id,button){
-    if(button?.closest('#toolModal')&&!['palette','capabilities','install-help','updates','check-updates','changelog'].includes(id))bootstrap.Modal.getInstance(this.$('#toolModal'))?.hide();
+    if(button?.closest('#toolModal')&&!['palette','capabilities','install-help','updates','check-updates','download-update','changelog'].includes(id))bootstrap.Modal.getInstance(this.$('#toolModal'))?.hide();
     if(id==='home'){this.setMode('home');return;}
     if(id==='open'){const f=await this.pickFiles('.pdf,.pdfstudio.json,image/png,image/jpeg,image/webp,image/gif,image/bmp',true);if(f.length)await this.busy('Opening documents',j=>this.openFiles(f,j));return;}
     if(id==='create'){await this.documentEditor.show();return;}
@@ -1493,6 +1501,7 @@ class PDFStudio {
     if(id==='capabilities'){this.capabilitiesDialog();return;}if(id==='palette'){this.palette();return;}
     if(id==='install-help'){this.installHelp(button.dataset.tool);return;}
     if(id==='updates'){this.updates?.show();return;}if(id==='check-updates'){await this.updates?.check(true);return;}
+    if(id==='download-update'){await this.updates?.download();return;}
     if(id==='changelog'){this.updates?.showChangelog();return;}
     if(id==='clear-recents'){this.recent=[];try{localStorage.removeItem('pdfstudio.recent');}catch{}this.renderRecents();return;}
     if(id==='save-project'){this.saveProjectDialog();return;}if(id==='load-project'){const f=await this.pickFiles('.json');if(f[0])await this.busy('Opening project',async()=>this.restoreProject(JSON.parse(await f[0].text())));return;}
@@ -3402,7 +3411,7 @@ class PDFTools {
 
 class StudioUpdates {
   constructor(studio,release){
-    this.S=studio;this.local=release;this.remote=null;this.pending=null;this.error='';
+    this.S=studio;this.local=release;this.remote=null;this.pending=null;this.error='';this.downloading=false;this.downloadError='';
     this.repository='https://github.com/ziobit/zbpdfstudio';
     this.raw='https://raw.githubusercontent.com/ziobit/zbpdfstudio/main/';
     this.storageKey='pdfstudio.updates.'+location.origin+location.pathname;
@@ -3476,6 +3485,21 @@ class StudioUpdates {
       return this.validateManifest(JSON.parse(text));
     }finally{clearTimeout(timer);}
   }
+  async download(){
+    if(this.downloading||!this.remote||this.compare(this.remote.version,this.local.version)<=0)return;
+    const version=this.remote.version,controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);
+    this.downloading=true;this.downloadError='';this.render();
+    try{
+      const response=await fetch(this.raw+'index.php',{signal:controller.signal,credentials:'omit',cache:'no-store',referrerPolicy:'no-referrer'});
+      if(!response.ok)throw new Error('GitHub could not provide index.php (HTTP '+response.status+'). Try again later.');
+      const source=await response.text(),published=source.match(/\bconst\s+PDFSTUDIO_VERSION\s*=\s*'(\d+\.\d+\.\d+)'\s*;/);
+      if(source.length>2000000||!source.startsWith('<'+'?php')||!published)throw new Error('GitHub did not return a valid PDF Studio file. Try again later.');
+      if(published[1]!==version)throw new Error('The published files are still updating. Check for updates again, then retry the download.');
+      this.S.download(source,'index.php','application/x-httpd-php');
+      this.S.notify('The index.php download has started. Back up your installation before replacing it.');
+    }catch(error){this.downloadError=error?.name==='AbortError'?'The download timed out. Check your connection and try again.':(error?.message||'The download failed.');}
+    finally{clearTimeout(timer);this.downloading=false;this.render();}
+  }
   render(){
     const panel=this.S.$('#studioUpdatePanel');if(!panel)return;
     const escape=value=>this.S.escape(value),latest=this.remote;
@@ -3489,7 +3513,7 @@ class StudioUpdates {
     const supported=!latest||!phpMatch||this.compare(phpMatch[0],latest.minimumPhp)>=0;
     const compatibility=available&&!supported?`<div class="alert alert-warning">This update needs PHP ${escape(latest.minimumPhp)} or newer. Your server reports PHP ${escape(php)}. Upgrade PHP before replacing index.php.</div>`:'';
     const changes=available?latest.releases.filter(release=>this.compare(release.version,this.local.version)>0):[];
-    const instructions=available?`<h3 class="h6">How to upgrade</h3><ol class="small"><li>Back up your current index.php outside the public web directory.</li><li>Download the new index.php and replace it on your server, keeping your optional vendor directory.</li><li>Reload PDF Studio. The changes since your previous version will be shown automatically.</li></ol><p class="small">Your open document stays in this page while you download. Save it or its editable project before reloading.</p><a class="btn btn-primary btn-sm me-2" href="${this.raw}index.php" download="index.php" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Download index.php</a><a class="btn btn-outline-secondary btn-sm" href="${this.repository}/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">View changelog on GitHub</a>`:'';
+    const instructions=available?`<h3 class="h6">How to upgrade</h3><ol class="small"><li>Back up your current index.php outside the public web directory.</li><li>Download the new index.php and replace it on your server, keeping your optional vendor directory.</li><li>Reload PDF Studio. The changes since your previous version will be shown automatically.</li></ol><p class="small">Your open document stays in this page while you download. Save it or its editable project before reloading.</p>${this.downloadError?`<div class="alert alert-warning">Could not download the update: ${escape(this.downloadError)} Your open document is unchanged.</div>`:''}<button type="button" class="btn btn-primary btn-sm me-2" data-action="download-update" ${this.downloading?'disabled':''}>${this.downloading?'Downloading…':'Download index.php'}</button><a class="btn btn-outline-secondary btn-sm" href="${this.repository}/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">View changelog on GitHub</a>`:'';
     panel.innerHTML=`<p class="small">Installed version: <strong>${escape(this.local.version)}</strong>${latest?` · Latest published version: <strong>${escape(latest.version)}</strong>`:''}</p>${status}${compatibility}${changes.length?'<h3 class="h6">What changes in this update</h3>'+this.notes(changes):''}${instructions}<div class="d-flex flex-wrap gap-2 mt-3"><button type="button" class="btn btn-outline-primary btn-sm" data-action="check-updates" ${this.pending?'disabled':''}>${this.pending?'Checking…':'Check again'}</button><button type="button" class="btn btn-outline-secondary btn-sm" data-action="changelog">What's new in this installation</button></div><p class="small text-secondary mt-3 mb-0">Checks contact GitHub for version information only. No documents are sent. Automatic checks run at most once a day.${this.state.lastCheckedAt?` Last successful check: ${escape(new Date(this.state.lastCheckedAt).toLocaleString())}.`:''}</p>`;
   }
 }
