@@ -4,6 +4,14 @@ A single-file PDF and document workbench. Serve `index.php` with PHP 7.2 or newe
 
 Browser tools edit, organize, annotate and visually sign PDFs without uploading the documents. Optional server tools add compression, password protection, text recognition and Office conversion.
 
+## Languages and storage
+
+Italian is the default. Use the language selector in the toolbar to choose Italiano, English or Deutsch without closing your document. Labels, dialogs, messages and release notes change together; document text, filenames, commands, field values and action identifiers are preserved. Tool search accepts translated names. Page ranges accept `all`, `odd`, `even`, Italian `tutte`, `dispari`, `pari`, and German `alle`, `ungerade`, `gerade`.
+
+No database is required, including IndexedDB. Language preferences and automatic recovery use browser storage, with a cookie fallback for the language. Preferences and recovery are scoped to the installation URL. Automatic recovery links to the original PDFs; keep those files and download an editable project for a lasting backup. Recovery can be unavailable when storage is blocked or full. Save a project before upgrading an older installation if you relied on its previous automatic recovery.
+
+PHP sessions and private temporary files support server processing. Deploying only `index.php` is sufficient. Browser libraries and optional OCR language data are downloaded from their configured CDNs; the app is not an offline package.
+
 ## System capabilities
 
 Open the sliders button in the toolbar to see each dependency's **Browser** or **Server** location, availability, version and features. An information button beside each unavailable server dependency opens Ubuntu installation commands and setup advice. The commands can be copied; run them yourself in an SSH terminal.
@@ -36,3 +44,5 @@ npm test
 ```
 
 Node dependencies are used only for development tests. Run PHP checks with PHP 7.2 as well as a current PHP version before publishing changes. Keep the application version, embedded release history, `release.json` and `CHANGELOG.md` in agreement.
+
+Edit translations in `translations.json` and run `python3 scripts/sync_translations.py` to embed them in the single application file. Keep dynamic placeholders unchanged. The tests check the embedded catalog, translated dialog labels, language switching, file and content preservation, page-range keywords and recovery without a database.

@@ -35,6 +35,13 @@ with tempfile.TemporaryDirectory() as work:
       boot = json.loads(re.search(r'window\.PDF_STUDIO_BOOT = (.*?);</script>', text).group(1))
       expected = json.loads((root / 'release.json').read_text())
       assert boot['release'] == expected and boot['version'] == expected['version']
+      assert boot['language'] == 'it' and '<html lang="it"' in text
+      assert boot['translations'] == json.loads((root / 'translations.json').read_text())
+      for lang in ['it', 'en', 'de', 'unknown']:
+        with client.open('http://127.0.0.1:18723/index.php?lang=' + lang) as response:
+          localized = response.read().decode()
+        localized_boot = json.loads(re.search(r'window\.PDF_STUDIO_BOOT = (.*?);</script>', localized).group(1))
+        assert localized_boot['language'] == (lang if lang in ['it', 'en', 'de'] else 'it')
       assert 'HttpOnly' in cookie and 'SameSite=Strict' in cookie
       with client.open('http://127.0.0.1:18723/index.php') as response:
         second = json.loads(re.search(r'window\.PDF_STUDIO_BOOT = (.*?);</script>', response.read().decode()).group(1))

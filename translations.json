@@ -1,0 +1,4598 @@
+{
+  "-fpm for PHP-FPM, or sudo systemctl restart apache2 for Apache. Then refresh System capabilities.": {
+    "it": "-fpm per PHP-FPM oppure sudo systemctl restart apache2 per Apache. Quindi aggiorna le capacità del sistema.",
+    "de": "-fpm für PHP-FPM oder sudo systemctl restart apache2 für Apache. Aktualisieren Sie danach die Systemfunktionen."
+  },
+  ", which was not detected on this server.": {
+    "it": ", non rilevato su questo server.",
+    "de": ", das auf diesem Server nicht erkannt wurde."
+  },
+  ", which was not detected.": {
+    "it": ", non rilevato.",
+    "de": ", das nicht erkannt wurde."
+  },
+  ". Check your Internet connection and CDN access.": {
+    "it": ". Controlla la connessione Internet e l'accesso alla CDN.",
+    "de": ". Prüfen Sie Ihre Internetverbindung und den CDN-Zugriff."
+  },
+  ". Check your network or CDN policy.": {
+    "it": ". Controlla la connessione o le regole di accesso alla CDN.",
+    "de": ". Prüfen Sie Ihre Verbindung oder die CDN-Zugriffsregeln."
+  },
+  ". Example: Page {{page}} of {{pages}}. Chrome and Chromium support margin counters; browser support varies.": {
+    "it": ". Esempio: Pagina {{page}} di {{pages}}. Chrome e Chromium supportano i contatori nei margini; il supporto varia in base al browser.",
+    "de": ". Beispiel: Seite {{page}} von {{pages}}. Chrome und Chromium unterstützen Seitenzähler im Randbereich; die Unterstützung hängt vom Browser ab."
+  },
+  ". Increase PHP upload_max_filesize/post_max_size to process larger files on the server. Local PDF editing is still available.": {
+    "it": ". Aumenta PHP upload_max_filesize/post_max_size per elaborare file più grandi sul server. La modifica locale dei PDF resta disponibile.",
+    "de": ". Erhöhen Sie PHP upload_max_filesize/post_max_size, um größere Dateien auf dem Server zu verarbeiten. Die lokale PDF-Bearbeitung bleibt verfügbar."
+  },
+  ". Local tools remain available.": {
+    "it": ". Gli strumenti locali restano disponibili.",
+    "de": ". Die lokalen Werkzeuge bleiben verfügbar."
+  },
+  ". The SHA-256 hash must match the original PDF.": {
+    "it": ". L'hash SHA-256 deve corrispondere al PDF originale.",
+    "de": ". Der SHA-256-Hash muss mit dem ursprünglichen PDF übereinstimmen."
+  },
+  "· about": {
+    "it": "· circa",
+    "de": "· etwa"
+  },
+  "· Latest published version:": {
+    "it": "· Ultima versione pubblicata:",
+    "de": "· Neueste veröffentlichte Version:"
+  },
+  "· XFA present, editing unsupported": {
+    "it": "· XFA presente, modifica non supportata",
+    "de": "· XFA vorhanden, Bearbeitung nicht unterstützt"
+  },
+  "(likely scanned or outlined text)": {
+    "it": "(probabilmente una scansione o testo convertito in tracciati)",
+    "de": "(wahrscheinlich gescannt oder Text in Pfade umgewandelt)"
+  },
+  "(No selection)": {
+    "it": "(Nessuna selezione)",
+    "de": "(Keine Auswahl)"
+  },
+  "); do not ignore its PHP requirements.": {
+    "it": "); non ignorare i requisiti PHP.",
+    "de": "); ignorieren Sie die PHP-Anforderungen nicht."
+  },
+  "). These commands use matching versioned package names; that PHP version must be available in your configured Ubuntu repositories.": {
+    "it": "). Questi comandi usano pacchetti corrispondenti alla versione PHP; la versione deve essere disponibile nei repository Ubuntu configurati.",
+    "de": "). Diese Befehle verwenden Pakete für die passende PHP-Version; diese Version muss in Ihren eingerichteten Ubuntu-Paketquellen verfügbar sein."
+  },
+  "). Try again later.": {
+    "it": "). Riprova più tardi.",
+    "de": "). Versuchen Sie es später erneut."
+  },
+  "{0} · {1} × {2} mm · {3} · {4} column{5}": {
+    "it": "{0} · {1} × {2} mm · {3} · colonne {4}{5}",
+    "de": "{0} · {1} × {2} mm · {3} · Spalten {4}{5}"
+  },
+  "{0} (source pixels)": {
+    "it": "{0} (pixel originali)",
+    "de": "{0} (Originalpixel)"
+  },
+  "{0} bytes": {
+    "it": "{0} byte",
+    "de": "{0} Bytes"
+  },
+  "{0} must be between {1} and {2}.": {
+    "it": "{0} deve essere compreso tra {1} e {2}.",
+    "de": "{0} muss zwischen {1} und {2} liegen."
+  },
+  "{13} ({14} pages)": {
+    "it": "{13} ({14} pagine)",
+    "de": "{13} ({14} Seiten)"
+  },
+  "{3}Runs locally on your device.": {
+    "it": "{3}Elaborazione locale sul tuo dispositivo.",
+    "de": "{3}Wird lokal auf Ihrem Gerät ausgeführt."
+  },
+  "{4} layer": {
+    "it": "{4} livello",
+    "de": "{4} Ebene"
+  },
+  "{4} of {5} pages have embedded text{6}": {
+    "it": "{4} di {5} pagine contengono testo incorporato{6}",
+    "de": "{4} von {5} Seiten enthalten eingebetteten Text{6}"
+  },
+  "{8} (repeated uses may count more than once)": {
+    "it": "{8} (gli utilizzi ripetuti possono essere contati più volte)",
+    "de": "{8} (mehrfache Verwendung kann mehrfach gezählt werden)"
+  },
+  "{9} ({10} pages)": {
+    "it": "{9} ({10} pagine)",
+    "de": "{9} ({10} Seiten)"
+  },
+  "% larger": {
+    "it": "% più grande",
+    "de": "% größer"
+  },
+  "% smaller": {
+    "it": "% più piccolo",
+    "de": "% kleiner"
+  },
+  "── Page {0} ──": {
+    "it": "── Pagina {0} ──",
+    "de": "── Seite {0} ──"
+  },
+  "── Page {0} ── {1}": {
+    "it": "── Pagina {0} ── {1}",
+    "de": "── Seite {0} ── {1}"
+  },
+  "0 words · 0 characters": {
+    "it": "0 parole · 0 caratteri",
+    "de": "0 Wörter · 0 Zeichen"
+  },
+  "50% overlay": {
+    "it": "Sovrapposizione 50%",
+    "de": "50 % Überlagerung"
+  },
+  "A field with this name already exists.": {
+    "it": "Esiste già un campo con questo nome.",
+    "de": "Ein Feld mit diesem Namen ist bereits vorhanden."
+  },
+  "A PDF must retain at least one page.": {
+    "it": "Un PDF deve mantenere almeno una pagina.",
+    "de": "Ein PDF muss mindestens eine Seite behalten."
+  },
+  "A processing operation is already running. Wait or cancel it first.": {
+    "it": "È già in corso un'operazione. Attendi oppure annullala.",
+    "de": "Ein Vorgang läuft bereits. Warten Sie oder brechen Sie ihn ab."
+  },
+  "a required library": {
+    "it": "una libreria necessaria",
+    "de": "eine benötigte Bibliothek"
+  },
+  "A section applies its own column count to the selected text. Use a page break to begin a section on a new page.": {
+    "it": "Una sezione applica un proprio numero di colonne al testo selezionato. Usa un'interruzione di pagina per iniziarla su una nuova pagina.",
+    "de": "Ein Abschnitt wendet eine eigene Spaltenanzahl auf den ausgewählten Text an. Verwenden Sie einen Seitenumbruch, um ihn auf einer neuen Seite zu beginnen."
+  },
+  "a secure redaction region": {
+    "it": "un'area di oscuramento sicuro",
+    "de": "ein Bereich für sichere Schwärzung"
+  },
+  "A selected page is outside this document.": {
+    "it": "Una pagina selezionata è fuori dal documento.",
+    "de": "Eine ausgewählte Seite liegt außerhalb des Dokuments."
+  },
+  "A3 (297 × 420 mm)": {
+    "it": "A3 (297 × 420 mm)",
+    "de": "A3 (297 × 420 mm)"
+  },
+  "A4 · portrait · 20 mm margins": {
+    "it": "A4 · verticale · margini 20 mm",
+    "de": "A4 · Hochformat · 20 mm Ränder"
+  },
+  "A4 (210 × 297 mm)": {
+    "it": "A4 (210 × 297 mm)",
+    "de": "A4 (210 × 297 mm)"
+  },
+  "A5 (148 × 210 mm)": {
+    "it": "A5 (148 × 210 mm)",
+    "de": "A5 (148 × 210 mm)"
+  },
+  "Across rows": {
+    "it": "Per righe",
+    "de": "Zeilenweise"
+  },
+  "Action": {
+    "it": "Azione",
+    "de": "Aktion"
+  },
+  "Actual size": {
+    "it": "Dimensioni effettive",
+    "de": "Tatsächliche Größe"
+  },
+  "Actual size (96 DPI)": {
+    "it": "Dimensioni effettive (96 DPI)",
+    "de": "Tatsächliche Größe (96 DPI)"
+  },
+  "Actual-size image does not fit its cell. Use Fit or a larger page.": {
+    "it": "L'immagine a dimensioni effettive non entra nella cella. Usa Adatta o una pagina più grande.",
+    "de": "Das Bild passt in Originalgröße nicht in die Zelle. Verwenden Sie Anpassen oder eine größere Seite."
+  },
+  "Add Bates numbering": {
+    "it": "Aggiungi numerazione Bates",
+    "de": "Bates-Nummerierung hinzufügen"
+  },
+  "Add filename bookmarks (browser engine)": {
+    "it": "Aggiungi segnalibri con i nomi dei file (motore browser)",
+    "de": "Lesezeichen mit Dateinamen hinzufügen (Browser-Engine)"
+  },
+  "Add header, footer or page numbers": {
+    "it": "Aggiungi intestazioni, piè di pagina o numeri di pagina",
+    "de": "Kopfzeilen, Fußzeilen oder Seitenzahlen hinzufügen"
+  },
+  "Add headings before inserting a table of contents.": {
+    "it": "Aggiungi titoli prima di inserire un indice.",
+    "de": "Fügen Sie Überschriften hinzu, bevor Sie ein Inhaltsverzeichnis einfügen."
+  },
+  "Add optional server tools for compression, passwords, text recognition and Office conversion.": {
+    "it": "Aggiungi strumenti server facoltativi per compressione, password, riconoscimento del testo e conversione Office.",
+    "de": "Ergänzen Sie optionale Serverwerkzeuge für Komprimierung, Passwörter, Texterkennung und Office-Konvertierung."
+  },
+  "Add watermark": {
+    "it": "Aggiungi filigrana",
+    "de": "Wasserzeichen hinzufügen"
+  },
+  "Adding watermark": {
+    "it": "Aggiunta filigrana",
+    "de": "Wasserzeichen wird hinzugefügt"
+  },
+  "Advanced": {
+    "it": "Avanzate",
+    "de": "Erweitert"
+  },
+  "AES password protection": {
+    "it": "Protezione con password AES",
+    "de": "AES-Passwortschutz"
+  },
+  "After current page": {
+    "it": "Dopo la pagina corrente",
+    "de": "Nach der aktuellen Seite"
+  },
+  "After installing PHP extensions, restart your PHP handler: sudo systemctl restart": {
+    "it": "Dopo aver installato le estensioni PHP, riavvia il gestore PHP: sudo systemctl restart",
+    "de": "Starten Sie nach der Installation der PHP-Erweiterungen den PHP-Dienst neu: sudo systemctl restart"
+  },
+  "Align bottom": {
+    "it": "Allinea in basso",
+    "de": "Unten ausrichten"
+  },
+  "Align left": {
+    "it": "Allinea a sinistra",
+    "de": "Links ausrichten"
+  },
+  "Align right": {
+    "it": "Allinea a destra",
+    "de": "Rechts ausrichten"
+  },
+  "Align top": {
+    "it": "Allinea in alto",
+    "de": "Oben ausrichten"
+  },
+  "Alignment / wrapping": {
+    "it": "Allineamento e disposizione del testo",
+    "de": "Ausrichtung und Textumbruch"
+  },
+  "All": {
+    "it": "Tutte",
+    "de": "Alle"
+  },
+  "Allow annotations": {
+    "it": "Consenti annotazioni",
+    "de": "Anmerkungen zulassen"
+  },
+  "Allow copying": {
+    "it": "Consenti copia",
+    "de": "Kopieren zulassen"
+  },
+  "Allow form filling": {
+    "it": "Consenti compilazione moduli",
+    "de": "Ausfüllen von Formularen zulassen"
+  },
+  "Allow modifying document": {
+    "it": "Consenti modifica documento",
+    "de": "Dokumentänderungen zulassen"
+  },
+  "Allow page breaks": {
+    "it": "Consenti interruzioni di pagina",
+    "de": "Seitenumbrüche zulassen"
+  },
+  "Alternate pages (two PDFs)": {
+    "it": "Alterna pagine (due PDF)",
+    "de": "Seiten abwechselnd einfügen (zwei PDFs)"
+  },
+  "Alternative PDF merge": {
+    "it": "Unione PDF alternativa",
+    "de": "Alternative PDF-Zusammenführung"
+  },
+  "Alternative text": {
+    "it": "Testo alternativo",
+    "de": "Alternativtext"
+  },
+  "An embedded image exceeds the 8 MB export limit.": {
+    "it": "Un'immagine incorporata supera il limite di esportazione di 8 MB.",
+    "de": "Ein eingebettetes Bild überschreitet die Exportgrenze von 8 MB."
+  },
+  "An embedded image is invalid or has too many pixels.": {
+    "it": "Un'immagine incorporata non è valida o contiene troppi pixel.",
+    "de": "Ein eingebettetes Bild ist ungültig oder enthält zu viele Pixel."
+  },
+  "Anchor": {
+    "it": "Ancora",
+    "de": "Textmarke"
+  },
+  "Anchor name": {
+    "it": "Nome ancora",
+    "de": "Name der Textmarke"
+  },
+  "Annot": {
+    "it": "Annotazione",
+    "de": "Anmerkung"
+  },
+  "Annotate": {
+    "it": "Annota",
+    "de": "Kommentieren"
+  },
+  "Annotations": {
+    "it": "Annotazioni",
+    "de": "Anmerkungen"
+  },
+  "Apply": {
+    "it": "Applica",
+    "de": "Anwenden"
+  },
+  "Apply cell styling to the whole table": {
+    "it": "Applica lo stile delle celle all'intera tabella",
+    "de": "Zellenformatierung auf die ganze Tabelle anwenden"
+  },
+  "Approximate maximum size": {
+    "it": "Dimensione massima approssimativa",
+    "de": "Ungefähre maximale Größe"
+  },
+  "Arrange": {
+    "it": "Disponi",
+    "de": "Anordnen"
+  },
+  "Arrange objects": {
+    "it": "Disponi oggetti",
+    "de": "Objekte anordnen"
+  },
+  "Arrange photos on PDF pages": {
+    "it": "Disponi le foto sulle pagine PDF",
+    "de": "Fotos auf PDF-Seiten anordnen"
+  },
+  "Arrow": {
+    "it": "Freccia",
+    "de": "Pfeil"
+  },
+  "Attempt structural repair": {
+    "it": "Tenta riparazione della struttura",
+    "de": "Strukturreparatur versuchen"
+  },
+  "Author": {
+    "it": "Autore",
+    "de": "Autor"
+  },
+  "Auto · server renderer": {
+    "it": "Automatico · motore server",
+    "de": "Automatisch · Server-Engine"
+  },
+  "Auto / Browser (pdf-lib)": {
+    "it": "Automatico / Browser (pdf-lib)",
+    "de": "Automatisch / Browser (pdf-lib)"
+  },
+  "Automatic crop padding (points)": {
+    "it": "Margine ritaglio automatico (punti)",
+    "de": "Rand für automatischen Zuschnitt (Punkte)"
+  },
+  "Available": {
+    "it": "Disponibile",
+    "de": "Verfügbar"
+  },
+  "Back to System capabilities": {
+    "it": "Torna alle capacità del sistema",
+    "de": "Zurück zu den Systemfunktionen"
+  },
+  "Back up your current index.php outside the public web directory.": {
+    "it": "Salva una copia dell'attuale index.php fuori dalla cartella web pubblica.",
+    "de": "Sichern Sie die bisherige index.php außerhalb des öffentlichen Webverzeichnisses."
+  },
+  "Background": {
+    "it": "Sfondo",
+    "de": "Hintergrund"
+  },
+  "Barcode": {
+    "it": "Codice a barre",
+    "de": "Strichcode"
+  },
+  "Barcode value": {
+    "it": "Valore codice a barre",
+    "de": "Strichcodewert"
+  },
+  "Bates numbering": {
+    "it": "Numerazione Bates",
+    "de": "Bates-Nummerierung"
+  },
+  "Before current page": {
+    "it": "Prima della pagina corrente",
+    "de": "Vor der aktuellen Seite"
+  },
+  "beside an unavailable server capability for Ubuntu installation commands. Some installed tools also need permissions, extensions or server configuration before they can run.": {
+    "it": "accanto a una capacità server non disponibile per vedere i comandi Ubuntu. Alcuni strumenti installati richiedono anche permessi, estensioni o configurazione del server.",
+    "de": "neben einer nicht verfügbaren Serverfunktion, um Ubuntu-Installationsbefehle anzuzeigen. Manche installierten Werkzeuge benötigen auch Berechtigungen, Erweiterungen oder eine Serverkonfiguration."
+  },
+  "Black and white": {
+    "it": "Bianco e nero",
+    "de": "Schwarzweiß"
+  },
+  "Blank page": {
+    "it": "Pagina vuota",
+    "de": "Leere Seite"
+  },
+  "Block quote": {
+    "it": "Citazione",
+    "de": "Blockzitat"
+  },
+  "Bold": {
+    "it": "Grassetto",
+    "de": "Fett"
+  },
+  "Booklet imposition": {
+    "it": "Impaginazione opuscolo",
+    "de": "Broschürenmontage"
+  },
+  "Bookmark split requires one PDF in its original page order.": {
+    "it": "La divisione per segnalibri richiede un solo PDF nell'ordine originale delle pagine.",
+    "de": "Die Aufteilung nach Lesezeichen erfordert ein einzelnes PDF in seiner ursprünglichen Seitenreihenfolge."
+  },
+  "Border color": {
+    "it": "Colore bordo",
+    "de": "Rahmenfarbe"
+  },
+  "Border width (px)": {
+    "it": "Spessore bordo (px)",
+    "de": "Rahmenbreite (px)"
+  },
+  "Brightness (%)": {
+    "it": "Luminosità (%)",
+    "de": "Helligkeit (%)"
+  },
+  "Bring forward": {
+    "it": "Porta avanti",
+    "de": "Eine Ebene nach vorne"
+  },
+  "Bring to front": {
+    "it": "Porta in primo piano",
+    "de": "In den Vordergrund"
+  },
+  "Browser": {
+    "it": "Browser",
+    "de": "Browser"
+  },
+  "Browser capabilities process documents on your device. Server capabilities use this installation; files are uploaded only when you choose a server operation.": {
+    "it": "Le capacità browser elaborano i documenti sul tuo dispositivo. Le capacità server usano questa installazione; i file vengono caricati solo quando scegli un'operazione server.",
+    "de": "Browserfunktionen verarbeiten Dokumente auf Ihrem Gerät. Serverfunktionen verwenden diese Installation; Dateien werden nur bei einer von Ihnen gewählten Serveroperation hochgeladen."
+  },
+  "Browser first.": {
+    "it": "Prima il browser.",
+    "de": "Zuerst im Browser."
+  },
+  "Browser OCR renders selected pages to images before recognition. Language data is downloaded when first used. Existing PDF text is unchanged. Searchable PDF output uses the server engine.": {
+    "it": "L'OCR nel browser converte le pagine selezionate in immagini prima del riconoscimento. I dati delle lingue vengono scaricati al primo utilizzo. Il testo PDF esistente non cambia. Per un PDF ricercabile si usa il motore server.",
+    "de": "Browser-OCR wandelt ausgewählte Seiten vor der Erkennung in Bilder um. Sprachdaten werden bei der ersten Verwendung heruntergeladen. Vorhandener PDF-Text bleibt erhalten. Ein durchsuchbares PDF erfordert die Server-Engine."
+  },
+  "Browser print · local": {
+    "it": "Stampa browser · locale",
+    "de": "Browserdruck · lokal"
+  },
+  "By default source PDFs are linked by SHA-256 hash and must be selected again when reopening. Including them increases project size.": {
+    "it": "Per impostazione predefinita i PDF originali vengono collegati tramite hash SHA-256 e devono essere selezionati di nuovo alla riapertura. Includerli aumenta la dimensione del progetto.",
+    "de": "Standardmäßig werden die Original-PDFs über ihren SHA-256-Hash verknüpft und müssen beim erneuten Öffnen wieder ausgewählt werden. Das Einbetten vergrößert die Projektdatei."
+  },
+  "Camera / scan": {
+    "it": "Fotocamera / scansione",
+    "de": "Kamera / Scan"
+  },
+  "Camera capture depends on your device. After creating the PDF, choose OCR to recognize text.": {
+    "it": "L'acquisizione dalla fotocamera dipende dal dispositivo. Dopo aver creato il PDF, scegli OCR per riconoscere il testo.",
+    "de": "Die Kameraaufnahme hängt von Ihrem Gerät ab. Wählen Sie nach dem Erstellen des PDFs OCR, um den Text zu erkennen."
+  },
+  "Cancel": {
+    "it": "Annulla",
+    "de": "Abbrechen"
+  },
+  "Cancelled": {
+    "it": "Annullato",
+    "de": "Abgebrochen"
+  },
+  "Cancelling…": {
+    "it": "Annullamento…",
+    "de": "Wird abgebrochen…"
+  },
+  "Cannot read": {
+    "it": "Impossibile leggere",
+    "de": "Kann nicht gelesen werden"
+  },
+  "Capability / dependency": {
+    "it": "Capacità / dipendenza",
+    "de": "Funktion / Abhängigkeit"
+  },
+  "Caption": {
+    "it": "Didascalia",
+    "de": "Bildunterschrift"
+  },
+  "Capture and preprocess an image": {
+    "it": "Acquisisci e prepara un'immagine",
+    "de": "Bild aufnehmen und vorbereiten"
+  },
+  "Capture or upload an image": {
+    "it": "Acquisisci o carica un'immagine",
+    "de": "Bild aufnehmen oder hochladen"
+  },
+  "Capture or upload an image first.": {
+    "it": "Prima acquisisci o carica un'immagine.",
+    "de": "Nehmen Sie zuerst ein Bild auf oder laden Sie eines hoch."
+  },
+  "Cell alignment": {
+    "it": "Allineamento cella",
+    "de": "Zellenausrichtung"
+  },
+  "Cell background": {
+    "it": "Sfondo cella",
+    "de": "Zellenhintergrund"
+  },
+  "Cell padding (px)": {
+    "it": "Spaziatura interna cella (px)",
+    "de": "Zellenabstand innen (px)"
+  },
+  "Center": {
+    "it": "Centro",
+    "de": "Zentriert"
+  },
+  "Center content": {
+    "it": "Centra contenuto",
+    "de": "Inhalt zentrieren"
+  },
+  "Centered block": {
+    "it": "Blocco centrato",
+    "de": "Zentrierter Block"
+  },
+  "Change page size": {
+    "it": "Cambia dimensioni pagina",
+    "de": "Seitengröße ändern"
+  },
+  "Check": {
+    "it": "Spunta",
+    "de": "Häkchen"
+  },
+  "Check again": {
+    "it": "Controlla di nuovo",
+    "de": "Erneut prüfen"
+  },
+  "Check for new versions from the toolbar or System capabilities. A daily background check also highlights available updates.": {
+    "it": "Controlla le nuove versioni dalla barra degli strumenti o dalle capacità del sistema. Un controllo giornaliero segnala anche gli aggiornamenti disponibili.",
+    "de": "Prüfen Sie neue Versionen über die Symbolleiste oder die Systemfunktionen. Eine tägliche Prüfung zeigt verfügbare Updates an."
+  },
+  "Check for updates": {
+    "it": "Controlla aggiornamenti",
+    "de": "Nach Updates suchen"
+  },
+  "Checkbox": {
+    "it": "Casella di controllo",
+    "de": "Kontrollkästchen"
+  },
+  "Checking GitHub for a newer version…": {
+    "it": "Controllo di una nuova versione su GitHub…",
+    "de": "GitHub wird auf eine neuere Version geprüft…"
+  },
+  "Checking PDF structure": {
+    "it": "Controllo struttura PDF",
+    "de": "PDF-Struktur wird geprüft"
+  },
+  "Checking…": {
+    "it": "Controllo…",
+    "de": "Wird geprüft…"
+  },
+  "Checklist": {
+    "it": "Lista di controllo",
+    "de": "Checkliste"
+  },
+  "Checklist item": {
+    "it": "Voce lista di controllo",
+    "de": "Checklisteneintrag"
+  },
+  "Checks contact GitHub for version information only. No documents are sent. Automatic checks run at most once a day.{8}": {
+    "it": "I controlli contattano GitHub solo per le versioni. Nessun documento viene inviato. Il controllo automatico viene eseguito al massimo una volta al giorno.{8}",
+    "de": "Prüfungen kontaktieren GitHub nur für Versionsinformationen. Es werden keine Dokumente übertragen. Automatische Prüfungen erfolgen höchstens einmal täglich.{8}"
+  },
+  "Choose a file to process. The PHP upload limit may also be smaller than this file.": {
+    "it": "Scegli un file da elaborare. Anche il limite di caricamento PHP potrebbe essere inferiore alla dimensione del file.",
+    "de": "Wählen Sie eine Datei zur Verarbeitung. Auch das PHP-Uploadlimit kann kleiner als die Datei sein."
+  },
+  "Choose a PNG or JPEG watermark image.": {
+    "it": "Scegli un'immagine PNG o JPEG per la filigrana.",
+    "de": "Wählen Sie ein PNG- oder JPEG-Bild als Wasserzeichen."
+  },
+  "Choose a six-digit hexadecimal color.": {
+    "it": "Scegli un colore esadecimale a sei cifre.",
+    "de": "Wählen Sie eine sechsstellige hexadezimale Farbe."
+  },
+  "Choose one document for this operation.": {
+    "it": "Scegli un solo documento per questa operazione.",
+    "de": "Wählen Sie für diesen Vorgang genau ein Dokument."
+  },
+  "Chromium · best modern CSS": {
+    "it": "Chromium · migliore CSS moderno",
+    "de": "Chromium · beste Unterstützung für modernes CSS"
+  },
+  "Chromium rendering requires PHP to run as an unprivileged user with browser sandbox support.": {
+    "it": "Il rendering Chromium richiede PHP eseguito da un utente non privilegiato con supporto alla sandbox del browser.",
+    "de": "Chromium-Rendering erfordert PHP unter einem unprivilegierten Benutzer und Unterstützung für die Browser-Sandbox."
+  },
+  "Chromium requires a working server sandbox. Run PHP as an unprivileged user and enable Chromium sandboxing.": {
+    "it": "Chromium richiede una sandbox funzionante sul server. Esegui PHP come utente non privilegiato e abilita la sandbox Chromium.",
+    "de": "Chromium benötigt eine funktionierende Server-Sandbox. Führen Sie PHP als unprivilegierten Benutzer aus und aktivieren Sie die Chromium-Sandbox."
+  },
+  "Clear": {
+    "it": "Cancella",
+    "de": "Leeren"
+  },
+  "Clear drawing": {
+    "it": "Cancella disegno",
+    "de": "Zeichnung löschen"
+  },
+  "Clear list": {
+    "it": "Cancella elenco",
+    "de": "Liste löschen"
+  },
+  "Clear local autosave": {
+    "it": "Cancella salvataggio automatico locale",
+    "de": "Lokale automatische Sicherung löschen"
+  },
+  "Click": {
+    "it": "Fai clic",
+    "de": "Klicken Sie"
+  },
+  "Click an image in the document first.": {
+    "it": "Prima fai clic su un'immagine nel documento.",
+    "de": "Klicken Sie zuerst auf ein Bild im Dokument."
+  },
+  "Click the information icon beside a missing server capability for Ubuntu installation commands, setup advice and a copy button.": {
+    "it": "Fai clic sull'icona informativa accanto a una capacità server mancante per i comandi Ubuntu, i consigli di configurazione e il pulsante di copia.",
+    "de": "Klicken Sie auf das Infosymbol neben einer fehlenden Serverfunktion, um Ubuntu-Befehle, Einrichtungshinweise und eine Kopierschaltfläche zu sehen."
+  },
+  "Clockwise rotation": {
+    "it": "Rotazione in senso orario",
+    "de": "Drehung im Uhrzeigersinn"
+  },
+  "Close": {
+    "it": "Chiudi",
+    "de": "Schließen"
+  },
+  "Code": {
+    "it": "Codice",
+    "de": "Code"
+  },
+  "Collapse tools": {
+    "it": "Comprimi strumenti",
+    "de": "Werkzeugleiste einklappen"
+  },
+  "Color": {
+    "it": "Colore",
+    "de": "Farbe"
+  },
+  "Column gap (mm)": {
+    "it": "Spazio tra colonne (mm)",
+    "de": "Spaltenabstand (mm)"
+  },
+  "Columns": {
+    "it": "Colonne",
+    "de": "Spalten"
+  },
+  "Combine PDFs and images": {
+    "it": "Combina PDF e immagini",
+    "de": "PDFs und Bilder zusammenführen"
+  },
+  "Commands selected. Press Ctrl+C or Command+C to copy.": {
+    "it": "Comandi selezionati. Premi Ctrl+C o Command+C per copiarli.",
+    "de": "Befehle ausgewählt. Drücken Sie zum Kopieren Strg+C oder Command+C."
+  },
+  "Compare PDFs": {
+    "it": "Confronta PDF",
+    "de": "PDFs vergleichen"
+  },
+  "Compare two PDFs": {
+    "it": "Confronta due PDF",
+    "de": "Zwei PDFs vergleichen"
+  },
+  "Comparison view": {
+    "it": "Vista di confronto",
+    "de": "Vergleichsansicht"
+  },
+  "Complex paint resources are not accepted in imported projects.": {
+    "it": "Le risorse grafiche complesse non sono accettate nei progetti importati.",
+    "de": "Komplexe Grafikressourcen sind in importierten Projekten nicht zulässig."
+  },
+  "Compress / optimize PDF on server": {
+    "it": "Comprimi / ottimizza PDF sul server",
+    "de": "PDF auf dem Server komprimieren / optimieren"
+  },
+  "Compress PDF": {
+    "it": "Comprimi PDF",
+    "de": "PDF komprimieren"
+  },
+  "Compressing PDF on server": {
+    "it": "Compressione PDF sul server",
+    "de": "PDF wird auf dem Server komprimiert"
+  },
+  "Compression preset": {
+    "it": "Profilo di compressione",
+    "de": "Komprimierungsprofil"
+  },
+  "Compression requires qpdf for structural optimization or Ghostscript for image recompression.": {
+    "it": "La compressione richiede qpdf per ottimizzare la struttura oppure Ghostscript per ricomprimere le immagini.",
+    "de": "Die Komprimierung erfordert qpdf für die Strukturoptimierung oder Ghostscript für die Bildkomprimierung."
+  },
+  "Compression: {0} → {1} bytes ({2}).": {
+    "it": "Compressione: {0} → {1} byte ({2}).",
+    "de": "Komprimierung: {0} → {1} Bytes ({2})."
+  },
+  "CONFIDENTIAL": {
+    "it": "RISERVATO",
+    "de": "VERTRAULICH"
+  },
+  "Content sizing": {
+    "it": "Dimensionamento contenuto",
+    "de": "Inhaltsgröße"
+  },
+  "Contents": {
+    "it": "Indice",
+    "de": "Inhaltsverzeichnis"
+  },
+  "Contrast (%)": {
+    "it": "Contrasto (%)",
+    "de": "Kontrast (%)"
+  },
+  "Convert": {
+    "it": "Converti",
+    "de": "Konvertieren"
+  },
+  "Convert to grayscale (Ghostscript)": {
+    "it": "Converti in scala di grigi (Ghostscript)",
+    "de": "In Graustufen umwandeln (Ghostscript)"
+  },
+  "Converting Office document to PDF": {
+    "it": "Conversione documento Office in PDF",
+    "de": "Office-Dokument wird in PDF umgewandelt"
+  },
+  "Copy": {
+    "it": "Copia",
+    "de": "Kopieren"
+  },
+  "Copy commands": {
+    "it": "Copia comandi",
+    "de": "Befehle kopieren"
+  },
+  "Could not check for updates: {0} You can continue using PDF Studio.": {
+    "it": "Impossibile controllare gli aggiornamenti: {0} Puoi continuare a usare PDF Studio.",
+    "de": "Updates konnten nicht geprüft werden: {0} Sie können PDF Studio weiter verwenden."
+  },
+  "Could not download the update: {0} Your open document is unchanged.": {
+    "it": "Impossibile scaricare l'aggiornamento: {0} Il documento aperto non è stato modificato.",
+    "de": "Das Update konnte nicht heruntergeladen werden: {0} Ihr geöffnetes Dokument bleibt unverändert."
+  },
+  "Could not load": {
+    "it": "Impossibile caricare",
+    "de": "Konnte nicht geladen werden"
+  },
+  "Could not read image.": {
+    "it": "Impossibile leggere l'immagine.",
+    "de": "Das Bild konnte nicht gelesen werden."
+  },
+  "Could not relink": {
+    "it": "Impossibile ricollegare",
+    "de": "Konnte nicht erneut verknüpft werden"
+  },
+  "Create": {
+    "it": "Crea",
+    "de": "Erstellen"
+  },
+  "Create AcroForm field": {
+    "it": "Crea campo AcroForm",
+    "de": "AcroForm-Feld erstellen"
+  },
+  "Create document": {
+    "it": "Crea documento",
+    "de": "Dokument erstellen"
+  },
+  "Create Document": {
+    "it": "Crea documento",
+    "de": "Dokument erstellen"
+  },
+  "Create documents with a Word-like editor and export them as PDF.": {
+    "it": "Crea documenti con un editor simile a Word ed esportali in PDF.",
+    "de": "Erstellen Sie Dokumente mit einem Word-ähnlichen Editor und exportieren Sie sie als PDF."
+  },
+  "Create field": {
+    "it": "Crea campo",
+    "de": "Feld erstellen"
+  },
+  "Create form field": {
+    "it": "Crea campo modulo",
+    "de": "Formularfeld erstellen"
+  },
+  "Create N-up contact sheet": {
+    "it": "Crea foglio di contatto N-up",
+    "de": "N-up-Kontaktbogen erstellen"
+  },
+  "Create new document": {
+    "it": "Crea nuovo documento",
+    "de": "Neues Dokument erstellen"
+  },
+  "Create PDF": {
+    "it": "Crea PDF",
+    "de": "PDF erstellen"
+  },
+  "Create printable booklet": {
+    "it": "Crea opuscolo stampabile",
+    "de": "Druckbare Broschüre erstellen"
+  },
+  "Created {0}. Export time is used for the PDF modification date.": {
+    "it": "Creato il {0}. Per la data di modifica PDF si usa il momento dell'esportazione.",
+    "de": "Erstellt am {0}. Als PDF-Änderungsdatum wird der Exportzeitpunkt verwendet."
+  },
+  "Creates left-bound booklet sheets in duplex order. Print two-sided with short-edge binding at actual size. Blank pages are added to a multiple of four. Interactive fields are flattened.": {
+    "it": "Crea fogli per opuscoli rilegati a sinistra nell'ordine fronte-retro. Stampa su entrambi i lati con rilegatura sul bordo corto e dimensioni effettive. Le pagine vuote portano il totale a un multiplo di quattro. I campi interattivi diventano permanenti.",
+    "de": "Erstellt Bögen für linksgebundene Broschüren in Duplexreihenfolge. Drucken Sie beidseitig mit Bindung an der kurzen Kante und tatsächlicher Größe. Leerseiten ergänzen die Gesamtzahl auf ein Vielfaches von vier. Interaktive Felder werden abgeflacht."
+  },
+  "Creating contact sheet": {
+    "it": "Creazione foglio di contatto",
+    "de": "Kontaktbogen wird erstellt"
+  },
+  "Creating PDF from images": {
+    "it": "Creazione PDF da immagini",
+    "de": "PDF wird aus Bildern erstellt"
+  },
+  "Creating scanned PDF": {
+    "it": "Creazione PDF da scansione",
+    "de": "Scan-PDF wird erstellt"
+  },
+  "Creation date (UTC)": {
+    "it": "Data di creazione (UTC)",
+    "de": "Erstellungsdatum (UTC)"
+  },
+  "Creator": {
+    "it": "Creatore",
+    "de": "Ersteller"
+  },
+  "Crop": {
+    "it": "Ritaglia",
+    "de": "Zuschneiden"
+  },
+  "Crop extends beyond the image.": {
+    "it": "Il ritaglio supera i bordi dell'immagine.",
+    "de": "Der Zuschnitt liegt außerhalb des Bildes."
+  },
+  "Crop image": {
+    "it": "Ritaglia immagine",
+    "de": "Bild zuschneiden"
+  },
+  "Crop leaves no usable area on page {0}.": {
+    "it": "Il ritaglio non lascia un'area utilizzabile sulla pagina {0}.",
+    "de": "Der Zuschnitt lässt auf Seite {0} keine nutzbare Fläche übrig."
+  },
+  "Crop left / top (%)": {
+    "it": "Ritaglio da sinistra / alto (%)",
+    "de": "Zuschnitt links / oben (%)"
+  },
+  "Crop pages": {
+    "it": "Ritaglia pagine",
+    "de": "Seiten zuschneiden"
+  },
+  "Crop selected image": {
+    "it": "Ritaglia immagine selezionata",
+    "de": "Ausgewähltes Bild zuschneiden"
+  },
+  "Crop selected pages": {
+    "it": "Ritaglia pagine selezionate",
+    "de": "Ausgewählte Seiten zuschneiden"
+  },
+  "Crop the original image using percentage coordinates. The original image is replaced with the cropped bitmap.": {
+    "it": "Ritaglia l'immagine originale usando coordinate percentuali. L'originale viene sostituito con l'immagine ritagliata.",
+    "de": "Schneiden Sie das Originalbild mit Prozentangaben zu. Das Original wird durch die zugeschnittene Bilddatei ersetzt."
+  },
+  "Crop width / height (%)": {
+    "it": "Larghezza / altezza ritaglio (%)",
+    "de": "Zuschnittbreite / -höhe (%)"
+  },
+  "Cropping adjusts the visible portion of this image without changing the original PDF.": {
+    "it": "Il ritaglio modifica la parte visibile dell'immagine senza cambiare il PDF originale.",
+    "de": "Der Zuschnitt ändert den sichtbaren Bildbereich, ohne das ursprüngliche PDF zu verändern."
+  },
+  "Cropping changes the PDF CropBox. Hidden content remains in the file; use secure redaction to remove sensitive content. Automatic detection samples pages at 72 DPI.": {
+    "it": "Il ritaglio modifica il CropBox del PDF. Il contenuto nascosto resta nel file; per rimuovere informazioni sensibili usa l'oscuramento sicuro. Il rilevamento automatico campiona le pagine a 72 DPI.",
+    "de": "Der Zuschnitt ändert die PDF-CropBox. Verdeckter Inhalt bleibt in der Datei; entfernen Sie vertrauliche Inhalte mit sicherer Schwärzung. Die automatische Erkennung untersucht Seiten mit 72 DPI."
+  },
+  "Cropping pages": {
+    "it": "Ritaglio pagine",
+    "de": "Seiten werden zugeschnitten"
+  },
+  "Current cell width (%) · 0 = automatic": {
+    "it": "Larghezza cella corrente (%) · 0 = automatica",
+    "de": "Breite der aktuellen Zelle (%) · 0 = automatisch"
+  },
+  "Current date": {
+    "it": "Data corrente",
+    "de": "Aktuelles Datum"
+  },
+  "Current edited document": {
+    "it": "Documento corrente modificato",
+    "de": "Aktuell bearbeitetes Dokument"
+  },
+  "Current tc-lib-pdf releases require PHP 8.2 or newer. On PHP 7.2, use mPDF or Dompdf for document export. This optional library is detected only; no additional PDF Studio tool depends on it.": {
+    "it": "Le versioni attuali di tc-lib-pdf richiedono PHP 8.2 o successivo. Con PHP 7.2 usa mPDF o Dompdf per esportare i documenti. Questa libreria facoltativa viene solo rilevata; nessuno strumento aggiuntivo di PDF Studio dipende da essa.",
+    "de": "Aktuelle tc-lib-pdf-Versionen benötigen PHP 8.2 oder neuer. Verwenden Sie unter PHP 7.2 mPDF oder Dompdf für den Dokumentexport. Diese optionale Bibliothek wird nur erkannt; kein zusätzliches PDF-Studio-Werkzeug benötigt sie."
+  },
+  "Current time": {
+    "it": "Ora corrente",
+    "de": "Aktuelle Uhrzeit"
+  },
+  "Custom": {
+    "it": "Personalizzato",
+    "de": "Benutzerdefiniert"
+  },
+  "Custom (PDF points)": {
+    "it": "Personalizzato (punti PDF)",
+    "de": "Benutzerdefiniert (PDF-Punkte)"
+  },
+  "Custom groups": {
+    "it": "Gruppi personalizzati",
+    "de": "Benutzerdefinierte Gruppen"
+  },
+  "Custom groups accept the same page ranges as the organizer. A ZIP is downloaded for multiple outputs. Maximum size is measured after saving each group; a single page may exceed your target.": {
+    "it": "I gruppi personalizzati accettano gli stessi intervalli dell'organizzatore. Per più risultati viene scaricato uno ZIP. La dimensione massima viene misurata dopo il salvataggio di ogni gruppo; una singola pagina può superare il limite scelto.",
+    "de": "Benutzerdefinierte Gruppen verwenden dieselben Seitenbereiche wie die Seitenverwaltung. Mehrere Ergebnisse werden als ZIP heruntergeladen. Die maximale Größe wird nach dem Speichern jeder Gruppe gemessen; eine einzelne Seite kann die Zielgröße überschreiten."
+  },
+  "Custom groups, separated by semicolons": {
+    "it": "Gruppi personalizzati separati da punto e virgola",
+    "de": "Benutzerdefinierte Gruppen mit Semikolon trennen"
+  },
+  "Custom height": {
+    "it": "Altezza personalizzata",
+    "de": "Benutzerdefinierte Höhe"
+  },
+  "Custom height (mm)": {
+    "it": "Altezza personalizzata (mm)",
+    "de": "Benutzerdefinierte Höhe (mm)"
+  },
+  "Custom page dimensions must be between 30 and 1000 mm.": {
+    "it": "Le dimensioni personalizzate devono essere comprese tra 30 e 1000 mm.",
+    "de": "Benutzerdefinierte Seitengrößen müssen zwischen 30 und 1000 mm liegen."
+  },
+  "Custom sheet height": {
+    "it": "Altezza foglio personalizzata",
+    "de": "Benutzerdefinierte Bogenhöhe"
+  },
+  "Custom sheet width (PDF points)": {
+    "it": "Larghezza foglio personalizzata (punti PDF)",
+    "de": "Benutzerdefinierte Bogenbreite (PDF-Punkte)"
+  },
+  "Custom stamp": {
+    "it": "Timbro personalizzato",
+    "de": "Benutzerdefinierter Stempel"
+  },
+  "Custom width (mm)": {
+    "it": "Larghezza personalizzata (mm)",
+    "de": "Benutzerdefinierte Breite (mm)"
+  },
+  "Custom width (PDF points)": {
+    "it": "Larghezza personalizzata (punti PDF)",
+    "de": "Benutzerdefinierte Breite (PDF-Punkte)"
+  },
+  "Date": {
+    "it": "Data",
+    "de": "Datum"
+  },
+  "Decryption": {
+    "it": "Decrittazione",
+    "de": "Entschlüsselung"
+  },
+  "Default text / selected option": {
+    "it": "Testo predefinito / opzione selezionata",
+    "de": "Standardtext / ausgewählte Option"
+  },
+  "Default value must match an option.": {
+    "it": "Il valore predefinito deve corrispondere a un'opzione.",
+    "de": "Der Standardwert muss einer Option entsprechen."
+  },
+  "Delete": {
+    "it": "Elimina",
+    "de": "Löschen"
+  },
+  "Delete object": {
+    "it": "Elimina oggetto",
+    "de": "Objekt löschen"
+  },
+  "Detect whitespace automatically": {
+    "it": "Rileva automaticamente gli spazi vuoti",
+    "de": "Leerräume automatisch erkennen"
+  },
+  "Detected on an input document": {
+    "it": "Rilevato in un documento di origine",
+    "de": "In einem Quelldokument erkannt"
+  },
+  "Difference intensity": {
+    "it": "Intensità differenze",
+    "de": "Differenzintensität"
+  },
+  "Different first page": {
+    "it": "Prima pagina diversa",
+    "de": "Abweichende erste Seite"
+  },
+  "Direction": {
+    "it": "Direzione",
+    "de": "Richtung"
+  },
+  "Disallow printing": {
+    "it": "Vieta stampa",
+    "de": "Drucken verbieten"
+  },
+  "Distribute horizontally": {
+    "it": "Distribuisci orizzontalmente",
+    "de": "Horizontal verteilen"
+  },
+  "Distribute vertically": {
+    "it": "Distribuisci verticalmente",
+    "de": "Vertikal verteilen"
+  },
+  "Document editor could not load:": {
+    "it": "Impossibile caricare l'editor documenti:",
+    "de": "Der Dokumenteditor konnte nicht geladen werden:"
+  },
+  "Document files": {
+    "it": "File documento",
+    "de": "Dokumentdateien"
+  },
+  "Document inspector": {
+    "it": "Ispezione documento",
+    "de": "Dokumentprüfung"
+  },
+  "Document metadata": {
+    "it": "Metadati documento",
+    "de": "Dokumentmetadaten"
+  },
+  "Document page layout": {
+    "it": "Layout delle pagine del documento",
+    "de": "Dokumentseitenlayout"
+  },
+  "Document paper preview": {
+    "it": "Anteprima foglio documento",
+    "de": "Dokumentpapier-Vorschau"
+  },
+  "Document PDF rendering engine": {
+    "it": "Motore di rendering PDF del documento",
+    "de": "PDF-Rendering-Engine für Dokumente"
+  },
+  "Document print": {
+    "it": "Stampa documento",
+    "de": "Dokument drucken"
+  },
+  "Document print preview": {
+    "it": "Anteprima stampa documento",
+    "de": "Dokumentdruck-Vorschau"
+  },
+  "Document properties": {
+    "it": "Proprietà documento",
+    "de": "Dokumenteigenschaften"
+  },
+  "Document safety": {
+    "it": "Sicurezza documento",
+    "de": "Dokumentsicherheit"
+  },
+  "Document source": {
+    "it": "Sorgente documento",
+    "de": "Dokumentquelle"
+  },
+  "Document source exceeds the 50 MB browser project limit.": {
+    "it": "La sorgente del documento supera il limite di 50 MB per i progetti nel browser.",
+    "de": "Die Dokumentquelle überschreitet das Browser-Projektlimit von 50 MB."
+  },
+  "DOCUMENT WORKSPACE": {
+    "it": "AREA DOCUMENTI",
+    "de": "DOKUMENTARBEITSBEREICH"
+  },
+  "DOCX, ODT, XLSX and PPTX to PDF": {
+    "it": "Da DOCX, ODT, XLSX e PPTX a PDF",
+    "de": "DOCX, ODT, XLSX und PPTX in PDF"
+  },
+  "does not have a valid PDF signature.": {
+    "it": "non ha una firma PDF valida.",
+    "de": "hat keine gültige PDF-Dateikennung."
+  },
+  "Dompdf · basic HTML/CSS": {
+    "it": "Dompdf · HTML/CSS di base",
+    "de": "Dompdf · grundlegendes HTML/CSS"
+  },
+  "Double-click to edit": {
+    "it": "Doppio clic per modificare",
+    "de": "Doppelklicken zum Bearbeiten"
+  },
+  "Down columns": {
+    "it": "Per colonne",
+    "de": "Spaltenweise"
+  },
+  "Download HTML": {
+    "it": "Scarica HTML",
+    "de": "HTML herunterladen"
+  },
+  "Download index.php": {
+    "it": "Scarica index.php",
+    "de": "index.php herunterladen"
+  },
+  "Download source": {
+    "it": "Scarica sorgente",
+    "de": "Quelldatei herunterladen"
+  },
+  "Download the new index.php and replace it on your server, keeping your optional vendor directory.": {
+    "it": "Scarica il nuovo index.php e sostituiscilo sul server, mantenendo la cartella vendor facoltativa.",
+    "de": "Laden Sie die neue index.php herunter und ersetzen Sie sie auf Ihrem Server. Behalten Sie das optionale vendor-Verzeichnis bei."
+  },
+  "Download TXT": {
+    "it": "Scarica TXT",
+    "de": "TXT herunterladen"
+  },
+  "Downloading…": {
+    "it": "Download…",
+    "de": "Wird heruntergeladen…"
+  },
+  "Downloads contain your selected changes. The opened source remains local.": {
+    "it": "I download contengono le modifiche selezionate. Il file originale aperto resta locale.",
+    "de": "Downloads enthalten Ihre ausgewählten Änderungen. Die geöffnete Originaldatei bleibt lokal."
+  },
+  "DPI exceeds the memory limit for this page. Select a lower DPI.": {
+    "it": "I DPI superano il limite di memoria per questa pagina. Scegli un valore inferiore.",
+    "de": "Der DPI-Wert überschreitet das Speicherlimit für diese Seite. Wählen Sie einen niedrigeren Wert."
+  },
+  "Drag a crop rectangle on the current page, then adjust its corner handles. The same trim measurements apply to the selected pages.": {
+    "it": "Trascina un rettangolo di ritaglio sulla pagina corrente, poi regola gli angoli. Le stesse misure si applicano alle pagine selezionate.",
+    "de": "Ziehen Sie auf der aktuellen Seite ein Zuschnittrechteck auf und passen Sie die Eckpunkte an. Dieselben Zuschnittmaße gelten für alle ausgewählten Seiten."
+  },
+  "Drag files to arrange them. Page range applies to PDFs.": {
+    "it": "Trascina i file per ordinarli. L'intervallo di pagine si applica ai PDF.",
+    "de": "Ziehen Sie Dateien, um sie anzuordnen. Seitenbereiche gelten für PDFs."
+  },
+  "Drag on the page to add": {
+    "it": "Trascina sulla pagina per aggiungere",
+    "de": "Ziehen Sie auf der Seite, um Folgendes hinzuzufügen:"
+  },
+  "Drag to arrange images": {
+    "it": "Trascina per ordinare le immagini",
+    "de": "Bilder zum Anordnen ziehen"
+  },
+  "Draw": {
+    "it": "Disegna",
+    "de": "Zeichnen"
+  },
+  "Draw a rectangle over the area you want to make clickable.": {
+    "it": "Disegna un rettangolo sull'area da rendere cliccabile.",
+    "de": "Zeichnen Sie ein Rechteck über den Bereich, der anklickbar werden soll."
+  },
+  "Draw a signature": {
+    "it": "Disegna una firma",
+    "de": "Unterschrift zeichnen"
+  },
+  "Draw below or type your signature. This is a visual mark, with no cryptographic signing.": {
+    "it": "Disegna qui sotto oppure digita la firma. È un segno visivo senza firma crittografica.",
+    "de": "Zeichnen Sie unten oder tippen Sie Ihre Unterschrift. Dies ist eine sichtbare Markierung ohne kryptografische Signatur."
+  },
+  "Draw cell borders": {
+    "it": "Disegna bordi celle",
+    "de": "Zellenrahmen zeichnen"
+  },
+  "Draw or type a signature first.": {
+    "it": "Prima disegna o digita una firma.",
+    "de": "Zeichnen oder tippen Sie zuerst eine Unterschrift."
+  },
+  "Draw secure region": {
+    "it": "Disegna area sicura",
+    "de": "Sicheren Bereich zeichnen"
+  },
+  "Draw with your mouse or finger": {
+    "it": "Disegna con il mouse o il dito",
+    "de": "Mit Maus oder Finger zeichnen"
+  },
+  "Draw, type or upload a signature": {
+    "it": "Disegna, digita o carica una firma",
+    "de": "Unterschrift zeichnen, tippen oder hochladen"
+  },
+  "Draw, type, or upload a signature first.": {
+    "it": "Prima disegna, digita o carica una firma.",
+    "de": "Zeichnen, tippen oder laden Sie zuerst eine Unterschrift hoch."
+  },
+  "Drop PDFs or images here": {
+    "it": "Trascina qui PDF o immagini",
+    "de": "PDFs oder Bilder hier ablegen"
+  },
+  "Dropdown": {
+    "it": "Menu a discesa",
+    "de": "Auswahlliste"
+  },
+  "Duplicate": {
+    "it": "Duplica",
+    "de": "Duplizieren"
+  },
+  "Edit metadata / privacy clean": {
+    "it": "Modifica metadati / pulizia privacy",
+    "de": "Metadaten bearbeiten / Datenschutzbereinigung"
+  },
+  "Edit PDF": {
+    "it": "Modifica PDF",
+    "de": "PDF bearbeiten"
+  },
+  "Edit, organize, annotate and visually sign PDFs in your browser.": {
+    "it": "Modifica, organizza, annota e firma visivamente i PDF nel browser.",
+    "de": "Bearbeiten, ordnen, kommentieren und unterschreiben Sie PDFs sichtbar im Browser."
+  },
+  "Edit, organize, sign, convert, or create a document from scratch.": {
+    "it": "Modifica, organizza, firma, converti oppure crea un documento da zero.",
+    "de": "Bearbeiten, ordnen, unterschreiben, konvertieren oder erstellen Sie ein neues Dokument."
+  },
+  "Editable overlay export requires Fabric.js, which could not load.": {
+    "it": "L'esportazione delle sovrapposizioni modificabili richiede Fabric.js, che non è stato caricato.",
+    "de": "Der Export bearbeitbarer Überlagerungen erfordert Fabric.js, das nicht geladen werden konnte."
+  },
+  "Editable project files": {
+    "it": "File di progetto modificabili",
+    "de": "Bearbeitbare Projektdateien"
+  },
+  "Editing is continuous. Print preview uses the selected paper size and shows final pagination. Table cell selection, merging, splitting and column resizing are available in Jodit's table popup. Browser print preserves modern HTML/CSS most faithfully; page counters and margin headers depend on your browser.": {
+    "it": "La modifica è continua. L'anteprima di stampa usa il formato carta selezionato e mostra la paginazione finale. Nel menu tabella di Jodit puoi selezionare, unire, dividere celle e ridimensionare colonne. La stampa browser riproduce meglio HTML/CSS moderni; contatori di pagina e intestazioni nei margini dipendono dal browser.",
+    "de": "Die Bearbeitung erfolgt fortlaufend. Die Druckvorschau verwendet das gewählte Papierformat und zeigt die endgültige Seiteneinteilung. Im Jodit-Tabellenmenü können Sie Zellen auswählen, verbinden, teilen und Spaltenbreiten ändern. Browserdruck bildet modernes HTML/CSS am zuverlässigsten ab; Seitenzähler und Randkopfzeilen hängen vom Browser ab."
+  },
+  "Ellipse": {
+    "it": "Ellisse",
+    "de": "Ellipse"
+  },
+  "Embedded PDF exceeds the configured file limit.": {
+    "it": "Il PDF incorporato supera il limite di dimensione configurato.",
+    "de": "Das eingebettete PDF überschreitet die eingerichtete Dateigrößengrenze."
+  },
+  "Embedded source hash does not match": {
+    "it": "L'hash dell'originale incorporato non corrisponde",
+    "de": "Der Hash der eingebetteten Quelldatei stimmt nicht überein"
+  },
+  "Embedded text differences (deleted / inserted words)": {
+    "it": "Differenze del testo incorporato (parole eliminate / inserite)",
+    "de": "Unterschiede im eingebetteten Text (gelöschte / eingefügte Wörter)"
+  },
+  "Encrypt PDF on server": {
+    "it": "Cifra PDF sul server",
+    "de": "PDF auf dem Server verschlüsseln"
+  },
+  "Encrypted server processing requires qpdf so passwords can be supplied privately. Decrypt the document first.": {
+    "it": "L'elaborazione di PDF cifrati sul server richiede qpdf per fornire le password in modo privato. Prima decifra il documento.",
+    "de": "Die Verarbeitung verschlüsselter PDFs auf dem Server benötigt qpdf für die vertrauliche Passwortübergabe. Entschlüsseln Sie zuerst das Dokument."
+  },
+  "Encryption": {
+    "it": "Cifratura",
+    "de": "Verschlüsselung"
+  },
+  "Engine": {
+    "it": "Motore",
+    "de": "Engine"
+  },
+  "Enter a positive number.": {
+    "it": "Inserisci un numero positivo.",
+    "de": "Geben Sie eine positive Zahl ein."
+  },
+  "Enter a unique field name of 1–200 characters.": {
+    "it": "Inserisci un nome di campo univoco da 1 a 200 caratteri.",
+    "de": "Geben Sie einen eindeutigen Feldnamen mit 1 bis 200 Zeichen ein."
+  },
+  "Enter a valid UTC date.": {
+    "it": "Inserisci una data UTC valida.",
+    "de": "Geben Sie ein gültiges UTC-Datum ein."
+  },
+  "Enter an opening password or owner password.": {
+    "it": "Inserisci una password di apertura o proprietario.",
+    "de": "Geben Sie ein Öffnungs- oder Eigentümerpasswort ein."
+  },
+  "Enter at least one dropdown option.": {
+    "it": "Inserisci almeno un'opzione per il menu a discesa.",
+    "de": "Geben Sie mindestens einen Eintrag für die Auswahlliste ein."
+  },
+  "Enter at least one radio option.": {
+    "it": "Inserisci almeno un'opzione per il gruppo radio.",
+    "de": "Geben Sie mindestens eine Option für die Optionsfelder ein."
+  },
+  "Enter valid Tesseract language codes, for example eng+ita.": {
+    "it": "Inserisci codici lingua Tesseract validi, per esempio eng+ita.",
+    "de": "Geben Sie gültige Tesseract-Sprachcodes ein, zum Beispiel eng+ita."
+  },
+  "Entire files in order": {
+    "it": "File interi in ordine",
+    "de": "Ganze Dateien in Reihenfolge"
+  },
+  "Every N pages": {
+    "it": "Ogni N pagine",
+    "de": "Alle N Seiten"
+  },
+  "Every page": {
+    "it": "Ogni pagina",
+    "de": "Jede Seite"
+  },
+  "Export PDF": {
+    "it": "Esporta PDF",
+    "de": "PDF exportieren"
+  },
+  "Export PDF pages as images": {
+    "it": "Esporta le pagine PDF come immagini",
+    "de": "PDF-Seiten als Bilder exportieren"
+  },
+  "Exporting images": {
+    "it": "Esportazione immagini",
+    "de": "Bilder werden exportiert"
+  },
+  "Exporting page": {
+    "it": "Esportazione pagina",
+    "de": "Seite wird exportiert"
+  },
+  "Exporting PDF": {
+    "it": "Esportazione PDF",
+    "de": "PDF wird exportiert"
+  },
+  "External XML entities are not permitted.": {
+    "it": "Le entità XML esterne non sono consentite.",
+    "de": "Externe XML-Entitäten sind nicht zulässig."
+  },
+  "Extract": {
+    "it": "Estrai",
+    "de": "Extrahieren"
+  },
+  "Extract embedded images": {
+    "it": "Estrai immagini incorporate",
+    "de": "Eingebettete Bilder extrahieren"
+  },
+  "Extract embedded images on server": {
+    "it": "Estrai immagini incorporate sul server",
+    "de": "Eingebettete Bilder auf dem Server extrahieren"
+  },
+  "Extract embedded text": {
+    "it": "Estrai testo incorporato",
+    "de": "Eingebetteten Text extrahieren"
+  },
+  "Extract original embedded images": {
+    "it": "Estrai immagini originali incorporate",
+    "de": "Eingebettete Originalbilder extrahieren"
+  },
+  "Extract text": {
+    "it": "Estrai testo",
+    "de": "Text extrahieren"
+  },
+  "Extracted PDF text": {
+    "it": "Testo estratto dal PDF",
+    "de": "Extrahierter PDF-Text"
+  },
+  "Extracted text": {
+    "it": "Testo estratto",
+    "de": "Extrahierter Text"
+  },
+  "Extracting embedded images": {
+    "it": "Estrazione immagini incorporate",
+    "de": "Eingebettete Bilder werden extrahiert"
+  },
+  "Extracting page text": {
+    "it": "Estrazione testo pagina",
+    "de": "Seitentext wird extrahiert"
+  },
+  "Extracting pages": {
+    "it": "Estrazione pagine",
+    "de": "Seiten werden extrahiert"
+  },
+  "Extracting text": {
+    "it": "Estrazione testo",
+    "de": "Text wird extrahiert"
+  },
+  "Fast Web View": {
+    "it": "Visualizzazione web rapida",
+    "de": "Schnelle Webanzeige"
+  },
+  "Fast Web View / linearize": {
+    "it": "Visualizzazione web rapida / linearizza",
+    "de": "Schnelle Webanzeige / linearisieren"
+  },
+  "Fast Web View / linearize output": {
+    "it": "Visualizzazione web rapida / linearizza risultato",
+    "de": "Schnelle Webanzeige / Ergebnis linearisieren"
+  },
+  "Features / details": {
+    "it": "Funzioni / dettagli",
+    "de": "Funktionen / Details"
+  },
+  "Field": {
+    "it": "Campo",
+    "de": "Feld"
+  },
+  "Field type": {
+    "it": "Tipo campo",
+    "de": "Feldtyp"
+  },
+  "Field values are saved in the PDF. Unsupported button and cryptographic signature fields are shown as read-only. Standard Latin characters are supported by the appearance font.": {
+    "it": "I valori dei campi vengono salvati nel PDF. I campi pulsante e firma crittografica non supportati sono in sola lettura. Il carattere di visualizzazione supporta i caratteri latini standard.",
+    "de": "Feldwerte werden im PDF gespeichert. Nicht unterstützte Schaltflächen und kryptografische Signaturfelder werden schreibgeschützt angezeigt. Die Darstellungsschrift unterstützt Standard-Lateinzeichen."
+  },
+  "Files": {
+    "it": "File",
+    "de": "Dateien"
+  },
+  "Files are processed in private temporary directories and removed after the response.": {
+    "it": "I file vengono elaborati in cartelle temporanee private ed eliminati dopo la risposta.",
+    "de": "Dateien werden in privaten temporären Verzeichnissen verarbeitet und nach der Antwort entfernt."
+  },
+  "Fill / crop": {
+    "it": "Riempi / ritaglia",
+    "de": "Füllen / zuschneiden"
+  },
+  "Fill & Sign": {
+    "it": "Compila e firma",
+    "de": "Ausfüllen und unterschreiben"
+  },
+  "Fill form": {
+    "it": "Compila modulo",
+    "de": "Formular ausfüllen"
+  },
+  "Fill PDF form": {
+    "it": "Compila modulo PDF",
+    "de": "PDF-Formular ausfüllen"
+  },
+  "Fill PDF forms": {
+    "it": "Compila moduli PDF",
+    "de": "PDF-Formulare ausfüllen"
+  },
+  "Find": {
+    "it": "Trova",
+    "de": "Suchen"
+  },
+  "Find in extracted text": {
+    "it": "Cerca nel testo estratto",
+    "de": "Im extrahierten Text suchen"
+  },
+  "Find text": {
+    "it": "Trova testo",
+    "de": "Text suchen"
+  },
+  "First": {
+    "it": "Prima",
+    "de": "Erste"
+  },
+  "First row is a repeating header": {
+    "it": "La prima riga è un'intestazione ripetuta",
+    "de": "Erste Zeile als wiederholte Kopfzeile"
+  },
+  "First-line indent (mm)": {
+    "it": "Rientro prima riga (mm)",
+    "de": "Erstzeileneinzug (mm)"
+  },
+  "First-page footer": {
+    "it": "Piè di pagina della prima pagina",
+    "de": "Fußzeile der ersten Seite"
+  },
+  "First-page header": {
+    "it": "Intestazione della prima pagina",
+    "de": "Kopfzeile der ersten Seite"
+  },
+  "Fit": {
+    "it": "Adatta",
+    "de": "Anpassen"
+  },
+  "Fit / preserve aspect ratio": {
+    "it": "Adatta / mantieni proporzioni",
+    "de": "Anpassen / Seitenverhältnis erhalten"
+  },
+  "Fit inside": {
+    "it": "Adatta all'interno",
+    "de": "Einpassen"
+  },
+  "Fit page": {
+    "it": "Adatta pagina",
+    "de": "Seite einpassen"
+  },
+  "Fit width": {
+    "it": "Adatta larghezza",
+    "de": "Breite einpassen"
+  },
+  "Flatten fields after filling (cannot edit later)": {
+    "it": "Rendi permanenti i campi dopo la compilazione (non più modificabili)",
+    "de": "Felder nach dem Ausfüllen abflachen (nicht mehr bearbeitbar)"
+  },
+  "Flatten form": {
+    "it": "Rendi modulo permanente",
+    "de": "Formular abflachen"
+  },
+  "Flatten form fields": {
+    "it": "Rendi permanenti i campi modulo",
+    "de": "Formularfelder abflachen"
+  },
+  "Flatten forms": {
+    "it": "Rendi moduli permanenti",
+    "de": "Formulare abflachen"
+  },
+  "Flip X": {
+    "it": "Rifletti X",
+    "de": "Horizontal spiegeln"
+  },
+  "Flip Y": {
+    "it": "Rifletti Y",
+    "de": "Vertikal spiegeln"
+  },
+  "Float left · text wraps right": {
+    "it": "Allinea a sinistra · testo a destra",
+    "de": "Links umflossen · Text rechts"
+  },
+  "Float right · text wraps left": {
+    "it": "Allinea a destra · testo a sinistra",
+    "de": "Rechts umflossen · Text links"
+  },
+  "Font": {
+    "it": "Carattere",
+    "de": "Schriftart"
+  },
+  "Font families": {
+    "it": "Famiglie di caratteri",
+    "de": "Schriftfamilien"
+  },
+  "Font size": {
+    "it": "Dimensione carattere",
+    "de": "Schriftgröße"
+  },
+  "Font size / image width (PDF points)": {
+    "it": "Dimensione carattere / larghezza immagine (punti PDF)",
+    "de": "Schriftgröße / Bildbreite (PDF-Punkte)"
+  },
+  "Footer": {
+    "it": "Piè di pagina",
+    "de": "Fußzeile"
+  },
+  "For safe removal of shared resources, this exporter rebuilds the entire output as page images. Original text, vectors, forms, attachments and metadata are discarded. Searchability is lost. Draw black redaction regions, then export.": {
+    "it": "Per eliminare in sicurezza le risorse condivise, l'esportazione ricrea l'intero documento come immagini delle pagine. Testo originale, vettori, moduli, allegati e metadati vengono rimossi. Non sarà più possibile cercare il testo. Disegna le aree nere di oscuramento, poi esporta.",
+    "de": "Für die sichere Entfernung gemeinsam genutzter Ressourcen wird das gesamte Ergebnis als Seitenbilder neu aufgebaut. Originaltext, Vektoren, Formulare, Anhänge und Metadaten werden verworfen. Die Textsuche geht verloren. Zeichnen Sie schwarze Schwärzungsbereiche und exportieren Sie anschließend."
+  },
+  "For Thai recognition, also install: sudo apt install -y tesseract-ocr-tha. Other languages have their own tesseract-ocr language packages.": {
+    "it": "Per riconoscere il thailandese installa anche: sudo apt install -y tesseract-ocr-tha. Le altre lingue hanno propri pacchetti tesseract-ocr.",
+    "de": "Für die Erkennung von Thai installieren Sie zusätzlich: sudo apt install -y tesseract-ocr-tha. Andere Sprachen haben eigene tesseract-ocr-Sprachpakete."
+  },
+  "Form fields / annotations": {
+    "it": "Campi modulo / annotazioni",
+    "de": "Formularfelder / Anmerkungen"
+  },
+  "Form fields are flattened. PDF comments, highlight annotations and link annotations are omitted from imposed sheets.": {
+    "it": "I campi modulo diventano permanenti. Commenti PDF, evidenziazioni e collegamenti vengono omessi dai fogli impaginati.",
+    "de": "Formularfelder werden abgeflacht. PDF-Kommentare, Hervorhebungen und Verknüpfungen werden auf montierten Bögen weggelassen."
+  },
+  "Form values will become permanent page content. Fields will no longer be interactive. Undo can restore the previous document.": {
+    "it": "I valori dei moduli diventano contenuto permanente della pagina. I campi non saranno più interattivi. Annulla può ripristinare il documento precedente.",
+    "de": "Formularwerte werden zu dauerhaftem Seiteninhalt. Die Felder sind nicht mehr interaktiv. Rückgängig kann das vorherige Dokument wiederherstellen."
+  },
+  "Format": {
+    "it": "Formato",
+    "de": "Format"
+  },
+  "Forms": {
+    "it": "Moduli",
+    "de": "Formulare"
+  },
+  "Full screen": {
+    "it": "Schermo intero",
+    "de": "Vollbild"
+  },
+  "Full-quality printing": {
+    "it": "Stampa a qualità completa",
+    "de": "Drucken in voller Qualität"
+  },
+  "Full-screen mode is unavailable in this browser.": {
+    "it": "La modalità schermo intero non è disponibile in questo browser.",
+    "de": "Der Vollbildmodus ist in diesem Browser nicht verfügbar."
+  },
+  "GIF uses its first frame. Transparent images are composited onto the selected background.": {
+    "it": "Per i GIF si usa il primo fotogramma. Le immagini trasparenti vengono composte sullo sfondo scelto.",
+    "de": "Bei GIFs wird das erste Bild verwendet. Transparente Bilder werden mit dem gewählten Hintergrund zusammengesetzt."
+  },
+  "GitHub could not provide index.php (HTTP": {
+    "it": "GitHub non ha fornito index.php (HTTP",
+    "de": "GitHub konnte index.php nicht bereitstellen (HTTP"
+  },
+  "GitHub could not provide update information (HTTP": {
+    "it": "GitHub non ha fornito le informazioni di aggiornamento (HTTP",
+    "de": "GitHub konnte keine Updateinformationen bereitstellen (HTTP"
+  },
+  "GitHub did not return a valid PDF Studio file. Try again later.": {
+    "it": "GitHub non ha restituito un file PDF Studio valido. Riprova più tardi.",
+    "de": "GitHub hat keine gültige PDF-Studio-Datei geliefert. Versuchen Sie es später erneut."
+  },
+  "Grayscale": {
+    "it": "Scala di grigi",
+    "de": "Graustufen"
+  },
+  "Header": {
+    "it": "Intestazione",
+    "de": "Kopfzeile"
+  },
+  "Header and footer": {
+    "it": "Intestazione e piè di pagina",
+    "de": "Kopf- und Fußzeile"
+  },
+  "Headers and footers": {
+    "it": "Intestazioni e piè di pagina",
+    "de": "Kopf- und Fußzeilen"
+  },
+  "Headers, footers & page numbers": {
+    "it": "Intestazioni, piè di pagina e numeri di pagina",
+    "de": "Kopfzeilen, Fußzeilen und Seitenzahlen"
+  },
+  "Headers, footers and page numbering": {
+    "it": "Intestazioni, piè di pagina e numerazione pagine",
+    "de": "Kopfzeilen, Fußzeilen und Seitennummerierung"
+  },
+  "Headers, footers, page numbering": {
+    "it": "Intestazioni, piè di pagina, numerazione pagine",
+    "de": "Kopfzeilen, Fußzeilen, Seitennummerierung"
+  },
+  "Heading 1": {
+    "it": "Titolo 1",
+    "de": "Überschrift 1"
+  },
+  "Heading 2": {
+    "it": "Titolo 2",
+    "de": "Überschrift 2"
+  },
+  "Heading 3": {
+    "it": "Titolo 3",
+    "de": "Überschrift 3"
+  },
+  "Heading 4": {
+    "it": "Titolo 4",
+    "de": "Überschrift 4"
+  },
+  "Heading 5": {
+    "it": "Titolo 5",
+    "de": "Überschrift 5"
+  },
+  "Heading 6": {
+    "it": "Titolo 6",
+    "de": "Überschrift 6"
+  },
+  "Height": {
+    "it": "Altezza",
+    "de": "Höhe"
+  },
+  "Height (px)": {
+    "it": "Altezza (px)",
+    "de": "Höhe (px)"
+  },
+  "Helvetica / Arial": {
+    "it": "Helvetica / Arial",
+    "de": "Helvetica / Arial"
+  },
+  "Highlight": {
+    "it": "Evidenzia",
+    "de": "Hervorheben"
+  },
+  "Home": {
+    "it": "Home",
+    "de": "Start"
+  },
+  "Horizontal center": {
+    "it": "Centro orizzontale",
+    "de": "Horizontal zentrieren"
+  },
+  "How to upgrade": {
+    "it": "Come aggiornare",
+    "de": "So aktualisieren Sie"
+  },
+  "HTML · standalone document with embedded settings": {
+    "it": "HTML · documento autonomo con impostazioni incorporate",
+    "de": "HTML · eigenständiges Dokument mit eingebetteten Einstellungen"
+  },
+  "HTML export requires the PHP DOM extension.": {
+    "it": "L'esportazione HTML richiede l'estensione PHP DOM.",
+    "de": "Der HTML-Export benötigt die PHP-DOM-Erweiterung."
+  },
+  "HTML imported. Remote images and executable markup were removed.": {
+    "it": "HTML importato. Immagini remote e codice eseguibile sono stati rimossi.",
+    "de": "HTML importiert. Externe Bilder und ausführbarer Code wurden entfernt."
+  },
+  "HTML to PDF": {
+    "it": "Da HTML a PDF",
+    "de": "HTML in PDF"
+  },
+  "HTML-to-PDF requires mPDF, Dompdf or sandboxed Chromium, plus the PHP DOM extension. Browser print remains available.": {
+    "it": "La conversione HTML in PDF richiede mPDF, Dompdf o Chromium con sandbox e l'estensione PHP DOM. La stampa browser resta disponibile.",
+    "de": "HTML-zu-PDF benötigt mPDF, Dompdf oder Chromium mit Sandbox sowie die PHP-DOM-Erweiterung. Browserdruck bleibt verfügbar."
+  },
+  "HTML/CSS print rendering": {
+    "it": "Rendering di stampa HTML/CSS",
+    "de": "HTML/CSS-Druckrendering"
+  },
+  "Hyperlink region": {
+    "it": "Area collegamento",
+    "de": "Linkbereich"
+  },
+  "Image": {
+    "it": "Immagine",
+    "de": "Bild"
+  },
+  "Image caption / alt / wrapping": {
+    "it": "Didascalia / testo alternativo / disposizione",
+    "de": "Bildunterschrift / Alternativtext / Textumbruch"
+  },
+  "Image DPI (Ghostscript presets)": {
+    "it": "DPI immagini (profili Ghostscript)",
+    "de": "Bild-DPI (Ghostscript-Profile)"
+  },
+  "Image drawing operations": {
+    "it": "Operazioni di disegno immagini",
+    "de": "Bildzeichenoperationen"
+  },
+  "Image exceeds the 42 megapixel safety limit.": {
+    "it": "L'immagine supera il limite di sicurezza di 42 megapixel.",
+    "de": "Das Bild überschreitet die Sicherheitsgrenze von 42 Megapixeln."
+  },
+  "Image exceeds the file size limit.": {
+    "it": "L'immagine supera il limite di dimensione del file.",
+    "de": "Das Bild überschreitet die Dateigrößengrenze."
+  },
+  "Image file (PNG / JPEG)": {
+    "it": "File immagine (PNG / JPEG)",
+    "de": "Bilddatei (PNG / JPEG)"
+  },
+  "Image format": {
+    "it": "Formato immagine",
+    "de": "Bildformat"
+  },
+  "Image processing extension detected": {
+    "it": "Estensione per elaborare immagini rilevata",
+    "de": "Erweiterung zur Bildverarbeitung erkannt"
+  },
+  "Image properties": {
+    "it": "Proprietà immagine",
+    "de": "Bildeigenschaften"
+  },
+  "Image width (px)": {
+    "it": "Larghezza immagine (px)",
+    "de": "Bildbreite (px)"
+  },
+  "Images": {
+    "it": "Immagini",
+    "de": "Bilder"
+  },
+  "Images per page": {
+    "it": "Immagini per pagina",
+    "de": "Bilder pro Seite"
+  },
+  "Images to PDF": {
+    "it": "Da immagini a PDF",
+    "de": "Bilder in PDF"
+  },
+  "Import": {
+    "it": "Importa",
+    "de": "Importieren"
+  },
+  "Imposing booklet": {
+    "it": "Impaginazione opuscolo",
+    "de": "Broschüre wird montiert"
+  },
+  "Include page separators": {
+    "it": "Includi separatori di pagina",
+    "de": "Seitentrenner einfügen"
+  },
+  "Include source PDF files for a self-contained project": {
+    "it": "Includi i PDF originali per un progetto autonomo",
+    "de": "Original-PDFs für ein eigenständiges Projekt einbetten"
+  },
+  "Includes page order, editable overlays, document source, settings and metadata.": {
+    "it": "Include ordine delle pagine, sovrapposizioni modificabili, sorgente documento, impostazioni e metadati.",
+    "de": "Enthält Seitenreihenfolge, bearbeitbare Überlagerungen, Dokumentquelle, Einstellungen und Metadaten."
+  },
+  "IndexedDB unavailable.": {
+    "it": "IndexedDB non disponibile.",
+    "de": "IndexedDB ist nicht verfügbar."
+  },
+  "Individual document images must be smaller than 20 MB.": {
+    "it": "Ogni immagine del documento deve essere inferiore a 20 MB.",
+    "de": "Einzelne Dokumentbilder müssen kleiner als 20 MB sein."
+  },
+  "Info": {
+    "it": "Informazioni",
+    "de": "Info"
+  },
+  "Initials": {
+    "it": "Iniziali",
+    "de": "Initialen"
+  },
+  "Inline": {
+    "it": "In linea",
+    "de": "Inline"
+  },
+  "Insert": {
+    "it": "Inserisci",
+    "de": "Einfügen"
+  },
+  "Insert a column section": {
+    "it": "Inserisci una sezione a colonne",
+    "de": "Spaltenabschnitt einfügen"
+  },
+  "Insert a local image": {
+    "it": "Inserisci un'immagine locale",
+    "de": "Lokales Bild einfügen"
+  },
+  "Insert barcode": {
+    "it": "Inserisci codice a barre",
+    "de": "Strichcode einfügen"
+  },
+  "Insert blank page": {
+    "it": "Inserisci pagina vuota",
+    "de": "Leere Seite einfügen"
+  },
+  "Insert column section": {
+    "it": "Inserisci sezione a colonne",
+    "de": "Spaltenabschnitt einfügen"
+  },
+  "Insert files": {
+    "it": "Inserisci file",
+    "de": "Dateien einfügen"
+  },
+  "Insert page break": {
+    "it": "Inserisci interruzione di pagina",
+    "de": "Seitenumbruch einfügen"
+  },
+  "Insert QR code": {
+    "it": "Inserisci codice QR",
+    "de": "QR-Code einfügen"
+  },
+  "Insert signature": {
+    "it": "Inserisci firma",
+    "de": "Unterschrift einfügen"
+  },
+  "Insert visual signature": {
+    "it": "Inserisci firma visiva",
+    "de": "Sichtbare Unterschrift einfügen"
+  },
+  "Inserting pages": {
+    "it": "Inserimento pagine",
+    "de": "Seiten werden eingefügt"
+  },
+  "Inspecting pages": {
+    "it": "Ispezione pagine",
+    "de": "Seiten werden geprüft"
+  },
+  "Inspecting PDF": {
+    "it": "Ispezione PDF",
+    "de": "PDF wird geprüft"
+  },
+  "Install extensions for the PHP version serving this page (": {
+    "it": "Installa le estensioni per la versione PHP che gestisce questa pagina (",
+    "de": "Installieren Sie Erweiterungen für die PHP-Version dieser Seite ("
+  },
+  "Installation commands copied.": {
+    "it": "Comandi di installazione copiati.",
+    "de": "Installationsbefehle kopiert."
+  },
+  "Installed version:": {
+    "it": "Versione installata:",
+    "de": "Installierte Version:"
+  },
+  "Interactive fields are flattened when pages are reorganized or extracted. Their visible appearances are retained.": {
+    "it": "I campi interattivi diventano permanenti quando riorganizzi o estrai le pagine. Il loro aspetto visibile viene mantenuto.",
+    "de": "Interaktive Felder werden beim Neuordnen oder Extrahieren von Seiten abgeflacht. Ihr sichtbares Erscheinungsbild bleibt erhalten."
+  },
+  "Interface": {
+    "it": "Interfaccia",
+    "de": "Oberfläche"
+  },
+  "Interleaving and bookmarks require the browser engine.": {
+    "it": "L'alternanza e i segnalibri richiedono il motore browser.",
+    "de": "Abwechselnde Seiten und Lesezeichen benötigen die Browser-Engine."
+  },
+  "Interleaving requires exactly two PDF files.": {
+    "it": "Per alternare le pagine servono esattamente due file PDF.",
+    "de": "Für abwechselnde Seiten sind genau zwei PDF-Dateien erforderlich."
+  },
+  "Invalid drawing path.": {
+    "it": "Tracciato di disegno non valido.",
+    "de": "Ungültiger Zeichenpfad."
+  },
+  "Invalid polygon geometry.": {
+    "it": "Geometria del poligono non valida.",
+    "de": "Ungültige Polygongeometrie."
+  },
+  "Invalid processing parameter.": {
+    "it": "Parametro di elaborazione non valido.",
+    "de": "Ungültiger Verarbeitungsparameter."
+  },
+  "Invalid project page dimensions.": {
+    "it": "Dimensioni pagina del progetto non valide.",
+    "de": "Ungültige Projektseitengröße."
+  },
+  "Invalid project source.": {
+    "it": "Originale del progetto non valido.",
+    "de": "Ungültige Projektquelle."
+  },
+  "Invert": {
+    "it": "Inverti",
+    "de": "Umkehren"
+  },
+  "Invert selection": {
+    "it": "Inverti selezione",
+    "de": "Auswahl umkehren"
+  },
+  "is available": {
+    "it": "è disponibile",
+    "de": "ist verfügbar"
+  },
+  "is available. Open Check for updates to read what changed.": {
+    "it": "è disponibile. Apri Controlla aggiornamenti per leggere le novità.",
+    "de": "ist verfügbar. Öffnen Sie Nach Updates suchen, um die Änderungen zu lesen."
+  },
+  "Italic": {
+    "it": "Corsivo",
+    "de": "Kursiv"
+  },
+  "JPEG / WebP quality (1–100)": {
+    "it": "Qualità JPEG / WebP (1–100)",
+    "de": "JPEG- / WebP-Qualität (1–100)"
+  },
+  "JPEG quality": {
+    "it": "Qualità JPEG",
+    "de": "JPEG-Qualität"
+  },
+  "JPEG quality (10–100; Ghostscript)": {
+    "it": "Qualità JPEG (10–100; Ghostscript)",
+    "de": "JPEG-Qualität (10–100; Ghostscript)"
+  },
+  "JSON encoding failed:": {
+    "it": "Codifica JSON non riuscita:",
+    "de": "JSON-Kodierung fehlgeschlagen:"
+  },
+  "Justify": {
+    "it": "Giustifica",
+    "de": "Blocksatz"
+  },
+  "Keep paragraph": {
+    "it": "Mantieni paragrafo",
+    "de": "Absatz zusammenhalten"
+  },
+  "Keep paragraph on one page": {
+    "it": "Mantieni il paragrafo su una pagina",
+    "de": "Absatz auf einer Seite zusammenhalten"
+  },
+  "Keywords": {
+    "it": "Parole chiave",
+    "de": "Schlüsselwörter"
+  },
+  "Keywords (comma separated)": {
+    "it": "Parole chiave (separate da virgole)",
+    "de": "Schlüsselwörter (durch Kommas getrennt)"
+  },
+  "Landscape": {
+    "it": "Orizzontale",
+    "de": "Querformat"
+  },
+  "Language codes, joined by + (eng, ita, tha, deu, fra…)": {
+    "it": "Codici lingua uniti da + (eng, ita, tha, deu, fra…)",
+    "de": "Sprachcodes mit + verbinden (eng, ita, tha, deu, fra…)"
+  },
+  "Last": {
+    "it": "Ultima",
+    "de": "Letzte"
+  },
+  "Last successful check: {0}.": {
+    "it": "Ultimo controllo riuscito: {0}.",
+    "de": "Letzte erfolgreiche Prüfung: {0}."
+  },
+  "Layers": {
+    "it": "Livelli",
+    "de": "Ebenen"
+  },
+  "Layout": {
+    "it": "Layout",
+    "de": "Layout"
+  },
+  "Left": {
+    "it": "Sinistra",
+    "de": "Links"
+  },
+  "Left content": {
+    "it": "Contenuto a sinistra",
+    "de": "Inhalt links"
+  },
+  "Left position": {
+    "it": "Posizione a sinistra",
+    "de": "Linke Position"
+  },
+  "Left position (points from page left)": {
+    "it": "Posizione a sinistra (punti dal bordo sinistro)",
+    "de": "Linke Position (Punkte vom linken Seitenrand)"
+  },
+  "Left to right": {
+    "it": "Da sinistra a destra",
+    "de": "Links nach rechts"
+  },
+  "Legal (8.5 × 14 in)": {
+    "it": "Legal (8,5 × 14 pollici)",
+    "de": "Legal (8,5 × 14 Zoll)"
+  },
+  "Letter (8.5 × 11 in)": {
+    "it": "Letter (8,5 × 11 pollici)",
+    "de": "Letter (8,5 × 11 Zoll)"
+  },
+  "Letter spacing (1/1000 em)": {
+    "it": "Spaziatura caratteri (1/1000 em)",
+    "de": "Zeichenabstand (1/1000 em)"
+  },
+  "LibreOffice is installed; PHP ZIP and DOM extensions are also required for safe Office validation.": {
+    "it": "LibreOffice è installato; per convalidare i file Office in sicurezza servono anche le estensioni PHP ZIP e DOM.",
+    "de": "LibreOffice ist installiert; für die sichere Prüfung von Office-Dateien sind außerdem die PHP-Erweiterungen ZIP und DOM erforderlich."
+  },
+  "Light / 300 DPI": {
+    "it": "Leggera / 300 DPI",
+    "de": "Leicht / 300 DPI"
+  },
+  "Line": {
+    "it": "Linea",
+    "de": "Linie"
+  },
+  "Line spacing (multiplier)": {
+    "it": "Interlinea (moltiplicatore)",
+    "de": "Zeilenabstand (Multiplikator)"
+  },
+  "Linearizing PDF": {
+    "it": "Linearizzazione PDF",
+    "de": "PDF wird linearisiert"
+  },
+  "Link": {
+    "it": "Collegamento",
+    "de": "Link"
+  },
+  "Link region": {
+    "it": "Area collegamento",
+    "de": "Linkbereich"
+  },
+  "Links must use http or https.": {
+    "it": "I collegamenti devono usare http o https.",
+    "de": "Links müssen http oder https verwenden."
+  },
+  "Live preview of current page": {
+    "it": "Anteprima della pagina corrente",
+    "de": "Live-Vorschau der aktuellen Seite"
+  },
+  "Loading PDF tools…": {
+    "it": "Caricamento strumenti PDF…",
+    "de": "PDF-Werkzeuge werden geladen…"
+  },
+  "Local autosave cleared.": {
+    "it": "Salvataggio automatico locale cancellato.",
+    "de": "Lokale automatische Sicherung gelöscht."
+  },
+  "Local browser / PDF.js": {
+    "it": "Browser locale / PDF.js",
+    "de": "Lokaler Browser / PDF.js"
+  },
+  "Local browser / Tesseract.js": {
+    "it": "Browser locale / Tesseract.js",
+    "de": "Lokaler Browser / Tesseract.js"
+  },
+  "Local image": {
+    "it": "Immagine locale",
+    "de": "Lokales Bild"
+  },
+  "Local processing by default": {
+    "it": "Elaborazione locale predefinita",
+    "de": "Standardmäßig lokale Verarbeitung"
+  },
+  "Locally in your browser": {
+    "it": "Localmente nel browser",
+    "de": "Lokal im Browser"
+  },
+  "Locally in your browser unless you explicitly select a server engine. Interactive forms are flattened before browser merging.": {
+    "it": "Localmente nel browser, salvo scelta esplicita di un motore server. Prima dell'unione nel browser i moduli interattivi diventano permanenti.",
+    "de": "Lokal im Browser, sofern Sie nicht ausdrücklich eine Server-Engine wählen. Interaktive Formulare werden vor der Zusammenführung im Browser abgeflacht."
+  },
+  "Lock": {
+    "it": "Blocca",
+    "de": "Sperren"
+  },
+  "Lossless / qpdf structural optimization": {
+    "it": "Senza perdita / ottimizzazione struttura qpdf",
+    "de": "Verlustfrei / qpdf-Strukturoptimierung"
+  },
+  "Lossless optimization compresses streams and restructures objects; it does not recompress images. Ghostscript image presets can reduce resolution and affect fonts, forms, transparency and annotations. Compression may increase the size of an already optimized file.": {
+    "it": "L'ottimizzazione senza perdita comprime i flussi e riorganizza gli oggetti; non ricomprime le immagini. I profili Ghostscript possono ridurre la risoluzione e influire su caratteri, moduli, trasparenze e annotazioni. Un file già ottimizzato può diventare più grande.",
+    "de": "Verlustfreie Optimierung komprimiert Datenströme und ordnet Objekte neu; Bilder werden nicht neu komprimiert. Ghostscript-Profile können die Auflösung reduzieren und Schriften, Formulare, Transparenz und Anmerkungen beeinflussen. Eine bereits optimierte Datei kann dadurch größer werden."
+  },
+  "Lossy image compression": {
+    "it": "Compressione immagini con perdita",
+    "de": "Verlustbehaftete Bildkomprimierung"
+  },
+  "Low-resolution printing": {
+    "it": "Stampa a bassa risoluzione",
+    "de": "Drucken mit niedriger Auflösung"
+  },
+  "Make every PDF work for you.": {
+    "it": "Tutto ciò che serve per i tuoi PDF.",
+    "de": "Alles für Ihre PDFs."
+  },
+  "Margin": {
+    "it": "Margine",
+    "de": "Rand"
+  },
+  "margin (mm)": {
+    "it": "margine (mm)",
+    "de": "Rand (mm)"
+  },
+  "Margin (PDF points)": {
+    "it": "Margine (punti PDF)",
+    "de": "Rand (PDF-Punkte)"
+  },
+  "Margin (points)": {
+    "it": "Margine (punti)",
+    "de": "Rand (Punkte)"
+  },
+  "Margins / gap (mm)": {
+    "it": "Margini / spazio (mm)",
+    "de": "Ränder / Abstand (mm)"
+  },
+  "Margins and spacing leave no usable cell area.": {
+    "it": "Margini e spaziatura non lasciano un'area utile nelle celle.",
+    "de": "Ränder und Abstände lassen keine nutzbare Zellenfläche übrig."
+  },
+  "Margins leave no space for the images.": {
+    "it": "I margini non lasciano spazio per le immagini.",
+    "de": "Die Ränder lassen keinen Platz für die Bilder."
+  },
+  "Margins must leave at least 20 mm of usable page width and height.": {
+    "it": "I margini devono lasciare almeno 20 mm di larghezza e altezza utili.",
+    "de": "Die Ränder müssen mindestens 20 mm nutzbare Breite und Höhe übrig lassen."
+  },
+  "Match found": {
+    "it": "Corrispondenza trovata",
+    "de": "Treffer gefunden"
+  },
+  "Maximum / 72 DPI": {
+    "it": "Massima / 72 DPI",
+    "de": "Maximal / 72 DPI"
+  },
+  "MB limit.": {
+    "it": "limite MB.",
+    "de": "MB-Grenze."
+  },
+  "Measuring page groups": {
+    "it": "Misurazione gruppi di pagine",
+    "de": "Seitengruppen werden gemessen"
+  },
+  "Medium / 150 DPI": {
+    "it": "Media / 150 DPI",
+    "de": "Mittel / 150 DPI"
+  },
+  "Merge": {
+    "it": "Unisci",
+    "de": "Zusammenführen"
+  },
+  "Merge documents": {
+    "it": "Unisci documenti",
+    "de": "Dokumente zusammenführen"
+  },
+  "Merge files": {
+    "it": "Unisci file",
+    "de": "Dateien zusammenführen"
+  },
+  "Merge order": {
+    "it": "Ordine di unione",
+    "de": "Reihenfolge beim Zusammenführen"
+  },
+  "Merged PDF exceeds the configured page limit.": {
+    "it": "Il PDF unito supera il limite di pagine configurato.",
+    "de": "Das zusammengeführte PDF überschreitet die eingerichtete Seitengrenze."
+  },
+  "Merging documents": {
+    "it": "Unione documenti",
+    "de": "Dokumente werden zusammengeführt"
+  },
+  "Metadata": {
+    "it": "Metadati",
+    "de": "Metadaten"
+  },
+  "Metadata cleaning removes document properties and XMP. It does not remove visible page text, attachments, annotations or hidden cropped content.": {
+    "it": "La pulizia dei metadati elimina le proprietà del documento e gli XMP. Non elimina testo visibile, allegati, annotazioni o contenuto nascosto dal ritaglio.",
+    "de": "Die Metadatenbereinigung entfernt Dokumenteigenschaften und XMP. Sie entfernt weder sichtbaren Seitentext noch Anhänge, Anmerkungen oder durch Zuschnitt verdeckten Inhalt."
+  },
+  "Modification date (UTC)": {
+    "it": "Data di modifica (UTC)",
+    "de": "Änderungsdatum (UTC)"
+  },
+  "mPDF · strong paged documents": {
+    "it": "mPDF · documenti impaginati",
+    "de": "mPDF · gute Seitenformatierung"
+  },
+  "Multiline text": {
+    "it": "Testo su più righe",
+    "de": "Mehrzeiliger Text"
+  },
+  "must be between": {
+    "it": "deve essere compreso tra",
+    "de": "muss liegen zwischen"
+  },
+  "N pages / maximum MiB (depending on method)": {
+    "it": "N pagine / massimo MiB (in base al metodo)",
+    "de": "N Seiten / maximale MiB (je nach Methode)"
+  },
+  "N-up / contact sheet": {
+    "it": "N-up / foglio di contatto",
+    "de": "N-up / Kontaktbogen"
+  },
+  "Named anchor": {
+    "it": "Ancora con nome",
+    "de": "Benannte Textmarke"
+  },
+  "New": {
+    "it": "Nuovo",
+    "de": "Neu"
+  },
+  "New document": {
+    "it": "Nuovo documento",
+    "de": "Neues Dokument"
+  },
+  "Next": {
+    "it": "Successiva",
+    "de": "Weiter"
+  },
+  "Next comparison page": {
+    "it": "Pagina successiva di confronto",
+    "de": "Nächste Vergleichsseite"
+  },
+  "No AcroForm fields were found.": {
+    "it": "Nessun campo AcroForm trovato.",
+    "de": "Keine AcroForm-Felder gefunden."
+  },
+  "No AcroForm fields were found. Use Create form field to add one.": {
+    "it": "Nessun campo AcroForm trovato. Usa Crea campo modulo per aggiungerne uno.",
+    "de": "Keine AcroForm-Felder gefunden. Verwenden Sie Formularfeld erstellen, um eines hinzuzufügen."
+  },
+  "No corresponding page in PDF A.": {
+    "it": "Nessuna pagina corrispondente nel PDF A.",
+    "de": "Keine entsprechende Seite in PDF A."
+  },
+  "No corresponding page in PDF B.": {
+    "it": "Nessuna pagina corrispondente nel PDF B.",
+    "de": "Keine entsprechende Seite in PDF B."
+  },
+  "No diagnostic output.": {
+    "it": "Nessun risultato diagnostico.",
+    "de": "Keine Diagnoseausgabe."
+  },
+  "No document open": {
+    "it": "Nessun documento aperto",
+    "de": "Kein Dokument geöffnet"
+  },
+  "No embedded images were found in this PDF.": {
+    "it": "Nessuna immagine incorporata trovata in questo PDF.",
+    "de": "In diesem PDF wurden keine eingebetteten Bilder gefunden."
+  },
+  "No embedded text": {
+    "it": "Nessun testo incorporato",
+    "de": "Kein eingebetteter Text"
+  },
+  "No embedded text on these pages. Run OCR before comparing text.": {
+    "it": "Nessun testo incorporato in queste pagine. Esegui l'OCR prima di confrontare il testo.",
+    "de": "Auf diesen Seiten gibt es keinen eingebetteten Text. Führen Sie vor dem Textvergleich OCR aus."
+  },
+  "No encryption detected in loaded input": {
+    "it": "Nessuna cifratura rilevata nel file caricato",
+    "de": "Keine Verschlüsselung in der geladenen Datei erkannt"
+  },
+  "No installation guide is available for this dependency.": {
+    "it": "Nessuna guida di installazione disponibile per questa dipendenza.",
+    "de": "Für diese Abhängigkeit ist keine Installationsanleitung verfügbar."
+  },
+  "No local autosave is available.": {
+    "it": "Nessun salvataggio automatico locale disponibile.",
+    "de": "Keine lokale automatische Sicherung verfügbar."
+  },
+  "No matches": {
+    "it": "Nessuna corrispondenza",
+    "de": "Keine Treffer"
+  },
+  "No output pages were selected.": {
+    "it": "Nessuna pagina selezionata per il risultato.",
+    "de": "Keine Ausgabeseiten ausgewählt."
+  },
+  "No PDF open": {
+    "it": "Nessun PDF aperto",
+    "de": "Kein PDF geöffnet"
+  },
+  "No PDF or supported image files were selected.": {
+    "it": "Nessun PDF o file immagine supportato selezionato.",
+    "de": "Keine PDFs oder unterstützten Bilddateien ausgewählt."
+  },
+  "No top-level bookmarks were found.": {
+    "it": "Nessun segnalibro di primo livello trovato.",
+    "de": "Keine Lesezeichen der obersten Ebene gefunden."
+  },
+  "No usable sandbox": {
+    "it": "Nessuna sandbox utilizzabile",
+    "de": "Keine nutzbare Sandbox"
+  },
+  "None detected": {
+    "it": "Nessuno rilevato",
+    "de": "Keine erkannt"
+  },
+  "Note text": {
+    "it": "Testo nota",
+    "de": "Notiztext"
+  },
+  "Number format": {
+    "it": "Formato numeri",
+    "de": "Zahlenformat"
+  },
+  "Number of sides": {
+    "it": "Numero di lati",
+    "de": "Anzahl der Seiten"
+  },
+  "Number width": {
+    "it": "Larghezza numero",
+    "de": "Zahlenbreite"
+  },
+  "Number width (zero padding)": {
+    "it": "Larghezza numero (zeri iniziali)",
+    "de": "Zahlenbreite (führende Nullen)"
+  },
+  "Numbering pages": {
+    "it": "Numerazione pagine",
+    "de": "Seiten werden nummeriert"
+  },
+  "Object properties": {
+    "it": "Proprietà oggetto",
+    "de": "Objekteigenschaften"
+  },
+  "OCR completed": {
+    "it": "OCR completato",
+    "de": "OCR abgeschlossen"
+  },
+  "Odd pages / even pages": {
+    "it": "Pagine dispari / pagine pari",
+    "de": "Ungerade Seiten / gerade Seiten"
+  },
+  "of {3}": {
+    "it": "di {3}",
+    "de": "von {3}"
+  },
+  "Office archive security inspection": {
+    "it": "Controllo sicurezza archivio Office",
+    "de": "Office-Archiv wird auf Sicherheit geprüft"
+  },
+  "Office conversion accepts DOCX, ODT, XLSX and PPTX files.": {
+    "it": "La conversione Office accetta file DOCX, ODT, XLSX e PPTX.",
+    "de": "Die Office-Konvertierung akzeptiert DOCX-, ODT-, XLSX- und PPTX-Dateien."
+  },
+  "Office conversion also needs the PHP ZIP and DOM extensions.": {
+    "it": "La conversione Office richiede anche le estensioni PHP ZIP e DOM.",
+    "de": "Die Office-Konvertierung benötigt außerdem die PHP-Erweiterungen ZIP und DOM."
+  },
+  "Office to PDF": {
+    "it": "Da Office a PDF",
+    "de": "Office in PDF"
+  },
+  "On current Ubuntu releases this installs Chromium through Snap. The PHP service must be able to launch it and access its private temporary job directory; Snap confinement can require additional server configuration.": {
+    "it": "Nelle versioni Ubuntu attuali viene installato Chromium tramite Snap. Il servizio PHP deve poterlo avviare e accedere alla cartella temporanea privata del lavoro; l'isolamento Snap può richiedere configurazioni aggiuntive del server.",
+    "de": "Aktuelle Ubuntu-Versionen installieren Chromium über Snap. Der PHP-Dienst muss es starten und auf das private temporäre Arbeitsverzeichnis zugreifen können; die Snap-Isolation kann zusätzliche Serverkonfiguration erfordern."
+  },
+  "On the server": {
+    "it": "Sul server",
+    "de": "Auf dem Server"
+  },
+  "On the server · document uploaded only when exporting": {
+    "it": "Sul server · il documento viene caricato solo all'esportazione",
+    "de": "Auf dem Server · Dokument wird erst beim Export hochgeladen"
+  },
+  "Opacity": {
+    "it": "Opacità",
+    "de": "Deckkraft"
+  },
+  "Opacity (0–100)": {
+    "it": "Opacità (0–100)",
+    "de": "Deckkraft (0–100)"
+  },
+  "Open": {
+    "it": "Apri",
+    "de": "Öffnen"
+  },
+  "Open a PDF or create pages first.": {
+    "it": "Prima apri un PDF oppure crea delle pagine.",
+    "de": "Öffnen Sie zuerst ein PDF oder erstellen Sie Seiten."
+  },
+  "Open a PDF to use": {
+    "it": "Apri un PDF per usare",
+    "de": "Öffnen Sie ein PDF für"
+  },
+  "Open PDFs or images": {
+    "it": "Apri PDF o immagini",
+    "de": "PDFs oder Bilder öffnen"
+  },
+  "Open project": {
+    "it": "Apri progetto",
+    "de": "Projekt öffnen"
+  },
+  "Open this tool": {
+    "it": "Apri questo strumento",
+    "de": "Dieses Werkzeug öffnen"
+  },
+  "Open What's new at any time to review the release history.": {
+    "it": "Apri Novità in qualsiasi momento per rivedere la cronologia delle versioni.",
+    "de": "Öffnen Sie jederzeit Neuigkeiten, um die Versionsgeschichte zu lesen."
+  },
+  "Opening comparison PDFs": {
+    "it": "Apertura PDF per il confronto",
+    "de": "Vergleichs-PDFs werden geöffnet"
+  },
+  "Opening documents": {
+    "it": "Apertura documenti",
+    "de": "Dokumente werden geöffnet"
+  },
+  "Opening project": {
+    "it": "Apertura progetto",
+    "de": "Projekt wird geöffnet"
+  },
+  "Operation cancelled.": {
+    "it": "Operazione annullata.",
+    "de": "Vorgang abgebrochen."
+  },
+  "operation exceeded the server time limit. Try fewer pages or a smaller file.": {
+    "it": "ha superato il tempo limite del server. Prova meno pagine o un file più piccolo.",
+    "de": "hat das Server-Zeitlimit überschritten. Versuchen Sie weniger Seiten oder eine kleinere Datei."
+  },
+  "operation failed. The document may be malformed, unsupported, or password protected.": {
+    "it": "non riuscita. Il documento potrebbe essere danneggiato, non supportato o protetto da password.",
+    "de": "fehlgeschlagen. Das Dokument ist möglicherweise beschädigt, wird nicht unterstützt oder ist passwortgeschützt."
+  },
+  "Operation progress": {
+    "it": "Avanzamento operazione",
+    "de": "Vorgangsfortschritt"
+  },
+  "Optimize": {
+    "it": "Ottimizza",
+    "de": "Optimieren"
+  },
+  "Optional damaged PDF (leave empty to use the open document)": {
+    "it": "PDF danneggiato facoltativo (vuoto per usare il documento aperto)",
+    "de": "Optionales beschädigtes PDF (leer lassen für das geöffnete Dokument)"
+  },
+  "Optional PDF (leave empty to validate the open document)": {
+    "it": "PDF facoltativo (vuoto per convalidare il documento aperto)",
+    "de": "Optionales PDF (leer lassen für die Prüfung des geöffneten Dokuments)"
+  },
+  "Options (one per line; radio/dropdown only)": {
+    "it": "Opzioni (una per riga; solo radio/menu a discesa)",
+    "de": "Optionen (eine pro Zeile; nur Optionsfelder/Auswahlliste)"
+  },
+  "Options may be separated with commas. Radio options are stacked with 28-point spacing. Signature images are available under Fill & Sign; cryptographic signature fields require a signing engine.": {
+    "it": "Le opzioni possono essere separate da virgole. I pulsanti radio sono disposti con 28 punti di distanza. Le immagini di firma sono disponibili in Compila e firma; i campi di firma crittografica richiedono un motore di firma.",
+    "de": "Optionen können durch Kommas getrennt werden. Optionsfelder werden mit 28 Punkten Abstand angeordnet. Unterschriftsbilder finden Sie unter Ausfüllen und unterschreiben; kryptografische Signaturfelder benötigen eine Signatur-Engine."
+  },
+  "or click to browse · Files stay local until you choose a server operation": {
+    "it": "oppure fai clic per scegliere · I file restano locali finché non scegli un'operazione server",
+    "de": "oder zum Auswählen klicken · Dateien bleiben lokal, bis Sie eine Serveroperation wählen"
+  },
+  "Or type a signature": {
+    "it": "Oppure digita una firma",
+    "de": "Oder Unterschrift tippen"
+  },
+  "Or upload an image": {
+    "it": "Oppure carica un'immagine",
+    "de": "Oder Bild hochladen"
+  },
+  "Organize": {
+    "it": "Organizza",
+    "de": "Organisieren"
+  },
+  "Organize pages": {
+    "it": "Organizza pagine",
+    "de": "Seiten organisieren"
+  },
+  "Orientation": {
+    "it": "Orientamento",
+    "de": "Ausrichtung"
+  },
+  "Original encryption": {
+    "it": "Cifratura originale",
+    "de": "Ursprüngliche Verschlüsselung"
+  },
+  "Original PDF files are required to reopen this project.": {
+    "it": "Per riaprire questo progetto servono i PDF originali.",
+    "de": "Zum erneuten Öffnen dieses Projekts werden die Original-PDFs benötigt."
+  },
+  "Outer margin (points)": {
+    "it": "Margine esterno (punti)",
+    "de": "Außenrand (Punkte)"
+  },
+  "Outlines": {
+    "it": "Segnalibri",
+    "de": "Lesezeichen"
+  },
+  "Output": {
+    "it": "Risultato",
+    "de": "Ausgabe"
+  },
+  "Owner password (permissions / editing)": {
+    "it": "Password proprietario (permessi / modifica)",
+    "de": "Eigentümerpasswort (Berechtigungen / Bearbeitung)"
+  },
+  "Padding": {
+    "it": "Spaziatura interna",
+    "de": "Innenabstand"
+  },
+  "Page": {
+    "it": "Pagina",
+    "de": "Seite"
+  },
+  "Page {0} of {1} · {2}%": {
+    "it": "Pagina {0} di {1} · {2}%",
+    "de": "Seite {0} von {1} · {2}%"
+  },
+  "Page {1}": {
+    "it": "Pagina {1}",
+    "de": "Seite {1}"
+  },
+  "Page {4}": {
+    "it": "Pagina {4}",
+    "de": "Seite {4}"
+  },
+  "Page {n} of {total}": {
+    "it": "Pagina {n} di {total}",
+    "de": "Seite {n} von {total}"
+  },
+  "Page background": {
+    "it": "Sfondo pagina",
+    "de": "Seitenhintergrund"
+  },
+  "Page border color": {
+    "it": "Colore bordo pagina",
+    "de": "Seitenrahmenfarbe"
+  },
+  "Page border width (pt, 0 = none)": {
+    "it": "Spessore bordo pagina (pt, 0 = nessuno)",
+    "de": "Seitenrahmenbreite (pt, 0 = keiner)"
+  },
+  "Page content remains vector-based. Form fields are flattened. PDF comment, highlight and link annotations are omitted on resized pages; editable overlays are already included in page content.": {
+    "it": "Il contenuto resta vettoriale. I campi modulo diventano permanenti. Commenti PDF, evidenziazioni e collegamenti vengono omessi nelle pagine ridimensionate; le sovrapposizioni modificabili sono già incluse nel contenuto.",
+    "de": "Der Seiteninhalt bleibt vektorbasiert. Formularfelder werden abgeflacht. PDF-Kommentare, Hervorhebungen und Verknüpfungen werden auf Seiten mit geänderter Größe weggelassen; bearbeitbare Überlagerungen sind bereits Teil des Seiteninhalts."
+  },
+  "Page count exceeds the configured limit.": {
+    "it": "Il numero di pagine supera il limite configurato.",
+    "de": "Die Seitenzahl überschreitet die eingerichtete Grenze."
+  },
+  "Page dimensions must be between 12.7 and 1764 mm.": {
+    "it": "Le dimensioni pagina devono essere comprese tra 12,7 e 1764 mm.",
+    "de": "Seitengrößen müssen zwischen 12,7 und 1764 mm liegen."
+  },
+  "Page height": {
+    "it": "Altezza pagina",
+    "de": "Seitenhöhe"
+  },
+  "Page height (mm)": {
+    "it": "Altezza pagina (mm)",
+    "de": "Seitenhöhe (mm)"
+  },
+  "page limit.": {
+    "it": "limite di pagine.",
+    "de": "Seitengrenze."
+  },
+  "Page limits": {
+    "it": "Limiti di pagine",
+    "de": "Seitengrenzen"
+  },
+  "Page margins must be between 0 and 100 mm.": {
+    "it": "I margini pagina devono essere compresi tra 0 e 100 mm.",
+    "de": "Seitenränder müssen zwischen 0 und 100 mm liegen."
+  },
+  "Page number": {
+    "it": "Numero pagina",
+    "de": "Seitenzahl"
+  },
+  "Page order": {
+    "it": "Ordine pagine",
+    "de": "Seitenreihenfolge"
+  },
+  "Page ordering": {
+    "it": "Ordine delle pagine",
+    "de": "Seitenanordnung"
+  },
+  "Page range for {3}": {
+    "it": "Intervallo pagine per {3}",
+    "de": "Seitenbereich für {3}"
+  },
+  "Page range is outside this document (1–": {
+    "it": "L'intervallo è fuori dal documento (1–",
+    "de": "Der Seitenbereich liegt außerhalb des Dokuments (1–"
+  },
+  "Page ranges": {
+    "it": "Intervalli di pagine",
+    "de": "Seitenbereiche"
+  },
+  "Page rasterization for OCR": {
+    "it": "Conversione pagine in immagini per OCR",
+    "de": "Seitenrasterung für OCR"
+  },
+  "Page size": {
+    "it": "Dimensioni pagina",
+    "de": "Seitengröße"
+  },
+  "Page size, margins, columns": {
+    "it": "Dimensioni pagina, margini, colonne",
+    "de": "Seitengröße, Ränder, Spalten"
+  },
+  "Page width": {
+    "it": "Larghezza pagina",
+    "de": "Seitenbreite"
+  },
+  "Page width (mm)": {
+    "it": "Larghezza pagina (mm)",
+    "de": "Seitenbreite (mm)"
+  },
+  "Pages": {
+    "it": "Pagine",
+    "de": "Seiten"
+  },
+  "Pages / PDF version": {
+    "it": "Pagine / versione PDF",
+    "de": "Seiten / PDF-Version"
+  },
+  "pages; the server limit is": {
+    "it": "pagine; il limite del server è",
+    "de": "Seiten; die Servergrenze ist"
+  },
+  "Pages: all, odd, even, or ranges such as 1-4,7": {
+    "it": "Pagine: tutte, dispari, pari oppure intervalli come 1-4,7",
+    "de": "Seiten: alle, ungerade, gerade oder Bereiche wie 1-4,7"
+  },
+  "Paper preview: {6} × {7} mm. Use Print for final pagination; the browser's print dialog can save PDF. Enable background graphics, use 100% scale and turn off browser headers/footers.": {
+    "it": "Anteprima foglio: {6} × {7} mm. Usa Stampa per la paginazione finale; nella finestra del browser puoi salvare in PDF. Abilita la grafica di sfondo, usa scala 100% e disattiva intestazioni e piè di pagina del browser.",
+    "de": "Papiervorschau: {6} × {7} mm. Verwenden Sie Drucken für die endgültige Seiteneinteilung; im Browserdialog können Sie als PDF speichern. Aktivieren Sie Hintergrundgrafiken, verwenden Sie 100 % Skalierung und deaktivieren Sie Browser-Kopf- und Fußzeilen."
+  },
+  "Paper size": {
+    "it": "Formato carta",
+    "de": "Papierformat"
+  },
+  "Paragraph": {
+    "it": "Paragrafo",
+    "de": "Absatz"
+  },
+  "Paragraph format": {
+    "it": "Formato paragrafo",
+    "de": "Absatzformat"
+  },
+  "Paragraph spacing and direction": {
+    "it": "Spaziatura e direzione del paragrafo",
+    "de": "Absatzabstand und Schreibrichtung"
+  },
+  "Password to open (user password)": {
+    "it": "Password di apertura (utente)",
+    "de": "Öffnungspasswort (Benutzerpasswort)"
+  },
+  "Passwords are sent only for this operation. If the owner password is empty, the server generates one. PDF permission flags depend on the reader and do not provide DRM-grade protection.": {
+    "it": "Le password vengono inviate solo per questa operazione. Se la password proprietario è vuota, il server ne genera una. I permessi PDF dipendono dal lettore e non offrono protezione di livello DRM.",
+    "de": "Passwörter werden nur für diesen Vorgang übertragen. Ist das Eigentümerpasswort leer, erzeugt der Server eines. PDF-Berechtigungen hängen vom Leseprogramm ab und bieten keinen DRM-Schutz."
+  },
+  "Passwords must contain at most 256 bytes and no line breaks.": {
+    "it": "Le password possono contenere al massimo 256 byte e nessuna interruzione di riga.",
+    "de": "Passwörter dürfen höchstens 256 Bytes und keine Zeilenumbrüche enthalten."
+  },
+  "PDF A embedded text": {
+    "it": "Testo incorporato PDF A",
+    "de": "Eingebetteter Text in PDF A"
+  },
+  "PDF B embedded text": {
+    "it": "Testo incorporato PDF B",
+    "de": "Eingebetteter Text in PDF B"
+  },
+  "PDF diagnostics": {
+    "it": "Diagnostica PDF",
+    "de": "PDF-Diagnose"
+  },
+  "PDF editing": {
+    "it": "Modifica PDF",
+    "de": "PDF-Bearbeitung"
+  },
+  "PDF engine": {
+    "it": "Motore PDF",
+    "de": "PDF-Engine"
+  },
+  "PDF export accepts embedded PNG, JPEG, GIF and WebP images only. Remote and SVG resources are not fetched.": {
+    "it": "L'esportazione PDF accetta solo immagini PNG, JPEG, GIF e WebP incorporate. Le risorse remote e SVG non vengono scaricate.",
+    "de": "Der PDF-Export akzeptiert nur eingebettete PNG-, JPEG-, GIF- und WebP-Bilder. Externe und SVG-Ressourcen werden nicht geladen."
+  },
+  "PDF export permits inline document styles and embedded images only. Remove external fonts, URLs or executable CSS.": {
+    "it": "L'esportazione PDF consente solo stili documento in linea e immagini incorporate. Rimuovi caratteri esterni, URL o CSS eseguibile.",
+    "de": "Der PDF-Export erlaubt nur eingebettete Dokumentstile und Bilder. Entfernen Sie externe Schriften, URLs oder ausführbares CSS."
+  },
+  "PDF generation library detected": {
+    "it": "Libreria di generazione PDF rilevata",
+    "de": "PDF-Erstellungsbibliothek erkannt"
+  },
+  "PDF metadata": {
+    "it": "Metadati PDF",
+    "de": "PDF-Metadaten"
+  },
+  "PDF overlays and visual signatures": {
+    "it": "Sovrapposizioni PDF e firme visive",
+    "de": "PDF-Überlagerungen und sichtbare Unterschriften"
+  },
+  "PDF page": {
+    "it": "Pagina PDF",
+    "de": "PDF-Seite"
+  },
+  "PDF rendering could not load:": {
+    "it": "Impossibile caricare il rendering PDF:",
+    "de": "PDF-Rendering konnte nicht geladen werden:"
+  },
+  "PDF Studio home": {
+    "it": "Home PDF Studio",
+    "de": "PDF Studio Start"
+  },
+  "PDF Studio JSON · document source, settings and metadata": {
+    "it": "PDF Studio JSON · sorgente documento, impostazioni e metadati",
+    "de": "PDF Studio JSON · Dokumentquelle, Einstellungen und Metadaten"
+  },
+  "PDF Studio requires PHP 7.2 or newer.": {
+    "it": "PDF Studio richiede PHP 7.2 o successivo.",
+    "de": "PDF Studio benötigt PHP 7.2 oder neuer."
+  },
+  "PDF Studio updates": {
+    "it": "Aggiornamenti PDF Studio",
+    "de": "PDF Studio Updates"
+  },
+  "PDF to images": {
+    "it": "Da PDF a immagini",
+    "de": "PDF in Bilder"
+  },
+  "PDF validation report": {
+    "it": "Rapporto di convalida PDF",
+    "de": "PDF-Prüfbericht"
+  },
+  "PDF viewer": {
+    "it": "Visualizzatore PDF",
+    "de": "PDF-Anzeige"
+  },
+  "PDF.js and pdf-lib are required. Check the library loading errors.": {
+    "it": "Sono necessari PDF.js e pdf-lib. Controlla gli errori di caricamento delle librerie.",
+    "de": "PDF.js und pdf-lib werden benötigt. Prüfen Sie die Fehler beim Laden der Bibliotheken."
+  },
+  "PDF.js successfully parsed all pages. Run server Validate PDF for structural diagnostics when qpdf is available.": {
+    "it": "PDF.js ha letto tutte le pagine. Se qpdf è disponibile, esegui Convalida PDF sul server per la diagnostica strutturale.",
+    "de": "PDF.js hat alle Seiten erfolgreich eingelesen. Führen Sie bei verfügbarem qpdf PDF prüfen auf dem Server für eine Strukturdiagnose aus."
+  },
+  "PHP Imagick (optional)": {
+    "it": "PHP Imagick (facoltativo)",
+    "de": "PHP Imagick (optional)"
+  },
+  "PHP proc_open is disabled. Ask the server administrator to enable it for this application; installing a package alone will not enable external tools.": {
+    "it": "PHP proc_open è disabilitato. Chiedi all'amministratore di abilitarlo per questa applicazione; installare un pacchetto non abilita da solo gli strumenti esterni.",
+    "de": "PHP proc_open ist deaktiviert. Bitten Sie den Serveradministrator, es für diese Anwendung zu aktivieren; die Paketinstallation allein aktiviert keine externen Werkzeuge."
+  },
+  "Place the text cursor in a table cell first. Insert tables with the table button in the editor toolbar.": {
+    "it": "Prima posiziona il cursore in una cella. Inserisci le tabelle con il pulsante tabella nella barra dell'editor.",
+    "de": "Setzen Sie den Textcursor zuerst in eine Tabellenzelle. Fügen Sie Tabellen über die Tabellenschaltfläche in der Editor-Symbolleiste ein."
+  },
+  "Placement": {
+    "it": "Posizionamento",
+    "de": "Platzierung"
+  },
+  "Plain text": {
+    "it": "Testo semplice",
+    "de": "Nur Text"
+  },
+  "Polygon": {
+    "it": "Poligono",
+    "de": "Polygon"
+  },
+  "Poppler extracts original embedded image streams without rendering entire pages. Images are downloaded as a ZIP; formats can include JPEG, PNG, TIFF, JBIG2 or JPEG 2000 depending on the source. Masks may be separate files.": {
+    "it": "Poppler estrae i flussi originali delle immagini incorporate senza renderizzare tutte le pagine. Le immagini vengono scaricate in ZIP; i formati possono includere JPEG, PNG, TIFF, JBIG2 o JPEG 2000 in base all'originale. Le maschere possono essere file separati.",
+    "de": "Poppler extrahiert die ursprünglichen eingebetteten Bilddaten, ohne ganze Seiten zu rendern. Bilder werden als ZIP heruntergeladen; je nach Quelle sind JPEG, PNG, TIFF, JBIG2 oder JPEG 2000 enthalten. Masken können separate Dateien sein."
+  },
+  "Poppler: embedded images": {
+    "it": "Poppler: immagini incorporate",
+    "de": "Poppler: eingebettete Bilder"
+  },
+  "Poppler: page rendering": {
+    "it": "Poppler: rendering pagine",
+    "de": "Poppler: Seitenrendering"
+  },
+  "Poppler: PDF information": {
+    "it": "Poppler: informazioni PDF",
+    "de": "Poppler: PDF-Informationen"
+  },
+  "Poppler: text extraction": {
+    "it": "Poppler: estrazione testo",
+    "de": "Poppler: Textextraktion"
+  },
+  "Portrait": {
+    "it": "Verticale",
+    "de": "Hochformat"
+  },
+  "Position": {
+    "it": "Posizione",
+    "de": "Position"
+  },
+  "Prefix": {
+    "it": "Prefisso",
+    "de": "Präfix"
+  },
+  "Preserve approximate line layout": {
+    "it": "Mantieni la disposizione approssimativa delle righe",
+    "de": "Ungefähre Zeilenanordnung erhalten"
+  },
+  "Prev": {
+    "it": "Precedente",
+    "de": "Zurück"
+  },
+  "Preview is still loading.": {
+    "it": "L'anteprima è ancora in caricamento.",
+    "de": "Die Vorschau wird noch geladen."
+  },
+  "Previous comparison page": {
+    "it": "Pagina precedente di confronto",
+    "de": "Vorherige Vergleichsseite"
+  },
+  "Print / Save PDF": {
+    "it": "Stampa / salva PDF",
+    "de": "Drucken / PDF speichern"
+  },
+  "Print preview": {
+    "it": "Anteprima stampa",
+    "de": "Druckvorschau"
+  },
+  "Print preview did not finish loading.": {
+    "it": "L'anteprima di stampa non ha completato il caricamento.",
+    "de": "Die Druckvorschau wurde nicht vollständig geladen."
+  },
+  "Printing": {
+    "it": "Stampa",
+    "de": "Drucken"
+  },
+  "Processing": {
+    "it": "Elaborazione",
+    "de": "Verarbeitung"
+  },
+  "Processing engine": {
+    "it": "Motore di elaborazione",
+    "de": "Verarbeitungs-Engine"
+  },
+  "Producer": {
+    "it": "Produttore",
+    "de": "Produzent"
+  },
+  "Project": {
+    "it": "Progetto",
+    "de": "Projekt"
+  },
+  "Project contains an unsupported overlay object.": {
+    "it": "Il progetto contiene un oggetto sovrapposto non supportato.",
+    "de": "Das Projekt enthält ein nicht unterstütztes Überlagerungsobjekt."
+  },
+  "Project contains invalid object geometry.": {
+    "it": "Il progetto contiene una geometria oggetto non valida.",
+    "de": "Das Projekt enthält ungültige Objektgeometrie."
+  },
+  "Project contains too many overlay objects.": {
+    "it": "Il progetto contiene troppi oggetti sovrapposti.",
+    "de": "Das Projekt enthält zu viele Überlagerungsobjekte."
+  },
+  "Project drawing is too complex.": {
+    "it": "Il disegno del progetto è troppo complesso.",
+    "de": "Die Projektzeichnung ist zu komplex."
+  },
+  "Project exceeds the configured limits.": {
+    "it": "Il progetto supera i limiti configurati.",
+    "de": "Das Projekt überschreitet die eingerichteten Grenzen."
+  },
+  "Project image is too large.": {
+    "it": "L'immagine del progetto è troppo grande.",
+    "de": "Das Projektbild ist zu groß."
+  },
+  "Project image sources must be embedded PNG/JPEG/WebP/GIF data.": {
+    "it": "Le immagini del progetto devono essere dati PNG/JPEG/WebP/GIF incorporati.",
+    "de": "Projektbilder müssen als PNG/JPEG/WebP/GIF-Daten eingebettet sein."
+  },
+  "Project references an invalid PDF page.": {
+    "it": "Il progetto fa riferimento a una pagina PDF non valida.",
+    "de": "Das Projekt verweist auf eine ungültige PDF-Seite."
+  },
+  "Protect PDF": {
+    "it": "Proteggi PDF",
+    "de": "PDF schützen"
+  },
+  "Protecting PDF": {
+    "it": "Protezione PDF",
+    "de": "PDF wird geschützt"
+  },
+  "qpdf attempts to recover cross-reference information and rewrites the PDF structure. Repair depends on the damage; missing page content cannot be recreated. The result is downloaded.": {
+    "it": "qpdf tenta di recuperare le informazioni dei riferimenti incrociati e riscrive la struttura PDF. La riparazione dipende dal danno; il contenuto mancante non può essere ricreato. Il risultato viene scaricato.",
+    "de": "qpdf versucht Querverweisinformationen wiederherzustellen und schreibt die PDF-Struktur neu. Die Reparatur hängt vom Schaden ab; fehlender Seiteninhalt kann nicht neu erstellt werden. Das Ergebnis wird heruntergeladen."
+  },
+  "qpdf reorganizes the document so a compatible reader can display its first page before downloading the entire file. Page content is preserved. The optimized PDF is downloaded.": {
+    "it": "qpdf riorganizza il documento per consentire a un lettore compatibile di mostrare la prima pagina prima del download completo. Il contenuto viene mantenuto. Il PDF ottimizzato viene scaricato.",
+    "de": "qpdf ordnet das Dokument so neu, dass ein kompatibles Leseprogramm die erste Seite vor dem vollständigen Download anzeigen kann. Der Seiteninhalt bleibt erhalten. Das optimierte PDF wird heruntergeladen."
+  },
+  "qpdf reported no structural errors.": {
+    "it": "qpdf non ha segnalato errori strutturali.",
+    "de": "qpdf hat keine Strukturfehler gemeldet."
+  },
+  "qpdf reported structural errors.": {
+    "it": "qpdf ha segnalato errori strutturali.",
+    "de": "qpdf hat Strukturfehler gemeldet."
+  },
+  "qpdf reported structural warnings.": {
+    "it": "qpdf ha segnalato avvisi strutturali.",
+    "de": "qpdf hat Strukturwarnungen gemeldet."
+  },
+  "QR code": {
+    "it": "Codice QR",
+    "de": "QR-Code"
+  },
+  "QR code canvas could not be generated.": {
+    "it": "Impossibile generare il codice QR.",
+    "de": "Der QR-Code konnte nicht erstellt werden."
+  },
+  "QR text or URL": {
+    "it": "Testo o URL del codice QR",
+    "de": "QR-Text oder URL"
+  },
+  "Quality": {
+    "it": "Qualità",
+    "de": "Qualität"
+  },
+  "Quotation": {
+    "it": "Citazione",
+    "de": "Zitat"
+  },
+  "Quote": {
+    "it": "Citazione",
+    "de": "Zitat"
+  },
+  "Radio group": {
+    "it": "Gruppo radio",
+    "de": "Optionsfeldgruppe"
+  },
+  "Range": {
+    "it": "Intervallo",
+    "de": "Bereich"
+  },
+  "Raster comparison at 120 DPI. Magenta marks pixel differences. Text comparison uses embedded words; layout and reading-order differences can affect it.": {
+    "it": "Confronto immagini a 120 DPI. Il magenta evidenzia le differenze di pixel. Il confronto del testo usa le parole incorporate; layout e ordine di lettura possono influire sul risultato.",
+    "de": "Rastervergleich mit 120 DPI. Magenta markiert Pixelunterschiede. Der Textvergleich verwendet eingebettete Wörter; Layout und Lesereihenfolge können das Ergebnis beeinflussen."
+  },
+  "Raster difference": {
+    "it": "Differenza immagini",
+    "de": "Rasterdifferenz"
+  },
+  "Raster DPI": {
+    "it": "DPI raster",
+    "de": "Raster-DPI"
+  },
+  "Read what changed before downloading an update, and see the release notes when you open an upgraded installation.": {
+    "it": "Leggi le novità prima di scaricare un aggiornamento e consulta le note quando apri l'installazione aggiornata.",
+    "de": "Lesen Sie die Änderungen vor dem Herunterladen eines Updates und sehen Sie die Versionshinweise beim Öffnen der aktualisierten Installation."
+  },
+  "Read-only {1}": {
+    "it": "Sola lettura {1}",
+    "de": "Schreibgeschützt {1}"
+  },
+  "Reading": {
+    "it": "Lettura",
+    "de": "Wird gelesen"
+  },
+  "Reading form fields": {
+    "it": "Lettura campi modulo",
+    "de": "Formularfelder werden gelesen"
+  },
+  "Reading metadata": {
+    "it": "Lettura metadati",
+    "de": "Metadaten werden gelesen"
+  },
+  "Ready": {
+    "it": "Pronto",
+    "de": "Bereit"
+  },
+  "Recently opened": {
+    "it": "Aperti di recente",
+    "de": "Zuletzt geöffnet"
+  },
+  "Recognize scanned pages": {
+    "it": "Riconosci pagine scansionate",
+    "de": "Gescannte Seiten erkennen"
+  },
+  "Recognize text (OCR)": {
+    "it": "Riconosci testo (OCR)",
+    "de": "Text erkennen (OCR)"
+  },
+  "Recognized text": {
+    "it": "Testo riconosciuto",
+    "de": "Erkannter Text"
+  },
+  "Recognizing page {0}": {
+    "it": "Riconoscimento pagina {0}",
+    "de": "Seite {0} wird erkannt"
+  },
+  "Recognizing page text": {
+    "it": "Riconoscimento testo pagina",
+    "de": "Seitentext wird erkannt"
+  },
+  "recognizing text": {
+    "it": "riconoscimento testo",
+    "de": "Texterkennung"
+  },
+  "Rectangle": {
+    "it": "Rettangolo",
+    "de": "Rechteck"
+  },
+  "Redo": {
+    "it": "Ripeti",
+    "de": "Wiederholen"
+  },
+  "Redo (Ctrl Y)": {
+    "it": "Ripeti (Ctrl Y)",
+    "de": "Wiederholen (Strg Y)"
+  },
+  "Refresh this page after installation to check availability again.": {
+    "it": "Aggiorna questa pagina dopo l'installazione per ricontrollare la disponibilità.",
+    "de": "Aktualisieren Sie diese Seite nach der Installation, um die Verfügbarkeit erneut zu prüfen."
+  },
+  "Reload PDF Studio. The changes since your previous version will be shown automatically.": {
+    "it": "Ricarica PDF Studio. Le modifiche rispetto alla versione precedente verranno mostrate automaticamente.",
+    "de": "Laden Sie PDF Studio neu. Die Änderungen seit Ihrer vorherigen Version werden automatisch angezeigt."
+  },
+  "Remove all standard Info and XMP metadata": {
+    "it": "Elimina tutti i metadati standard Info e XMP",
+    "de": "Alle Standard-Info- und XMP-Metadaten entfernen"
+  },
+  "Remove document metadata": {
+    "it": "Elimina metadati documento",
+    "de": "Dokumentmetadaten entfernen"
+  },
+  "Remove password from PDF": {
+    "it": "Elimina password dal PDF",
+    "de": "Passwort aus PDF entfernen"
+  },
+  "Remove PDF password": {
+    "it": "Rimuovi password PDF",
+    "de": "PDF-Passwort entfernen"
+  },
+  "Removing PDF encryption": {
+    "it": "Rimozione cifratura PDF",
+    "de": "PDF-Verschlüsselung wird entfernt"
+  },
+  "Rendering comparison page…": {
+    "it": "Rendering pagina di confronto…",
+    "de": "Vergleichsseite wird gerendert…"
+  },
+  "Rendering document on the server": {
+    "it": "Rendering documento sul server",
+    "de": "Dokument wird auf dem Server gerendert"
+  },
+  "Rendering page": {
+    "it": "Rendering pagina",
+    "de": "Seite wird gerendert"
+  },
+  "Rendering page images": {
+    "it": "Rendering immagini delle pagine",
+    "de": "Seitenbilder werden gerendert"
+  },
+  "Reorder, rotate, extract and duplicate": {
+    "it": "Riordina, ruota, estrai e duplica",
+    "de": "Neu anordnen, drehen, extrahieren und duplizieren"
+  },
+  "Repair": {
+    "it": "Ripara",
+    "de": "Reparieren"
+  },
+  "Repair PDF structure": {
+    "it": "Ripara struttura PDF",
+    "de": "PDF-Struktur reparieren"
+  },
+  "Repairing PDF structure": {
+    "it": "Riparazione struttura PDF",
+    "de": "PDF-Struktur wird repariert"
+  },
+  "Replace the current editable document with a blank document? Save its source first if you need it.": {
+    "it": "Sostituire il documento modificabile corrente con un documento vuoto? Salva prima la sorgente se vuoi conservarlo.",
+    "de": "Das aktuell bearbeitbare Dokument durch ein leeres Dokument ersetzen? Speichern Sie zuerst die Quelldatei, wenn Sie es behalten möchten."
+  },
+  "Requires": {
+    "it": "Richiede",
+    "de": "Benötigt"
+  },
+  "Requires {0}": {
+    "it": "Richiede {0}",
+    "de": "Benötigt {0}"
+  },
+  "Requires Fabric.js, which could not load.": {
+    "it": "Richiede Fabric.js, che non è stato caricato.",
+    "de": "Benötigt Fabric.js, das nicht geladen werden konnte."
+  },
+  "Reset fields": {
+    "it": "Reimposta campi",
+    "de": "Felder zurücksetzen"
+  },
+  "Resize": {
+    "it": "Ridimensiona",
+    "de": "Größe ändern"
+  },
+  "Resize pages": {
+    "it": "Ridimensiona pagine",
+    "de": "Seitengröße ändern"
+  },
+  "Resizing pages": {
+    "it": "Ridimensionamento pagine",
+    "de": "Seitengröße wird geändert"
+  },
+  "Resolution (DPI)": {
+    "it": "Risoluzione (DPI)",
+    "de": "Auflösung (DPI)"
+  },
+  "Restore local autosave": {
+    "it": "Ripristina salvataggio automatico locale",
+    "de": "Lokale automatische Sicherung wiederherstellen"
+  },
+  "Retry a failed update download without leaving your open document.": {
+    "it": "Riprova un download di aggiornamento senza lasciare il documento aperto.",
+    "de": "Wiederholen Sie einen fehlgeschlagenen Update-Download, ohne Ihr geöffnetes Dokument zu verlassen."
+  },
+  "Reusable plain text. Tokens:": {
+    "it": "Testo semplice riutilizzabile. Segnaposto:",
+    "de": "Wiederverwendbarer Klartext. Platzhalter:"
+  },
+  "Reverse": {
+    "it": "Inverti ordine",
+    "de": "Reihenfolge umkehren"
+  },
+  "Right": {
+    "it": "Destra",
+    "de": "Rechts"
+  },
+  "Right content": {
+    "it": "Contenuto a destra",
+    "de": "Inhalt rechts"
+  },
+  "Right to left": {
+    "it": "Da destra a sinistra",
+    "de": "Rechts nach links"
+  },
+  "Rotate": {
+    "it": "Ruota",
+    "de": "Drehen"
+  },
+  "Rotate selected pages": {
+    "it": "Ruota pagine selezionate",
+    "de": "Ausgewählte Seiten drehen"
+  },
+  "Rotation": {
+    "it": "Rotazione",
+    "de": "Drehung"
+  },
+  "Rotation (degrees)": {
+    "it": "Rotazione (gradi)",
+    "de": "Drehung (Grad)"
+  },
+  "Rounded": {
+    "it": "Arrotondato",
+    "de": "Abgerundet"
+  },
+  "Run PDF Studio on PHP 7.2 and newer servers.": {
+    "it": "Esegui PDF Studio su PHP 7.2 e versioni successive.",
+    "de": "Verwenden Sie PDF Studio auf Servern mit PHP 7.2 oder neuer."
+  },
+  "Run PHP as an unprivileged user with a working Chromium sandbox. Installing Chromium alone does not fix a blocked sandbox.": {
+    "it": "Esegui PHP come utente non privilegiato con sandbox Chromium funzionante. Installare Chromium non risolve una sandbox bloccata.",
+    "de": "Führen Sie PHP als unprivilegierten Benutzer mit funktionierender Chromium-Sandbox aus. Die Chromium-Installation allein behebt keine blockierte Sandbox."
+  },
+  "Run the Composer command in the directory containing index.php, as the application owner. Composer must run with the same PHP version as this page (": {
+    "it": "Esegui Composer nella cartella di index.php, come proprietario dell'applicazione. Composer deve usare la stessa versione PHP di questa pagina (",
+    "de": "Führen Sie Composer im Verzeichnis von index.php als Eigentümer der Anwendung aus. Composer muss dieselbe PHP-Version wie diese Seite verwenden ("
+  },
+  "Run these commands in an SSH terminal on your Ubuntu server, using an account with installation permissions.": {
+    "it": "Esegui questi comandi in un terminale SSH del server Ubuntu con un account autorizzato a installare pacchetti.",
+    "de": "Führen Sie diese Befehle in einem SSH-Terminal Ihres Ubuntu-Servers mit einem zur Installation berechtigten Konto aus."
+  },
+  "Runs in": {
+    "it": "Esecuzione",
+    "de": "Ausführung"
+  },
+  "Runs locally in your browser": {
+    "it": "Elaborazione locale nel browser",
+    "de": "Wird lokal im Browser ausgeführt"
+  },
+  "Runs qpdf structural checks and reports warnings. Validation checks PDF structure; it does not certify document authenticity.": {
+    "it": "Esegue controlli strutturali qpdf e segnala gli avvisi. La convalida controlla la struttura PDF; non certifica l'autenticità del documento.",
+    "de": "Führt qpdf-Strukturprüfungen aus und meldet Warnungen. Die Prüfung kontrolliert die PDF-Struktur; sie bestätigt nicht die Echtheit des Dokuments."
+  },
+  "s remaining": {
+    "it": "s rimanenti",
+    "de": "s verbleibend"
+  },
+  "Safe HTML sanitization": {
+    "it": "Pulizia sicura HTML",
+    "de": "Sichere HTML-Bereinigung"
+  },
+  "Save editable project": {
+    "it": "Salva progetto modificabile",
+    "de": "Bearbeitbares Projekt speichern"
+  },
+  "Save editable source": {
+    "it": "Salva sorgente modificabile",
+    "de": "Bearbeitbare Quelldatei speichern"
+  },
+  "Save project": {
+    "it": "Salva progetto",
+    "de": "Projekt speichern"
+  },
+  "Save this signature in this browser": {
+    "it": "Salva questa firma nel browser",
+    "de": "Diese Unterschrift im Browser speichern"
+  },
+  "Save visualization": {
+    "it": "Salva visualizzazione",
+    "de": "Darstellung speichern"
+  },
+  "Saving form values": {
+    "it": "Salvataggio valori modulo",
+    "de": "Formularwerte werden gespeichert"
+  },
+  "Saving metadata": {
+    "it": "Salvataggio metadati",
+    "de": "Metadaten werden gespeichert"
+  },
+  "Search tools": {
+    "it": "Cerca strumenti",
+    "de": "Werkzeuge suchen"
+  },
+  "Search tools (Ctrl K)": {
+    "it": "Cerca strumenti (Ctrl K)",
+    "de": "Werkzeuge suchen (Strg K)"
+  },
+  "Search tools, e.g. watermark, crop, OCR": {
+    "it": "Cerca strumenti, es. filigrana, ritaglio, OCR",
+    "de": "Werkzeuge suchen, z. B. Wasserzeichen, Zuschnitt, OCR"
+  },
+  "Searchable OCR PDF requires server Tesseract and Poppler.": {
+    "it": "Il PDF ricercabile con OCR richiede Tesseract e Poppler sul server.",
+    "de": "Ein durchsuchbares OCR-PDF benötigt Tesseract und Poppler auf dem Server."
+  },
+  "Searchable PDF": {
+    "it": "PDF ricercabile",
+    "de": "Durchsuchbares PDF"
+  },
+  "Searchable PDF (server engine)": {
+    "it": "PDF ricercabile (motore server)",
+    "de": "Durchsuchbares PDF (Server-Engine)"
+  },
+  "Section text": {
+    "it": "Testo sezione",
+    "de": "Abschnittstext"
+  },
+  "Secure": {
+    "it": "Sicurezza",
+    "de": "Sicherheit"
+  },
+  "Secure redaction": {
+    "it": "Oscuramento sicuro",
+    "de": "Sichere Schwärzung"
+  },
+  "Secure redaction at": {
+    "it": "Oscuramento sicuro a",
+    "de": "Sichere Schwärzung mit"
+  },
+  "Securely rasterizing page": {
+    "it": "Rasterizzazione sicura pagina",
+    "de": "Seite wird sicher gerastert"
+  },
+  "See which capabilities run in your browser and which need your server.": {
+    "it": "Vedi quali capacità funzionano nel browser e quali richiedono il server.",
+    "de": "Sehen Sie, welche Funktionen im Browser laufen und welche den Server benötigen."
+  },
+  "Select": {
+    "it": "Seleziona",
+    "de": "Auswählen"
+  },
+  "Select A3, A4, A5, Letter, Legal or custom page size.": {
+    "it": "Scegli A3, A4, A5, Letter, Legal o un formato personalizzato.",
+    "de": "Wählen Sie A3, A4, A5, Letter, Legal oder eine benutzerdefinierte Seitengröße."
+  },
+  "Select all pages": {
+    "it": "Seleziona tutte le pagine",
+    "de": "Alle Seiten auswählen"
+  },
+  "Select an image object first.": {
+    "it": "Prima seleziona un oggetto immagine.",
+    "de": "Wählen Sie zuerst ein Bildobjekt aus."
+  },
+  "Select an object to change its appearance. Original PDF content remains a rendered background.": {
+    "it": "Seleziona un oggetto per cambiarne l'aspetto. Il PDF originale resta uno sfondo renderizzato.",
+    "de": "Wählen Sie ein Objekt aus, um sein Aussehen zu ändern. Der ursprüngliche PDF-Inhalt bleibt ein gerenderter Hintergrund."
+  },
+  "Select an overlay object first.": {
+    "it": "Prima seleziona un oggetto sovrapposto.",
+    "de": "Wählen Sie zuerst ein Überlagerungsobjekt aus."
+  },
+  "Select at least one page.": {
+    "it": "Seleziona almeno una pagina.",
+    "de": "Wählen Sie mindestens eine Seite aus."
+  },
+  "Select at least three objects to distribute.": {
+    "it": "Seleziona almeno tre oggetti da distribuire.",
+    "de": "Wählen Sie mindestens drei Objekte zum Verteilen aus."
+  },
+  "Select cells with Jodit's table popup to merge/split or insert/delete rows and columns. Drag its column separators to resize.": {
+    "it": "Seleziona le celle nel menu tabella di Jodit per unirle/dividerle o inserire/eliminare righe e colonne. Trascina i separatori per ridimensionare le colonne.",
+    "de": "Wählen Sie Zellen im Jodit-Tabellenmenü aus, um sie zu verbinden/teilen oder Zeilen und Spalten einzufügen/zu löschen. Ziehen Sie die Spaltentrenner zum Ändern der Breite."
+  },
+  "Select layer": {
+    "it": "Seleziona livello",
+    "de": "Ebene auswählen"
+  },
+  "Select multiple objects with Shift + click or drag a selection. Single-object alignment uses the page.": {
+    "it": "Seleziona più oggetti con Maiusc + clic oppure trascinando un'area. L'allineamento di un solo oggetto usa la pagina.",
+    "de": "Wählen Sie mehrere Objekte mit Umschalt + Klick oder durch Aufziehen einer Auswahl aus. Einzelobjekte werden an der Seite ausgerichtet."
+  },
+  "Select one or more overlay objects.": {
+    "it": "Seleziona uno o più oggetti sovrapposti.",
+    "de": "Wählen Sie ein oder mehrere Überlagerungsobjekte aus."
+  },
+  "Select page {2}": {
+    "it": "Seleziona pagina {2}",
+    "de": "Seite {2} auswählen"
+  },
+  "Select page range": {
+    "it": "Seleziona intervallo di pagine",
+    "de": "Seitenbereich auswählen"
+  },
+  "Select pages": {
+    "it": "Seleziona pagine",
+    "de": "Seiten auswählen"
+  },
+  "Select the original PDFs to relink": {
+    "it": "Seleziona i PDF originali da ricollegare",
+    "de": "Original-PDFs zum erneuten Verknüpfen auswählen"
+  },
+  "Select two PDFs, or open a document first and select one PDF to compare with it.": {
+    "it": "Seleziona due PDF oppure apri un documento e scegli un PDF con cui confrontarlo.",
+    "de": "Wählen Sie zwei PDFs aus oder öffnen Sie ein Dokument und wählen Sie ein PDF zum Vergleich."
+  },
+  "Send backward": {
+    "it": "Porta indietro",
+    "de": "Eine Ebene nach hinten"
+  },
+  "Send to back": {
+    "it": "Porta in secondo piano",
+    "de": "In den Hintergrund"
+  },
+  "Server": {
+    "it": "Server",
+    "de": "Server"
+  },
+  "Server / FPDI (PDFs only)": {
+    "it": "Server / FPDI (solo PDF)",
+    "de": "Server / FPDI (nur PDFs)"
+  },
+  "Server / Poppler": {
+    "it": "Server / Poppler",
+    "de": "Server / Poppler"
+  },
+  "Server / qpdf (PDFs only)": {
+    "it": "Server / qpdf (solo PDF)",
+    "de": "Server / qpdf (nur PDFs)"
+  },
+  "Server / Tesseract + Poppler": {
+    "it": "Server / Tesseract + Poppler",
+    "de": "Server / Tesseract + Poppler"
+  },
+  "Server capabilities could not be checked. Reload this page to try again; browser capabilities are listed above.": {
+    "it": "Impossibile verificare le capacità server. Ricarica la pagina per riprovare; le capacità browser sono elencate sopra.",
+    "de": "Serverfunktionen konnten nicht geprüft werden. Laden Sie die Seite erneut; die Browserfunktionen sind oben aufgeführt."
+  },
+  "Server capability check failed:": {
+    "it": "Controllo capacità server non riuscito:",
+    "de": "Prüfung der Serverfunktionen fehlgeschlagen:"
+  },
+  "Server merging accepts PDFs only.": {
+    "it": "L'unione sul server accetta solo PDF.",
+    "de": "Die Zusammenführung auf dem Server akzeptiert nur PDFs."
+  },
+  "Server OCR": {
+    "it": "OCR server",
+    "de": "Server-OCR"
+  },
+  "Server operation failed (HTTP": {
+    "it": "Operazione server non riuscita (HTTP",
+    "de": "Serveroperation fehlgeschlagen (HTTP"
+  },
+  "Server operation failed.": {
+    "it": "Operazione server non riuscita.",
+    "de": "Serveroperation fehlgeschlagen."
+  },
+  "Server PDF processing requires qpdf, Poppler pdfinfo, or FPDI to enforce the page limit.": {
+    "it": "L'elaborazione PDF sul server richiede qpdf, Poppler pdfinfo o FPDI per controllare il limite di pagine.",
+    "de": "PDF-Verarbeitung auf dem Server benötigt qpdf, Poppler pdfinfo oder FPDI zur Durchsetzung der Seitengrenze."
+  },
+  "Server processing with": {
+    "it": "Elaborazione server con",
+    "de": "Serververarbeitung mit"
+  },
+  "Server uploads are explicit.": {
+    "it": "I caricamenti sul server richiedono una scelta esplicita.",
+    "de": "Server-Uploads erfolgen nur nach ausdrücklicher Auswahl."
+  },
+  "Sheet orientation": {
+    "it": "Orientamento foglio",
+    "de": "Bogenausrichtung"
+  },
+  "Sheet paper size": {
+    "it": "Formato carta foglio",
+    "de": "Bogenpapierformat"
+  },
+  "Side by side": {
+    "it": "Affiancati",
+    "de": "Nebeneinander"
+  },
+  "Size": {
+    "it": "Dimensioni",
+    "de": "Größe"
+  },
+  "Size (pt)": {
+    "it": "Dimensioni (pt)",
+    "de": "Größe (pt)"
+  },
+  "Size (px)": {
+    "it": "Dimensioni (px)",
+    "de": "Größe (px)"
+  },
+  "Some advanced options require a newer qpdf than older Ubuntu releases provide.": {
+    "it": "Alcune opzioni avanzate richiedono un qpdf più recente di quello fornito dalle vecchie versioni Ubuntu.",
+    "de": "Einige erweiterte Optionen benötigen eine neuere qpdf-Version als ältere Ubuntu-Versionen bereitstellen."
+  },
+  "Source": {
+    "it": "Sorgente",
+    "de": "Quelle"
+  },
+  "Space after (pt)": {
+    "it": "Spazio dopo (pt)",
+    "de": "Abstand danach (pt)"
+  },
+  "Space before (pt)": {
+    "it": "Spazio prima (pt)",
+    "de": "Abstand davor (pt)"
+  },
+  "Spacing": {
+    "it": "Spaziatura",
+    "de": "Abstand"
+  },
+  "Spacing / gutter (points)": {
+    "it": "Spaziatura / canale (punti)",
+    "de": "Abstand / Zwischenraum (Punkte)"
+  },
+  "Split": {
+    "it": "Dividi",
+    "de": "Aufteilen"
+  },
+  "Split method": {
+    "it": "Metodo di divisione",
+    "de": "Aufteilungsmethode"
+  },
+  "Split PDF": {
+    "it": "Dividi PDF",
+    "de": "PDF aufteilen"
+  },
+  "Splitting PDF": {
+    "it": "Divisione PDF",
+    "de": "PDF wird aufgeteilt"
+  },
+  "Stamp": {
+    "it": "Timbro",
+    "de": "Stempel"
+  },
+  "Start number": {
+    "it": "Numero iniziale",
+    "de": "Startnummer"
+  },
+  "Status": {
+    "it": "Stato",
+    "de": "Status"
+  },
+  "Sticky note": {
+    "it": "Nota adesiva",
+    "de": "Haftnotiz"
+  },
+  "Stretch": {
+    "it": "Estendi",
+    "de": "Strecken"
+  },
+  "Strike": {
+    "it": "Barra",
+    "de": "Durchstreichen"
+  },
+  "Strike through": {
+    "it": "Barrato",
+    "de": "Durchgestrichen"
+  },
+  "Stroke (pt)": {
+    "it": "Tratto (pt)",
+    "de": "Linienbreite (pt)"
+  },
+  "Strong / 96 DPI": {
+    "it": "Forte / 96 DPI",
+    "de": "Stark / 96 DPI"
+  },
+  "Structural compression": {
+    "it": "Compressione della struttura",
+    "de": "Strukturkomprimierung"
+  },
+  "Subject": {
+    "it": "Oggetto",
+    "de": "Betreff"
+  },
+  "Suffix": {
+    "it": "Suffisso",
+    "de": "Suffix"
+  },
+  "System capabilities": {
+    "it": "Capacità del sistema",
+    "de": "Systemfunktionen"
+  },
+  "Table alignment": {
+    "it": "Allineamento tabella",
+    "de": "Tabellenausrichtung"
+  },
+  "Table and cell properties": {
+    "it": "Proprietà tabella e celle",
+    "de": "Tabellen- und Zelleneigenschaften"
+  },
+  "Table of contents": {
+    "it": "Indice",
+    "de": "Inhaltsverzeichnis"
+  },
+  "Table width (%)": {
+    "it": "Larghezza tabella (%)",
+    "de": "Tabellenbreite (%)"
+  },
+  "TCPDF · basic HTML": {
+    "it": "TCPDF · HTML di base",
+    "de": "TCPDF · grundlegendes HTML"
+  },
+  "TCPDF library (optional)": {
+    "it": "Libreria TCPDF (facoltativa)",
+    "de": "TCPDF-Bibliothek (optional)"
+  },
+  "Text": {
+    "it": "Testo",
+    "de": "Text"
+  },
+  "Text alignment": {
+    "it": "Allineamento testo",
+    "de": "Textausrichtung"
+  },
+  "Text classification": {
+    "it": "Classificazione testo",
+    "de": "Textklassifizierung"
+  },
+  "Text copied.": {
+    "it": "Testo copiato.",
+    "de": "Text kopiert."
+  },
+  "Text editor / TXT": {
+    "it": "Editor testo / TXT",
+    "de": "Texteditor / TXT"
+  },
+  "Text extraction with layout": {
+    "it": "Estrazione testo con layout",
+    "de": "Textextraktion mit Layout"
+  },
+  "Text present": {
+    "it": "Testo presente",
+    "de": "Text vorhanden"
+  },
+  "Text selected. Press Ctrl+C or Command+C to copy.": {
+    "it": "Testo selezionato. Premi Ctrl+C o Command+C per copiarlo.",
+    "de": "Text ausgewählt. Drücken Sie zum Kopieren Strg+C oder Command+C."
+  },
+  "Text, images, shapes and drawings": {
+    "it": "Testo, immagini, forme e disegni",
+    "de": "Text, Bilder, Formen und Zeichnungen"
+  },
+  "The browser could not encode this image.": {
+    "it": "Il browser non ha potuto codificare questa immagine.",
+    "de": "Der Browser konnte dieses Bild nicht kodieren."
+  },
+  "The combined uploads exceed the processing limit.": {
+    "it": "I caricamenti combinati superano il limite di elaborazione.",
+    "de": "Die kombinierten Uploads überschreiten die Verarbeitungsgrenze."
+  },
+  "The crop extends beyond this image.": {
+    "it": "Il ritaglio supera i bordi di questa immagine.",
+    "de": "Der Zuschnitt liegt außerhalb dieses Bildes."
+  },
+  "The crop rectangle must fit inside the image.": {
+    "it": "Il rettangolo di ritaglio deve stare all'interno dell'immagine.",
+    "de": "Das Zuschnittrechteck muss innerhalb des Bildes liegen."
+  },
+  "The document editor loads when this mode is opened.": {
+    "it": "L'editor documenti si carica quando apri questa modalità.",
+    "de": "Der Dokumenteditor wird beim Öffnen dieses Modus geladen."
+  },
+  "The document HTML could not be parsed.": {
+    "it": "Impossibile leggere l'HTML del documento.",
+    "de": "Das Dokument-HTML konnte nicht eingelesen werden."
+  },
+  "The document HTML exceeds the export limit.": {
+    "it": "L'HTML del documento supera il limite di esportazione.",
+    "de": "Das Dokument-HTML überschreitet die Exportgrenze."
+  },
+  "The document stylesheet contains an invalid CSS escape.": {
+    "it": "Il foglio di stile contiene una sequenza CSS non valida.",
+    "de": "Das Dokument-Stylesheet enthält eine ungültige CSS-Escape-Sequenz."
+  },
+  "The document stylesheet is too large.": {
+    "it": "Il foglio di stile è troppo grande.",
+    "de": "Das Dokument-Stylesheet ist zu groß."
+  },
+  "The download failed.": {
+    "it": "Download non riuscito.",
+    "de": "Download fehlgeschlagen."
+  },
+  "The download timed out. Check your connection and try again.": {
+    "it": "Il download ha superato il tempo limite. Controlla la connessione e riprova.",
+    "de": "Der Download hat das Zeitlimit überschritten. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut."
+  },
+  "The extracted images exceed the output limit.": {
+    "it": "Le immagini estratte superano il limite del risultato.",
+    "de": "Die extrahierten Bilder überschreiten die Ausgabegrenze."
+  },
+  "The field rectangle extends beyond the page.": {
+    "it": "Il rettangolo del campo supera la pagina.",
+    "de": "Das Feldrechteck liegt außerhalb der Seite."
+  },
+  "The file exceeds the server upload limit.": {
+    "it": "Il file supera il limite di caricamento del server.",
+    "de": "Die Datei überschreitet das Server-Uploadlimit."
+  },
+  "The file is empty or exceeds the": {
+    "it": "Il file è vuoto o supera il",
+    "de": "Die Datei ist leer oder überschreitet die"
+  },
+  "The generated document exceeds the page limit.": {
+    "it": "Il documento generato supera il limite di pagine.",
+    "de": "Das erzeugte Dokument überschreitet die Seitengrenze."
+  },
+  "The generated files exceed the server workspace limit.": {
+    "it": "I file generati superano il limite dell'area di lavoro server.",
+    "de": "Die erzeugten Dateien überschreiten die Grenze des Serverarbeitsbereichs."
+  },
+  "The HTML sanitizer could not load. HTML import is disabled.": {
+    "it": "Impossibile caricare il sistema di pulizia HTML. L'importazione HTML è disabilitata.",
+    "de": "Die HTML-Bereinigung konnte nicht geladen werden. HTML-Import ist deaktiviert."
+  },
+  "The index.php download has started. Back up your installation before replacing it.": {
+    "it": "Il download di index.php è iniziato. Salva una copia dell'installazione prima di sostituirla.",
+    "de": "Der Download von index.php wurde gestartet. Sichern Sie Ihre Installation, bevor Sie sie ersetzen."
+  },
+  "The margins leave no room for document content.": {
+    "it": "I margini non lasciano spazio per il contenuto.",
+    "de": "Die Ränder lassen keinen Platz für Dokumentinhalt."
+  },
+  "The merged page count exceeds the configured limit.": {
+    "it": "Il numero di pagine unite supera il limite configurato.",
+    "de": "Die zusammengeführte Seitenzahl überschreitet die eingerichtete Grenze."
+  },
+  "The Office file does not have a valid ZIP document signature.": {
+    "it": "Il file Office non ha una firma ZIP valida.",
+    "de": "Die Office-Datei hat keine gültige ZIP-Dateikennung."
+  },
+  "The operation was cancelled.": {
+    "it": "L'operazione è stata annullata.",
+    "de": "Der Vorgang wurde abgebrochen."
+  },
+  "The original PDF for this page must be relinked.": {
+    "it": "Il PDF originale di questa pagina deve essere ricollegato.",
+    "de": "Das Original-PDF dieser Seite muss erneut verknüpft werden."
+  },
+  "The page range is invalid.": {
+    "it": "L'intervallo di pagine non è valido.",
+    "de": "Der Seitenbereich ist ungültig."
+  },
+  "The PDF page tree could not be read.": {
+    "it": "Impossibile leggere l'albero delle pagine PDF.",
+    "de": "Der PDF-Seitenbaum konnte nicht gelesen werden."
+  },
+  "The PDF password is missing or incorrect.": {
+    "it": "La password PDF manca o non è corretta.",
+    "de": "Das PDF-Passwort fehlt oder ist falsch."
+  },
+  "The private processing directory could not be initialized safely.": {
+    "it": "Impossibile inizializzare in sicurezza la cartella privata di elaborazione.",
+    "de": "Das private Verarbeitungsverzeichnis konnte nicht sicher eingerichtet werden."
+  },
+  "The private session directory is invalid.": {
+    "it": "La cartella privata di sessione non è valida.",
+    "de": "Das private Sitzungsverzeichnis ist ungültig."
+  },
+  "The processor did not produce a downloadable file.": {
+    "it": "Il motore non ha prodotto un file scaricabile.",
+    "de": "Die Verarbeitung hat keine herunterladbare Datei erzeugt."
+  },
+  "The processor produced an excessive diagnostic report.": {
+    "it": "Il motore ha prodotto un rapporto diagnostico troppo grande.",
+    "de": "Die Verarbeitung hat einen zu umfangreichen Diagnosebericht erzeugt."
+  },
+  "The processor returned an invalid PDF.": {
+    "it": "Il motore ha restituito un PDF non valido.",
+    "de": "Die Verarbeitung hat ein ungültiges PDF geliefert."
+  },
+  "The published files are still updating. Check for updates again, then retry the download.": {
+    "it": "I file pubblicati si stanno ancora aggiornando. Controlla di nuovo gli aggiornamenti e riprova il download.",
+    "de": "Die veröffentlichten Dateien werden noch aktualisiert. Prüfen Sie erneut auf Updates und wiederholen Sie den Download."
+  },
+  "The radio options extend beyond the page.": {
+    "it": "Le opzioni radio superano la pagina.",
+    "de": "Die Optionsfelder liegen außerhalb der Seite."
+  },
+  "The release notes are invalid.": {
+    "it": "Le note di versione non sono valide.",
+    "de": "Die Versionshinweise sind ungültig."
+  },
+  "The release version does not match its notes.": {
+    "it": "La versione pubblicata non corrisponde alle note.",
+    "de": "Die Versionsnummer stimmt nicht mit den Versionshinweisen überein."
+  },
+  "The requested page exceeds 40 million pixels. Reduce the DPI.": {
+    "it": "La pagina richiesta supera 40 milioni di pixel. Riduci i DPI.",
+    "de": "Die angeforderte Seite überschreitet 40 Millionen Pixel. Reduzieren Sie den DPI-Wert."
+  },
+  "The result is empty or exceeds the output limit.": {
+    "it": "Il risultato è vuoto o supera il limite di dimensione.",
+    "de": "Das Ergebnis ist leer oder überschreitet die Ausgabegrenze."
+  },
+  "The selected OCR language data is not installed on the server.": {
+    "it": "I dati della lingua OCR selezionata non sono installati sul server.",
+    "de": "Die gewählten OCR-Sprachdaten sind nicht auf dem Server installiert."
+  },
+  "The server could not create a private workspace.": {
+    "it": "Il server non ha potuto creare un'area di lavoro privata.",
+    "de": "Der Server konnte keinen privaten Arbeitsbereich erstellen."
+  },
+  "The server could not create a processing workspace.": {
+    "it": "Il server non ha potuto creare un'area di elaborazione.",
+    "de": "Der Server konnte keinen Verarbeitungsbereich erstellen."
+  },
+  "The server could not start": {
+    "it": "Il server non ha potuto avviare",
+    "de": "Der Server konnte Folgendes nicht starten:"
+  },
+  "The server could not store the upload in its private workspace.": {
+    "it": "Il server non ha potuto salvare il caricamento nell'area privata.",
+    "de": "Der Server konnte den Upload nicht im privaten Arbeitsbereich speichern."
+  },
+  "The server did not return a rendered PDF.": {
+    "it": "Il server non ha restituito un PDF renderizzato.",
+    "de": "Der Server hat kein gerendertes PDF geliefert."
+  },
+  "The server has no writable private temporary directory.": {
+    "it": "Il server non dispone di una cartella temporanea privata scrivibile.",
+    "de": "Der Server hat kein beschreibbares privates temporäres Verzeichnis."
+  },
+  "The server temporary directory must be outside the public web root.": {
+    "it": "La cartella temporanea del server deve essere fuori dalla radice web pubblica.",
+    "de": "Das temporäre Serververzeichnis muss außerhalb des öffentlichen Webverzeichnisses liegen."
+  },
+  "The update check failed.": {
+    "it": "Controllo aggiornamenti non riuscito.",
+    "de": "Updateprüfung fehlgeschlagen."
+  },
+  "The update check timed out. Check your connection and try again.": {
+    "it": "Il controllo aggiornamenti ha superato il tempo limite. Controlla la connessione e riprova.",
+    "de": "Die Updateprüfung hat das Zeitlimit überschritten. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut."
+  },
+  "The update information is invalid.": {
+    "it": "Le informazioni di aggiornamento non sono valide.",
+    "de": "Die Updateinformationen sind ungültig."
+  },
+  "The update information is too large.": {
+    "it": "Le informazioni di aggiornamento sono troppo grandi.",
+    "de": "Die Updateinformationen sind zu umfangreich."
+  },
+  "The upload could not be verified.": {
+    "it": "Impossibile verificare il caricamento.",
+    "de": "Der Upload konnte nicht verifiziert werden."
+  },
+  "The upload did not complete; please select the file again.": {
+    "it": "Il caricamento non è stato completato; seleziona nuovamente il file.",
+    "de": "Der Upload wurde nicht abgeschlossen; wählen Sie die Datei erneut aus."
+  },
+  "The upload does not appear to be a PDF document.": {
+    "it": "Il file caricato non sembra un documento PDF.",
+    "de": "Die hochgeladene Datei scheint kein PDF-Dokument zu sein."
+  },
+  "The white sheet shows the selected paper width. Choose Print to see paginated output and save a PDF. Chrome/Chromium provide the best support for page X of Y and margin headers.": {
+    "it": "Il foglio bianco mostra la larghezza carta selezionata. Scegli Stampa per vedere il risultato paginato e salvare un PDF. Chrome/Chromium offrono il miglior supporto per pagina X di Y e intestazioni nei margini.",
+    "de": "Das weiße Blatt zeigt die gewählte Papierbreite. Wählen Sie Drucken, um die Seiteneinteilung zu sehen und ein PDF zu speichern. Chrome/Chromium bieten die beste Unterstützung für Seite X von Y und Randkopfzeilen."
+  },
+  "The ZIP could not be created.": {
+    "it": "Impossibile creare lo ZIP.",
+    "de": "Das ZIP konnte nicht erstellt werden."
+  },
+  "This adds a visible signature. It does not cryptographically sign the PDF.": {
+    "it": "Aggiunge una firma visibile. Non firma il PDF in modo crittografico.",
+    "de": "Fügt eine sichtbare Unterschrift hinzu. Das PDF wird nicht kryptografisch signiert."
+  },
+  "This BMP image is too large to convert safely in the browser.": {
+    "it": "Questa immagine BMP è troppo grande per una conversione sicura nel browser.",
+    "de": "Dieses BMP-Bild ist zu groß für eine sichere Konvertierung im Browser."
+  },
+  "This browser cannot decode that BMP image. Convert it to PNG first.": {
+    "it": "Il browser non può decodificare questa immagine BMP. Prima convertila in PNG.",
+    "de": "Der Browser kann dieses BMP-Bild nicht dekodieren. Wandeln Sie es zuerst in PNG um."
+  },
+  "This document exceeds the": {
+    "it": "Questo documento supera il",
+    "de": "Dieses Dokument überschreitet die"
+  },
+  "This feature requires": {
+    "it": "Questa funzione richiede",
+    "de": "Diese Funktion benötigt"
+  },
+  "This file exceeds the configured": {
+    "it": "Questo file supera il limite configurato di",
+    "de": "Diese Datei überschreitet die eingerichtete Grenze von"
+  },
+  "This file has no editable document source.": {
+    "it": "Questo file non contiene una sorgente documento modificabile.",
+    "de": "Diese Datei enthält keine bearbeitbare Dokumentquelle."
+  },
+  "This font does not contain one or more characters. Use Latin text, or add text in the PDF overlay editor where browser fonts can be rasterized.": {
+    "it": "Questo carattere non contiene tutti i simboli richiesti. Usa testo latino oppure aggiungi testo nell'editor di sovrapposizioni PDF, che può convertire in immagini i caratteri del browser.",
+    "de": "Diese Schrift enthält nicht alle benötigten Zeichen. Verwenden Sie lateinischen Text oder fügen Sie Text im PDF-Überlagerungseditor hinzu, der Browserschriften als Bilder ausgeben kann."
+  },
+  "This form cannot be flattened for page organization:": {
+    "it": "Questo modulo non può diventare permanente per organizzare le pagine:",
+    "de": "Dieses Formular kann für die Seitenverwaltung nicht abgeflacht werden:"
+  },
+  "This image format cannot be decoded by your browser.": {
+    "it": "Il browser non può decodificare questo formato immagine.",
+    "de": "Ihr Browser kann dieses Bildformat nicht dekodieren."
+  },
+  "This image is too large to crop safely in the browser.": {
+    "it": "Questa immagine è troppo grande per un ritaglio sicuro nel browser.",
+    "de": "Dieses Bild ist zu groß für einen sicheren Zuschnitt im Browser."
+  },
+  "This installation has been upgraded from {0} to {1}. Here's what changed.": {
+    "it": "Questa installazione è stata aggiornata dalla versione {0} alla {1}. Ecco le novità.",
+    "de": "Diese Installation wurde von Version {0} auf {1} aktualisiert. Das hat sich geändert."
+  },
+  "This installation is newer than the published version.": {
+    "it": "Questa installazione è più recente della versione pubblicata.",
+    "de": "Diese Installation ist neuer als die veröffentlichte Version."
+  },
+  "This is not a supported PDF Studio project.": {
+    "it": "Questo non è un progetto PDF Studio supportato.",
+    "de": "Dies ist kein unterstütztes PDF-Studio-Projekt."
+  },
+  "This operation accepts PDF files only.": {
+    "it": "Questa operazione accetta solo file PDF.",
+    "de": "Dieser Vorgang akzeptiert nur PDF-Dateien."
+  },
+  "This optional extension is detected only; browser image tools remain available without it.": {
+    "it": "Questa estensione facoltativa viene solo rilevata; gli strumenti immagini del browser restano disponibili senza di essa.",
+    "de": "Diese optionale Erweiterung wird nur erkannt; Browser-Bildwerkzeuge bleiben ohne sie verfügbar."
+  },
+  "This PDF contains an XFA form. XFA editing is unsupported. Use an AcroForm PDF or the overlay text editor.": {
+    "it": "Questo PDF contiene un modulo XFA. La modifica XFA non è supportata. Usa un PDF AcroForm oppure l'editor di testo sovrapposto.",
+    "de": "Dieses PDF enthält ein XFA-Formular. XFA-Bearbeitung wird nicht unterstützt. Verwenden Sie ein AcroForm-PDF oder den Überlagerungs-Texteditor."
+  },
+  "This PDF has": {
+    "it": "Questo PDF contiene",
+    "de": "Dieses PDF hat"
+  },
+  "This PDF is encrypted. Use Secure → Decrypt with its valid password before editing. qpdf must be installed for decryption.": {
+    "it": "Questo PDF è cifrato. Usa Sicurezza → Rimuovi password PDF con la password corretta prima di modificarlo. Per decifrarlo occorre qpdf.",
+    "de": "Dieses PDF ist verschlüsselt. Verwenden Sie vor der Bearbeitung Sicherheit → PDF-Passwort entfernen mit dem gültigen Passwort. Zur Entschlüsselung muss qpdf installiert sein."
+  },
+  "This render exceeds the 42 megapixel memory limit. Reduce the DPI or zoom.": {
+    "it": "Il rendering supera il limite di memoria di 42 megapixel. Riduci i DPI o lo zoom.",
+    "de": "Dieses Rendering überschreitet die Speichergrenze von 42 Megapixeln. Reduzieren Sie DPI oder Zoom."
+  },
+  "This server accepts files up to": {
+    "it": "Questo server accetta file fino a",
+    "de": "Dieser Server akzeptiert Dateien bis"
+  },
+  "This tool is missing from the server PATH or could not be started by PHP.": {
+    "it": "Questo strumento manca dal PATH del server oppure PHP non può avviarlo.",
+    "de": "Dieses Werkzeug fehlt im Server-PATH oder konnte von PHP nicht gestartet werden."
+  },
+  "This tool requires": {
+    "it": "Questo strumento richiede",
+    "de": "Dieses Werkzeug benötigt"
+  },
+  "This update needs PHP {0} or newer. Your server reports PHP {1}. Upgrade PHP before replacing index.php.": {
+    "it": "Questo aggiornamento richiede PHP {0} o successivo. Il server usa PHP {1}. Aggiorna PHP prima di sostituire index.php.",
+    "de": "Dieses Update benötigt PHP {0} oder neuer. Ihr Server verwendet PHP {1}. Aktualisieren Sie PHP, bevor Sie index.php ersetzen."
+  },
+  "Threshold": {
+    "it": "Soglia",
+    "de": "Schwellenwert"
+  },
+  "Tile / repeat watermark": {
+    "it": "Ripeti filigrana",
+    "de": "Wasserzeichen wiederholen"
+  },
+  "Title": {
+    "it": "Titolo",
+    "de": "Titel"
+  },
+  "To end": {
+    "it": "Alla fine",
+    "de": "Ans Ende"
+  },
+  "To start": {
+    "it": "All'inizio",
+    "de": "An den Anfang"
+  },
+  "Toggle light and dark mode": {
+    "it": "Alterna modalità chiara e scura",
+    "de": "Hellen und dunklen Modus umschalten"
+  },
+  "Toggle tool navigation": {
+    "it": "Mostra o nascondi navigazione strumenti",
+    "de": "Werkzeugnavigation umschalten"
+  },
+  "Tokens: {n}, {total}, {filename}, {title}, {date}, {time}. Numbering is relative to selected pages.": {
+    "it": "Segnaposto: {n}, {total}, {filename}, {title}, {date}, {time}. La numerazione è relativa alle pagine selezionate.",
+    "de": "Platzhalter: {n}, {total}, {filename}, {title}, {date}, {time}. Die Nummerierung bezieht sich auf die ausgewählten Seiten."
+  },
+  "Too many embedded images.": {
+    "it": "Troppe immagini incorporate.",
+    "de": "Zu viele eingebettete Bilder."
+  },
+  "Too many selected pages.": {
+    "it": "Troppe pagine selezionate.",
+    "de": "Zu viele ausgewählte Seiten."
+  },
+  "Too many uploaded files; the limit is": {
+    "it": "Troppi file caricati; il limite è",
+    "de": "Zu viele hochgeladene Dateien; die Grenze ist"
+  },
+  "Tools": {
+    "it": "Strumenti",
+    "de": "Werkzeuge"
+  },
+  "Top": {
+    "it": "Alto",
+    "de": "Oben"
+  },
+  "Top position": {
+    "it": "Posizione in alto",
+    "de": "Obere Position"
+  },
+  "Top position (points from page top)": {
+    "it": "Posizione in alto (punti dal bordo superiore)",
+    "de": "Obere Position (Punkte vom oberen Seitenrand)"
+  },
+  "Top-level bookmarks": {
+    "it": "Segnalibri di primo livello",
+    "de": "Lesezeichen der obersten Ebene"
+  },
+  "Transparent background (PNG / WebP)": {
+    "it": "Sfondo trasparente (PNG / WebP)",
+    "de": "Transparenter Hintergrund (PNG / WebP)"
+  },
+  "Trim from bottom": {
+    "it": "Ritaglio dal basso",
+    "de": "Unten abschneiden"
+  },
+  "Trim from left (PDF points)": {
+    "it": "Ritaglio da sinistra (punti PDF)",
+    "de": "Links abschneiden (PDF-Punkte)"
+  },
+  "Trim from right": {
+    "it": "Ritaglio da destra",
+    "de": "Rechts abschneiden"
+  },
+  "Trim from top": {
+    "it": "Ritaglio dall'alto",
+    "de": "Oben abschneiden"
+  },
+  "Two dedicated editors": {
+    "it": "Due editor dedicati",
+    "de": "Zwei eigene Editoren"
+  },
+  "Ubuntu installation commands": {
+    "it": "Comandi di installazione Ubuntu",
+    "de": "Ubuntu-Installationsbefehle"
+  },
+  "Ubuntu installation help": {
+    "it": "Guida installazione Ubuntu",
+    "de": "Ubuntu-Installationshilfe"
+  },
+  "Ubuntu installation help for {1}": {
+    "it": "Guida installazione Ubuntu per {1}",
+    "de": "Ubuntu-Installationshilfe für {1}"
+  },
+  "Ubuntu setup:": {
+    "it": "Configurazione Ubuntu:",
+    "de": "Ubuntu-Einrichtung:"
+  },
+  "Unavailable": {
+    "it": "Non disponibile",
+    "de": "Nicht verfügbar"
+  },
+  "Underline": {
+    "it": "Sottolinea",
+    "de": "Unterstreichen"
+  },
+  "Undo": {
+    "it": "Annulla modifica",
+    "de": "Rückgängig"
+  },
+  "Undo (Ctrl Z)": {
+    "it": "Annulla modifica (Ctrl Z)",
+    "de": "Rückgängig (Strg Z)"
+  },
+  "Unique field name": {
+    "it": "Nome campo univoco",
+    "de": "Eindeutiger Feldname"
+  },
+  "Unknown": {
+    "it": "Sconosciuto",
+    "de": "Unbekannt"
+  },
+  "Unknown document command:": {
+    "it": "Comando documento sconosciuto:",
+    "de": "Unbekannter Dokumentbefehl:"
+  },
+  "Unknown font": {
+    "it": "Carattere sconosciuto",
+    "de": "Unbekannte Schrift"
+  },
+  "Unknown PDF utility:": {
+    "it": "Utilità PDF sconosciuta:",
+    "de": "Unbekanntes PDF-Werkzeug:"
+  },
+  "Unknown source": {
+    "it": "Sorgente sconosciuta",
+    "de": "Unbekannte Quelle"
+  },
+  "Unknown tool:": {
+    "it": "Strumento sconosciuto:",
+    "de": "Unbekanntes Werkzeug:"
+  },
+  "Unlock": {
+    "it": "Sblocca",
+    "de": "Entsperren"
+  },
+  "Unsaved changes": {
+    "it": "Modifiche non salvate",
+    "de": "Ungespeicherte Änderungen"
+  },
+  "Unsupported file:": {
+    "it": "File non supportato:",
+    "de": "Nicht unterstützte Datei:"
+  },
+  "Untitled": {
+    "it": "Senza titolo",
+    "de": "Unbenannt"
+  },
+  "Untitled document": {
+    "it": "Documento senza titolo",
+    "de": "Unbenanntes Dokument"
+  },
+  "Update downloads now save index.php directly instead of opening its source in a new tab.": {
+    "it": "I download degli aggiornamenti salvano direttamente index.php invece di aprire il codice in una nuova scheda.",
+    "de": "Update-Downloads speichern index.php jetzt direkt, anstatt den Quelltext in einem neuen Tab zu öffnen."
+  },
+  "Uploading to this server and processing…": {
+    "it": "Caricamento su questo server ed elaborazione…",
+    "de": "Datei wird auf diesen Server hochgeladen und verarbeitet…"
+  },
+  "Use 1-4,7,10-12, odd, even, or all.": {
+    "it": "Usa 1-4,7,10-12, dispari, pari o tutte.",
+    "de": "Verwenden Sie 1-4,7,10-12, ungerade, gerade oder alle."
+  },
+  "Use page ranges such as 1-4,7,10-12, or all, odd, even.": {
+    "it": "Usa intervalli come 1-4,7,10-12 oppure tutte, dispari, pari.",
+    "de": "Verwenden Sie Bereiche wie 1-4,7,10-12 oder alle, ungerade, gerade."
+  },
+  "Use page ranges such as 1-4,7,10-12.": {
+    "it": "Usa intervalli di pagine come 1-4,7,10-12.",
+    "de": "Verwenden Sie Seitenbereiche wie 1-4,7,10-12."
+  },
+  "Use PNG, JPEG, GIF, WebP or BMP images.": {
+    "it": "Usa immagini PNG, JPEG, GIF, WebP o BMP.",
+    "de": "Verwenden Sie PNG-, JPEG-, GIF-, WebP- oder BMP-Bilder."
+  },
+  "Use saved signature": {
+    "it": "Usa firma salvata",
+    "de": "Gespeicherte Unterschrift verwenden"
+  },
+  "Valid opening or owner password": {
+    "it": "Password di apertura o proprietario valida",
+    "de": "Gültiges Öffnungs- oder Eigentümerpasswort"
+  },
+  "Validate PDF": {
+    "it": "Convalida PDF",
+    "de": "PDF prüfen"
+  },
+  "Validate PDF structure": {
+    "it": "Convalida struttura PDF",
+    "de": "PDF-Struktur prüfen"
+  },
+  "Validation": {
+    "it": "Convalida",
+    "de": "Prüfung"
+  },
+  "Version": {
+    "it": "Versione",
+    "de": "Version"
+  },
+  "Version {0}": {
+    "it": "Versione {0}",
+    "de": "Version {0}"
+  },
+  "Version {0} is available.": {
+    "it": "La versione {0} è disponibile.",
+    "de": "Version {0} ist verfügbar."
+  },
+  "Vertical alignment": {
+    "it": "Allineamento verticale",
+    "de": "Vertikale Ausrichtung"
+  },
+  "Vertical center": {
+    "it": "Centro verticale",
+    "de": "Vertikal zentrieren"
+  },
+  "View changelog on GitHub": {
+    "it": "Vedi cronologia modifiche su GitHub",
+    "de": "Änderungsverlauf auf GitHub ansehen"
+  },
+  "Visible dimensions": {
+    "it": "Dimensioni visibili",
+    "de": "Sichtbare Abmessungen"
+  },
+  "Visible text": {
+    "it": "Testo visibile",
+    "de": "Sichtbarer Text"
+  },
+  "Visual crop preview": {
+    "it": "Anteprima ritaglio visivo",
+    "de": "Visuelle Zuschnittvorschau"
+  },
+  "Visual redaction": {
+    "it": "Oscuramento visivo",
+    "de": "Visuelle Schwärzung"
+  },
+  "Visual signature": {
+    "it": "Firma visiva",
+    "de": "Sichtbare Unterschrift"
+  },
+  "Visual signatures are images or text. They are not certificate signatures.": {
+    "it": "Le firme visive sono immagini o testo. Non sono firme con certificato.",
+    "de": "Sichtbare Unterschriften sind Bilder oder Text. Sie sind keine Zertifikatssignaturen."
+  },
+  "was not detected, or PHP proc_open is disabled.": {
+    "it": "non è stato rilevato oppure PHP proc_open è disabilitato.",
+    "de": "wurde nicht erkannt oder PHP proc_open ist deaktiviert."
+  },
+  "Watermark": {
+    "it": "Filigrana",
+    "de": "Wasserzeichen"
+  },
+  "Watermark text": {
+    "it": "Testo filigrana",
+    "de": "Wasserzeichentext"
+  },
+  "Watermark type": {
+    "it": "Tipo filigrana",
+    "de": "Wasserzeichentyp"
+  },
+  "What changes in this update": {
+    "it": "Modifiche in questo aggiornamento",
+    "de": "Änderungen in diesem Update"
+  },
+  "What's new": {
+    "it": "Novità",
+    "de": "Neuigkeiten"
+  },
+  "What's new in PDF Studio": {
+    "it": "Novità in PDF Studio",
+    "de": "Neuigkeiten in PDF Studio"
+  },
+  "What's new in PDF Studio {0}. You can reopen this history from System capabilities.": {
+    "it": "Novità in PDF Studio {0}. Puoi riaprire questa cronologia dalle capacità del sistema.",
+    "de": "Neuigkeiten in PDF Studio {0}. Sie können diesen Verlauf über die Systemfunktionen erneut öffnen."
+  },
+  "What's new in this installation": {
+    "it": "Novità di questa installazione",
+    "de": "Neuigkeiten in dieser Installation"
+  },
+  "White-out": {
+    "it": "Copri in bianco",
+    "de": "Weiß abdecken"
+  },
+  "Width": {
+    "it": "Larghezza",
+    "de": "Breite"
+  },
+  "Word diff is limited to the first 1,400 words per page. The side-by-side extracted text below is complete.": {
+    "it": "Il confronto delle parole è limitato alle prime 1.400 parole per pagina. Il testo estratto affiancato qui sotto è completo.",
+    "de": "Der Wortvergleich ist auf die ersten 1.400 Wörter je Seite begrenzt. Der unten nebeneinander angezeigte extrahierte Text ist vollständig."
+  },
+  "Word-like document authoring": {
+    "it": "Creazione documenti simile a Word",
+    "de": "Word-ähnliche Dokumenterstellung"
+  },
+  "words ·": {
+    "it": "parole ·",
+    "de": "Wörter ·"
+  },
+  "Working PDF size": {
+    "it": "Dimensione PDF di lavoro",
+    "de": "Größe des Arbeits-PDFs"
+  },
+  "Working…": {
+    "it": "Elaborazione…",
+    "de": "In Bearbeitung…"
+  },
+  "WORKSPACE": {
+    "it": "AREA DI LAVORO",
+    "de": "ARBEITSBEREICH"
+  },
+  "Write your document here.": {
+    "it": "Scrivi qui il tuo documento.",
+    "de": "Schreiben Sie hier Ihr Dokument."
+  },
+  "Writing imposed sheets": {
+    "it": "Scrittura fogli impaginati",
+    "de": "Montierte Bögen werden geschrieben"
+  },
+  "Writing PDF groups": {
+    "it": "Scrittura gruppi PDF",
+    "de": "PDF-Gruppen werden geschrieben"
+  },
+  "Writing ZIP archive": {
+    "it": "Scrittura archivio ZIP",
+    "de": "ZIP-Archiv wird geschrieben"
+  },
+  "X mark": {
+    "it": "Segno X",
+    "de": "X-Zeichen"
+  },
+  "XFA form editing is unsupported.": {
+    "it": "La modifica dei moduli XFA non è supportata.",
+    "de": "XFA-Formularbearbeitung wird nicht unterstützt."
+  },
+  "XFA forms cannot be flattened by this engine.": {
+    "it": "Questo motore non può rendere permanenti i moduli XFA.",
+    "de": "Diese Engine kann XFA-Formulare nicht abflachen."
+  },
+  "XFA forms cannot be merged safely.": {
+    "it": "I moduli XFA non possono essere uniti in sicurezza.",
+    "de": "XFA-Formulare können nicht sicher zusammengeführt werden."
+  },
+  "XFA forms cannot be reorganized safely. Convert this PDF to static pages first.": {
+    "it": "I moduli XFA non possono essere riorganizzati in sicurezza. Prima converti il PDF in pagine statiche.",
+    "de": "XFA-Formulare können nicht sicher neu angeordnet werden. Wandeln Sie das PDF zuerst in statische Seiten um."
+  },
+  "Yes,No": {
+    "it": "Sì,No",
+    "de": "Ja,Nein"
+  },
+  "You are using the latest published version.": {
+    "it": "Stai usando l'ultima versione pubblicata.",
+    "de": "Sie verwenden die neueste veröffentlichte Version."
+  },
+  "YOUR DOCUMENTS, YOUR WORKSPACE": {
+    "it": "I TUOI DOCUMENTI IL TUO SPAZIO",
+    "de": "IHRE DOKUMENTE IHR ARBEITSBEREICH"
+  },
+  "Your name": {
+    "it": "Il tuo nome",
+    "de": "Ihr Name"
+  },
+  "Your open document stays in this page while you download. Save it or its editable project before reloading.": {
+    "it": "Il documento aperto resta in questa pagina durante il download. Salvalo o salva il progetto modificabile prima di ricaricare.",
+    "de": "Ihr geöffnetes Dokument bleibt während des Downloads auf dieser Seite. Speichern Sie es oder sein bearbeitbares Projekt vor dem Neuladen."
+  },
+  "ZIP exports": {
+    "it": "Esportazioni ZIP",
+    "de": "ZIP-Exporte"
+  },
+  "Zoom": {
+    "it": "Zoom",
+    "de": "Zoom"
+  },
+  "Zoom in": {
+    "it": "Aumenta zoom",
+    "de": "Vergrößern"
+  },
+  "Zoom out": {
+    "it": "Riduci zoom",
+    "de": "Verkleinern"
+  },
+  "Language": {
+    "it": "Lingua",
+    "de": "Sprache"
+  },
+  "Italian": {
+    "it": "Italiano",
+    "de": "Italienisch"
+  },
+  "English": {
+    "it": "Inglese",
+    "de": "Englisch"
+  },
+  "German": {
+    "it": "Tedesco",
+    "de": "Deutsch"
+  },
+  "Automatic saving is unavailable or browser storage is full. Download an editable project to keep your work.": {
+    "it": "Il salvataggio automatico non è disponibile o lo spazio del browser è pieno. Scarica un progetto modificabile per conservare il lavoro.",
+    "de": "Automatisches Speichern ist nicht verfügbar oder der Browserspeicher ist voll. Laden Sie ein bearbeitbares Projekt herunter, um Ihre Arbeit zu behalten."
+  },
+  "Choose Italian, English or German without closing your document. Italian is the default language.": {
+    "it": "Scegli italiano, inglese o tedesco senza chiudere il documento. La lingua predefinita è l’italiano.",
+    "de": "Wählen Sie Italienisch, Englisch oder Deutsch, ohne Ihr Dokument zu schließen. Die Standardsprache ist Italienisch."
+  },
+  "Work without a database. The language choice and automatic recovery use browser storage; downloadable projects keep an independent copy.": {
+    "it": "Lavora senza database. La lingua scelta e il recupero automatico usano lo spazio del browser; i progetti scaricabili conservano una copia indipendente.",
+    "de": "Arbeiten Sie ohne Datenbank. Sprachwahl und automatische Wiederherstellung verwenden Browserspeicher; herunterladbare Projekte bewahren eine unabhängige Kopie."
+  },
+  "PDF rewrite": {
+    "it": "Riscrittura PDF",
+    "de": "PDF neu schreiben"
+  },
+  "characters": {
+    "it": "caratteri",
+    "de": "Zeichen"
+  },
+  "left": {
+    "it": "sinistra",
+    "de": "links"
+  },
+  "center": {
+    "it": "centro",
+    "de": "zentriert"
+  },
+  "right": {
+    "it": "destra",
+    "de": "rechts"
+  },
+  "top": {
+    "it": "alto",
+    "de": "oben"
+  },
+  "middle": {
+    "it": "centro",
+    "de": "mittig"
+  },
+  "bottom": {
+    "it": "basso",
+    "de": "unten"
+  },
+  "portrait": {
+    "it": "verticale",
+    "de": "Hochformat"
+  },
+  "landscape": {
+    "it": "orizzontale",
+    "de": "Querformat"
+  },
+  "or": {
+    "it": "oppure",
+    "de": "oder"
+  },
+  "completed.": {
+    "it": "completato.",
+    "de": "abgeschlossen."
+  },
+  "Page break": {
+    "it": "Interruzione di pagina",
+    "de": "Seitenumbruch"
+  },
+  "Safe Office conversion also requires the PHP ZIP and DOM extensions.": {
+    "it": "La conversione Office sicura richiede anche le estensioni PHP ZIP e DOM.",
+    "de": "Die sichere Office-Konvertierung benötigt auch die PHP-Erweiterungen ZIP und DOM."
+  },
+  "The Office document archive is invalid.": {
+    "it": "L'archivio del documento Office non è valido.",
+    "de": "Das Office-Dokumentarchiv ist ungültig."
+  },
+  "The Office document contains too many archive entries.": {
+    "it": "Il documento Office contiene troppe voci di archivio.",
+    "de": "Das Office-Dokument enthält zu viele Archiveinträge."
+  },
+  "The document structure does not match its extension.": {
+    "it": "La struttura del documento non corrisponde all'estensione.",
+    "de": "Die Dokumentstruktur passt nicht zur Dateiendung."
+  },
+  "The Office archive contains a symbolic link.": {
+    "it": "L'archivio Office contiene un collegamento simbolico.",
+    "de": "Das Office-Archiv enthält eine symbolische Verknüpfung."
+  },
+  "Encrypted Office documents are not supported.": {
+    "it": "I documenti Office cifrati non sono supportati.",
+    "de": "Verschlüsselte Office-Dokumente werden nicht unterstützt."
+  },
+  "The Office archive exceeds safe expansion limits.": {
+    "it": "L'archivio Office supera i limiti di estrazione sicura.",
+    "de": "Das Office-Archiv überschreitet die sicheren Entpackungsgrenzen."
+  },
+  "The Office archive contains an unsafe path.": {
+    "it": "L'archivio Office contiene un percorso non sicuro.",
+    "de": "Das Office-Archiv enthält einen unsicheren Pfad."
+  },
+  "Office conversion does not accept embedded programs, macros, HTML, SVG or PostScript content.": {
+    "it": "La conversione Office non accetta programmi incorporati, macro, HTML, SVG o PostScript.",
+    "de": "Die Office-Konvertierung akzeptiert keine eingebetteten Programme, Makros, HTML-, SVG- oder PostScript-Inhalte."
+  },
+  "The Office XML contains forbidden entities.": {
+    "it": "L'XML Office contiene entità vietate.",
+    "de": "Das Office-XML enthält unzulässige Entitäten."
+  },
+  "Office conversion blocks dynamic external-data fields and formulas.": {
+    "it": "La conversione Office blocca campi e formule con dati esterni dinamici.",
+    "de": "Die Office-Konvertierung blockiert dynamische externe Datenfelder und Formeln."
+  },
+  "The Office document contains malformed XML.": {
+    "it": "Il documento Office contiene XML non valido.",
+    "de": "Das Office-Dokument enthält fehlerhaftes XML."
+  },
+  "Office conversion blocks macro event handlers.": {
+    "it": "La conversione Office blocca i gestori di eventi macro.",
+    "de": "Die Office-Konvertierung blockiert Makro-Ereignishandler."
+  },
+  "Office conversion blocks external linked resources. Remove external links from the document first.": {
+    "it": "La conversione Office blocca le risorse collegate esterne. Prima rimuovi i collegamenti esterni dal documento.",
+    "de": "Die Office-Konvertierung blockiert extern verknüpfte Ressourcen. Entfernen Sie zuerst externe Verknüpfungen aus dem Dokument."
+  },
+  "Office conversion blocks remote and filesystem-linked resources.": {
+    "it": "La conversione Office blocca le risorse remote e i collegamenti al filesystem.",
+    "de": "Die Office-Konvertierung blockiert externe und mit dem Dateisystem verknüpfte Ressourcen."
+  },
+  "An Office reference escapes the document package.": {
+    "it": "Un riferimento Office esce dal pacchetto del documento.",
+    "de": "Ein Office-Verweis liegt außerhalb des Dokumentpakets."
+  },
+  "An Office linked resource is missing from the document package.": {
+    "it": "Una risorsa Office collegata manca nel pacchetto.",
+    "de": "Eine verknüpfte Office-Ressource fehlt im Dokumentpaket."
+  },
+  "LibreOffice could not convert this document. It may be encrypted or unsupported.": {
+    "it": "LibreOffice non ha potuto convertire il documento. Potrebbe essere cifrato o non supportato.",
+    "de": "LibreOffice konnte dieses Dokument nicht konvertieren. Es ist möglicherweise verschlüsselt oder wird nicht unterstützt."
+  },
+  "Removing document metadata requires a newer qpdf version with --remove-info and --remove-metadata support.": {
+    "it": "La rimozione dei metadati richiede un qpdf più recente con supporto per --remove-info e --remove-metadata.",
+    "de": "Zum Entfernen der Metadaten ist eine neuere qpdf-Version mit Unterstützung für --remove-info und --remove-metadata erforderlich."
+  },
+  "Select lossless, light, medium, strong or maximum compression.": {
+    "it": "Scegli compressione senza perdita, leggera, media, forte o massima.",
+    "de": "Wählen Sie verlustfreie, leichte, mittlere, starke oder maximale Komprimierung."
+  },
+  "Metadata removal requires a newer qpdf version.": {
+    "it": "La rimozione dei metadati richiede una versione qpdf più recente.",
+    "de": "Das Entfernen der Metadaten benötigt eine neuere qpdf-Version."
+  },
+  "Enter a password to open or an owner password.": {
+    "it": "Inserisci una password di apertura oppure proprietario.",
+    "de": "Geben Sie ein Öffnungs- oder Eigentümerpasswort ein."
+  },
+  "Use different opening and owner passwords.": {
+    "it": "Usa password diverse per apertura e proprietario.",
+    "de": "Verwenden Sie unterschiedliche Öffnungs- und Eigentümerpasswörter."
+  },
+  "Encryption must use AES-128 or AES-256.": {
+    "it": "La cifratura deve usare AES-128 o AES-256.",
+    "de": "Die Verschlüsselung muss AES-128 oder AES-256 verwenden."
+  },
+  "This older qpdf version requires passwords that do not begin with a hyphen. Upgrade qpdf to support arbitrary passwords.": {
+    "it": "Questa vecchia versione qpdf richiede password che non iniziano con un trattino. Aggiorna qpdf per supportare qualsiasi password.",
+    "de": "Diese ältere qpdf-Version benötigt Passwörter, die nicht mit einem Bindestrich beginnen. Aktualisieren Sie qpdf für beliebige Passwörter."
+  },
+  "Invalid printing permission.": {
+    "it": "Permesso di stampa non valido.",
+    "de": "Ungültige Druckberechtigung."
+  },
+  "Server merge requires qpdf or FPDI. Browser merge remains available.": {
+    "it": "L'unione server richiede qpdf o FPDI. L'unione browser resta disponibile.",
+    "de": "Die Server-Zusammenführung benötigt qpdf oder FPDI. Die Zusammenführung im Browser bleibt verfügbar."
+  },
+  "The merged document exceeds the page limit.": {
+    "it": "Il documento unito supera il limite di pagine.",
+    "de": "Das zusammengeführte Dokument überschreitet die Seitengrenze."
+  },
+  "Invalid OCR language selection.": {
+    "it": "Selezione lingua OCR non valida.",
+    "de": "Ungültige OCR-Sprachauswahl."
+  },
+  "The server does not have OCR language": {
+    "it": "Il server non dispone della lingua OCR",
+    "de": "Der Server hat folgende OCR-Sprache nicht installiert:"
+  },
+  ". Install its Tesseract traineddata package.": {
+    "it": ". Installa il corrispondente pacchetto Tesseract traineddata.",
+    "de": ". Installieren Sie das passende Tesseract-traineddata-Paket."
+  },
+  "Select PDF or text OCR output.": {
+    "it": "Scegli un risultato OCR PDF oppure testo.",
+    "de": "Wählen Sie PDF oder Text als OCR-Ausgabe."
+  },
+  "OCR exceeded the server job time limit. Process fewer pages.": {
+    "it": "L'OCR ha superato il tempo limite del server. Elabora meno pagine.",
+    "de": "OCR hat das Server-Zeitlimit überschritten. Verarbeiten Sie weniger Seiten."
+  },
+  "A PDF page could not be rendered for OCR.": {
+    "it": "Impossibile renderizzare una pagina PDF per l'OCR.",
+    "de": "Eine PDF-Seite konnte für OCR nicht gerendert werden."
+  },
+  "The processor reached a server resource limit. Try a smaller document or fewer pages.": {
+    "it": "Il motore ha raggiunto un limite di risorse del server. Prova un documento più piccolo o meno pagine.",
+    "de": "Die Verarbeitung hat eine Server-Ressourcengrenze erreicht. Versuchen Sie ein kleineres Dokument oder weniger Seiten."
+  },
+  "Use GET for capabilities.": {
+    "it": "Usa GET per le capacità.",
+    "de": "Verwenden Sie GET für die Funktionen."
+  },
+  "Unknown PDF Studio action.": {
+    "it": "Azione PDF Studio sconosciuta.",
+    "de": "Unbekannte PDF-Studio-Aktion."
+  },
+  "This operation requires a POST request.": {
+    "it": "Questa operazione richiede una richiesta POST.",
+    "de": "Dieser Vorgang benötigt eine POST-Anfrage."
+  },
+  "This request exceeds the PHP POST/upload size limit. Upload fewer or smaller files, or ask the administrator to increase post_max_size.": {
+    "it": "Questa richiesta supera il limite PHP POST/caricamento. Carica meno file o file più piccoli oppure chiedi all'amministratore di aumentare post_max_size.",
+    "de": "Diese Anfrage überschreitet das PHP-POST-/Uploadlimit. Laden Sie weniger oder kleinere Dateien hoch oder bitten Sie den Administrator, post_max_size zu erhöhen."
+  },
+  "The session token is missing or expired. Reload PDF Studio and try again.": {
+    "it": "Il token di sessione manca o è scaduto. Ricarica PDF Studio e riprova.",
+    "de": "Das Sitzungstoken fehlt oder ist abgelaufen. Laden Sie PDF Studio neu und versuchen Sie es erneut."
+  },
+  "The operation options exceed the size limit.": {
+    "it": "Le opzioni dell'operazione superano il limite di dimensione.",
+    "de": "Die Vorgangsoptionen überschreiten die Größengrenze."
+  },
+  "The operation settings are not valid JSON.": {
+    "it": "Le impostazioni dell'operazione non sono JSON valido.",
+    "de": "Die Vorgangseinstellungen sind kein gültiges JSON."
+  },
+  "The operation settings must be an object.": {
+    "it": "Le impostazioni dell'operazione devono essere un oggetto.",
+    "de": "Die Vorgangseinstellungen müssen ein Objekt sein."
+  },
+  "Enter the valid PDF password to decrypt this document.": {
+    "it": "Inserisci la password PDF corretta per decifrare il documento.",
+    "de": "Geben Sie das gültige PDF-Passwort zum Entschlüsseln dieses Dokuments ein."
+  },
+  "No embedded text was found. Run OCR for a scanned document.": {
+    "it": "Nessun testo incorporato trovato. Esegui OCR per un documento scansionato.",
+    "de": "Kein eingebetteter Text gefunden. Führen Sie für ein gescanntes Dokument OCR aus."
+  },
+  "OCR did not recognize any text.": {
+    "it": "L'OCR non ha riconosciuto testo.",
+    "de": "OCR hat keinen Text erkannt."
+  },
+  "The document processor could not complete this operation. Check the server log using error reference": {
+    "it": "Il motore documenti non ha completato l'operazione. Controlla il registro server con il riferimento errore",
+    "de": "Die Dokumentverarbeitung konnte diesen Vorgang nicht abschließen. Prüfen Sie das Serverprotokoll mit der Fehlerreferenz"
+  },
+  "text": {
+    "it": "testo",
+    "de": "Text"
+  },
+  "checkbox": {
+    "it": "casella di controllo",
+    "de": "Kontrollkästchen"
+  },
+  "radio": {
+    "it": "pulsante radio",
+    "de": "Optionsfeld"
+  },
+  "dropdown": {
+    "it": "menu a discesa",
+    "de": "Auswahlliste"
+  },
+  "Save an editable project before upgrading; older automatic recovery copies are not transferred.": {
+    "it": "Salva un progetto modificabile prima di aggiornare; le vecchie copie di recupero automatico non vengono trasferite.",
+    "de": "Speichern Sie vor dem Update ein bearbeitbares Projekt; ältere automatische Wiederherstellungskopien werden nicht übertragen."
+  }
+}

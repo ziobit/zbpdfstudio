@@ -10,6 +10,8 @@ function verify($condition, string $message): void {
 }
 
 $release = json_decode(file_get_contents(dirname(__DIR__) . '/release.json'), true);
+verify(studio_language() === 'it', 'The default language must be Italian.');
+verify(json_decode(file_get_contents(dirname(__DIR__) . '/translations.json'), true) === studio_translations(), 'Embedded translations must match the editable catalog.');
 verify(json_last_error() === JSON_ERROR_NONE && $release === studio_release_info(), 'Published and embedded release information must agree.');
 $changelog = file_get_contents(dirname(__DIR__) . '/CHANGELOG.md');
 foreach ($release['releases'] as $entry) {
