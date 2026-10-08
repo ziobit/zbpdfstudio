@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#142632">
+  <meta name="description" content="Modifica, organizza e crea documenti con PDF Studio. Strumenti nel browser, funzioni server facoltative e manuali in tre lingue.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PDF Studio — PDF, senza passaggi inutili">
+  <meta property="og:description" content="Un unico spazio per modificare, organizzare e creare documenti.">
+  <meta property="og:locale" content="it_IT">
+  <title>PDF Studio — PDF, senza passaggi inutili</title>
+  <link id="brandFavicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2048%2048%22%3E%3Crect%20width%3D%2248%22%20height%3D%2248%22%20rx%3D%2212%22%20fill%3D%22%23142632%22%2F%3E%3Cpath%20d%3D%22M10%2015h4v20h16v4H10z%22%20fill%3D%22%234675f5%22%2F%3E%3Cpath%20d%3D%22M17%208h12l10%2010v18H17z%22%20fill%3D%22%23d4fa72%22%2F%3E%3Cpath%20d%3D%22M29%208v10h10z%22%20fill%3D%22%23142632%22%20opacity%3D%22.22%22%2F%3E%3Cpath%20d%3D%22M23%2029v-9h5a3%203%200%200%201%200%206h-5%22%20fill%3D%22none%22%20stroke%3D%22%23142632%22%20stroke-width%3D%222.6%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E">
+  <style>
+    :root{--ink:#142632;--muted:#52616a;--paper:#f7f8f4;--white:#fff;--line:#d7ddd8;--lime:#d4fa72;--blue:#4675f5;--radius:10px;--max:1240px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:105px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 "Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}svg{display:block}button:focus-visible,a:focus-visible,summary:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:5px}
+    button{touch-action:manipulation}::selection{background:var(--lime);color:var(--ink)}[hidden]{display:none!important}.container{width:min(var(--max),calc(100% - 80px));margin-inline:auto}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .skip{position:fixed;left:20px;top:-80px;background:var(--ink);color:white;padding:12px 20px;z-index:100}.skip:focus{top:12px}.symbols{position:absolute;width:0;height:0;overflow:hidden}.icon{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.brand-mark{width:44px;height:44px;flex:none}.brand{display:inline-flex;align-items:center;gap:11px;font-size:23px;font-weight:450;letter-spacing:-.8px;line-height:1}.brand strong{font-weight:750}.brand>span{white-space:nowrap}
+    .site-header{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--line)}.header-inner{height:88px;display:flex;align-items:center;gap:34px}.desktop-nav{margin-left:auto;display:flex;align-items:center;gap:30px;font-size:13px;font-weight:650}.desktop-nav a{padding-block:10px}.desktop-nav a:hover{color:#214ac0}.language-picker{display:flex;border:1px solid var(--line);border-radius:6px;padding:3px;gap:2px}.language-picker button{background:transparent;color:var(--muted);border:0;border-radius:3px;width:35px;height:34px;font:600 11px/1 "Segoe UI",Arial,sans-serif;letter-spacing:.04em}.language-picker button[aria-pressed=true]{color:white;background:var(--ink)}.header-open{display:inline-flex;align-items:center;gap:14px;font-size:13px;font-weight:650;padding:12px 18px;background:var(--ink);color:white;border-radius:6px}.header-open:hover{background:#274553}.header-open .icon{width:17px;height:17px}.menu-toggle{display:none;border:0;background:transparent;color:var(--ink);padding:10px}
+    .hero{padding:74px 0 56px}.hero-grid{display:grid;grid-template-columns:.85fr 1.15fr;align-items:center;gap:56px}.eyebrow,.section-label{display:flex;align-items:center;gap:11px;font:600 11px/1.5 Consolas,"SFMono-Regular",monospace;letter-spacing:1.8px;text-transform:uppercase}.eyebrow:before{content:"";width:8px;height:8px;background:var(--blue)}.hero h1{font-size:clamp(46px,4.5vw,66px);line-height:1.04;letter-spacing:-3.3px;font-weight:650;margin:25px 0}.hero h1 span{display:block}.hero h1 .accent{display:inline;background:var(--lime);box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:0 6px 3px 2px}.hero-copy>p{font-size:17px;line-height:1.75;color:var(--muted);max-width:410px;margin:0 0 30px}.hero-buttons{display:flex;align-items:center;gap:25px;flex-wrap:wrap}.button{display:inline-flex;justify-content:center;align-items:center;gap:17px;padding:15px 22px;border-radius:6px;font-size:14px;font-weight:650;border:1px solid transparent;transition:background .15s,transform .15s}.button.primary{background:var(--ink);color:white}.button.primary:hover{background:#274553;transform:translateY(-1px)}.text-link{font-size:13px;font-weight:650;border-bottom:1px solid var(--ink);padding-bottom:2px}.text-link:hover{color:#214ac0;border-color:#214ac0}.hero-caption{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:11px;margin-top:22px}.hero-caption .icon{width:15px;height:15px}.version-strip{margin-top:55px;padding-top:19px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:15px;font-size:11px;color:var(--muted)}.version-strip span{display:flex;align-items:center;gap:8px}.version-strip .status-dot{width:6px;height:6px;border-radius:50%;background:#568429;display:inline-block}.version-strip b{color:var(--ink);font-weight:650}
+    .preview{min-width:0;position:relative}.preview:before{content:"";position:absolute;right:-16px;bottom:38px;width:130px;height:130px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);z-index:-1}.preview-label{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:10px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-bottom:13px}.preview-label span:last-child{font-family:Consolas,monospace;letter-spacing:0}.workspace-preview{background:var(--ink);border:1px solid var(--ink);border-radius:var(--radius);overflow:hidden;box-shadow:0 14px 32px #14263212}.preview-topbar{height:49px;display:flex;align-items:center;gap:8px;padding:0 15px;color:#eef1ec;font-size:11px}.preview-topbar .brand-mark{width:24px;height:24px}.preview-file{margin-left:auto;color:#c2cdc8;font:10px Consolas,monospace}.window-tools{display:flex;gap:10px;margin-left:10px;color:#a9b9b1}.window-tools .icon{width:13px;height:13px}.preview-tabs{display:flex;gap:6px;border-top:1px solid #35464c;padding:9px 12px;background:#1b303a}.preview-tabs button{display:flex;align-items:center;justify-content:center;gap:7px;padding:8px 14px;flex:1;background:transparent;color:#dce5df;border:0;border-radius:4px;font-size:11px;min-height:35px;white-space:nowrap}.preview-tabs button .icon{width:15px;height:15px}.preview-tabs button[aria-selected=true]{background:var(--lime);color:var(--ink)}.preview-canvas{height:365px;display:flex;background:#e5e9e3;position:relative;overflow:hidden}.page-rail{width:60px;flex:none;background:#f3f5ef;border-right:1px solid #d0d8ce;padding:15px 10px}.page-mini{width:36px;height:48px;border:1px solid #c2ccc1;background:white;position:relative;margin:0 0 14px;display:grid;place-items:center;color:#718071;font:10px Consolas,monospace}.page-mini:after{content:"";position:absolute;inset:9px 7px;background:repeating-linear-gradient(to bottom,#d7dfd3 0,#d7dfd3 1px,transparent 1px,transparent 6px)}.page-mini.active{outline:2px solid var(--blue);outline-offset:2px}.page-surface{flex:1;min-width:0;padding:19px 27px;display:flex;align-items:flex-start;justify-content:center;position:relative}.document-sheet{width:285px;max-width:100%;height:340px;background:white;box-shadow:0 2px 10px #14263214;padding:28px 24px;color:var(--ink);position:relative}.sheet-heading{display:flex;align-items:center;gap:7px;margin-bottom:20px;font-size:9px;font-weight:650}.sheet-heading .brand-mark{height:19px;width:19px}.sheet-heading .document-code{font:8px Consolas,monospace;color:#64726b;margin-left:auto}.document-sheet h3{font-size:20px;line-height:1.18;font-weight:600;letter-spacing:-.6px;margin:0 0 7px}.document-sheet .sheet-subtitle{font-size:8px;color:#657269;margin:0 0 19px}.document-sheet p{font-size:9px;line-height:1.8;margin:0 0 15px}.document-sheet mark{background:var(--lime);color:inherit;padding:2px 0}.document-table{width:100%;font-size:8px;border-collapse:collapse}.document-table th{font-weight:600;text-align:left;border-bottom:1px solid #142632;padding:5px 0}.document-table td{padding:7px 0;border-bottom:1px solid #e2e7df}.document-table td:last-child{text-align:right;color:#426626}.document-table th:last-child{text-align:right}.document-footer{position:absolute;left:24px;right:24px;bottom:20px;border-top:1px solid #dbe2d7;padding-top:7px;font:7px Consolas,monospace;display:flex;justify-content:space-between;color:#657269}.note-marker{position:absolute;right:15px;top:132px;color:var(--blue);width:20px;height:20px}.note-marker .icon{width:20px;height:20px;fill:#e8efff;stroke:var(--blue)}.demo-note{position:absolute;left:30px;right:20px;bottom:42px;padding:10px 13px;font-size:10px;line-height:1.5;color:var(--ink);background:var(--lime);border-left:3px solid #60793c;box-shadow:0 2px 12px #14263222}.demo-note strong{display:block;font-size:9px;margin-bottom:2px}.preview-footer{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 15px;color:#c3d0c7;font-size:9px;min-height:54px}.preview-action{display:flex;align-items:center;gap:6px;color:var(--ink);background:#e9efdf;border:0;border-radius:4px;padding:7px 10px;font-size:10px;white-space:nowrap}.preview-action:hover{background:var(--lime)}.preview-footer .icon{width:12px;height:12px}.demo-help{color:var(--muted);font-size:10px;margin:12px 0 0;display:flex;align-items:center;gap:7px}.demo-help:before{content:"↳";font-size:17px;color:var(--blue)}.pages-demo{width:100%;padding:30px 27px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}.demo-page{width:calc(50% - 7px);max-width:145px;height:126px;background:white;box-shadow:0 2px 8px #14263214;padding:15px;position:relative}.demo-page .page-num{font:10px Consolas,monospace;color:var(--blue);display:block;margin-bottom:12px}.mini-rule{height:3px;width:70%;background:#c7d1c2;margin-bottom:8px}.mini-rule:nth-child(3){width:92%}.mini-rule:nth-child(4){width:55%}.mini-rule:nth-child(5){width:85%}.mini-rule.strong{height:7px;width:60%;background:var(--ink)}.mini-box{height:27px;width:100%;background:#eef4e4;margin-top:12px}.create-demo{padding:20px 28px;width:100%;display:flex;justify-content:center}.editor-sheet{background:white;width:100%;padding:23px;max-width:360px;height:325px;box-shadow:0 2px 8px #14263214}.editor-format{font-size:10px;padding-bottom:12px;border-bottom:1px solid var(--line);display:flex;gap:16px;align-items:center;color:var(--muted);margin-bottom:17px}.editor-format span:first-child{color:var(--ink);font-weight:700}.editor-sheet h3{font-size:20px;line-height:1.2;margin:0 0 12px;font-weight:600;letter-spacing:-.5px}.editor-sheet textarea{resize:none;width:100%;height:153px;border:0;padding:0;font-size:11px;line-height:1.9;color:var(--ink);background:transparent}.editor-sheet textarea::placeholder{color:#617066}.editor-count{font:9px Consolas,monospace;color:var(--muted);padding-top:10px;border-top:1px solid var(--line)}
+    .section{padding-block:84px}.section-top{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:50px;margin-bottom:40px}.section-label{color:var(--muted);margin-bottom:18px}.section-label .number{color:var(--blue);margin-right:4px;letter-spacing:0}.section h2{font-size:clamp(31px,3vw,44px);line-height:1.16;letter-spacing:-1.4px;font-weight:600;margin:0}.section-intro{color:var(--muted);max-width:430px;justify-self:end;margin:0;font-size:15px;line-height:1.85}.tools-section{border-top:1px solid var(--line);background:white}.features-grid{display:grid;grid-template-columns:repeat(3,1fr)}.feature{padding:31px 34px 34px 0;border-top:1px solid var(--line);min-width:0}.feature:nth-child(3n+2),.feature:nth-child(3n+3){padding-left:34px;border-left:1px solid var(--line)}.feature:nth-child(3n){padding-right:0}.feature .icon{width:27px;height:27px;color:#284fbd;margin-bottom:20px}.feature h3{font-size:18px;font-weight:600;letter-spacing:-.4px;margin:0 0 10px}.feature p{font-size:13px;color:var(--muted);line-height:1.9;margin:0}.feature-tag{display:inline-block;margin-top:20px;font:10px Consolas,monospace;color:var(--muted)}.feature-tag:before{content:"";width:5px;height:5px;border-radius:50%;background:#739c47;display:inline-block;margin-right:7px}.feature-tag.server:before{background:var(--blue)}
+    .processing-section{background:var(--ink);color:#f1f4ee}.processing-section .section-label{color:#bbc8c0}.processing-section .number{color:var(--lime)}.processing-section .section-intro{color:#b7c7be}.processing-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #46564f;border-bottom:1px solid #46564f}.processing-block{padding:38px 44px 40px 0}.processing-block+div{padding:38px 0 40px 44px;border-left:1px solid #46564f}.process-label{display:flex;align-items:center;gap:13px;font:11px Consolas,monospace;color:#c2d2c7;margin-bottom:27px}.process-label .icon{width:25px;height:25px;color:var(--lime)}.processing-block h3{font-size:23px;font-weight:550;letter-spacing:-.7px;margin:0 0 15px;line-height:1.3}.processing-block p{font-size:14px;color:#bdcbc2;line-height:1.85;margin:0;max-width:440px}.process-foot{display:flex;align-items:center;gap:8px;margin-top:26px;font-size:11px;color:#d5e2d8}.process-foot .icon{width:15px;height:15px;color:var(--lime)}.processing-note{font-size:11px;color:#b8c9be;margin:24px 0 0;max-width:850px}
+    .manuals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.manual-card{background:white;border-top:3px solid var(--ink);padding:30px 27px;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}.manual-card:first-child{border-color:#799c35}.manual-card:nth-child(2){border-color:var(--blue)}.manual-card:hover{transform:translateY(-3px);box-shadow:0 6px 22px #1426320c}.manual-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.manual-language{font-size:42px;line-height:1;font-weight:450;letter-spacing:-1.5px}.manual-top .brand-mark{width:31px;height:31px}.manual-card h3{font-size:21px;font-weight:600;margin:0 0 8px}.manual-card p{font-size:12px;color:var(--muted);line-height:1.8;margin:0 0 26px}.manual-format{font:10px Consolas,monospace;color:var(--muted);margin-bottom:28px}.manual-download{display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid var(--line);padding-top:18px;font-size:12px;font-weight:650;margin-top:auto}.manual-download .icon{width:18px;height:18px}.manuals-note{margin-top:23px;color:var(--muted);font-size:11px}.faq-section{border-top:1px solid var(--line);padding-top:68px}.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}.faq-grid h2{font-size:36px;max-width:320px}.faq-list details{border-bottom:1px solid var(--line)}.faq-list details:first-child{border-top:1px solid var(--line)}.faq-list summary{display:flex;align-items:center;justify-content:space-between;gap:22px;padding:21px 0;list-style:none;cursor:pointer;font-size:14px;font-weight:600;line-height:1.5}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary:after{content:"+";font-size:23px;line-height:1;font-weight:400;flex:none}.faq-list details[open] summary:after{content:"−"}.faq-list p{margin:0;padding:0 30px 23px 0;font-size:13px;line-height:1.9;color:var(--muted)}
+    .site-footer{margin-top:25px;background:var(--ink);color:white}.footer-cta{display:flex;align-items:center;justify-content:space-between;gap:50px;padding-block:55px}.footer-cta h2{margin:0;font-size:clamp(31px,3.4vw,46px);font-weight:550;line-height:1.2;letter-spacing:-1.6px}.footer-cta p{margin:13px 0 0;color:#b7c7be;font-size:13px}.button.lime{background:var(--lime);color:var(--ink);white-space:nowrap}.button.lime:hover{background:#e5ffad}.footer-bottom{border-top:1px solid #43544c;display:flex;align-items:center;justify-content:space-between;padding-block:26px;gap:28px}.footer-bottom .brand{font-size:21px}.footer-bottom .brand-mark{width:37px;height:37px}.footer-meta{font-size:11px;color:#bdccc3;text-align:right}.footer-meta a{display:inline-block;border-bottom:1px solid #768e7e;margin-left:20px;padding-bottom:1px}.footer-meta a:hover{color:var(--lime)}.footer-meta p{margin:8px 0 0;font:9px Consolas,monospace;color:#aebfb4}
+    @media(min-width:1500px){.hero{padding-top:86px;padding-bottom:65px}.hero-grid{gap:74px}.preview-canvas{height:390px}.document-sheet{height:365px;width:300px}.document-sheet p{font-size:10px}.preview-label{font-size:11px}}
+    @media(max-width:1100px){.container{width:calc(100% - 56px)}.header-inner{gap:22px}.desktop-nav{gap:19px}.hero-grid{gap:30px;grid-template-columns:.9fr 1.1fr}.hero h1{font-size:54px;letter-spacing:-2.5px}.hero-copy>p{font-size:15px}.preview-tabs button{padding-inline:8px}.page-surface{padding-inline:18px}.document-sheet{padding-inline:20px}.document-footer{left:20px;right:20px}.page-rail{width:50px;padding-inline:7px}.feature:nth-child(3n+2),.feature:nth-child(3n+3){padding-left:24px}.feature{padding-right:24px}.faq-grid{gap:45px}.manual-card{padding:25px 23px}.footer-meta a{margin-left:12px}}
+    @media(max-width:850px){.header-inner{height:78px;gap:16px}.brand{font-size:21px}.brand-mark{width:39px;height:39px}.desktop-nav{gap:17px;font-size:12px}.header-open{display:none}.hero{padding-top:52px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-copy{max-width:580px}.hero h1{font-size:62px;letter-spacing:-3px}.hero-copy>p{font-size:17px;max-width:560px}.preview{max-width:640px;width:100%;justify-self:center}.preview-canvas{height:385px}.page-surface{padding-top:20px}.document-sheet{width:310px;height:360px;padding-inline:28px}.document-sheet p{font-size:10px}.document-sheet h3{font-size:23px}.document-table{font-size:9px}.sheet-heading{font-size:10px}.document-footer{left:28px;right:28px}.page-rail{width:72px;padding-inline:16px}.page-mini{width:40px;height:55px}.section{padding-block:65px}.section-top{gap:35px}.features-grid{grid-template-columns:repeat(2,1fr)}.feature:nth-child(n){padding:28px 26px 30px 0;border-left:0}.feature:nth-child(2n){border-left:1px solid var(--line);padding-left:26px;padding-right:0}.manuals-grid{gap:14px}.manual-card{padding:25px 18px}.manual-language{font-size:37px}.processing-block{padding-right:30px}.processing-block+div{padding-left:30px}.faq-grid{grid-template-columns:1fr;gap:32px}.faq-grid h2{max-width:none}.version-strip{flex-wrap:wrap;justify-content:flex-start;column-gap:28px}.footer-cta{gap:30px}.footer-bottom{align-items:flex-start}.footer-meta{max-width:340px}}
+    @media(max-width:600px){html{scroll-padding-top:90px}.container{width:calc(100% - 36px)}.header-inner{height:73px;gap:10px}.brand{font-size:19px;gap:8px}.brand-mark{width:34px;height:34px}.language-picker{margin-left:auto;padding:2px}.language-picker button{width:31px;height:34px;font-size:10px}.menu-toggle{display:inline-flex;padding:8px 0 8px 7px}.desktop-nav{position:absolute;inset:73px 0 auto;background:var(--paper);border-bottom:1px solid var(--line);padding:12px 18px 18px;display:none;justify-content:space-between;gap:15px;margin:0;font-size:13px}.desktop-nav.is-open{display:flex}.desktop-nav a{padding:12px 0}.hero{padding:40px 0}.hero h1{font-size:clamp(41px,11.1vw,58px);letter-spacing:-2.25px;margin-top:22px;margin-bottom:23px}.hero-copy>p{font-size:15px;line-height:1.85}.eyebrow{font-size:10px;letter-spacing:1.3px}.hero-buttons{gap:23px}.button{padding:14px 18px;font-size:13px}.hero-caption{font-size:10px}.preview-label{font-size:8px;letter-spacing:.7px}.preview-label span:last-child{font-size:8px}.preview-topbar{padding-inline:12px;font-size:10px;gap:6px}.preview-file{font-size:8px}.window-tools{display:none}.preview-tabs{gap:3px;padding:8px}.preview-tabs button{padding:8px 4px;font-size:10px;gap:5px}.preview-tabs button .icon{width:14px;height:14px}.preview-canvas{height:335px}.page-rail{width:47px;padding:15px 8px}.page-mini{width:28px;height:39px}.page-mini:after{inset:8px 5px}.page-surface{padding:16px 14px}.document-sheet{height:309px;padding:22px 20px;width:270px}.document-sheet h3{font-size:20px}.document-sheet p{font-size:8px}.document-sheet .sheet-subtitle{font-size:7px;margin-bottom:15px}.sheet-heading{font-size:8px;margin-bottom:17px}.document-table{font-size:7px}.document-table td{padding-block:6px}.document-footer{left:20px;right:20px;font-size:6px;bottom:17px}.note-marker{top:126px;right:6px}.demo-note{left:16px;right:13px;bottom:29px;font-size:9px}.preview-footer{padding:10px 11px;gap:8px;font-size:8px}.preview-action{font-size:9px;padding:7px 8px}.demo-help{font-size:9px}.pages-demo{padding:22px 19px;gap:13px}.demo-page{width:calc(50% - 7px);height:124px;padding:15px}.create-demo{padding:18px 15px}.editor-sheet{padding:20px;height:300px}.editor-sheet textarea{height:138px}.version-strip{margin-top:37px;padding-top:17px;gap:13px 22px;font-size:10px}.section{padding-block:50px}.section-top{grid-template-columns:1fr;gap:23px;margin-bottom:30px}.section h2{font-size:32px;letter-spacing:-1px}.section-label{font-size:10px;margin-bottom:16px;letter-spacing:1.3px}.section-intro{justify-self:start;font-size:14px;line-height:1.8}.features-grid{grid-template-columns:1fr}.feature:nth-child(n){padding:25px 0;border-left:0;min-height:0}.feature .icon{width:24px;height:24px;margin-bottom:13px}.feature h3{font-size:18px}.feature p{font-size:13px;line-height:1.8}.feature-tag{margin-top:15px}.processing-grid{grid-template-columns:1fr}.processing-block,.processing-block+div{padding:28px 0;border-left:0}.processing-block+div{border-top:1px solid #46564f}.process-label{margin-bottom:20px}.processing-block h3{font-size:23px}.processing-block p{font-size:13px}.processing-note{font-size:10px;line-height:1.8}.manuals-grid{grid-template-columns:1fr;gap:17px}.manual-card{padding:26px}.manual-top{margin-bottom:21px}.manual-card p{font-size:13px;margin-bottom:21px}.manual-format{margin-bottom:21px}.manual-download{font-size:13px}.manuals-note{line-height:1.8;font-size:10px}.faq-grid{gap:28px}.faq-list summary{font-size:13px;padding-block:19px}.faq-list p{font-size:12px;padding-right:6px}.footer-cta{padding-block:39px;flex-direction:column;align-items:flex-start;gap:25px}.footer-cta h2{font-size:35px;letter-spacing:-1.2px}.footer-cta p{font-size:12px;line-height:1.7}.footer-bottom{flex-direction:column;gap:20px;padding-block:24px}.footer-meta{text-align:left;max-width:none}.footer-meta a{margin-left:0;margin-right:20px}.footer-meta p{line-height:1.9;margin-top:13px}.preview:before{display:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+    @media print{.site-header{position:static}.preview,.hero-buttons,.language-picker,.menu-toggle,.desktop-nav,.footer-cta,.preview-action{display:none}.hero-grid,.section-top,.faq-grid{display:block}.container{width:100%}.hero,.section{padding:24px}.hero h1{font-size:40px}.section-top{margin-bottom:24px}.section-intro{margin-top:15px}.processing-section,.site-footer{background:white;color:var(--ink)}.processing-section p,.processing-section .section-label,.process-label,.process-foot,.footer-meta{color:var(--ink)}.manual-card,.feature{break-inside:avoid}.faq-list details p{display:block}.site-footer{margin-top:0}}
+
+    .pricing-section{background:white;border-bottom:1px solid var(--line)}.pricing-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.plan{border:1px solid var(--line);padding:28px 29px;min-width:0;display:flex;flex-direction:column}.plan-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:14px}.plan-heading h3{font-size:22px;font-weight:600;letter-spacing:-.5px;margin:0}.plan-heading .brand-mark{width:28px;height:28px}.plan-audience{font-size:13px;color:var(--muted);line-height:1.8;min-height:47px;margin:0 0 32px}.plan-price{font-size:47px;line-height:1.15;letter-spacing:-1.8px;font-weight:600;white-space:nowrap;margin:0 0 6px}.plan-custom{font-size:34px;line-height:1.59;letter-spacing:-1px}.plan-period{font-size:11px;color:var(--muted);margin:0 0 31px}.plan-limit{border-top:1px solid var(--line);padding-top:23px;display:flex;gap:11px;align-items:flex-start;font-size:14px;font-weight:650;line-height:1.7}.plan-limit .icon{width:20px;height:20px;margin-top:2px}.plan-limit sup{font-size:12px;line-height:0;position:relative;vertical-align:baseline;top:-.5em;margin-left:2px}.plan-limit sup a{padding:4px;color:#2855b8;text-decoration:underline;text-underline-offset:2px}.plan-bottom{font-size:11px;color:var(--muted);line-height:1.8;margin:15px 0 0}.plan-plus{background:var(--ink);color:white;border-color:var(--ink)}.plan-plus .plan-audience,.plan-plus .plan-period,.plan-plus .plan-bottom{color:#c3d1c7}.plan-plus .plan-price{color:var(--lime)}.plan-plus .plan-limit{border-color:#485a50}.plan-plus .plan-limit .icon{color:var(--lime)}.pricing-note{margin:24px 0 0;font-size:12px;line-height:1.8;color:var(--muted);max-width:1000px;scroll-margin-top:110px}.pricing-note strong{color:var(--ink);font-size:16px;margin-right:3px}
+    @media(max-width:1100px){.pricing-grid{gap:18px}.plan{padding:26px 23px}.plan-price{font-size:43px}.plan-custom{font-size:31px;line-height:1.59}}
+    @media(max-width:850px){.pricing-grid{gap:13px}.plan{padding:25px 18px}.plan-price{font-size:36px;letter-spacing:-1px}.plan-custom{font-size:25px;line-height:1.65}.plan-audience{font-size:12px;min-height:63px;margin-bottom:26px}.plan-limit{font-size:12px;gap:8px}.plan-limit .icon{width:18px;height:18px}.plan-period{font-size:10px}.plan-bottom{font-size:10px}}
+    @media(max-width:600px){.pricing-grid{grid-template-columns:1fr;gap:17px}.plan{padding:28px 26px}.plan-audience{font-size:13px;min-height:0;margin-bottom:27px}.plan-price{font-size:clamp(37px,12vw,47px);letter-spacing:-1.6px}.plan-custom{font-size:34px;line-height:1.59}.plan-period{font-size:11px;margin-bottom:25px}.plan-limit{font-size:14px;gap:11px}.plan-limit .icon{width:20px;height:20px}.plan-bottom{font-size:11px}.pricing-note{font-size:11px}.desktop-nav{font-size:12px;gap:12px}}
+    @media(max-width:360px){.header-inner .brand{font-size:17px;gap:6px}.header-inner .brand-mark{width:31px;height:31px}}
+    @media print{.plan{break-inside:avoid}.plan-plus{background:white;color:var(--ink)}.plan-plus .plan-price{color:var(--ink)}}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip" data-i18n="skip">Vai al contenuto</a>
+  <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="pdfstudio-mark" viewBox="0 0 48 48">
+        <rect width="48" height="48" rx="12" fill="#142632"/>
+        <path d="M10 15h4v20h16v4H10z" fill="#4675f5"/>
+        <path d="M17 8h12l10 10v18H17z" fill="#d4fa72"/>
+        <path d="M29 8v10h10z" fill="#142632" opacity=".22"/>
+        <path d="M23 29v-9h5a3 3 0 0 1 0 6h-5" fill="none" stroke="#142632" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 16v5h16v-5"/></symbol>
+      <symbol id="pages" viewBox="0 0 24 24"><path d="M8 3h9l4 4v13H8zM17 3v4h4M4 6H3v15h12M12 11h5M12 15h5"/></symbol>
+      <symbol id="pen" viewBox="0 0 24 24"><path d="m4 16 12-12 4 4L8 20H4zM13 7l4 4M4 20h16"/></symbol>
+      <symbol id="document" viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5zM15 3v5h4M9 12h6M9 16h6"/></symbol>
+      <symbol id="signature" viewBox="0 0 24 24"><path d="M3 17c5-12 9-16 9-10 0 4-4 9-4 7 0-3 5-2 4 1 2-3 4-3 4 0 0 2 3 0 5-1M3 21h18"/></symbol>
+      <symbol id="ocr" viewBox="0 0 24 24"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5M8 8h8M12 8v8M9 16h6"/></symbol>
+      <symbol id="convert" viewBox="0 0 24 24"><path d="M4 7h15M15 3l4 4-4 4M20 17H5M9 13l-4 4 4 4"/></symbol>
+      <symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></symbol>
+      <symbol id="browser" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></symbol>
+      <symbol id="server" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01M16 6.5h2M16 17.5h2"/></symbol>
+      <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="note" viewBox="0 0 24 24"><path d="M3 4h18v12H9l-6 5zM7 8h10M7 12h7"/></symbol>
+      <symbol id="menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    </defs>
+  </svg>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#main" aria-label="PDF Studio — inizio" data-i18n-aria="brandHome"><svg class="brand-mark" aria-hidden="true"><use href="#pdfstudio-mark"/></svg><span>PDF <strong>Studio</strong></span></a>
+      <nav class="desktop-nav" id="siteNav" aria-label="Navigazione" data-i18n-aria="navigation">
+        <a href="#tools" data-i18n="navTools">Funzioni</a><a href="#processing" data-i18n="navProcessing">I tuoi file</a><a href="#pricing" data-i18n="navPricing">Prezzi</a><a href="#manuals" data-i18n="navManuals">Manuali</a>
+      </nav>
+      <div class="language-picker" role="group" aria-label="Lingua" data-i18n-aria="language">
+        <button type="button" data-language="it" lang="it" aria-label="Italiano" aria-pressed="true">IT</button>
+        <button type="button" data-language="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+        <button type="button" data-language="de" lang="de" aria-label="Deutsch" aria-pressed="false">DE</button>
+      </div>
+      <a class="header-open" data-app-link href="index.php?lang=it"><span data-i18n="openShort">Apri Studio</span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Apri menu" data-i18n-aria="menu"><svg class="icon" aria-hidden="true"><use href="#menu"/></svg></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero container" aria-labelledby="heroTitle">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow" data-i18n="eyebrow">Uno spazio per PDF e documenti</div>
+          <h1 id="heroTitle"><span data-i18n="heroLine1">PDF, senza</span><span><span class="accent" data-i18n="heroLine2">passaggi inutili.</span></span></h1>
+          <p data-i18n="heroBody">Riordina le pagine, aggiungi una nota, compila un modulo. Oppure parti da un foglio bianco. Il lavoro resta nello stesso spazio.</p>
+          <div class="hero-buttons"><a class="button primary" data-app-link href="index.php?lang=it"><span data-i18n="openApp">Apri PDF Studio</span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><a class="text-link" href="#tools" data-i18n="explore">Esplora le funzioni</a></div>
+          <div class="hero-caption"><svg class="icon" aria-hidden="true"><use href="#browser"/></svg><span data-i18n="heroPrivacy">I tuoi file, nel browser. Il server solo quando serve.</span></div>
+        </div>
+        <div class="preview">
+          <div class="preview-label"><span data-i18n="previewLabel">Uno sguardo allo spazio di lavoro</span><span>PDF STUDIO / 1.2.0</span></div>
+          <div class="workspace-preview">
+            <div class="preview-topbar"><svg class="brand-mark" aria-hidden="true"><use href="#pdfstudio-mark"/></svg><strong>PDF Studio</strong><span class="preview-file">progetto_24.pdf</span><div class="window-tools" aria-hidden="true"><svg class="icon"><use href="#browser"/></svg><svg class="icon"><use href="#download"/></svg></div></div>
+            <div class="preview-tabs" role="tablist" aria-label="Anteprima delle funzioni" data-i18n-aria="demoTabs">
+              <button type="button" id="tab-annotate" role="tab" aria-controls="demo-annotate" aria-selected="true" data-demo="annotate"><svg class="icon" aria-hidden="true"><use href="#pen"/></svg><span data-i18n="tabAnnotate">Annota</span></button>
+              <button type="button" id="tab-pages" role="tab" aria-controls="demo-pages" aria-selected="false" tabindex="-1" data-demo="pages"><svg class="icon" aria-hidden="true"><use href="#pages"/></svg><span data-i18n="tabPages">Organizza</span></button>
+              <button type="button" id="tab-create" role="tab" aria-controls="demo-create" aria-selected="false" tabindex="-1" data-demo="create"><svg class="icon" aria-hidden="true"><use href="#document"/></svg><span data-i18n="tabCreate">Crea</span></button>
+            </div>
+            <div class="preview-canvas">
+              <div id="demo-annotate" role="tabpanel" aria-labelledby="tab-annotate" style="display:flex;width:100%" tabindex="0">
+                <div class="page-rail" aria-hidden="true"><div class="page-mini active"></div><div class="page-mini"></div><div class="page-mini"></div></div>
+                <div class="page-surface">
+                  <div class="document-sheet">
+                    <div class="sheet-heading"><svg class="brand-mark" aria-hidden="true"><use href="#pdfstudio-mark"/></svg><span>LINEA / STUDIO</span><span class="document-code">24—01</span></div>
+                    <h3 data-i18n="sheetTitle">Rapporto di progetto</h3><p class="sheet-subtitle" data-i18n="sheetSubtitle">Riepilogo operativo · Ottobre 2026</p>
+                    <p><span data-i18n="sheetBefore">La revisione è completata. </span><mark data-i18n="sheetHighlight">Restano da verificare gli allegati</mark><span data-i18n="sheetAfter"> prima della consegna finale.</span></p>
+                    <table class="document-table"><thead><tr><th data-i18n="sheetTask">Attività</th><th data-i18n="sheetStatus">Stato</th></tr></thead><tbody><tr><td data-i18n="sheetReview">Revisione documenti</td><td data-i18n="sheetDone">Completata</td></tr><tr><td data-i18n="sheetLayouts">Impaginazione</td><td data-i18n="sheetDone">Completata</td></tr><tr><td data-i18n="sheetAttachments">Allegati</td><td data-i18n="sheetCheck">Da verificare</td></tr></tbody></table>
+                    <span class="note-marker" aria-hidden="true"><svg class="icon"><use href="#note"/></svg></span>
+                    <aside class="demo-note" id="demoNote" hidden><strong data-i18n="noteLabel">NOTA DI REVISIONE</strong><span data-i18n="noteText">Verificare gli allegati prima dell'invio.</span></aside>
+                    <div class="document-footer"><span>LINEA / STUDIO</span><span>01 / 03</span></div>
+                  </div>
+                </div>
+              </div>
+              <div id="demo-pages" class="pages-demo" role="tabpanel" aria-labelledby="tab-pages" tabindex="0" hidden>
+                <div class="demo-page" data-page-number="1"><span class="page-num"><span data-i18n="pageLabel">PAGINA</span> 01</span><div class="mini-rule strong"></div><div class="mini-rule"></div><div class="mini-rule"></div><div class="mini-rule"></div><div class="mini-box"></div></div>
+                <div class="demo-page" data-page-number="2"><span class="page-num"><span data-i18n="pageLabel">PAGINA</span> 02</span><div class="mini-rule strong"></div><div class="mini-rule"></div><div class="mini-rule"></div><div class="mini-rule"></div><div class="mini-box"></div></div>
+                <div class="demo-page" data-page-number="3"><span class="page-num"><span data-i18n="pageLabel">PAGINA</span> 03</span><div class="mini-rule strong"></div><div class="mini-rule"></div><div class="mini-rule"></div><div class="mini-rule"></div><div class="mini-box"></div></div>
+                <div class="demo-page" data-page-number="4"><span class="page-num"><span data-i18n="pageLabel">PAGINA</span> 04</span><div class="mini-rule strong"></div><div class="mini-rule"></div><div class="mini-rule"></div><div class="mini-rule"></div><div class="mini-box"></div></div>
+              </div>
+              <div id="demo-create" class="create-demo" role="tabpanel" aria-labelledby="tab-create" tabindex="0" hidden>
+                <div class="editor-sheet"><div class="editor-format" aria-hidden="true"><span>Aa</span><b>B</b><i>I</i><u>U</u><span>≡</span><span>☷</span><span>↗</span></div><h3 data-i18n="editorTitle">Il prossimo documento</h3><label class="sr-only" for="demoEditor" data-i18n="editorLabel">Prova a scrivere una nota</label><textarea id="demoEditor" placeholder="Prova a scrivere una nota di progetto…" data-i18n-placeholder="editorPlaceholder" spellcheck="true"></textarea><div class="editor-count"><span id="demoWordCount">0</span> <span data-i18n="wordLabel">parole</span> · <span data-i18n="editorLocal">solo in questa anteprima</span></div></div>
+              </div>
+            </div>
+            <div class="preview-footer"><span id="demoStatus" aria-live="polite">Evidenzia e aggiungi una nota.</span><button type="button" class="preview-action" id="demoAction"><svg class="icon" aria-hidden="true"><use href="#note"/></svg><span id="demoActionText">Mostra nota</span></button></div>
+          </div>
+          <p class="demo-help" data-i18n="demoHelp">Anteprima interattiva. Apri Studio per lavorare sui tuoi file.</p>
+        </div>
+      </div>
+      <div class="version-strip"><span><i class="status-dot" aria-hidden="true"></i><b>PDF Studio 1.2.0</b></span><span data-i18n="stripBrowser">Nel tuo browser</span><span data-i18n="stripDatabase">Senza database</span><span>PHP 7.2+</span><span>Italiano / English / Deutsch</span></div>
+    </section>
+    <section class="section tools-section" id="tools" aria-labelledby="toolsTitle">
+      <div class="container">
+        <div class="section-top"><div><div class="section-label"><span class="number">01 /</span><span data-i18n="toolsLabel">Gli strumenti</span></div><h2 id="toolsTitle" data-i18n="toolsTitle">Dal documento aperto<br>al lavoro finito.</h2></div><p class="section-intro" data-i18n="toolsIntro">Un editor per i PDF, uno per creare documenti. E gli strumenti di conversione e gestione che servono tra un passaggio e l'altro.</p></div>
+        <div class="features-grid">
+          <article class="feature"><svg class="icon" aria-hidden="true"><use href="#pages"/></svg><h3 data-i18n="pagesTitle">Pagine in ordine</h3><p data-i18n="pagesBody">Unisci più file, riordina le pagine, ruotale o estrai solo quelle che ti servono. Prepara il risultato prima di esportarlo.</p><span class="feature-tag" data-i18n="browserTag">Browser</span></article>
+          <article class="feature"><svg class="icon" aria-hidden="true"><use href="#pen"/></svg><h3 data-i18n="annotateTitle">Annotazioni e aggiunte</h3><p data-i18n="annotateBody">Aggiungi testo, immagini, note, evidenziazioni e collegamenti sopra le pagine. L'originale resta lo sfondo del documento.</p><span class="feature-tag" data-i18n="browserTag">Browser</span></article>
+          <article class="feature"><svg class="icon" aria-hidden="true"><use href="#signature"/></svg><h3 data-i18n="formsTitle">Firme visive e moduli</h3><p data-i18n="formsBody">Disegna o inserisci una firma visiva, compila i campi e crea moduli. Le firme visive non sono firme digitali certificate.</p><span class="feature-tag" data-i18n="browserTag">Browser</span></article>
+          <article class="feature"><svg class="icon" aria-hidden="true"><use href="#document"/></svg><h3 data-i18n="createTitle">Dal foglio bianco</h3><p data-i18n="createBody">Scrivi con l'editor di documenti: stili, immagini, tabelle, intestazioni e numeri di pagina. Conserva la sorgente ed esporta il PDF.</p><span class="feature-tag" data-i18n="createTag">Browser · motori server facoltativi</span></article>
+          <article class="feature"><svg class="icon" aria-hidden="true"><use href="#ocr"/></svg><h3 data-i18n="convertTitle">Testo e conversioni</h3><p data-i18n="convertBody">Trasforma immagini in PDF, esporta le pagine come immagini ed estrai testo. L'OCR riconosce i testi delle scansioni; il server aggiunge la conversione Office.</p><span class="feature-tag server" data-i18n="mixedTag">Browser + server facoltativo</span></article>
+          <article class="feature"><svg class="icon" aria-hidden="true"><use href="#lock"/></svg><h3 data-i18n="protectTitle">Protezione e dimensioni</h3><p data-i18n="protectBody">Esporta una copia con oscuramento sicuro nel browser. Con gli strumenti server puoi aggiungere password, comprimere e verificare la struttura del PDF.</p><span class="feature-tag server" data-i18n="mixedTag">Browser + server facoltativo</span></article>
+        </div>
+      </div>
+    </section>
+    <section class="section processing-section" id="processing" aria-labelledby="processingTitle">
+      <div class="container">
+        <div class="section-top"><div><div class="section-label"><span class="number">02 /</span><span data-i18n="processingLabel">Dove avviene il lavoro</span></div><h2 id="processingTitle" data-i18n="processingTitle">Sai dove vanno<br>i tuoi documenti.</h2></div><p class="section-intro" data-i18n="processingIntro">Browser e server hanno ruoli distinti. Le capacità del sistema mostrano quali strumenti sono disponibili nella tua installazione.</p></div>
+        <div class="processing-grid">
+          <div class="processing-block"><div class="process-label"><svg class="icon" aria-hidden="true"><use href="#browser"/></svg><span data-i18n="browserProcessLabel">01 — BROWSER</span></div><h3 data-i18n="browserProcessTitle">Il lavoro quotidiano resta qui.</h3><p data-i18n="browserProcessBody">Modifiche, annotazioni, pagine e progetti vengono elaborati sul tuo dispositivo. Aprire un file per questi strumenti non lo carica sul server.</p><div class="process-foot"><svg class="icon" aria-hidden="true"><use href="#check"/></svg><span data-i18n="browserProcessFoot">Nessun database richiesto</span></div></div>
+          <div class="processing-block"><div class="process-label"><svg class="icon" aria-hidden="true"><use href="#server"/></svg><span data-i18n="serverProcessLabel">02 — SERVER FACOLTATIVO</span></div><h3 data-i18n="serverProcessTitle">Più strumenti, quando li scegli.</h3><p data-i18n="serverProcessBody">Compressione, password, OCR server e conversione Office usano i programmi installati sul tuo server. Il documento viene inviato solo per l'operazione che richiedi.</p><div class="process-foot"><svg class="icon" aria-hidden="true"><use href="#check"/></svg><span data-i18n="serverProcessFoot">Disponibilità e aiuto di installazione visibili</span></div></div>
+        </div>
+        <p class="processing-note" data-i18n="processingNote">Le librerie del browser richiedono accesso alle CDN configurate. Il recupero automatico dipende dallo spazio del browser: scarica un progetto modificabile per conservare una copia indipendente.</p>
+      </div>
+    </section>
+    <section class="section pricing-section" id="pricing" aria-labelledby="pricingTitle">
+      <div class="container">
+        <div class="section-top"><div><div class="section-label"><span class="number">03 /</span><span data-i18n="pricingLabel">I piani</span></div><h2 id="pricingTitle" data-i18n="pricingTitle">Quanto è grande<br>il tuo prossimo PDF?</h2></div><p class="section-intro" data-i18n="pricingIntro">Tre piani, in base al numero di pagine dei tuoi PDF. Parti dai documenti brevi o scegli più spazio per il tuo lavoro.</p></div>
+        <div class="pricing-grid">
+          <article class="plan">
+            <div class="plan-heading"><h3>Base</h3><svg class="brand-mark" aria-hidden="true"><use href="#pdfstudio-mark"/></svg></div>
+            <p class="plan-audience" data-i18n="baseAudience">Per documenti brevi ed esigenze occasionali.</p>
+            <div class="plan-price"><span data-i18n="freePrice">Gratis</span></div><p class="plan-period" data-i18n="freePeriod">Nessun canone mensile</p>
+            <div class="plan-limit"><svg class="icon" aria-hidden="true"><use href="#pages"/></svg><span data-i18n="baseLimit">PDF fino a 5 pagine</span></div>
+            <p class="plan-bottom" data-i18n="baseBottom">Il punto di partenza per i file più piccoli.</p>
+          </article>
+          <article class="plan plan-plus">
+            <div class="plan-heading"><h3>Plus</h3><svg class="brand-mark" aria-hidden="true"><use href="#pdfstudio-mark"/></svg></div>
+            <p class="plan-audience" data-i18n="plusAudience">Per report, contratti e documenti di lavoro.</p>
+            <div class="plan-price"><span data-i18n="plusPrice">19,99 €</span></div><p class="plan-period" data-i18n="perMonth">al mese</p>
+            <div class="plan-limit"><svg class="icon" aria-hidden="true"><use href="#pages"/></svg><span data-i18n="plusLimit">PDF fino a 49 pagine</span></div>
+            <p class="plan-bottom" data-i18n="plusBottom">Più pagine per il lavoro di ogni giorno.</p>
+          </article>
+          <article class="plan">
+            <div class="plan-heading"><h3>Pro</h3><svg class="brand-mark" aria-hidden="true"><use href="#pdfstudio-mark"/></svg></div>
+            <p class="plan-audience" data-i18n="proAudience">Per dossier e documenti più corposi.</p>
+            <div class="plan-price plan-custom"><span data-i18n="proPrice">Su richiesta</span></div><p class="plan-period" data-i18n="proPeriod">Per le tue esigenze</p>
+            <div class="plan-limit"><svg class="icon" aria-hidden="true"><use href="#pages"/></svg><span><span data-i18n="proLimit">PDF tendenzialmente illimitati</span><sup><a href="#server-limits" aria-label="Leggi i limiti del server" data-i18n-aria="serverLimitAria">*</a></sup></span></div>
+            <p class="plan-bottom" data-i18n="proBottom">Per lavorare oltre i formati più brevi.</p>
+          </article>
+        </div>
+        <p class="pricing-note" id="server-limits"><strong>*</strong> <span data-i18n="serverLimitNote">Il limite effettivo di pagine e dimensione dei file dipende dalla configurazione, dalla memoria e dalle risorse disponibili sul server.</span></p>
+      </div>
+    </section>
+    <section class="section" id="manuals" aria-labelledby="manualsTitle">
+      <div class="container">
+        <div class="section-top"><div><div class="section-label"><span class="number">04 /</span><span data-i18n="manualsLabel">Le guide</span></div><h2 id="manualsTitle" data-i18n="manualsTitle">Il manuale,<br>nella tua lingua.</h2></div><p class="section-intro" data-i18n="manualsIntro">Tre guide complete per usare PDF Studio. Istruzioni passo per passo, salvataggio dei progetti e soluzioni ai problemi più comuni.</p></div>
+        <!-- Manual placeholders: upload your Word files at these paths, or edit CONFIG.manuals below. -->
+        <div class="manuals-grid">
+          <a class="manual-card" data-manual="it" href="manuals/PDFStudio_Manual_Italian.docx" download aria-label="Scarica il manuale italiano in Word" data-i18n-aria="manualItAria"><div class="manual-top"><span class="manual-language">IT</span><svg class="brand-mark" aria-hidden="true"><use href="#pdfstudio-mark"/></svg></div><h3 lang="it">Italiano</h3><p data-i18n="manualBody">Tutte le funzioni, dall'apertura del file all'esportazione. Con esempi, scorciatoie e indicazioni per gli aggiornamenti.</p><div class="manual-format"><span data-i18n="manualChapters">18 capitoli</span> / WORD .DOCX</div><span class="manual-download"><span data-i18n="manualDownload">Scarica il manuale</span><svg class="icon" aria-hidden="true"><use href="#download"/></svg></span></a>
+          <a class="manual-card" data-manual="en" href="manuals/PDFStudio_Manual_English.docx" download aria-label="Scarica il manuale inglese in Word" data-i18n-aria="manualEnAria"><div class="manual-top"><span class="manual-language">EN</span><svg class="brand-mark" aria-hidden="true"><use href="#pdfstudio-mark"/></svg></div><h3 lang="en">English</h3><p data-i18n="manualBody">Tutte le funzioni, dall'apertura del file all'esportazione. Con esempi, scorciatoie e indicazioni per gli aggiornamenti.</p><div class="manual-format"><span data-i18n="manualChapters">18 capitoli</span> / WORD .DOCX</div><span class="manual-download"><span data-i18n="manualDownload">Scarica il manuale</span><svg class="icon" aria-hidden="true"><use href="#download"/></svg></span></a>
+          <a class="manual-card" data-manual="de" href="manuals/PDFStudio_Manual_German.docx" download aria-label="Scarica il manuale tedesco in Word" data-i18n-aria="manualDeAria"><div class="manual-top"><span class="manual-language">DE</span><svg class="brand-mark" aria-hidden="true"><use href="#pdfstudio-mark"/></svg></div><h3 lang="de">Deutsch</h3><p data-i18n="manualBody">Tutte le funzioni, dall'apertura del file all'esportazione. Con esempi, scorciatoie e indicazioni per gli aggiornamenti.</p><div class="manual-format"><span data-i18n="manualChapters">18 capitoli</span> / WORD .DOCX</div><span class="manual-download"><span data-i18n="manualDownload">Scarica il manuale</span><svg class="icon" aria-hidden="true"><use href="#download"/></svg></span></a>
+        </div>
+        <p class="manuals-note" data-i18n="manualsNote">Le guide coprono gli strumenti browser e le funzioni server facoltative. La disponibilità di queste ultime dipende dall'installazione.</p>
+      </div>
+    </section>
+    <section class="section faq-section" aria-labelledby="faqTitle">
+      <div class="container faq-grid"><div><div class="section-label"><span class="number">05 /</span><span data-i18n="faqLabel">Prima di iniziare</span></div><h2 id="faqTitle" data-i18n="faqTitle">Qualche risposta<br>utile.</h2></div>
+        <div class="faq-list">
+          <details><summary data-i18n="faqUploadTitle">I documenti vengono caricati online?</summary><p data-i18n="faqUploadBody">Gli strumenti browser elaborano il file sul tuo dispositivo. Se scegli uno strumento server, il file viene inviato alla tua installazione per quell'operazione. Le capacità del sistema indicano la distinzione.</p></details>
+          <details><summary data-i18n="faqInstallTitle">Cosa serve per l'installazione?</summary><p data-i18n="faqInstallBody">Un server con PHP 7.2 o superiore e il file index.php. Non serve un database. I programmi server aggiuntivi sono facoltativi: il pannello delle capacità include i comandi di installazione per Ubuntu.</p></details>
+          <details><summary data-i18n="faqTextTitle">Posso cambiare il testo originale di un PDF?</summary><p data-i18n="faqTextBody">L'editor aggiunge testo e oggetti sopra le pagine originali: non ridispone automaticamente il testo già presente. Per creare un nuovo documento impaginato usa l'editor di documenti.</p></details>
+          <details><summary data-i18n="faqSaveTitle">Come posso riprendere il lavoro?</summary><p data-i18n="faqSaveBody">Scarica un progetto modificabile per conservare le tue modifiche. Il recupero automatico nel browser è un aiuto, non una copia di sicurezza: può richiedere i PDF originali e dipende dallo spazio disponibile.</p></details>
+          <details><summary data-i18n="faqLanguagesTitle">Posso cambiare lingua durante il lavoro?</summary><p data-i18n="faqLanguagesBody">Sì. Italiano, inglese e tedesco sono disponibili sia qui sia nell'applicazione. La lingua dell'interfaccia può cambiare senza chiudere il documento o tradurre il suo contenuto.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container">
+    <div class="footer-cta"><div><h2 data-i18n="footerTitle">Il documento è tuo.<br>Mettilo al lavoro.</h2><p data-i18n="footerBody">Apri un PDF o crea qualcosa da un foglio bianco.</p></div><a class="button lime" data-app-link href="index.php?lang=it"><span data-i18n="openApp">Apri PDF Studio</span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+    <div class="footer-bottom"><a class="brand" href="#main" aria-label="PDF Studio — inizio" data-i18n-aria="brandHome"><svg class="brand-mark" aria-hidden="true"><use href="#pdfstudio-mark"/></svg><span>PDF <strong>Studio</strong></span></a><div class="footer-meta"><a href="#pricing" data-i18n="navPricing">Prezzi</a><a href="#manuals" data-i18n="navManuals">Manuali</a><a href="https://github.com/ziobit/zbpdfstudio" target="_blank" rel="noopener noreferrer" data-i18n="sourceLink">Codice su GitHub</a><p>PDF STUDIO 1.2.0 / <span data-i18n="footerLanguages">Tre lingue. Uno spazio di lavoro.</span></p></div></div>
+  </div></footer>
+  <script>
+  'use strict';
+  // DEPLOYMENT SETTINGS. Replace the three manual paths when your files are published.
+  // The whole presentation page is self-contained; index.php is the separate application.
+  const CONFIG = Object.freeze({
+    app: 'index.php',
+    manuals: {
+      it: 'manuals/PDFStudio_Manual_Italian.docx',
+      en: 'manuals/PDFStudio_Manual_English.docx',
+      de: 'manuals/PDFStudio_Manual_German.docx'
+    }
+  });
+  // Each entry contains Italian, English and German, in that order.
+  const COPY = {
+    skip: ['Vai al contenuto','Skip to content','Zum Inhalt'],
+    brandHome: ['PDF Studio — inizio','PDF Studio — home','PDF Studio — Start'],
+    navigation: ['Navigazione','Navigation','Navigation'],
+    language: ['Lingua','Language','Sprache'],
+    menu: ['Apri o chiudi il menu','Open or close the menu','Menü öffnen oder schließen'],
+    navTools: ['Funzioni','Features','Funktionen'],
+    navProcessing: ['I tuoi file','Your files','Ihre Dateien'],
+    navManuals: ['Manuali','Manuals','Handbücher'],
+    navPricing: ['Prezzi','Pricing','Preise'],
+    openShort: ['Apri Studio','Open Studio','Studio öffnen'],
+    eyebrow: ['Uno spazio per PDF e documenti','One workspace for PDFs and documents','Ein Arbeitsbereich für PDFs und Dokumente'],
+    heroLine1: ['PDF, senza','PDFs, without','PDFs. Ohne'],
+    heroLine2: ['passaggi inutili.','extra steps.','Umwege.'],
+    heroBody: ['Riordina le pagine, aggiungi una nota, compila un modulo. Oppure parti da un foglio bianco. Il lavoro resta nello stesso spazio.','Reorder pages, add a note, fill in a form. Or start with a blank page. Keep the work in one place.','Seiten ordnen, eine Notiz ergänzen, ein Formular ausfüllen. Oder mit einer leeren Seite beginnen. Alles im selben Arbeitsbereich.'],
+    openApp: ['Apri PDF Studio','Open PDF Studio','PDF Studio öffnen'],
+    explore: ['Esplora le funzioni','Explore the features','Funktionen ansehen'],
+    heroPrivacy: ['I tuoi file, nel browser. Il server solo quando serve.','Your files, in your browser. Server tools when needed.','Ihre Dateien im Browser. Servertools bei Bedarf.'],
+    previewLabel: ['Uno sguardo allo spazio di lavoro','A look inside the workspace','Ein Blick in den Arbeitsbereich'],
+    demoTabs: ['Anteprima delle funzioni','Feature preview','Funktionsvorschau'],
+    tabAnnotate: ['Annota','Annotate','Kommentieren'],
+    tabPages: ['Organizza','Organize','Ordnen'],
+    tabCreate: ['Crea','Create','Erstellen'],
+    sheetTitle: ['Rapporto di progetto','Project report','Projektbericht'],
+    sheetSubtitle: ['Riepilogo operativo · Ottobre 2026','Work summary · October 2026','Arbeitsübersicht · Oktober 2026'],
+    sheetBefore: ['La revisione è completata. ','The review is complete. ','Die Prüfung ist abgeschlossen. '],
+    sheetHighlight: ['Restano da verificare gli allegati','The attachments still need checking','Die Anlagen müssen noch geprüft werden'],
+    sheetAfter: [' prima della consegna finale.',' before the final handover.',' vor der endgültigen Übergabe.'],
+    sheetTask: ['Attività','Task','Aufgabe'],
+    sheetStatus: ['Stato','Status','Status'],
+    sheetReview: ['Revisione documenti','Document review','Dokumentenprüfung'],
+    sheetDone: ['Completata','Complete','Erledigt'],
+    sheetLayouts: ['Impaginazione','Page layout','Seitenlayout'],
+    sheetAttachments: ['Allegati','Attachments','Anlagen'],
+    sheetCheck: ['Da verificare','To check','Zu prüfen'],
+    noteLabel: ['NOTA DI REVISIONE','REVIEW NOTE','PRÜFNOTIZ'],
+    noteText: ["Verificare gli allegati prima dell'invio.",'Check the attachments before sending.','Anlagen vor dem Versand prüfen.'],
+    pageLabel: ['PAGINA','PAGE','SEITE'],
+    editorTitle: ['Il prossimo documento','The next document','Das nächste Dokument'],
+    editorLabel: ['Prova a scrivere una nota','Try writing a note','Schreiben Sie eine Notiz'],
+    editorPlaceholder: ['Prova a scrivere una nota di progetto…','Try writing a project note…','Schreiben Sie eine Projektnotiz…'],
+    wordLabel: ['parole','words','Wörter'],
+    editorLocal: ['solo in questa anteprima','only in this preview','nur in dieser Vorschau'],
+    demoHelp: ['Anteprima interattiva. Apri Studio per lavorare sui tuoi file.','Interactive preview. Open Studio to work on your own files.','Interaktive Vorschau. Öffnen Sie Studio für Ihre eigenen Dateien.'],
+    demoAnnotateStatus: ['Evidenzia e aggiungi una nota.','Highlight and add a note.','Markieren und Notizen ergänzen.'],
+    demoNoteStatus: ['Nota visibile sul documento di esempio.','Note shown on the sample document.','Notiz im Beispieldokument sichtbar.'],
+    demoPagesStatus: ["Quattro pagine. Scegli l'ordine.",'Four pages. Choose their order.','Vier Seiten. Reihenfolge wählen.'],
+    demoPagesReversed: ['Ordine delle pagine invertito.','Page order reversed.','Seitenreihenfolge umgekehrt.'],
+    demoCreateStatus: ['Scrivi qualcosa. Resta in questa pagina.','Write something. It stays on this page.','Schreiben Sie etwas. Es bleibt auf dieser Seite.'],
+    demoShowNote: ['Mostra nota','Show note','Notiz zeigen'],
+    demoHideNote: ['Nascondi nota','Hide note','Notiz ausblenden'],
+    demoReverse: ['Inverti ordine','Reverse order','Umkehren'],
+    demoRestore: ['Ripristina ordine','Restore order','Zurücksetzen'],
+    demoClear: ['Cancella testo','Clear text','Text löschen'],
+    stripBrowser: ['Nel tuo browser','In your browser','In Ihrem Browser'],
+    stripDatabase: ['Senza database','No database','Ohne Datenbank'],
+    toolsLabel: ['Gli strumenti','The tools','Die Werkzeuge'],
+    toolsTitle: ['Dal documento aperto\nal lavoro finito.','From an open file\nto finished work.','Von der offenen Datei\nzum fertigen Ergebnis.'],
+    toolsIntro: ["Un editor per i PDF, uno per creare documenti. E gli strumenti di conversione e gestione che servono tra un passaggio e l'altro.",'An editor for PDFs, another for creating documents. Plus the conversion and page tools you need along the way.','Ein Editor für PDFs, einer zum Erstellen von Dokumenten. Dazu die Werkzeuge für Konvertierung und Seitenverwaltung.'],
+    pagesTitle: ['Pagine in ordine','Pages in order','Seiten in Ordnung'],
+    pagesBody: ['Unisci più file, riordina le pagine, ruotale o estrai solo quelle che ti servono. Prepara il risultato prima di esportarlo.','Combine files, reorder and rotate pages, or extract just the ones you need. Prepare the result before exporting.','Dateien zusammenführen, Seiten ordnen, drehen oder gezielt entnehmen. Das Ergebnis vor dem Export vorbereiten.'],
+    browserTag: ['Browser','Browser','Browser'],
+    annotateTitle: ['Annotazioni e aggiunte','Annotations and additions','Kommentare und Ergänzungen'],
+    annotateBody: ["Aggiungi testo, immagini, note, evidenziazioni e collegamenti sopra le pagine. L'originale resta lo sfondo del documento.",'Add text, images, notes, highlights and links over the pages. The original remains the document background.','Text, Bilder, Notizen, Markierungen und Links auf den Seiten ergänzen. Das Original bleibt als Hintergrund erhalten.'],
+    formsTitle: ['Firme visive e moduli','Visual signatures and forms','Visuelle Unterschriften und Formulare'],
+    formsBody: ['Disegna o inserisci una firma visiva, compila i campi e crea moduli. Le firme visive non sono firme digitali certificate.','Draw or insert a visual signature, fill in fields and create forms. Visual signatures are not certificate-based digital signatures.','Eine sichtbare Unterschrift zeichnen oder einfügen, Felder ausfüllen und Formulare erstellen. Sichtbare Unterschriften sind keine zertifikatsbasierten digitalen Signaturen.'],
+    createTitle: ['Dal foglio bianco','From a blank page','Von der leeren Seite'],
+    createBody: ["Scrivi con l'editor di documenti: stili, immagini, tabelle, intestazioni e numeri di pagina. Conserva la sorgente ed esporta il PDF.",'Use the document editor for styles, images, tables, headers and page numbers. Keep the editable source and export the PDF.','Im Dokumenteditor mit Stilen, Bildern, Tabellen, Kopfzeilen und Seitenzahlen arbeiten. Die bearbeitbare Quelle speichern und das PDF exportieren.'],
+    createTag: ['Browser · motori server facoltativi','Browser · optional server engines','Browser · optionale Server-Engines'],
+    convertTitle: ['Testo e conversioni','Text and conversions','Text und Konvertierung'],
+    convertBody: ["Trasforma immagini in PDF, esporta le pagine come immagini ed estrai testo. L'OCR riconosce i testi delle scansioni; il server aggiunge la conversione Office.",'Turn images into PDFs, export pages as images and extract text. OCR recognizes text in scans; server tools add Office conversion.','Bilder in PDFs umwandeln, Seiten als Bilder exportieren und Text extrahieren. OCR erkennt Text in Scans; Servertools ergänzen die Office-Konvertierung.'],
+    mixedTag: ['Browser + server facoltativo','Browser + optional server','Browser + optionaler Server'],
+    protectTitle: ['Protezione e dimensioni','Protection and file size','Schutz und Dateigröße'],
+    protectBody: ['Esporta una copia con oscuramento sicuro nel browser. Con gli strumenti server puoi aggiungere password, comprimere e verificare la struttura del PDF.','Export a securely redacted copy in the browser. Server tools let you add passwords, compress files and check PDF structure.','Eine sicher geschwärzte Kopie im Browser exportieren. Servertools ermöglichen Passwörter, Komprimierung und die Prüfung der PDF-Struktur.'],
+    processingLabel: ['Dove avviene il lavoro','Where the work happens','Wo die Arbeit stattfindet'],
+    processingTitle: ['Sai dove vanno\ni tuoi documenti.','Know where your\ndocuments go.','Wissen, wo Ihre\nDokumente bleiben.'],
+    processingIntro: ['Browser e server hanno ruoli distinti. Le capacità del sistema mostrano quali strumenti sono disponibili nella tua installazione.','Browser and server have distinct roles. System capabilities show which tools are available in your installation.','Browser und Server haben unterschiedliche Aufgaben. Die Systemfunktionen zeigen die verfügbaren Werkzeuge Ihrer Installation.'],
+    browserProcessLabel: ['01 — BROWSER','01 — BROWSER','01 — BROWSER'],
+    browserProcessTitle: ['Il lavoro quotidiano resta qui.','Everyday work stays here.','Die tägliche Arbeit bleibt hier.'],
+    browserProcessBody: ['Modifiche, annotazioni, pagine e progetti vengono elaborati sul tuo dispositivo. Aprire un file per questi strumenti non lo carica sul server.','Edits, annotations, pages and projects are processed on your device. Opening a file for these tools does not upload it to the server.','Änderungen, Kommentare, Seiten und Projekte werden auf Ihrem Gerät verarbeitet. Das Öffnen einer Datei für diese Werkzeuge lädt sie nicht auf den Server.'],
+    browserProcessFoot: ['Nessun database richiesto','No database required','Keine Datenbank erforderlich'],
+    serverProcessLabel: ['02 — SERVER FACOLTATIVO','02 — OPTIONAL SERVER','02 — OPTIONALER SERVER'],
+    serverProcessTitle: ['Più strumenti, quando li scegli.','Extra tools, when you choose them.','Weitere Werkzeuge nach Bedarf.'],
+    serverProcessBody: ['Compressione, password, OCR server e conversione Office usano i programmi installati sul tuo server. Il documento viene inviato solo per l\'operazione che richiedi.','Compression, passwords, server OCR and Office conversion use programs installed on your server. The document is sent only for the operation you request.','Komprimierung, Passwörter, Server-OCR und Office-Konvertierung nutzen Programme auf Ihrem Server. Das Dokument wird nur für den gewünschten Vorgang übertragen.'],
+    serverProcessFoot: ['Disponibilità e aiuto di installazione visibili','Availability and setup help shown','Verfügbarkeit und Installationshilfe sichtbar'],
+    processingNote: ['Le librerie del browser richiedono accesso alle CDN configurate. Il recupero automatico dipende dallo spazio del browser: scarica un progetto modificabile per conservare una copia indipendente.','Browser libraries need access to their configured CDNs. Automatic recovery depends on browser storage: download an editable project to keep an independent backup.','Browserbibliotheken benötigen Zugriff auf die konfigurierten CDNs. Automatische Wiederherstellung hängt vom Browserspeicher ab: Laden Sie ein bearbeitbares Projekt als unabhängige Sicherung herunter.'],
+    pricingLabel: ['I piani','The plans','Die Tarife'],
+    pricingTitle: ['Quanto è grande\nil tuo prossimo PDF?','How big is\nyour next PDF?','Wie groß ist\nIhr nächstes PDF?'],
+    pricingIntro: ['Tre piani, in base al numero di pagine dei tuoi PDF. Parti dai documenti brevi o scegli più spazio per il tuo lavoro.','Three plans, based on the page count of your PDFs. Start with short documents or choose more room for your work.','Drei Tarife nach Seitenzahl Ihrer PDFs. Mit kurzen Dokumenten beginnen oder mehr Platz für Ihre Arbeit wählen.'],
+    baseAudience: ['Per documenti brevi ed esigenze occasionali.','For short documents and occasional tasks.','Für kurze Dokumente und gelegentliche Aufgaben.'],
+    freePrice: ['Gratis','Free','Kostenlos'],
+    freePeriod: ['Nessun canone mensile','No monthly fee','Keine monatliche Gebühr'],
+    baseLimit: ['PDF fino a 5 pagine','PDFs up to 5 pages','PDFs mit bis zu 5 Seiten'],
+    baseBottom: ['Il punto di partenza per i file più piccoli.','A starting point for smaller files.','Der Einstieg für kleinere Dateien.'],
+    plusAudience: ['Per report, contratti e documenti di lavoro.','For reports, contracts and work documents.','Für Berichte, Verträge und Arbeitsdokumente.'],
+    plusPrice: ['19,99 €','€19.99','19,99 €'],
+    perMonth: ['al mese','per month','pro Monat'],
+    plusLimit: ['PDF fino a 49 pagine','PDFs up to 49 pages','PDFs mit bis zu 49 Seiten'],
+    plusBottom: ['Più pagine per il lavoro di ogni giorno.','More pages for everyday work.','Mehr Seiten für die tägliche Arbeit.'],
+    proAudience: ['Per dossier e documenti più corposi.','For dossiers and longer documents.','Für Dossiers und umfangreichere Dokumente.'],
+    proPrice: ['Su richiesta','On request','Auf Anfrage'],
+    proPeriod: ['Per le tue esigenze','For your requirements','Für Ihren Bedarf'],
+    proLimit: ['PDF tendenzialmente illimitati','Generally unlimited PDFs','Weitgehend unbegrenzte PDFs'],
+    proBottom: ['Per lavorare oltre i formati più brevi.','For work beyond shorter formats.','Für die Arbeit mit längeren Dokumenten.'],
+    serverLimitAria: ['Leggi i limiti del server','Read about server limits','Hinweis zu Servergrenzen lesen'],
+    serverLimitNote: ['Il limite effettivo di pagine e dimensione dei file dipende dalla configurazione, dalla memoria e dalle risorse disponibili sul server.','Actual page and file-size limits depend on the server configuration, memory and available resources.','Die tatsächlichen Grenzen für Seitenzahl und Dateigröße hängen von Serverkonfiguration, Arbeitsspeicher und verfügbaren Ressourcen ab.'],
+    manualsLabel: ['Le guide','The guides','Die Anleitungen'],
+    manualsTitle: ['Il manuale,\nnella tua lingua.','The manual,\nin your language.','Das Handbuch.\nIn Ihrer Sprache.'],
+    manualsIntro: ['Tre guide complete per usare PDF Studio. Istruzioni passo per passo, salvataggio dei progetti e soluzioni ai problemi più comuni.','Three complete guides to using PDF Studio. Step-by-step instructions, project backups and solutions to common problems.','Drei vollständige Anleitungen für PDF Studio. Schrittweise Erklärungen, Projektsicherung und Lösungen für häufige Probleme.'],
+    manualItAria: ['Scarica il manuale italiano in Word','Download the Italian Word manual','Italienisches Word-Handbuch herunterladen'],
+    manualEnAria: ['Scarica il manuale inglese in Word','Download the English Word manual','Englisches Word-Handbuch herunterladen'],
+    manualDeAria: ['Scarica il manuale tedesco in Word','Download the German Word manual','Deutsches Word-Handbuch herunterladen'],
+    manualBody: ["Tutte le funzioni, dall'apertura del file all'esportazione. Con esempi, scorciatoie e indicazioni per gli aggiornamenti.",'Every feature, from opening a file to exporting. With examples, shortcuts and guidance on updates.','Alle Funktionen vom Öffnen bis zum Export. Mit Beispielen, Tastenkürzeln und Hinweisen zu Updates.'],
+    manualChapters: ['18 capitoli','18 chapters','18 Kapitel'],
+    manualDownload: ['Scarica il manuale','Download the manual','Handbuch herunterladen'],
+    manualsNote: ['Le guide coprono gli strumenti browser e le funzioni server facoltative. La disponibilità di queste ultime dipende dall\'installazione.','The guides cover browser tools and optional server features. Server feature availability depends on the installation.','Die Anleitungen behandeln Browsertools und optionale Serverfunktionen. Deren Verfügbarkeit hängt von der Installation ab.'],
+    faqLabel: ['Prima di iniziare','Before you start','Bevor Sie beginnen'],
+    faqTitle: ['Qualche risposta\nutile.','A few useful\nanswers.','Ein paar hilfreiche\nAntworten.'],
+    faqUploadTitle: ['I documenti vengono caricati online?','Are documents uploaded online?','Werden Dokumente hochgeladen?'],
+    faqUploadBody: ['Gli strumenti browser elaborano il file sul tuo dispositivo. Se scegli uno strumento server, il file viene inviato alla tua installazione per quell\'operazione. Le capacità del sistema indicano la distinzione.','Browser tools process the file on your device. If you choose a server tool, the file is sent to your installation for that operation. System capabilities show the distinction.','Browsertools verarbeiten die Datei auf Ihrem Gerät. Bei einem Servertool wird sie für diesen Vorgang an Ihre Installation gesendet. Die Systemfunktionen zeigen den Unterschied.'],
+    faqInstallTitle: ['Cosa serve per l\'installazione?','What does installation require?','Was wird für die Installation benötigt?'],
+    faqInstallBody: ['Un server con PHP 7.2 o superiore e il file index.php. Non serve un database. I programmi server aggiuntivi sono facoltativi: il pannello delle capacità include i comandi di installazione per Ubuntu.','A server with PHP 7.2 or newer and the index.php file. No database is needed. Additional server programs are optional; the capabilities panel includes Ubuntu installation commands.','Ein Server mit PHP 7.2 oder neuer und die Datei index.php. Eine Datenbank ist nicht erforderlich. Weitere Serverprogramme sind optional; der Systemdialog enthält Ubuntu-Installationsbefehle.'],
+    faqTextTitle: ['Posso cambiare il testo originale di un PDF?','Can I change the original text in a PDF?','Kann ich den Originaltext eines PDFs ändern?'],
+    faqTextBody: ['L\'editor aggiunge testo e oggetti sopra le pagine originali: non ridispone automaticamente il testo già presente. Per creare un nuovo documento impaginato usa l\'editor di documenti.','The editor adds text and objects over the original pages; it does not automatically reflow existing text. Use the document editor to create a new laid-out document.','Der Editor ergänzt Text und Objekte auf den Originalseiten; vorhandener Text wird nicht automatisch neu umbrochen. Für neue gestaltete Dokumente nutzen Sie den Dokumenteditor.'],
+    faqSaveTitle: ['Come posso riprendere il lavoro?','How can I resume my work?','Wie kann ich weiterarbeiten?'],
+    faqSaveBody: ['Scarica un progetto modificabile per conservare le tue modifiche. Il recupero automatico nel browser è un aiuto, non una copia di sicurezza: può richiedere i PDF originali e dipende dallo spazio disponibile.','Download an editable project to keep your changes. Automatic browser recovery is a convenience, not a backup: it can require the original PDFs and depends on available storage.','Laden Sie ein bearbeitbares Projekt herunter, um Änderungen zu bewahren. Automatische Browserwiederherstellung ist eine Hilfe, keine Sicherung: Sie kann die Original-PDFs benötigen und hängt vom verfügbaren Speicher ab.'],
+    faqLanguagesTitle: ['Posso cambiare lingua durante il lavoro?','Can I change language while working?','Kann ich während der Arbeit die Sprache ändern?'],
+    faqLanguagesBody: ['Sì. Italiano, inglese e tedesco sono disponibili sia qui sia nell\'applicazione. La lingua dell\'interfaccia può cambiare senza chiudere il documento o tradurre il suo contenuto.','Yes. Italian, English and German are available here and in the app. You can change the interface language without closing the document or translating its contents.','Ja. Italienisch, Englisch und Deutsch sind hier und in der App verfügbar. Die Oberflächensprache lässt sich wechseln, ohne das Dokument zu schließen oder seinen Inhalt zu übersetzen.'],
+    footerTitle: ['Il documento è tuo.\nMettilo al lavoro.','Your document.\nPut it to work.','Ihr Dokument.\nMachen Sie etwas daraus.'],
+    footerBody: ['Apri un PDF o crea qualcosa da un foglio bianco.','Open a PDF or create something from a blank page.','Öffnen Sie ein PDF oder beginnen Sie mit einer leeren Seite.'],
+    sourceLink: ['Codice su GitHub','Code on GitHub','Code auf GitHub'],
+    footerLanguages: ['Tre lingue. Uno spazio di lavoro.','Three languages. One workspace.','Drei Sprachen. Ein Arbeitsbereich.'],
+    title: ['PDF Studio — PDF, senza passaggi inutili','PDF Studio — PDFs, without extra steps','PDF Studio — PDFs. Ohne Umwege.'],
+    description: ['Modifica, organizza e crea documenti con PDF Studio. Strumenti nel browser, funzioni server facoltative e manuali in tre lingue.','Edit, organize and create documents with PDF Studio. Browser tools, optional server features and manuals in three languages.','Dokumente bearbeiten, ordnen und erstellen mit PDF Studio. Browsertools, optionale Serverfunktionen und Handbücher in drei Sprachen.'],
+    ogDescription: ['Un unico spazio per modificare, organizzare e creare documenti.','One workspace for editing, organizing and creating documents.','Ein Arbeitsbereich zum Bearbeiten, Ordnen und Erstellen von Dokumenten.']
+  };
+  const LANGUAGES = ['it','en','de'];
+  const preferenceKey = 'pdfstudio.website.language.' + location.pathname;
+  let language = 'it', demo = 'annotate', noteVisible = false, reversed = false;
+  const text = function(key) { return COPY[key][LANGUAGES.indexOf(language)]; };
+  function updateDemo() {
+    document.querySelectorAll('[data-demo]').forEach(function(button) {
+      const active = button.dataset.demo === demo;
+      button.setAttribute('aria-selected', String(active));
+      button.tabIndex = active ? 0 : -1;
+      document.getElementById('demo-' + button.dataset.demo).hidden = !active;
+    });
+    document.getElementById('demoNote').hidden = !noteVisible;
+    const statusKey = demo === 'annotate' ? (noteVisible ? 'demoNoteStatus' : 'demoAnnotateStatus') : demo === 'pages' ? (reversed ? 'demoPagesReversed' : 'demoPagesStatus') : 'demoCreateStatus';
+    const actionKey = demo === 'annotate' ? (noteVisible ? 'demoHideNote' : 'demoShowNote') : demo === 'pages' ? (reversed ? 'demoRestore' : 'demoReverse') : 'demoClear';
+    document.getElementById('demoStatus').textContent = text(statusKey);
+    document.getElementById('demoActionText').textContent = text(actionKey);
+    document.querySelector('#demoAction use').setAttribute('href', '#' + (demo === 'annotate' ? 'note' : demo === 'pages' ? 'convert' : 'document'));
+  }
+  function setLanguage(next) {
+    if (!LANGUAGES.includes(next)) return;
+    language = next;
+    document.documentElement.lang = language;
+    document.querySelectorAll('[data-i18n]').forEach(function(node) {
+      const value = text(node.dataset.i18n);
+      node.textContent = value;
+      if (value.includes('\n')) node.style.whiteSpace = 'pre-line';
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(node) { node.setAttribute('aria-label', text(node.dataset.i18nAria)); });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(node) { node.placeholder = text(node.dataset.i18nPlaceholder); });
+    document.querySelectorAll('[data-language]').forEach(function(button) { button.setAttribute('aria-pressed', String(button.dataset.language === language)); });
+    document.querySelectorAll('[data-app-link]').forEach(function(link) {
+      const app = new URL(CONFIG.app, location.href);
+      app.searchParams.set('lang', language);
+      link.href = app.href;
+    });
+    document.querySelectorAll('[data-manual]').forEach(function(link) { link.setAttribute('href', CONFIG.manuals[link.dataset.manual]); });
+    document.title = text('title');
+    document.querySelector('meta[name="description"]').content = text('description');
+    document.querySelector('meta[property="og:title"]').content = text('title');
+    document.querySelector('meta[property="og:description"]').content = text('ogDescription');
+    document.querySelector('meta[property="og:locale"]').content = {it:'it_IT',en:'en_US',de:'de_DE'}[language];
+    document.getElementById('demoEditor').lang = language;
+    try { localStorage.setItem(preferenceKey, language); } catch (ignored) {}
+    try {
+      const url = new URL(location.href);
+      url.searchParams.set('lang', language);
+      history.replaceState(null, '', url);
+    } catch (ignored) {}
+    updateDemo();
+  }
+  document.querySelectorAll('[data-language]').forEach(function(button) { button.addEventListener('click', function() { setLanguage(button.dataset.language); }); });
+  document.querySelectorAll('[data-demo]').forEach(function(button) {
+    button.addEventListener('click', function() { demo = button.dataset.demo; updateDemo(); });
+    button.addEventListener('keydown', function(event) {
+      const buttons = Array.from(document.querySelectorAll('[data-demo]'));
+      let index = buttons.indexOf(button);
+      if (event.key === 'ArrowRight') index = (index + 1) % buttons.length;
+      else if (event.key === 'ArrowLeft') index = (index + buttons.length - 1) % buttons.length;
+      else if (event.key === 'Home') index = 0;
+      else if (event.key === 'End') index = buttons.length - 1;
+      else return;
+      event.preventDefault(); demo = buttons[index].dataset.demo; updateDemo(); buttons[index].focus();
+    });
+  });
+  document.getElementById('demoAction').addEventListener('click', function() {
+    if (demo === 'annotate') noteVisible = !noteVisible;
+    if (demo === 'pages') {
+      reversed = !reversed;
+      const panel = document.getElementById('demo-pages');
+      Array.from(panel.children).reverse().forEach(function(page) { panel.appendChild(page); });
+    }
+    if (demo === 'create') { document.getElementById('demoEditor').value = ''; updateWordCount(); document.getElementById('demoEditor').focus(); }
+    updateDemo();
+  });
+  function updateWordCount() {
+    const value = document.getElementById('demoEditor').value.trim();
+    document.getElementById('demoWordCount').textContent = value ? value.split(/\s+/).length : 0;
+  }
+  document.getElementById('demoEditor').addEventListener('input', updateWordCount);
+  function closeMenu() { document.getElementById('siteNav').classList.remove('is-open'); document.getElementById('menuToggle').setAttribute('aria-expanded', 'false'); }
+  document.getElementById('menuToggle').addEventListener('click', function() {
+    const open = document.getElementById('siteNav').classList.toggle('is-open');
+    this.setAttribute('aria-expanded', String(open));
+  });
+  document.querySelectorAll('#siteNav a').forEach(function(link) { link.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && document.getElementById('menuToggle').getAttribute('aria-expanded') === 'true') { closeMenu(); document.getElementById('menuToggle').focus(); }
+  });
+  const symbol = document.getElementById('pdfstudio-mark');
+  document.getElementById('brandFavicon').href = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">' + symbol.innerHTML + '</svg>');
+  const requested = new URLSearchParams(location.search).get('lang');
+  if (LANGUAGES.includes(requested)) language = requested;
+  else if (!requested) try { const saved = localStorage.getItem(preferenceKey); if (LANGUAGES.includes(saved)) language = saved; } catch (ignored) {}
+  setLanguage(language);
+  </script>
+</body>
+</html>
