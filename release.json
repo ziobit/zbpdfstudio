@@ -1,7 +1,15 @@
 {
-  "version": "1.1.0",
+  "version": "1.1.1",
   "minimumPhp": "7.2",
   "releases": [
+    {
+      "version": "1.1.1",
+      "date": "2026-10-08",
+      "changes": [
+        "Update downloads now save index.php directly instead of opening its source in a new tab.",
+        "Retry a failed update download without leaving your open document."
+      ]
+    },
     {
       "version": "1.1.0",
       "date": "2026-10-08",

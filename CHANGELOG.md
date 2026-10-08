@@ -2,6 +2,11 @@
 
 Changes you can see and use in each release.
 
+## 1.1.1 — 2026-10-08
+
+- Update downloads now save index.php directly instead of opening its source in a new tab.
+- Retry a failed update download without leaving your open document.
+
 ## 1.1.0 — 2026-10-08
 
 - See which capabilities run in your browser and which need your server.
