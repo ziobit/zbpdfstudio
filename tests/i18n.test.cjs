@@ -17,6 +17,15 @@ function environment(t,url='https://example.test/studio/index.php',extra=''){
   const studio=new w.PDFStudioClass();w.Studio=studio;studio.notify=()=>{};
   t.after(()=>{w.StudioLanguage.observer.disconnect();w.close();});return{w,studio,lang:w.StudioLanguage};
 }
+test('original element selection survives layout redraws and resets when the content changes',async t=>{
+  const {w,studio}=environment(t);assert.match(w.document.querySelector('#inspectorEmpty').textContent,/Modifica testo esistente/);studio.mode='pdf';studio.toolMode='native-elements';studio.scale=1;
+  const page={id:'page',sourceId:'source',index:0,rotation:0};studio.pages=[page];
+  studio.sources.set('source',{pdfjs:{getPage:async()=>({getViewport:({scale})=>({width:500*scale,height:500*scale,convertToViewportPoint:(x,y)=>[x*scale,y*scale]})})}});
+  studio.nativeEditor.resolve=async()=>({elements:[{path:[0],type:1,text:'Original document text',quad:[[10,10],[100,10],[100,30],[10,30]],font:'Helvetica',size:20}]});
+  await studio.renderNativeElements();studio.selectNative(0);assert.equal(w.document.querySelector('#nativeDeleteButton').disabled,false);
+  studio.scale=2;await studio.renderNativeElements();assert.equal(studio.nativeSelection.text,'Original document text');assert.equal(w.document.querySelector('#nativeDeleteButton').disabled,false);
+  page.nativeEdits=[{action:'delete',path:[1]}];await studio.renderNativeElements();assert.equal(studio.nativeSelection,null);assert.equal(w.document.querySelector('#nativeDeleteButton').disabled,true);
+});
 test('Italian is the initial language and UI controls can switch both ways without reloading',async t=>{
   const {w,lang}=environment(t);
   assert.equal(w.document.documentElement.lang,'it');

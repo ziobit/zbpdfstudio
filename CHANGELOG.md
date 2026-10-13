@@ -2,6 +2,12 @@
 
 Changes you can see and use in each release.
 
+## 1.3.0 — 2026-10-13
+
+- Edit text already present in a PDF, keeping it searchable in the exported file.
+- Select and delete individual original text, images, vector shapes and PDF groups. An element list helps with overlapping objects.
+- Undo or redo original-content changes and keep them in editable projects and automatic recovery.
+
 ## 1.2.0 — 2026-10-08
 
 - Choose Italian, English or German without closing your document. Italian is the default language.

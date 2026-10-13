@@ -26,6 +26,18 @@ No database is required, including IndexedDB. Language preferences and automatic
 
 PHP sessions and private temporary files support server processing. Deploying only `index.php` is sufficient. Browser libraries and optional OCR language data are downloaded from their configured CDNs; the app is not an offline package.
 
+## Existing text and original PDF elements
+
+Open a PDF and choose **Edit PDF → Edit existing text**. Click a text box, change its text and apply. The replacement remains searchable in the exported PDF. Each box represents an existing PDF text run; editing preserves its baseline without reflowing surrounding text. Keep the original font or explicitly choose a standard replacement if the embedded font lacks a new character. Empty text deletes the run.
+
+Use **Original elements** to select existing text, images, vector shapes or groups, then **Delete element** or Delete/Backspace. The searchable element list lets you select overlapping objects and individual objects inside groups. Selecting an entire group deletes its contents. **Select** returns to objects added in PDF Studio.
+
+Undo/redo, copied pages, editable projects and automatic recovery retain original-content edits. Export, extraction and other tools that use the edited PDF include them. Download a self-contained project for an independent backup, or retain the original PDF for relinking a smaller project.
+
+These controls use PDFium (`@embedpdf/pdfium` 2.15.1, MIT/BSD licenses) in the browser. JavaScript and WebAssembly load from the versioned CDN only when needed; documents stay on the device. The application still deploys as one PHP file, supports PHP 7.2 and needs no database or server package for these controls.
+
+Scans and text converted to vector outlines contain no editable text runs. OCR extracts searchable text but does not turn the scanned image into editable typography. Rebuilding those regions is a separate operation. Use **Secure redaction** when confidential information must be irrecoverably removed.
+
 ## System capabilities
 
 Open the sliders button in the toolbar to see each dependency's **Browser** or **Server** location, availability, version and features. An information button beside each unavailable server dependency opens Ubuntu installation commands and setup advice. The commands can be copied; run them yourself in an SSH terminal.
