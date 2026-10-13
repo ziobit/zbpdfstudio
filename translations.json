@@ -4594,5 +4594,261 @@
   "Save an editable project before upgrading; older automatic recovery copies are not transferred.": {
     "it": "Salva un progetto modificabile prima di aggiornare; le vecchie copie di recupero automatico non vengono trasferite.",
     "de": "Speichern Sie vor dem Update ein bearbeitbares Projekt; ältere automatische Wiederherstellungskopien werden nicht übertragen."
+  },
+  "Edit existing text": {
+    "it": "Modifica testo esistente",
+    "de": "Vorhandenen Text bearbeiten"
+  },
+  "Original elements": {
+    "it": "Elementi originali",
+    "de": "Originalelemente"
+  },
+  "Original PDF elements": {
+    "it": "Elementi originali del PDF",
+    "de": "Originalelemente der PDF"
+  },
+  "Original element type": {
+    "it": "Tipo di elemento originale",
+    "de": "Typ des Originalelements"
+  },
+  "All original elements": {
+    "it": "Tutti gli elementi originali",
+    "de": "Alle Originalelemente"
+  },
+  "Original text": {
+    "it": "Testo originale",
+    "de": "Originaltext"
+  },
+  "Original image": {
+    "it": "Immagine originale",
+    "de": "Originalbild"
+  },
+  "Original images": {
+    "it": "Immagini originali",
+    "de": "Originalbilder"
+  },
+  "Vector shape": {
+    "it": "Forma vettoriale",
+    "de": "Vektorform"
+  },
+  "Vector shapes": {
+    "it": "Forme vettoriali",
+    "de": "Vektorformen"
+  },
+  "Shading": {
+    "it": "Sfumatura",
+    "de": "Schattierung"
+  },
+  "PDF group": {
+    "it": "Gruppo PDF",
+    "de": "PDF-Gruppe"
+  },
+  "PDF groups": {
+    "it": "Gruppi PDF",
+    "de": "PDF-Gruppen"
+  },
+  "Original element": {
+    "it": "Elemento originale",
+    "de": "Originalelement"
+  },
+  "Element list": {
+    "it": "Elenco elementi",
+    "de": "Elementliste"
+  },
+  "Delete element": {
+    "it": "Elimina elemento",
+    "de": "Element löschen"
+  },
+  "Edit text": {
+    "it": "Modifica testo",
+    "de": "Text bearbeiten"
+  },
+  "Find an element": {
+    "it": "Cerca un elemento",
+    "de": "Element suchen"
+  },
+  "Keep original font": {
+    "it": "Mantieni il carattere originale",
+    "de": "Originalschrift beibehalten"
+  },
+  "Original font": {
+    "it": "Carattere originale",
+    "de": "Originalschrift"
+  },
+  "Apply text change": {
+    "it": "Applica modifica al testo",
+    "de": "Textänderung anwenden"
+  },
+  "Loading original PDF elements": {
+    "it": "Caricamento elementi originali del PDF",
+    "de": "Originalelemente der PDF werden geladen"
+  },
+  "Applying original PDF edit": {
+    "it": "Applicazione modifica al PDF originale",
+    "de": "Änderung an Originalelement wird angewendet"
+  },
+  "Original PDF text and elements": {
+    "it": "Testo ed elementi originali del PDF",
+    "de": "Originaltext und Originalelemente der PDF"
+  },
+  "Loaded when needed": {
+    "it": "Caricato quando necessario",
+    "de": "Wird bei Bedarf geladen"
+  },
+  "Use Edit existing text or Original elements to change PDF content. Use Select for added objects.": {
+    "it": "Usa Modifica testo esistente o Elementi originali per modificare il contenuto del PDF. Usa Seleziona per gli oggetti aggiunti.",
+    "de": "Ändern Sie PDF-Inhalte mit Vorhandenen Text bearbeiten oder Originalelemente. Verwenden Sie Auswählen für hinzugefügte Objekte."
+  },
+  "Click an element to select it. Double-click text to edit. Use the element list when objects overlap.": {
+    "it": "Clicca un elemento per selezionarlo. Doppio clic sul testo per modificarlo. Usa l’elenco elementi se gli oggetti si sovrappongono.",
+    "de": "Klicken Sie auf ein Element, um es auszuwählen. Doppelklicken Sie auf Text, um ihn zu bearbeiten. Verwenden Sie bei überlappenden Objekten die Elementliste."
+  },
+  "No matching elements on this page. Scanned text is part of an image; changing its appearance requires rebuilding it.": {
+    "it": "Nessun elemento corrispondente in questa pagina. Il testo scansionato fa parte di un’immagine: per modificarne l’aspetto occorre ricostruirlo.",
+    "de": "Keine passenden Elemente auf dieser Seite. Gescannter Text ist Teil eines Bildes; zur visuellen Bearbeitung muss er neu aufgebaut werden."
+  },
+  "Selecting a PDF group selects everything inside that group. Its individual contents are listed separately.": {
+    "it": "Selezionare un gruppo PDF seleziona tutto ciò che contiene. I singoli elementi sono elencati separatamente.",
+    "de": "Die Auswahl einer PDF-Gruppe umfasst ihren gesamten Inhalt. Die einzelnen Elemente werden separat aufgeführt."
+  },
+  "Each box is an existing PDF text run. Replacement keeps its baseline and does not reflow surrounding text. If the embedded font lacks a new character, choose a replacement font. Empty text deletes the element.": {
+    "it": "Ogni riquadro è un tratto di testo esistente nel PDF. La modifica mantiene la linea di base e non reimpagina il testo circostante. Se il carattere incorporato non contiene un nuovo simbolo, scegli un carattere sostitutivo. Un testo vuoto elimina l’elemento.",
+    "de": "Jedes Feld ist ein vorhandener Textabschnitt der PDF. Die Änderung behält die Grundlinie bei und bricht den umgebenden Text nicht neu um. Fehlt ein Zeichen in der eingebetteten Schrift, wählen Sie eine Ersatzschrift. Leerer Text löscht das Element."
+  },
+  "Original PDF element removed. Use Undo to restore it.": {
+    "it": "Elemento originale del PDF eliminato. Usa Annulla per ripristinarlo.",
+    "de": "Originalelement der PDF entfernt. Mit Rückgängig können Sie es wiederherstellen."
+  },
+  "Original PDF text updated.": {
+    "it": "Testo originale del PDF aggiornato.",
+    "de": "Originaltext der PDF aktualisiert."
+  },
+  "Select an original text element first.": {
+    "it": "Prima seleziona un elemento di testo originale.",
+    "de": "Wählen Sie zuerst ein Originaltextelement aus."
+  },
+  "Select an original PDF element first.": {
+    "it": "Prima seleziona un elemento originale del PDF.",
+    "de": "Wählen Sie zuerst ein Originalelement der PDF aus."
+  },
+  "Select the original PDF element again. The page has changed.": {
+    "it": "Seleziona di nuovo l’elemento originale del PDF. La pagina è cambiata.",
+    "de": "Wählen Sie das Originalelement erneut aus. Die Seite wurde geändert."
+  },
+  "Edit one text run at a time. Use added text for multiple lines.": {
+    "it": "Modifica un tratto di testo alla volta. Per più righe usa il testo aggiunto.",
+    "de": "Bearbeiten Sie einen Textabschnitt nach dem anderen. Verwenden Sie hinzugefügten Text für mehrere Zeilen."
+  },
+  "Your browser does not support editing original PDF objects.": {
+    "it": "Il browser non supporta la modifica degli oggetti PDF originali.",
+    "de": "Ihr Browser unterstützt die Bearbeitung von Originalobjekten der PDF nicht."
+  },
+  "The original PDF editing engine could not load. Check your connection and try again.": {
+    "it": "Il motore di modifica del PDF originale non è stato caricato. Controlla la connessione e riprova.",
+    "de": "Die Engine zur Bearbeitung der Original-PDF konnte nicht geladen werden. Prüfen Sie die Verbindung und versuchen Sie es erneut."
+  },
+  "The original PDF editing engine download is too large.": {
+    "it": "Il download del motore di modifica del PDF originale è troppo grande.",
+    "de": "Der Download der Engine zur Bearbeitung der Original-PDF ist zu groß."
+  },
+  "Too many original PDF edits in this project.": {
+    "it": "Troppe modifiche al PDF originale in questo progetto.",
+    "de": "Zu viele Änderungen an Originalelementen in diesem Projekt."
+  },
+  "Invalid original PDF element reference.": {
+    "it": "Riferimento a un elemento PDF originale non valido.",
+    "de": "Ungültiger Verweis auf ein Originalelement der PDF."
+  },
+  "Invalid original PDF text edit.": {
+    "it": "Modifica al testo originale del PDF non valida.",
+    "de": "Ungültige Änderung am Originaltext der PDF."
+  },
+  "Not enough memory to edit this PDF.": {
+    "it": "Memoria insufficiente per modificare questo PDF.",
+    "de": "Nicht genügend Speicher zum Bearbeiten dieser PDF."
+  },
+  "Cannot read this PDF element.": {
+    "it": "Impossibile leggere questo elemento PDF.",
+    "de": "Dieses PDF-Element kann nicht gelesen werden."
+  },
+  "This PDF text element is too large.": {
+    "it": "Questo elemento di testo del PDF è troppo grande.",
+    "de": "Dieses Textelement der PDF ist zu groß."
+  },
+  "This PDF contains too many nested groups.": {
+    "it": "Questo PDF contiene troppi gruppi annidati.",
+    "de": "Diese PDF enthält zu viele verschachtelte Gruppen."
+  },
+  "This PDF page is too complex to select individual elements.": {
+    "it": "Questa pagina PDF è troppo complessa per selezionare singoli elementi.",
+    "de": "Diese PDF-Seite ist zu komplex, um einzelne Elemente auszuwählen."
+  },
+  "The selected original PDF element is no longer available.": {
+    "it": "L’elemento originale del PDF selezionato non è più disponibile.",
+    "de": "Das ausgewählte Originalelement der PDF ist nicht mehr verfügbar."
+  },
+  "The text could not be changed. Choose a replacement font and try again.": {
+    "it": "Impossibile modificare il testo. Scegli un carattere sostitutivo e riprova.",
+    "de": "Der Text konnte nicht geändert werden. Wählen Sie eine Ersatzschrift und versuchen Sie es erneut."
+  },
+  "The original font cannot display all these characters. Choose a replacement font.": {
+    "it": "Il carattere originale non può mostrare tutti questi simboli. Scegli un carattere sostitutivo.",
+    "de": "Die Originalschrift kann nicht alle Zeichen darstellen. Wählen Sie eine Ersatzschrift."
+  },
+  "This original PDF element could not be removed.": {
+    "it": "Impossibile eliminare questo elemento originale del PDF.",
+    "de": "Dieses Originalelement der PDF konnte nicht entfernt werden."
+  },
+  "The replacement font could not be loaded.": {
+    "it": "Impossibile caricare il carattere sostitutivo.",
+    "de": "Die Ersatzschrift konnte nicht geladen werden."
+  },
+  "Cannot position the replacement text.": {
+    "it": "Impossibile posizionare il testo sostitutivo.",
+    "de": "Der Ersatztext kann nicht positioniert werden."
+  },
+  "Cannot insert the replacement text.": {
+    "it": "Impossibile inserire il testo sostitutivo.",
+    "de": "Der Ersatztext kann nicht eingefügt werden."
+  },
+  "The original PDF editing engine could not read this document.": {
+    "it": "Il motore di modifica del PDF originale non ha potuto leggere questo documento.",
+    "de": "Die Engine zur Bearbeitung der Original-PDF konnte dieses Dokument nicht lesen."
+  },
+  "The original PDF editing engine could not read this page.": {
+    "it": "Il motore di modifica del PDF originale non ha potuto leggere questa pagina.",
+    "de": "Die Engine zur Bearbeitung der Original-PDF konnte diese Seite nicht lesen."
+  },
+  "The original PDF edits could not be saved.": {
+    "it": "Impossibile salvare le modifiche al PDF originale.",
+    "de": "Die Änderungen an Originalelementen konnten nicht gespeichert werden."
+  },
+  "The edited PDF exceeds the file size limit.": {
+    "it": "Il PDF modificato supera il limite di dimensione del file.",
+    "de": "Die bearbeitete PDF überschreitet die zulässige Dateigröße."
+  },
+  "XFA forms cannot be edited as original PDF elements. Convert this PDF to static pages first.": {
+    "it": "I moduli XFA non possono essere modificati come elementi PDF originali. Prima converti il PDF in pagine statiche.",
+    "de": "XFA-Formulare können nicht als Originalelemente der PDF bearbeitet werden. Konvertieren Sie die PDF zuerst in statische Seiten."
+  },
+  "This PDF group cannot be edited safely.": {
+    "it": "Questo gruppo PDF non può essere modificato in modo affidabile.",
+    "de": "Diese PDF-Gruppe kann nicht zuverlässig bearbeitet werden."
+  },
+  "This PDF page is too complex to edit.": {
+    "it": "Questa pagina PDF è troppo complessa da modificare.",
+    "de": "Diese PDF-Seite ist zu komplex zum Bearbeiten."
+  },
+  "Edit text already present in a PDF, keeping it searchable in the exported file.": {
+    "it": "Modifica il testo già presente in un PDF, mantenendolo ricercabile nel file esportato.",
+    "de": "Bearbeiten Sie vorhandenen PDF-Text; er bleibt in der exportierten Datei durchsuchbar."
+  },
+  "Select and delete individual original text, images, vector shapes and PDF groups. An element list helps with overlapping objects.": {
+    "it": "Seleziona ed elimina singoli testi originali, immagini, forme vettoriali e gruppi PDF. L’elenco elementi aiuta quando gli oggetti si sovrappongono.",
+    "de": "Wählen und löschen Sie einzelne Originaltexte, Bilder, Vektorformen und PDF-Gruppen. Bei überlappenden Objekten hilft die Elementliste."
+  },
+  "Undo or redo original-content changes and keep them in editable projects and automatic recovery.": {
+    "it": "Annulla o ripeti le modifiche al contenuto originale e conservale nei progetti modificabili e nel recupero automatico.",
+    "de": "Machen Sie Änderungen an Originalinhalten rückgängig oder wiederholen Sie sie. Bearbeitbare Projekte und automatische Wiederherstellung speichern diese Änderungen."
   }
 }

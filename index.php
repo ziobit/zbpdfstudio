@@ -1,6 +1,6 @@
 <?php
 /**
- * PDF Studio 1.2.0 — single-file PDF and document workbench.
+ * PDF Studio 1.3.0 — single-file PDF and document workbench.
  * Minimum PHP: 7.2. Recommended extensions: fileinfo, mbstring, dom, xml,
  * zip, openssl, gd; optional imagick. CLI tools require proc_open.
  * Optional Composer packages (run beside index.php, never from this app):
@@ -18,7 +18,7 @@
  */
 declare(strict_types=1);
 
-const PDFSTUDIO_VERSION = '1.2.0';
+const PDFSTUDIO_VERSION = '1.3.0';
 const PDFSTUDIO_MAX_FILE = 104857600;
 const PDFSTUDIO_MAX_PAGES = 500;
 const PDFSTUDIO_MAX_FILES = 30;
@@ -29,6 +29,15 @@ const PDFSTUDIO_MAX_IMAGE_PIXELS = 40000000;
 const PDFSTUDIO_MAX_HTML = 16777216;
 const PDFSTUDIO_STALE_SECONDS = 7200;
 const PDFSTUDIO_RELEASE_HISTORY = [
+  [
+    'version' => '1.3.0',
+    'date' => '2026-10-13',
+    'changes' => [
+      'Edit text already present in a PDF, keeping it searchable in the exported file.',
+      'Select and delete individual original text, images, vector shapes and PDF groups. An element list helps with overlapping objects.',
+      'Undo or redo original-content changes and keep them in editable projects and automatic recovery.',
+    ],
+  ],
   [
     'version' => '1.2.0',
     'date' => '2026-10-08',
@@ -1222,6 +1231,70 @@ function studio_translations(): array {
     'radio' => ['it' => 'pulsante radio', 'de' => 'Optionsfeld'],
     'dropdown' => ['it' => 'menu a discesa', 'de' => 'Auswahlliste'],
     'Save an editable project before upgrading; older automatic recovery copies are not transferred.' => ['it' => 'Salva un progetto modificabile prima di aggiornare; le vecchie copie di recupero automatico non vengono trasferite.', 'de' => 'Speichern Sie vor dem Update ein bearbeitbares Projekt; ältere automatische Wiederherstellungskopien werden nicht übertragen.'],
+    'Edit existing text' => ['it' => 'Modifica testo esistente', 'de' => 'Vorhandenen Text bearbeiten'],
+    'Original elements' => ['it' => 'Elementi originali', 'de' => 'Originalelemente'],
+    'Original PDF elements' => ['it' => 'Elementi originali del PDF', 'de' => 'Originalelemente der PDF'],
+    'Original element type' => ['it' => 'Tipo di elemento originale', 'de' => 'Typ des Originalelements'],
+    'All original elements' => ['it' => 'Tutti gli elementi originali', 'de' => 'Alle Originalelemente'],
+    'Original text' => ['it' => 'Testo originale', 'de' => 'Originaltext'],
+    'Original image' => ['it' => 'Immagine originale', 'de' => 'Originalbild'],
+    'Original images' => ['it' => 'Immagini originali', 'de' => 'Originalbilder'],
+    'Vector shape' => ['it' => 'Forma vettoriale', 'de' => 'Vektorform'],
+    'Vector shapes' => ['it' => 'Forme vettoriali', 'de' => 'Vektorformen'],
+    'Shading' => ['it' => 'Sfumatura', 'de' => 'Schattierung'],
+    'PDF group' => ['it' => 'Gruppo PDF', 'de' => 'PDF-Gruppe'],
+    'PDF groups' => ['it' => 'Gruppi PDF', 'de' => 'PDF-Gruppen'],
+    'Original element' => ['it' => 'Elemento originale', 'de' => 'Originalelement'],
+    'Element list' => ['it' => 'Elenco elementi', 'de' => 'Elementliste'],
+    'Delete element' => ['it' => 'Elimina elemento', 'de' => 'Element löschen'],
+    'Edit text' => ['it' => 'Modifica testo', 'de' => 'Text bearbeiten'],
+    'Find an element' => ['it' => 'Cerca un elemento', 'de' => 'Element suchen'],
+    'Keep original font' => ['it' => 'Mantieni il carattere originale', 'de' => 'Originalschrift beibehalten'],
+    'Original font' => ['it' => 'Carattere originale', 'de' => 'Originalschrift'],
+    'Apply text change' => ['it' => 'Applica modifica al testo', 'de' => 'Textänderung anwenden'],
+    'Loading original PDF elements' => ['it' => 'Caricamento elementi originali del PDF', 'de' => 'Originalelemente der PDF werden geladen'],
+    'Applying original PDF edit' => ['it' => 'Applicazione modifica al PDF originale', 'de' => 'Änderung an Originalelement wird angewendet'],
+    'Original PDF text and elements' => ['it' => 'Testo ed elementi originali del PDF', 'de' => 'Originaltext und Originalelemente der PDF'],
+    'Loaded when needed' => ['it' => 'Caricato quando necessario', 'de' => 'Wird bei Bedarf geladen'],
+    'Use Edit existing text or Original elements to change PDF content. Use Select for added objects.' => ['it' => 'Usa Modifica testo esistente o Elementi originali per modificare il contenuto del PDF. Usa Seleziona per gli oggetti aggiunti.', 'de' => 'Ändern Sie PDF-Inhalte mit Vorhandenen Text bearbeiten oder Originalelemente. Verwenden Sie Auswählen für hinzugefügte Objekte.'],
+    'Click an element to select it. Double-click text to edit. Use the element list when objects overlap.' => ['it' => 'Clicca un elemento per selezionarlo. Doppio clic sul testo per modificarlo. Usa l’elenco elementi se gli oggetti si sovrappongono.', 'de' => 'Klicken Sie auf ein Element, um es auszuwählen. Doppelklicken Sie auf Text, um ihn zu bearbeiten. Verwenden Sie bei überlappenden Objekten die Elementliste.'],
+    'No matching elements on this page. Scanned text is part of an image; changing its appearance requires rebuilding it.' => ['it' => 'Nessun elemento corrispondente in questa pagina. Il testo scansionato fa parte di un’immagine: per modificarne l’aspetto occorre ricostruirlo.', 'de' => 'Keine passenden Elemente auf dieser Seite. Gescannter Text ist Teil eines Bildes; zur visuellen Bearbeitung muss er neu aufgebaut werden.'],
+    'Selecting a PDF group selects everything inside that group. Its individual contents are listed separately.' => ['it' => 'Selezionare un gruppo PDF seleziona tutto ciò che contiene. I singoli elementi sono elencati separatamente.', 'de' => 'Die Auswahl einer PDF-Gruppe umfasst ihren gesamten Inhalt. Die einzelnen Elemente werden separat aufgeführt.'],
+    'Each box is an existing PDF text run. Replacement keeps its baseline and does not reflow surrounding text. If the embedded font lacks a new character, choose a replacement font. Empty text deletes the element.' => ['it' => 'Ogni riquadro è un tratto di testo esistente nel PDF. La modifica mantiene la linea di base e non reimpagina il testo circostante. Se il carattere incorporato non contiene un nuovo simbolo, scegli un carattere sostitutivo. Un testo vuoto elimina l’elemento.', 'de' => 'Jedes Feld ist ein vorhandener Textabschnitt der PDF. Die Änderung behält die Grundlinie bei und bricht den umgebenden Text nicht neu um. Fehlt ein Zeichen in der eingebetteten Schrift, wählen Sie eine Ersatzschrift. Leerer Text löscht das Element.'],
+    'Original PDF element removed. Use Undo to restore it.' => ['it' => 'Elemento originale del PDF eliminato. Usa Annulla per ripristinarlo.', 'de' => 'Originalelement der PDF entfernt. Mit Rückgängig können Sie es wiederherstellen.'],
+    'Original PDF text updated.' => ['it' => 'Testo originale del PDF aggiornato.', 'de' => 'Originaltext der PDF aktualisiert.'],
+    'Select an original text element first.' => ['it' => 'Prima seleziona un elemento di testo originale.', 'de' => 'Wählen Sie zuerst ein Originaltextelement aus.'],
+    'Select an original PDF element first.' => ['it' => 'Prima seleziona un elemento originale del PDF.', 'de' => 'Wählen Sie zuerst ein Originalelement der PDF aus.'],
+    'Select the original PDF element again. The page has changed.' => ['it' => 'Seleziona di nuovo l’elemento originale del PDF. La pagina è cambiata.', 'de' => 'Wählen Sie das Originalelement erneut aus. Die Seite wurde geändert.'],
+    'Edit one text run at a time. Use added text for multiple lines.' => ['it' => 'Modifica un tratto di testo alla volta. Per più righe usa il testo aggiunto.', 'de' => 'Bearbeiten Sie einen Textabschnitt nach dem anderen. Verwenden Sie hinzugefügten Text für mehrere Zeilen.'],
+    'Your browser does not support editing original PDF objects.' => ['it' => 'Il browser non supporta la modifica degli oggetti PDF originali.', 'de' => 'Ihr Browser unterstützt die Bearbeitung von Originalobjekten der PDF nicht.'],
+    'The original PDF editing engine could not load. Check your connection and try again.' => ['it' => 'Il motore di modifica del PDF originale non è stato caricato. Controlla la connessione e riprova.', 'de' => 'Die Engine zur Bearbeitung der Original-PDF konnte nicht geladen werden. Prüfen Sie die Verbindung und versuchen Sie es erneut.'],
+    'The original PDF editing engine download is too large.' => ['it' => 'Il download del motore di modifica del PDF originale è troppo grande.', 'de' => 'Der Download der Engine zur Bearbeitung der Original-PDF ist zu groß.'],
+    'Too many original PDF edits in this project.' => ['it' => 'Troppe modifiche al PDF originale in questo progetto.', 'de' => 'Zu viele Änderungen an Originalelementen in diesem Projekt.'],
+    'Invalid original PDF element reference.' => ['it' => 'Riferimento a un elemento PDF originale non valido.', 'de' => 'Ungültiger Verweis auf ein Originalelement der PDF.'],
+    'Invalid original PDF text edit.' => ['it' => 'Modifica al testo originale del PDF non valida.', 'de' => 'Ungültige Änderung am Originaltext der PDF.'],
+    'Not enough memory to edit this PDF.' => ['it' => 'Memoria insufficiente per modificare questo PDF.', 'de' => 'Nicht genügend Speicher zum Bearbeiten dieser PDF.'],
+    'Cannot read this PDF element.' => ['it' => 'Impossibile leggere questo elemento PDF.', 'de' => 'Dieses PDF-Element kann nicht gelesen werden.'],
+    'This PDF text element is too large.' => ['it' => 'Questo elemento di testo del PDF è troppo grande.', 'de' => 'Dieses Textelement der PDF ist zu groß.'],
+    'This PDF contains too many nested groups.' => ['it' => 'Questo PDF contiene troppi gruppi annidati.', 'de' => 'Diese PDF enthält zu viele verschachtelte Gruppen.'],
+    'This PDF page is too complex to select individual elements.' => ['it' => 'Questa pagina PDF è troppo complessa per selezionare singoli elementi.', 'de' => 'Diese PDF-Seite ist zu komplex, um einzelne Elemente auszuwählen.'],
+    'The selected original PDF element is no longer available.' => ['it' => 'L’elemento originale del PDF selezionato non è più disponibile.', 'de' => 'Das ausgewählte Originalelement der PDF ist nicht mehr verfügbar.'],
+    'The text could not be changed. Choose a replacement font and try again.' => ['it' => 'Impossibile modificare il testo. Scegli un carattere sostitutivo e riprova.', 'de' => 'Der Text konnte nicht geändert werden. Wählen Sie eine Ersatzschrift und versuchen Sie es erneut.'],
+    'The original font cannot display all these characters. Choose a replacement font.' => ['it' => 'Il carattere originale non può mostrare tutti questi simboli. Scegli un carattere sostitutivo.', 'de' => 'Die Originalschrift kann nicht alle Zeichen darstellen. Wählen Sie eine Ersatzschrift.'],
+    'This original PDF element could not be removed.' => ['it' => 'Impossibile eliminare questo elemento originale del PDF.', 'de' => 'Dieses Originalelement der PDF konnte nicht entfernt werden.'],
+    'The replacement font could not be loaded.' => ['it' => 'Impossibile caricare il carattere sostitutivo.', 'de' => 'Die Ersatzschrift konnte nicht geladen werden.'],
+    'Cannot position the replacement text.' => ['it' => 'Impossibile posizionare il testo sostitutivo.', 'de' => 'Der Ersatztext kann nicht positioniert werden.'],
+    'Cannot insert the replacement text.' => ['it' => 'Impossibile inserire il testo sostitutivo.', 'de' => 'Der Ersatztext kann nicht eingefügt werden.'],
+    'The original PDF editing engine could not read this document.' => ['it' => 'Il motore di modifica del PDF originale non ha potuto leggere questo documento.', 'de' => 'Die Engine zur Bearbeitung der Original-PDF konnte dieses Dokument nicht lesen.'],
+    'The original PDF editing engine could not read this page.' => ['it' => 'Il motore di modifica del PDF originale non ha potuto leggere questa pagina.', 'de' => 'Die Engine zur Bearbeitung der Original-PDF konnte diese Seite nicht lesen.'],
+    'The original PDF edits could not be saved.' => ['it' => 'Impossibile salvare le modifiche al PDF originale.', 'de' => 'Die Änderungen an Originalelementen konnten nicht gespeichert werden.'],
+    'The edited PDF exceeds the file size limit.' => ['it' => 'Il PDF modificato supera il limite di dimensione del file.', 'de' => 'Die bearbeitete PDF überschreitet die zulässige Dateigröße.'],
+    'XFA forms cannot be edited as original PDF elements. Convert this PDF to static pages first.' => ['it' => 'I moduli XFA non possono essere modificati come elementi PDF originali. Prima converti il PDF in pagine statiche.', 'de' => 'XFA-Formulare können nicht als Originalelemente der PDF bearbeitet werden. Konvertieren Sie die PDF zuerst in statische Seiten.'],
+    'This PDF group cannot be edited safely.' => ['it' => 'Questo gruppo PDF non può essere modificato in modo affidabile.', 'de' => 'Diese PDF-Gruppe kann nicht zuverlässig bearbeitet werden.'],
+    'This PDF page is too complex to edit.' => ['it' => 'Questa pagina PDF è troppo complessa da modificare.', 'de' => 'Diese PDF-Seite ist zu komplex zum Bearbeiten.'],
+    'Edit text already present in a PDF, keeping it searchable in the exported file.' => ['it' => 'Modifica il testo già presente in un PDF, mantenendolo ricercabile nel file esportato.', 'de' => 'Bearbeiten Sie vorhandenen PDF-Text; er bleibt in der exportierten Datei durchsuchbar.'],
+    'Select and delete individual original text, images, vector shapes and PDF groups. An element list helps with overlapping objects.' => ['it' => 'Seleziona ed elimina singoli testi originali, immagini, forme vettoriali e gruppi PDF. L’elenco elementi aiuta quando gli oggetti si sovrappongono.', 'de' => 'Wählen und löschen Sie einzelne Originaltexte, Bilder, Vektorformen und PDF-Gruppen. Bei überlappenden Objekten hilft die Elementliste.'],
+    'Undo or redo original-content changes and keep them in editable projects and automatic recovery.' => ['it' => 'Annulla o ripeti le modifiche al contenuto originale e conservale nei progetti modificabili e nel recupero automatico.', 'de' => 'Machen Sie Änderungen an Originalinhalten rückgängig oder wiederholen Sie sie. Bearbeitbare Projekte und automatische Wiederherstellung speichern diese Änderungen.'],
   ];
 }
 
@@ -2262,6 +2335,8 @@ if ($studioAction !== '') {
 :root{--studio-bg:#f2f4f8;--studio-panel:#fff;--studio-text:#1d2b42;--studio-muted:#6b788d;--studio-border:#dfe5ee;--studio-accent:#3157da;--studio-surface:#e6eaf1;--studio-radius:14px;--studio-shadow:0 12px 35px #14213a12}
 [data-bs-theme=dark]{--studio-bg:#111823;--studio-panel:#1a2432;--studio-text:#e6edf7;--studio-muted:#9aabc0;--studio-border:#334154;--studio-surface:#0a111c;--studio-accent:#809bff}
 *{box-sizing:border-box}body{margin:0;font:14px system-ui,-apple-system,sans-serif;color:var(--studio-text);background:var(--studio-bg)}button:focus-visible,a:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid #6e90ff;outline-offset:2px}button{touch-action:manipulation}.app-shell{display:grid;grid-template-columns:196px minmax(0,1fr);grid-template-rows:72px minmax(0,1fr) 32px;height:100dvh}.app-header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:0 22px;background:var(--studio-panel);border-bottom:1px solid var(--studio-border);z-index:50;gap:20px}.brand{display:flex;gap:10px;align-items:center;text-align:left;border:0;background:transparent;color:var(--studio-text);font-size:22px;white-space:nowrap;padding:0}.brand small{display:block;font-size:8px;font-weight:600;letter-spacing:2px;color:var(--studio-muted)}.brand-icon{display:grid;place-items:center;background:#3157da;color:white;width:40px;height:44px;border-radius:10px;font-size:23px}.header-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.header-actions kbd{background:#ffffff30;margin-left:6px;font-size:9px}.icon-button{background:transparent;color:var(--studio-muted);border:0;border-radius:7px;width:31px;height:31px;display:inline-grid;place-items:center;flex-shrink:0}.icon-button:hover{color:var(--studio-accent);background:#6481e31a}.app-sidebar{grid-row:2;background:var(--studio-panel);border-right:1px solid var(--studio-border);padding:17px 12px 8px;overflow:auto;display:flex;flex-direction:column;z-index:20}.section-label{font-size:10px;color:var(--studio-muted);font-weight:700;letter-spacing:1.5px;padding:0 10px}.sidebar-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}.nav-tool{border:0;background:transparent;display:flex;gap:11px;align-items:center;text-align:left;color:var(--studio-muted);width:100%;border-radius:8px;padding:10px 12px;margin:3px 0;font-weight:600;font-size:13px}.nav-tool.active,.nav-tool:hover{color:var(--studio-accent);background:#3157da10}.nav-tool i{width:17px;text-align:center}.sidebar-note{display:flex;gap:9px;padding:15px 7px;color:var(--studio-muted);font-size:11px;margin-top:auto}.sidebar-note small{display:block;font-size:10px;line-height:1.8}.app-workspace{min-width:0;min-height:0;overflow:hidden}.home-panel{height:100%;overflow:auto;padding:38px max(24px,5vw)}.home-hero{max-width:930px;padding-bottom:28px}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--studio-accent);font-weight:700;margin-bottom:12px}.home-hero h1{font-size:clamp(25px,3vw,40px);letter-spacing:-1.2px;font-weight:700}.home-hero p{color:var(--studio-muted);font-size:15px;margin:13px 0 21px}.hero-chips{display:flex;gap:22px;flex-wrap:wrap;color:var(--studio-muted);font-size:11px}.hero-chips i{color:var(--studio-accent);margin-right:5px}.home-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.tool-card{background:var(--studio-panel);border:1px solid var(--studio-border);border-radius:var(--studio-radius);padding:19px;text-align:left;color:var(--studio-text);transition:transform .16s,border .16s;position:relative}.tool-card:hover:enabled{border-color:var(--studio-accent);transform:translateY(-2px)}.tool-card:disabled{opacity:.6}.card-icon{width:37px;height:37px;display:grid;place-items:center;border-radius:10px;background:#3157da0d;color:var(--studio-accent);font-size:17px;margin-bottom:13px}.tool-card strong{display:block;font-size:13px;margin-bottom:6px}.tool-card small{display:block;font-size:10px;color:var(--studio-muted);line-height:1.5}.dropzone{margin-top:25px;border:1.5px dashed var(--studio-border);border-radius:var(--studio-radius);display:flex;align-items:center;flex-direction:column;padding:28px;gap:8px;color:var(--studio-muted);cursor:pointer;background:var(--studio-panel)}.dropzone i{color:var(--studio-accent);font-size:25px}.dropzone strong{font-size:13px;color:var(--studio-text)}.dropzone span{font-size:10px}.dropzone:hover,.drag-over{border-color:var(--studio-accent)!important;background:#3157da0a!important}.recent-heading{display:flex;align-items:center;justify-content:space-between;margin-top:28px}.recent-heading h2{font-size:13px;font-weight:700;margin:0}.recent-file{padding:9px 2px;border-bottom:1px solid var(--studio-border);display:flex;gap:10px;font-size:11px;color:var(--studio-muted)}.recent-file strong{color:var(--studio-text)}.recent-files:empty:after{content:'Only filenames and dates are saved here. Open a file to begin.';font-size:11px;color:var(--studio-muted)}.pdf-panel{height:100%;display:flex;flex-direction:column}.pdf-panel[hidden],section[hidden]{display:none!important}.document-toolbar{padding:9px 14px;display:flex;align-items:center;gap:7px;background:var(--studio-panel);border-bottom:1px solid var(--studio-border);min-height:51px;flex-wrap:wrap}.document-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:270px;font-size:12px;font-weight:600;margin-right:auto}.toolbar-divider{height:25px;width:1px;background:var(--studio-border);margin:0 4px}.zoom-controls{display:flex;gap:3px;align-items:center}.zoom-controls select{width:104px}.context-toolbar{display:flex;gap:6px;padding:8px 13px;background:var(--studio-panel);border-bottom:1px solid var(--studio-border);min-height:49px;flex-wrap:wrap;z-index:15}.context-toolbar .btn{font-size:11px}.pdf-body{display:flex;min-height:0;flex:1}.thumbnail-panel{width:144px;flex-shrink:0;background:var(--studio-panel);border-right:1px solid var(--studio-border);overflow:auto}.thumbnail-actions{display:flex;gap:4px;padding:9px 5px;position:sticky;top:0;background:var(--studio-panel);z-index:2}.thumbnail-actions .btn{font-size:10px;padding:4px 6px}.thumbnail{position:relative;padding:11px 14px;border-bottom:1px solid var(--studio-border);cursor:pointer}.thumbnail.active{background:#3157da0c}.thumbnail.selected{box-shadow:inset 3px 0 var(--studio-accent)}.thumbnail .thumb-image{display:flex;align-items:center;justify-content:center;height:115px}.thumbnail canvas{max-width:100%;max-height:115px;box-shadow:0 2px 8px #0003;background:#fff}.thumbnail .thumb-loading{color:var(--studio-muted);font-size:11px}.thumbnail input{position:absolute;top:7px;left:7px;z-index:1}.thumb-caption{font-size:10px;margin-top:7px;text-align:center;line-height:1.3}.thumb-caption small{font-size:8px;color:var(--studio-muted);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.page-scroll{background:var(--studio-surface);flex:1;min-width:0;overflow:auto;position:relative;display:flex;align-items:flex-start;justify-content:flex-start;padding:25px}.page-stage{position:relative;box-shadow:0 4px 25px #0002;background:white;margin:auto;flex-shrink:0;line-height:0}.page-stage>canvas:first-child{position:absolute;inset:0}.page-stage .canvas-container{position:absolute!important;inset:0}.crop-rubber{position:absolute;border:2px dashed #3157da;background:#3157da15;z-index:5;pointer-events:none}.object-inspector{width:215px;flex-shrink:0;background:var(--studio-panel);border-left:1px solid var(--studio-border);padding:17px 13px;overflow:auto}.inspector-heading{font-size:11px;font-weight:700;margin-bottom:12px}.muted-help{font-size:10px;color:var(--studio-muted);line-height:1.6;display:block}.object-inspector .form-label{font-size:10px;color:var(--studio-muted);margin-bottom:4px}.object-inspector .form-control,.object-inspector .form-select{font-size:11px}.object-inspector .form-control-color{height:27px;width:100%}.object-inspector .btn{font-size:10px}.layer-item{display:flex;align-items:center;gap:5px;padding:6px 3px;font-size:10px;border-bottom:1px solid var(--studio-border)}.layer-item.active{background:#3157da12}.layer-item span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}.layer-item button{width:23px;height:23px}.status-bar{grid-column:1/-1;display:flex;gap:18px;align-items:center;background:var(--studio-panel);border-top:1px solid var(--studio-border);padding:0 18px;font-size:10px;color:var(--studio-muted);min-width:0;z-index:21}.status-bar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#privacyIndicator{color:var(--studio-accent)}.toast-region{position:fixed;bottom:45px;right:20px;z-index:3000;max-width:440px}.studio-toast{background:var(--studio-panel);box-shadow:var(--studio-shadow);border:1px solid var(--studio-border);border-left:4px solid var(--studio-accent);border-radius:9px;padding:13px 17px;margin-top:10px;font-size:12px;line-height:1.5}.studio-toast.error{border-left-color:#dc3545}.studio-toast.success{border-left-color:#198754}.job-backdrop{position:fixed;inset:0;background:#111e3c88;backdrop-filter:blur(4px);z-index:2500;display:grid;place-items:center}.job-backdrop[hidden]{display:none}.job-card{background:var(--studio-panel);border-radius:20px;padding:30px;max-width:430px;width:92vw;display:flex;align-items:center;flex-direction:column;text-align:center;gap:15px;box-shadow:var(--studio-shadow)}.job-card .progress{width:100%;height:7px}.job-card p{font-size:11px;margin:0;color:var(--studio-muted)}.job-card small{font-size:10px;color:var(--studio-muted)}.loading-banner{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:var(--studio-panel);box-shadow:var(--studio-shadow);border:1px solid var(--studio-border);border-radius:30px;padding:11px 20px;font-size:12px;z-index:40}.modal-backdrop{z-index:1040}.dropdown-menu{z-index:1100}.tool-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.tool-grid .btn{font-size:12px;white-space:normal;text-align:left;padding:13px}.tool-grid .btn small{display:block;font-size:10px;margin-top:4px}.signature-canvas{width:100%;height:190px;border:1px solid var(--studio-border);background:#fff;touch-action:none}.modal-body label{font-size:12px}.modal-body .form-text{font-size:11px}.modal-body .alert{font-size:12px}.render-message{position:absolute;inset:0;align-content:center;text-align:center;padding:20px;color:var(--studio-muted);background:var(--studio-surface)}.palette-result{display:block;border:0;background:transparent;text-align:left;padding:10px 13px;border-bottom:1px solid var(--studio-border);width:100%;color:var(--studio-text)}.palette-result:hover{background:#3157da12}.capability-table{font-size:11px}.capability-table td{vertical-align:middle}.group-banner{font-size:11px;color:var(--studio-muted);padding:8px 4px}.form-range{cursor:pointer}
+.native-controls{display:flex;gap:7px;align-items:center;flex-wrap:wrap;padding:8px 14px;border-bottom:1px solid var(--studio-border);background:var(--studio-panel)}.native-controls[hidden],.native-element-layer[hidden]{display:none!important}.native-controls .form-select{width:180px}.native-controls small{color:var(--studio-muted);font-size:11px;line-height:1.5}.native-selection-label{max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px}.native-element-layer{position:absolute;inset:0;z-index:8;overflow:hidden}.native-hit{position:absolute;padding:0;border:1px solid transparent;background:transparent;cursor:pointer;touch-action:manipulation}.native-hit:hover,.native-hit:focus-visible{border-color:#3157da;background:#3157da0c}.native-hit.selected{border:2px solid #3157da;background:#3157da15}.native-list{max-height:55vh;overflow:auto;border:1px solid var(--studio-border);border-radius:8px}.native-list button{text-align:left;overflow-wrap:anywhere}.native-list button[hidden]{display:none}.native-controls .btn{font-size:11px}
+@media(max-width:650px){.native-controls{padding:7px;gap:5px}.native-controls .form-select{width:160px}.native-selection-label{max-width:100%;width:100%}}
 @media(min-width:1600px){.home-cards{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.home-panel{padding:45px 7vw}.tool-card{padding:24px}}
 @media(max-width:1199px){.app-shell{grid-template-columns:160px minmax(0,1fr)}.app-header{padding:0 13px}.header-actions{gap:5px}.header-actions kbd{display:none}.nav-tool{padding:9px 7px;font-size:12px}.home-panel{padding:30px 25px}.home-cards{grid-template-columns:repeat(3,minmax(0,1fr))}.object-inspector{width:190px}.document-title{max-width:150px}.thumbnail-panel{width:125px}.thumbnail{padding:10px}.brand{font-size:20px}}
 @media(max-width:900px){.app-shell{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr) 33px}.app-sidebar{position:fixed;left:0;top:72px;bottom:33px;width:190px;box-shadow:var(--studio-shadow);transform:translateX(-100%);transition:transform .2s}.sidebar-visible .app-sidebar{transform:none}.app-header{min-height:72px;padding:10px;gap:10px;flex-wrap:wrap}.header-actions .btn{font-size:10px;padding:6px}.header-actions{gap:3px}.brand small{display:none}.object-inspector{width:180px}.status-bar{gap:9px;padding:0 8px}.home-cards{grid-template-columns:repeat(3,minmax(0,1fr))}.document-toolbar{gap:3px}.context-toolbar{padding:7px}.page-scroll{padding:15px}.document-title{max-width:110px}}
@@ -2348,10 +2423,17 @@ html[lang=de] .doc-edit-workspace .jodit-wysiwyg .doc-pagebreak::after{content:'
       <section id="pdfPanel" class="pdf-panel" hidden>
         <div class="document-toolbar"><button class="btn btn-outline-secondary btn-sm" data-action="thumbnails"><i class="fa-solid fa-table-cells"></i> Pages</button><div class="document-title" id="documentTitle">Untitled</div><div class="toolbar-divider"></div><button class="icon-button" data-action="undo" title="Undo (Ctrl Z)" aria-label="Undo"><i class="fa-solid fa-rotate-left"></i></button><button class="icon-button" data-action="redo" title="Redo (Ctrl Y)" aria-label="Redo"><i class="fa-solid fa-rotate-right"></i></button><div class="zoom-controls"><button class="icon-button" data-action="zoom-out" aria-label="Zoom out"><i class="fa-solid fa-minus"></i></button><select id="zoomSelect" class="form-select form-select-sm" aria-label="Zoom"><option value="fit-page">Fit page</option><option value="fit-width">Fit width</option><option value=".25">25%</option><option value=".5">50%</option><option value=".75">75%</option><option value="1">100%</option><option value="1.25">125%</option><option value="1.5">150%</option><option value="2">200%</option><option value="3">300%</option><option value="4">400%</option></select><button class="icon-button" data-action="zoom-in" aria-label="Zoom in"><i class="fa-solid fa-plus"></i></button></div><button class="btn btn-outline-secondary btn-sm" data-action="inspect"><i class="fa-solid fa-circle-info"></i> Info</button></div>
         <div id="contextToolbar" class="context-toolbar"></div>
+        <div id="nativeControls" class="native-controls" hidden>
+          <label class="visually-hidden" for="nativeFilter">Original element type</label><select id="nativeFilter" class="form-select form-select-sm"><option value="all">All original elements</option><option value="text">Original text</option><option value="image">Original images</option><option value="shape">Vector shapes</option><option value="shading">Shading</option><option value="group">PDF groups</option></select>
+          <button class="btn btn-sm btn-outline-secondary" data-action="native-list"><i class="fa-solid fa-list"></i> Element list</button>
+          <button id="nativeEditButton" class="btn btn-sm btn-primary" data-action="native-edit" disabled><i class="fa-solid fa-pen"></i> Edit text</button>
+          <button id="nativeDeleteButton" class="btn btn-sm btn-outline-danger" data-action="native-delete" disabled><i class="fa-solid fa-trash"></i> Delete element</button>
+          <span id="nativeSelectionLabel" class="native-selection-label"></span><small id="nativeHint" class="w-100"></small>
+        </div>
         <div class="pdf-body">
           <aside id="thumbnailPanel" class="thumbnail-panel" aria-label="Pages"><div class="thumbnail-actions"><button class="btn btn-sm btn-outline-secondary" data-action="select-all" title="Select all pages">All</button><button class="btn btn-sm btn-outline-secondary" data-action="invert-selection" title="Invert selection">Invert</button><button class="btn btn-sm btn-outline-secondary" data-action="select-range" title="Select page range">Range</button></div><div id="thumbnailList"></div></aside>
-          <div id="pageScroll" class="page-scroll"><div id="pageStage" class="page-stage"><canvas id="pdfCanvas" aria-label="PDF page"></canvas><canvas id="overlayCanvas"></canvas><div id="cropRubber" class="crop-rubber" hidden></div></div><div id="renderMessage" class="render-message" hidden></div></div>
-          <aside id="objectInspector" class="object-inspector"><div class="inspector-heading">Object properties</div><div id="inspectorEmpty" class="muted-help">Select an object to change its appearance. Original PDF content remains a rendered background.</div><div id="inspectorFields" hidden>
+          <div id="pageScroll" class="page-scroll"><div id="pageStage" class="page-stage"><canvas id="pdfCanvas" aria-label="PDF page"></canvas><canvas id="overlayCanvas"></canvas><div id="cropRubber" class="crop-rubber" hidden></div><div id="nativeElementLayer" class="native-element-layer" hidden aria-label="Original PDF elements"></div></div><div id="renderMessage" class="render-message" hidden></div></div>
+          <aside id="objectInspector" class="object-inspector"><div class="inspector-heading">Object properties</div><div id="inspectorEmpty" class="muted-help">Use Edit existing text or Original elements to change PDF content. Use Select for added objects.</div><div id="inspectorFields" hidden>
             <label class="form-label" for="objectText">Text</label><textarea id="objectText" class="form-control form-control-sm" rows="3" data-prop="text"></textarea>
             <div class="row g-2"><div class="col-7"><label for="objectFont" class="form-label">Font</label><select id="objectFont" class="form-select form-select-sm" data-prop="fontFamily"><option>Arial</option><option>Times New Roman</option><option>Georgia</option><option>Courier New</option><option>Verdana</option><option>cursive</option></select></div><div class="col-5"><label for="objectSize" class="form-label">Size (pt)</label><input id="objectSize" class="form-control form-control-sm" type="number" min="1" max="500" data-prop="fontSize"></div></div>
             <div class="row g-2 mt-1"><div class="col-6"><label for="objectFill" class="form-label">Color</label><input id="objectFill" type="color" class="form-control form-control-color" data-prop="fill"></div><div class="col-6"><label for="objectBackground" class="form-label">Background</label><input id="objectBackground" type="color" class="form-control form-control-color" data-prop="backgroundColor"><button class="btn btn-link btn-sm p-0" data-action="clear-background">Clear</button></div></div>
@@ -2429,7 +2511,7 @@ html[lang=de] .doc-edit-workspace .jodit-wysiwyg .doc-pagebreak::after{content:'
   <script>window.PDF_STUDIO_BOOT = <?= json_encode($studioBoot, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_SLASHES) ?>;</script>
   <script>
 'use strict';
-const STUDIO_VERSIONS = Object.freeze({pdfjs:'6.4.299',pdfLib:'1.17.1',fabric:'7.4.0',purify:'3.4.16',sortable:'1.15.7',zip:'3.10.2',bootstrap:'5.3.8'});
+const STUDIO_VERSIONS = Object.freeze({pdfjs:'6.4.299',pdfLib:'1.17.1',fabric:'7.4.0',purify:'3.4.16',sortable:'1.15.7',zip:'3.10.2',bootstrap:'5.3.8',pdfium:'2.15.1'});
 const CDN = 'https://cdn.jsdelivr.net/npm/';
 class StudioI18n {
   constructor(catalog,language='it'){
@@ -2549,11 +2631,230 @@ class StudioI18n {
   }
 }
 
+class NativePDFEditor {
+  constructor(studio) { this.studio=studio;this.cache=new Map();this.engine=null;this.loading=null; }
+  async load() {
+    if(this.engine)return this.engine;
+    if(!this.loading)this.loading=(async()=>{
+      if(!window.WebAssembly)throw new Error('Your browser does not support editing original PDF objects.');
+      const url=CDN+'@embedpdf/pdfium@'+STUDIO_VERSIONS.pdfium+'/dist/';
+      const [{init},response]=await Promise.all([import(url+'index.browser.js'),fetch(url+'pdfium.wasm',{credentials:'omit',referrerPolicy:'no-referrer'})]);
+      if(!response.ok)throw new Error('The original PDF editing engine could not load. Check your connection and try again.');
+      const wasmBinary=await response.arrayBuffer();if(wasmBinary.byteLength>16000000)throw new Error('The original PDF editing engine download is too large.');
+      const engine=await init({wasmBinary});engine.PDFiumExt_Init();this.engine=engine;window.StudioNativePDFium=engine;return engine;
+    })().catch(error=>{this.loading=null;throw error;});
+    return this.loading;
+  }
+  fonts() { return ['Helvetica','Helvetica-Bold','Helvetica-Oblique','Helvetica-BoldOblique','Times-Roman','Times-Bold','Times-Italic','Times-BoldItalic','Courier','Courier-Bold','Courier-Oblique','Courier-BoldOblique']; }
+  validate(edits) {
+    if(edits===undefined)return [];
+    if(!Array.isArray(edits)||edits.length>2000)throw new Error('Too many original PDF edits in this project.');
+    return edits.map(edit=>{
+      if(!edit||!Array.isArray(edit.path)||!edit.path.length||edit.path.length>12||edit.path.some(i=>!Number.isInteger(i)||i<0||i>100000))throw new Error('Invalid original PDF element reference.');
+      if(edit.action==='delete')return {action:'delete',path:[...edit.path]};
+      if(edit.action!=='text'||typeof edit.text!=='string'||!edit.text.length||edit.text.length>10000||/[\x00-\x08\x0b\x0c\x0e-\x1f\r\n]/.test(edit.text)||!['original',...this.fonts()].includes(edit.font))throw new Error('Invalid original PDF text edit.');
+      return {action:'text',path:[...edit.path],text:edit.text,font:edit.font};
+    });
+  }
+  streamText(stream) {
+    if(!(stream instanceof PDFLib.PDFRawStream))throw new Error('This PDF group cannot be edited safely.');
+    const bytes=PDFLib.decodePDFRawStream(stream).decode();if(bytes.length>32000000)throw new Error('This PDF page is too complex to edit.');
+    let text='';for(let i=0;i<bytes.length;i+=32768)text+=String.fromCharCode(...bytes.subarray(i,i+32768));return text;
+  }
+  calls(text) {
+    // Ignore strings/comments and inline image data when finding Form calls.
+    const calls=[];let i=0,previous=null,inline=false;
+    const delimiter=c=>!c||/[\x00\t\n\f\r ()<>\[\]{}/%]/.test(c);
+    while(i<text.length) {
+      const start=i,c=text[i++];if(/[\x00\t\n\f\r ]/.test(c))continue;
+      if(c==='%'){while(i<text.length&&!/[\r\n]/.test(text[i]))i++;continue;}
+      if(c==='('){let depth=1;while(i<text.length&&depth){const x=text[i++];if(x==='\\')i++;else if(x==='(')depth++;else if(x===')')depth--;}previous=null;continue;}
+      if(c==='<'&&text[i]!=='<'){while(i<text.length&&text[i++]!=='>'){}previous=null;continue;}
+      if(c==='/'){while(i<text.length&&!delimiter(text[i]))i++;previous={start,end:i,name:text.slice(start,i)};continue;}
+      if(delimiter(c)){previous=null;continue;}
+      while(i<text.length&&!delimiter(text[i]))i++;const operator=text.slice(start,i);
+      if(operator==='BI')inline=true;
+      if(inline&&operator==='ID') {
+        const end=/[\x00\t\n\f\r ]EI(?=[\x00\t\n\f\r ]|$)/g;end.lastIndex=i;const match=end.exec(text);
+        if(!match)throw new Error('This PDF group cannot be edited safely.');i=end.lastIndex;inline=false;
+      } else if(operator==='Do'&&previous)calls.push(previous);
+      previous=null;
+    }
+    return calls;
+  }
+  async isolateForms(bytes) {
+    // Clone each Form invocation, including repeated uses on the same page.
+    // Editing one logo or group must never change its other occurrences.
+    const doc=await PDFLib.PDFDocument.load(bytes,{updateMetadata:false}),ctx=doc.context,name=PDFLib.PDFName.of;let serial=0;
+    const cloneResources=resources=>{const copy=resources.clone(ctx),objects=resources.lookupMaybe(name('XObject'),PDFLib.PDFDict);if(objects)copy.set(name('XObject'),objects.clone(ctx));return copy;};
+    const replace=(stream,resources,ancestors=[])=>{
+      const text=this.streamText(stream),objects=resources.lookupMaybe(name('XObject'),PDFLib.PDFDict);if(!objects)return stream;
+      const replacements=[];
+      for(const call of this.calls(text)) {
+        const key=name(call.name.slice(1).replace(/#([0-9a-f]{2})/gi,(_,hex)=>String.fromCharCode(parseInt(hex,16))));
+        const child=objects.lookup(key);if(!(child instanceof PDFLib.PDFRawStream)||child.dict.get(name('Subtype'))?.toString()!=='/Form')continue;
+        if(ancestors.includes(child)||ancestors.length>=12||++serial>15000)throw new Error('This PDF contains too many nested groups.');
+        const childResources=cloneResources(child.dict.lookupMaybe(name('Resources'),PDFLib.PDFDict)||resources);
+        const edited=replace(child,childResources,[...ancestors,child]),dict=edited.dict.clone(ctx);dict.set(name('Resources'),childResources);
+        const clone=PDFLib.PDFRawStream.of(dict,edited.getContents().slice()),newName=name('StudioOriginal'+serial);
+        objects.set(newName,ctx.register(clone));replacements.push({...call,value:newName.toString()});
+      }
+      if(!replacements.length)return stream;
+      let result=text;for(const call of replacements.reverse())result=result.slice(0,call.start)+call.value+result.slice(call.end);
+      const compressed=ctx.flateStream(Uint8Array.from(result,c=>c.charCodeAt(0))),dict=stream.dict.clone(ctx);
+      dict.delete(name('DecodeParms'));dict.set(name('Filter'),compressed.dict.get(name('Filter')));dict.set(name('Length'),compressed.dict.get(name('Length')));
+      return PDFLib.PDFRawStream.of(dict,compressed.getContents());
+    };
+    for(const page of doc.getPages()) {
+      const original=page.node.Resources();if(!original)continue;const resources=cloneResources(original),contents=page.node.Contents();if(!contents)continue;
+      const entries=contents instanceof PDFLib.PDFArray?contents.asArray():[contents];
+      const updated=entries.map(entry=>ctx.register(replace(ctx.lookup(entry),resources)));
+      page.node.set(name('Resources'),resources);page.node.set(name('Contents'),ctx.obj(updated));
+    }
+    return serial?doc.save():bytes;
+  }
+  multiply(a,b) { return [a[0]*b[0]+a[2]*b[1],a[1]*b[0]+a[3]*b[1],a[0]*b[2]+a[2]*b[3],a[1]*b[2]+a[3]*b[3],a[0]*b[4]+a[2]*b[5]+a[4],a[1]*b[4]+a[3]*b[5]+a[5]]; }
+  point(m,x,y) { return [m[0]*x+m[2]*y+m[4],m[1]*x+m[3]*y+m[5]]; }
+  allocate(engine,size) { const ptr=engine.pdfium.wasmExports.malloc(size);if(!ptr)throw new Error('Not enough memory to edit this PDF.');return ptr; }
+  readMatrix(engine,obj) {
+    const ptr=this.allocate(engine,24);
+    try { if(!engine.FPDFPageObj_GetMatrix(obj,ptr))throw new Error('Cannot read this PDF element.');return Array.from(engine.pdfium.HEAPF32.subarray(ptr/4,ptr/4+6)); }
+    finally { engine.pdfium.wasmExports.free(ptr); }
+  }
+  string(engine,fn,unicode=false) {
+    const size=fn(0,0);if(!size)return '';if(size>2000000)throw new Error('This PDF text element is too large.');
+    const ptr=this.allocate(engine,size);
+    try { fn(ptr,size);return new TextDecoder(unicode?'utf-16le':'utf-8').decode(engine.pdfium.HEAPU8.slice(ptr,ptr+size)).replace(/\x00+$/,''); }
+    finally { engine.pdfium.wasmExports.free(ptr); }
+  }
+  objectText(engine,page,obj) {
+    const textPage=engine.FPDFText_LoadPage(page);if(!textPage)return '';
+    try { return this.string(engine,(ptr,size)=>engine.FPDFTextObj_GetText(obj,textPage,ptr,size),true); }
+    finally { engine.FPDFText_ClosePage(textPage); }
+  }
+  describe(engine,page) {
+    const elements=[],scratch=this.allocate(engine,32);
+    const walk=(parent,path,matrix)=>{
+      if(path.length>=12)throw new Error('This PDF contains too many nested groups.');
+      const count=path.length?engine.FPDFFormObj_CountObjects(parent):engine.FPDFPage_CountObjects(page);
+      if(count<0||count>100000)throw new Error('This PDF page is too complex to select individual elements.');
+      for(let i=0;i<count;i++) {
+        if(elements.length>=15000)throw new Error('This PDF page is too complex to select individual elements.');
+        const obj=path.length?engine.FPDFFormObj_GetObject(parent,i):engine.FPDFPage_GetObject(page,i),type=engine.FPDFPageObj_GetType(obj);if(![1,2,3,4,5].includes(type))continue;
+        const address=[...path,i];
+        if(engine.FPDFPageObj_GetBounds(obj,scratch,scratch+4,scratch+8,scratch+12)) {
+          const [left,bottom,right,top]=Array.from(engine.pdfium.HEAPF32.subarray(scratch/4,scratch/4+4));
+          const quad=[[left,bottom],[right,bottom],[right,top],[left,top]].map(([x,y])=>this.point(matrix,x,y));
+          if(quad.flat().every(Number.isFinite)) {
+            const element={path:address,type,quad,text:'',font:'',size:0};
+            if(type===1) {
+              element.text=this.objectText(engine,page,obj);const font=engine.FPDFTextObj_GetFont(obj);
+              if(font)element.font=this.string(engine,(ptr,size)=>engine.FPDFFont_GetBaseFontName(font,ptr,size));
+              if(engine.FPDFTextObj_GetFontSize(obj,scratch))element.size=engine.pdfium.HEAPF32[scratch/4];
+            }
+            elements.push(element);
+          }
+        }
+        if(type===5)walk(obj,address,this.multiply(matrix,this.readMatrix(engine,obj)));
+      }
+    };
+    try { walk(page,[],[1,0,0,1,0,0]);return elements; }
+    finally { engine.pdfium.wasmExports.free(scratch); }
+  }
+  locate(engine,page,path) {
+    let parent=page,obj=0,matrix=[1,0,0,1,0,0];
+    for(let i=0;i<path.length;i++) {
+      obj=i?engine.FPDFFormObj_GetObject(parent,path[i]):engine.FPDFPage_GetObject(page,path[i]);
+      if(!obj)throw new Error('The selected original PDF element is no longer available.');
+      if(i<path.length-1) {
+        if(engine.FPDFPageObj_GetType(obj)!==5)throw new Error('Invalid original PDF element reference.');
+        matrix=this.multiply(matrix,this.readMatrix(engine,obj));engine.FPDFPageObj_Transform(obj,1,0,0,1,0,0);parent=obj;
+      }
+    }
+    return {obj,parent,matrix};
+  }
+  setText(engine,page,obj,text,validate=true) {
+    const ptr=this.allocate(engine,(text.length+1)*2);
+    try {
+      const heap=engine.pdfium.HEAPU16;for(let i=0;i<text.length;i++)heap[ptr/2+i]=text.charCodeAt(i);heap[ptr/2+text.length]=0;
+      if(!engine.FPDFText_SetText(obj,ptr))throw new Error('The text could not be changed. Choose a replacement font and try again.');
+      if(validate&&this.objectText(engine,page,obj).trimEnd()!==text.trimEnd())throw new Error('The original font cannot display all these characters. Choose a replacement font.');
+    } finally { engine.pdfium.wasmExports.free(ptr); }
+  }
+  apply(engine,doc,page,edit) {
+    const {obj,parent,matrix}=this.locate(engine,page,edit.path);
+    const remove=()=>{if(!(edit.path.length===1?engine.FPDFPage_RemoveObject(page,obj):engine.FPDFFormObj_RemoveObject(parent,obj)))throw new Error('This original PDF element could not be removed.');engine.FPDFPageObj_Destroy(obj);};
+    if(edit.action==='delete'){remove();return;}
+    if(engine.FPDFPageObj_GetType(obj)!==1)throw new Error('Select an original text element first.');
+    if(edit.font==='original'){
+      this.setText(engine,page,obj,edit.text);
+      if(edit.path.length>1){
+        // Regenerate the containing Form by detaching the edited text run.
+        // Its font, position and inherited clip remain attached to the object.
+        if(!engine.FPDFFormObj_RemoveObject(parent,obj))throw new Error('This original PDF element could not be removed.');
+        engine.FPDFPageObj_Transform(obj,...matrix);engine.FPDFPageObj_TransformClipPath(obj,...matrix);
+        if(!engine.FPDFPage_InsertObjectAtIndex(page,obj,edit.path[0]+1)){engine.FPDFPageObj_Destroy(obj);throw new Error('Cannot insert the replacement text.');}
+      }
+      return;
+    }
+    const scratch=this.allocate(engine,32);let replacement=0;
+    try {
+      if(!engine.FPDFTextObj_GetFontSize(obj,scratch))throw new Error('Cannot read this PDF element.');
+      const size=engine.pdfium.HEAPF32[scratch/4];replacement=engine.FPDFPageObj_NewTextObj(doc,edit.font,size);
+      if(!replacement)throw new Error('The replacement font could not be loaded.');
+      const transform=this.multiply(matrix,this.readMatrix(engine,obj));engine.pdfium.HEAPF32.set(transform,scratch/4);
+      if(!engine.FPDFPageObj_SetMatrix(replacement,scratch))throw new Error('Cannot position the replacement text.');
+      if(engine.FPDFPageObj_GetFillColor(obj,scratch,scratch+4,scratch+8,scratch+12))engine.FPDFPageObj_SetFillColor(replacement,...Array.from(engine.pdfium.HEAPU32.subarray(scratch/4,scratch/4+4)));
+      if(engine.FPDFPageObj_GetStrokeColor(obj,scratch,scratch+4,scratch+8,scratch+12))engine.FPDFPageObj_SetStrokeColor(replacement,...Array.from(engine.pdfium.HEAPU32.subarray(scratch/4,scratch/4+4)));
+      engine.FPDFTextObj_SetTextRenderMode(replacement,engine.FPDFTextObj_GetTextRenderMode(obj));this.setText(engine,page,replacement,edit.text,false);
+      if(!engine.FPDFPage_InsertObjectAtIndex(page,replacement,edit.path.length===1?edit.path[0]:edit.path[0]+1))throw new Error('Cannot insert the replacement text.');
+      const inserted=replacement;replacement=0;
+      if(this.objectText(engine,page,inserted).trimEnd()!==edit.text.trimEnd())throw new Error('The original font cannot display all these characters. Choose a replacement font.');remove();
+    } finally { if(replacement)engine.FPDFPageObj_Destroy(replacement);engine.pdfium.wasmExports.free(scratch); }
+  }
+  async rewrite(bytes,edits=[],job) {
+    bytes=await this.isolateForms(bytes);const engine=await this.load();job?.check();edits=this.validate(edits);
+    const ptr=this.allocate(engine,bytes.length);let doc=0,page=0,writer=0;
+    try {
+      engine.pdfium.HEAPU8.set(bytes,ptr);doc=engine.FPDF_LoadMemDocument(ptr,bytes.length,0);
+      if(!doc)throw new Error('The original PDF editing engine could not read this document.');
+      page=engine.FPDF_LoadPage(doc,0);if(!page)throw new Error('The original PDF editing engine could not read this page.');
+      for(const edit of edits){job?.check();this.apply(engine,doc,page,edit);}
+      const elements=this.describe(engine,page);if(!edits.length)return {bytes,elements};
+      if(!engine.FPDFPage_GenerateContent(page))throw new Error('The original PDF edits could not be saved.');
+      writer=engine.PDFiumExt_OpenFileWriter();if(!writer||!engine.FPDF_SaveAsCopy(doc,writer,2))throw new Error('The original PDF edits could not be saved.');
+      const size=engine.PDFiumExt_GetFileWriterSize(writer);if(!size||size>this.studio.server.limits.maxFile)throw new Error('The edited PDF exceeds the file size limit.');
+      const out=this.allocate(engine,size);
+      try { if(!engine.PDFiumExt_GetFileWriterData(writer,out,size))throw new Error('The original PDF edits could not be saved.');return {bytes:engine.pdfium.HEAPU8.slice(out,out+size),elements}; }
+      finally { engine.pdfium.wasmExports.free(out); }
+    } finally {
+      if(writer)engine.PDFiumExt_CloseFileWriter(writer);if(page)engine.FPDF_ClosePage(page);if(doc)engine.FPDF_CloseDocument(doc);engine.pdfium.wasmExports.free(ptr);
+    }
+  }
+  key(page) { return JSON.stringify([page.sourceId,page.index,page.nativeEdits||[]]); }
+  async resolve(page,job) {
+    const key=this.key(page);if(this.cache.has(key))return this.cache.get(key);
+    const pending=(async()=>{
+      const src=this.studio.sources.get(page.sourceId);if(!src)throw new Error('The original PDF for this page must be relinked.');
+      if(src.lib.getForm().hasXFA())throw new Error('XFA forms cannot be edited as original PDF elements. Convert this PDF to static pages first.');
+      const isolated=await PDFLib.PDFDocument.create();isolated.addPage((await isolated.copyPages(src.lib,[page.index]))[0]);
+      const result=await this.rewrite(await isolated.save(),page.nativeEdits||[],job);job?.check();result.lib=await PDFLib.PDFDocument.load(result.bytes,{updateMetadata:false});
+      if(page.nativeEdits?.length){result.loadingTask=pdfjsLib.getDocument(this.studio.pdfOptions(result.bytes));result.pdfjs=await result.loadingTask.promise;}
+      return result;
+    })();this.cache.set(key,pending);
+    try {
+      const result=await pending;while(this.cache.size>6){const [old,entry]=this.cache.entries().next().value;this.cache.delete(old);entry.then(value=>value.loadingTask?.destroy()).catch(()=>{});}return result;
+    } catch(error) { this.cache.delete(key);throw error; }
+  }
+  clear() { for(const entry of this.cache.values())entry.then(value=>value.loadingTask?.destroy()).catch(()=>{});this.cache.clear(); }
+}
+
 class PDFStudio {
   constructor() {
     this.pages=[]; this.sources=new Map(); this.selected=new Set(); this.current=0; this.mode='home'; this.group='Edit PDF'; this.zoom='fit-page'; this.scale=1;
     this.metadata={}; this.name='document.pdf'; this.dirty=false; this.history=[]; this.historyIndex=-1; this.renderEpoch=0; this.canvas=null; this.clipboard=null; this.suppress=false; this.toolMode='select'; this.drawStart=null; this.drawObject=null; this.activeJob=null;
     this.server={tools:{},engines:{html:[],merge:[]},limits:{maxFile:104857600,maxPages:500}}; this.toolDefs=[]; this.autosaveTimer=null; this.scripts=new Map(); this.currentPageId=null; this.recent=[];
+    this.nativeEditor=new NativePDFEditor(this);this.nativeSelection=null;this.nativeElements=[];
     this.overlayProps=['studioKind','studioLink','studioLabel','studioLocked'];
     this.groups=[['Home','fa-house'],['Organize','fa-layer-group'],['Edit PDF','fa-file-pen'],['Annotate','fa-comment-dots'],['Fill & Sign','fa-signature'],['Create','fa-file-circle-plus'],['Convert','fa-arrows-rotate'],['OCR','fa-spell-check'],['Forms','fa-list-check'],['Secure','fa-shield-halved'],['Optimize','fa-gauge-high'],['Advanced','fa-toolbox']];
   }
@@ -2624,6 +2925,9 @@ class PDFStudio {
     for(const el of document.querySelectorAll('[data-prop],[data-size]'))el.addEventListener('change',()=>this.inspectorChange(el));
     this.$('#thumbnailList').addEventListener('click',e=>{const row=e.target.closest('.thumbnail');if(!row)return;const i=this.pages.findIndex(p=>p.id===row.dataset.page);if(i<0)return;if(e.target.matches('input')||e.ctrlKey||e.metaKey){if(this.selected.has(row.dataset.page))this.selected.delete(row.dataset.page);else this.selected.add(row.dataset.page);}else if(e.shiftKey){const a=Math.min(this.current,i),b=Math.max(this.current,i);for(let n=a;n<=b;n++)this.selected.add(this.pages[n].id);}this.captureOverlay();this.current=i;this.renderCurrent().catch(x=>this.error(x));this.updateThumbnailSelection();});
     this.$('#layersList').addEventListener('click',e=>{const b=e.target.closest('[data-layer]');if(!b)return;const obj=this.canvas?.getObjects()[Number(b.dataset.layer)];if(!obj)return;if(b.dataset.unlock){obj.studioLocked=false;obj.set({selectable:true,evented:true,lockMovementX:false,lockMovementY:false,lockScalingX:false,lockScalingY:false,lockRotation:false});this.canvas.setActiveObject(obj);this.commit();}else this.canvas.setActiveObject(obj);this.canvas.requestRenderAll();this.inspector();});
+    this.$('#nativeElementLayer').addEventListener('click',e=>{const button=e.target.closest('[data-native-index]');if(!button||this.activeJob)return;this.selectNative(Number(button.dataset.nativeIndex));if(this.toolMode==='native-text')this.nativeTextDialog();});
+    this.$('#nativeElementLayer').addEventListener('dblclick',e=>{if(this.toolMode!=='native-elements')return;const button=e.target.closest('[data-native-index]');if(!button)return;this.selectNative(Number(button.dataset.nativeIndex));if(this.nativeSelection?.type===1)this.nativeTextDialog();});
+    this.$('#nativeFilter').addEventListener('change',()=>{this.toolMode='native-elements';this.clearNativeSelection();this.renderNativeElements().catch(x=>this.error(x));});
     document.addEventListener('keydown',e=>this.keydown(e));
     document.addEventListener('paste',e=>{if(this.mode!=='pdf'||this.isTyping(e.target))return;const item=[...(e.clipboardData?.items||[])].find(i=>i.type.startsWith('image/'));if(item){e.preventDefault();this.addImage(item.getAsFile()).catch(x=>this.error(x));}});
     window.addEventListener('beforeunload',e=>{if(this.dirty){e.preventDefault();e.returnValue='';}});
@@ -2640,8 +2944,9 @@ class PDFStudio {
     const map={z:e.shiftKey?'redo':'undo',y:'redo',c:'copy',x:'cut',v:'paste',d:'duplicate-object'};
     if(mod&&map[e.key.toLowerCase()]){e.preventDefault();this.action(map[e.key.toLowerCase()]).catch(x=>this.error(x));return;}
     if(mod&&['+','=','-'].includes(e.key)){e.preventDefault();this.changeZoom(e.key==='-'?1/1.2:1.2);return;}
-    if(e.key==='Delete'||e.key==='Backspace'){e.preventDefault();this.deleteObjects();}
-    if(e.key==='Escape'){this.toolMode='select';if(this.canvas){this.canvas.isDrawingMode=false;this.canvas.discardActiveObject();this.canvas.requestRenderAll();this.inspector();}}
+    if(e.key==='Delete'||e.key==='Backspace'){e.preventDefault();this.deleteObjects().catch(x=>this.error(x));}
+    if(e.key==='Enter'&&this.isNativeMode()&&this.nativeSelection?.type===1){e.preventDefault();this.nativeTextDialog();return;}
+    if(e.key==='Escape'){this.setDrawing('select');if(this.canvas){this.canvas.isDrawingMode=false;this.canvas.discardActiveObject();this.canvas.requestRenderAll();this.inspector();}}
     if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)&&this.canvas?.getActiveObject()){
       e.preventDefault();const amount=e.shiftKey?10:1;const o=this.canvas.getActiveObject();o.set({left:o.left+(e.key==='ArrowRight'?amount:e.key==='ArrowLeft'?-amount:0),top:o.top+(e.key==='ArrowDown'?amount:e.key==='ArrowUp'?-amount:0)});o.setCoords();this.canvas.requestRenderAll();this.commit();this.inspector();
     }
@@ -2692,7 +2997,7 @@ class PDFStudio {
     return {src,pages};
   }
   async openPDF(bytes,name='document.pdf',job){
-    this.captureOverlay();const created=await this.source(bytes,name,job);const old=[...this.sources.keys()].filter(id=>id!==created.src.id);this.pages=created.pages;this.current=0;this.selected.clear();this.currentPageId=null;this.name=name;const doc=created.src.lib;
+    this.captureOverlay();const created=await this.source(bytes,name,job);const old=[...this.sources.keys()].filter(id=>id!==created.src.id);this.nativeEditor.clear();this.pages=created.pages;this.setDrawing('select');this.current=0;this.selected.clear();this.currentPageId=null;this.name=name;const doc=created.src.lib;
     this.metadata={title:doc.getTitle()||'',author:doc.getAuthor()||'',subject:doc.getSubject()||'',keywords:(doc.getKeywords()||''),creator:doc.getCreator()||'',producer:doc.getProducer()||''};
     // Release previous documents only after the new source has passed validation.
     for(const id of old){const s=this.sources.get(id);await s?.loadingTask.destroy();this.sources.delete(id);}
@@ -2721,7 +3026,7 @@ class PDFStudio {
   async undo(direction=-1){const n=this.historyIndex+direction;if(n<0||n>=this.history.length)return;this.historyIndex=n;const snap=this.history[n];this.suppress=true;this.currentPageId=null;this.pages=JSON.parse(JSON.stringify(snap.pages));this.metadata={...snap.metadata};this.current=snap.current;this.name=snap.name;this.selected.clear();this.suppress=false;this.markDirty();await this.refresh();}
   dimensions(p){return p.rotation%180?{width:p.height,height:p.width}:{width:p.width,height:p.height};}
   async renderPage(p,scale=1,opts={}){
-    const source=this.sources.get(p.sourceId);if(!source)throw new Error('The original PDF for this page must be relinked.');const page=await source.pdfjs.getPage(p.index+1);const view=page.getViewport({scale,rotation:p.rotation});
+    const source=this.sources.get(p.sourceId);if(!source)throw new Error('The original PDF for this page must be relinked.');const edited=p.nativeEdits?.length?await this.nativeEditor.resolve(p):null;const page=await (edited?.pdfjs||source.pdfjs).getPage(edited?1:p.index+1);const view=page.getViewport({scale,rotation:p.rotation});
     const maxPixels=42000000;if(view.width*view.height>maxPixels)throw new Error('This render exceeds the 42 megapixel memory limit. Reduce the DPI or zoom.');const c=document.createElement('canvas');c.width=Math.ceil(view.width);c.height=Math.ceil(view.height);await page.render({canvas:c,viewport:view,background:opts.background===null?'rgba(0,0,0,0)':opts.background||'#fff',annotationMode:pdfjsLib.AnnotationMode.ENABLE}).promise;return c;
   }
   async renderCurrent(){
@@ -2738,7 +3043,7 @@ class PDFStudio {
       try{this.canvas.clear();this.canvas.setDimensions({width:target.width,height:target.height});this.canvas.setZoom(renderScale);if(p.overlay)await this.canvas.loadFromJSON(p.overlay);
         if(epoch!==this.renderEpoch)return;this.canvas.setViewportTransform([renderScale,0,0,renderScale,0,0]);this.canvas.backgroundColor='';this.canvas.getObjects().forEach(o=>{if(o.studioLocked)o.set({selectable:false,evented:false});});this.currentPageId=p.id;this.canvas.requestRenderAll();
       }finally{this.suppress=false;}
-      this.$('#renderMessage').hidden=true;this.inspector();this.updateThumbnailSelection();this.updateLayers();this.status();
+      this.$('#renderMessage').hidden=true;this.inspector();this.updateThumbnailSelection();this.updateLayers();this.status();await this.renderNativeElements(p,epoch);
     });
     await this.overlayRender;
   }
@@ -2760,7 +3065,7 @@ class PDFStudio {
   setMode(mode){this.captureOverlay();this.mode=mode;this.$('#homePanel').hidden=mode!=='home';this.$('#pdfPanel').hidden=mode!=='pdf';const d=this.$('#documentPanel');if(d)d.hidden=mode!=='document';if(mode==='pdf'){this.renderToolbar();this.renderCurrent().catch(e=>this.error(e));}this.status();}
   async switchGroup(group){
     document.querySelectorAll('.nav-tool').forEach(el=>el.classList.toggle('active',el.dataset.group===group));document.body.classList.remove('sidebar-visible');
-    if(group==='Home'){this.setMode('home');return;}if(group==='Create'){await this.documentEditor.show();return;}
+    if(group==='Home'){this.setMode('home');return;}if(this.pages.length&&this.isNativeMode())this.setDrawing('select');if(group==='Create'){await this.documentEditor.show();return;}
     this.group=group;if(this.pages.length){this.setMode('pdf');this.renderToolbar();}else this.groupDialog(group);
   }
   groupDialog(group){
@@ -2774,7 +3079,7 @@ class PDFStudio {
   renderToolbar(){
     const b=(id,l,i)=>this.toolbarButton(id,l,i);let html='';
     if(this.group==='Organize')html=b('insert-files','Insert files','fa-file-circle-plus')+b('blank','Blank page','fa-file')+b('rotate-pages','Rotate','fa-rotate-right')+b('duplicate-pages','Duplicate','fa-copy')+b('delete-pages','Delete','fa-trash')+b('extract-pages','Extract','fa-file-export')+b('reverse','Reverse','fa-arrow-down-up-across-line')+b('move-start','To start','fa-angles-left')+b('move-end','To end','fa-angles-right')+b('merge','Merge','fa-object-group')+b('split','Split','fa-scissors')+b('crop','Crop','fa-crop-simple')+b('resize','Resize','fa-up-right-and-down-left-from-center');
-    else if(this.group==='Edit PDF')html=b('select','Select','fa-arrow-pointer')+b('add-text','Text','fa-font')+b('add-image','Image','fa-image')+b('rectangle','Rectangle','fa-square')+b('round-rect','Rounded','fa-square')+b('ellipse','Ellipse','fa-circle')+b('line','Line','fa-minus')+b('arrow','Arrow','fa-arrow-right')+b('polygon','Polygon','fa-draw-polygon')+b('draw','Draw','fa-pencil')+b('arrange','Arrange','fa-layer-group')+b('duplicate-object','Duplicate','fa-copy')+b('unlock-all','Unlock','fa-lock-open');
+    else if(this.group==='Edit PDF')html=b('select','Select','fa-arrow-pointer')+b('edit-original-text','Edit existing text','fa-pen-to-square')+b('select-original','Original elements','fa-object-ungroup')+b('delete-object','Delete','fa-trash')+b('add-text','Text','fa-font')+b('add-image','Image','fa-image')+b('rectangle','Rectangle','fa-square')+b('round-rect','Rounded','fa-square')+b('ellipse','Ellipse','fa-circle')+b('line','Line','fa-minus')+b('arrow','Arrow','fa-arrow-right')+b('polygon','Polygon','fa-draw-polygon')+b('draw','Draw','fa-pencil')+b('arrange','Arrange','fa-layer-group')+b('duplicate-object','Duplicate','fa-copy')+b('unlock-all','Unlock','fa-lock-open');
     else if(this.group==='Annotate')html=b('highlight','Highlight','fa-highlighter')+b('underline-line','Underline','fa-underline')+b('strike-line','Strike','fa-strikethrough')+b('note','Sticky note','fa-note-sticky')+b('link','Link region','fa-link')+b('whiteout','White-out','fa-eraser')+b('visual-redact','Visual redaction','fa-square')+b('secure-redact','Secure redaction','fa-shield-halved')+b('stamp','Stamp','fa-stamp')+b('watermark','Watermark','fa-droplet');
     else if(this.group==='Fill & Sign')html=b('sign','Visual signature','fa-signature')+b('checkmark','Check','fa-check')+b('xmark','X mark','fa-xmark')+b('initials','Initials','fa-font')+b('date-stamp','Date','fa-calendar-day')+b('forms','Fill form','fa-list-check')+b('create-field','Create field','fa-square-plus')+b('flatten-forms','Flatten form','fa-file');
     else{const defs=this.toolDefs.filter(t=>t.group===this.group);html=defs.map(t=>{const content=b(t.id,t.title,t.icon);return this.available(t)?content:content.replace('<button ','<button disabled title="'+this.escape('Requires '+t.requirements)+'" ');}).join('');}
@@ -2812,6 +3117,8 @@ class PDFStudio {
     if(id==='thumbnails'){this.$('#thumbnailPanel').hidden=!this.$('#thumbnailPanel').hidden;return;}
     if(['insert-files','blank','rotate-pages','duplicate-pages','delete-pages','extract-pages','reverse','move-start','move-end'].includes(id)){await this.organize(id);return;}
     if(!this.pages.length&&id==='sign'){await this.action('open');if(!this.pages.length)return;}this.requireDocument();if(this.mode!=='pdf')this.setMode('pdf');
+    if(id==='edit-original-text'||id==='select-original'){await this.startNativeMode(id==='edit-original-text');return;}
+    if(id==='native-edit'){this.nativeTextDialog();return;}if(id==='native-list'){this.nativeListDialog();return;}if(id==='native-delete'){await this.deleteObjects();return;}
     if(id==='select'){this.setDrawing('select');return;}if(['rectangle','round-rect','ellipse','line','arrow','highlight','underline-line','strike-line','whiteout','visual-redact','link'].includes(id)){if(id==='link'){this.dialog('Hyperlink region','<label class="form-label">URL</label><input class="form-control" name="url" type="url" value="https://" required><div class="form-text">Draw a rectangle over the area you want to make clickable.</div>',v=>{if(!/^https?:\/\//i.test(v.url))throw new Error('Links must use http or https.');this.pendingLink=v.url;this.setDrawing('link');});}else this.setDrawing(id);return;}
     if(id==='secure-redact'){this.dialog('Secure redaction','<div class="alert alert-warning">For safe removal of shared resources, this exporter rebuilds the entire output as page images. Original text, vectors, forms, attachments and metadata are discarded. Searchability is lost. Draw black redaction regions, then export.</div><label class="form-label">Raster DPI</label><select class="form-select" name="dpi"><option>150</option><option selected>300</option><option>450</option><option>600</option></select>',v=>{this.secureDPI=Number(v.dpi);this.setDrawing('secure');},{submit:'Draw secure region'});return;}
     if(id==='draw'){this.setDrawing('draw');return;}if(id==='add-text'){this.addText('Double-click to edit');return;}if(id==='add-image'){const f=await this.pickFiles('image/png,image/jpeg,image/webp,image/gif,image/bmp');if(f[0])await this.addImage(f[0]);return;}
@@ -2819,7 +3126,7 @@ class PDFStudio {
     if(id==='polygon'){this.dialog('Polygon','<label class="form-label">Number of sides</label><input name="sides" class="form-control" type="number" min="3" max="20" value="5" required>',v=>{const n=Number(v.sides);const points=Array.from({length:n},(_,i)=>({x:70*Math.cos(2*Math.PI*i/n-Math.PI/2),y:70*Math.sin(2*Math.PI*i/n-Math.PI/2)}));this.addObject(new fabric.Polygon(points,{...this.objectDefaults(),fill:'#3157da33',stroke:'#3157da',strokeWidth:2}));});return;}
     if(id==='sign'){this.signatureDialog();return;}if(id==='initials'||id==='stamp'){this.dialog(id==='initials'?'Initials':'Custom stamp','<label class="form-label">Text</label><input class="form-control" name="text" required maxlength="200">',v=>this.addText(v.text,{fontSize:28,fontFamily:id==='initials'?'cursive':'Arial',fill:id==='initials'?'#152f70':'#b02525',studioKind:'stamp'}));return;}
     if(id==='date-stamp'){this.addText(new Date().toLocaleDateString(),{fontSize:16,studioKind:'stamp'});return;}if(id==='checkmark'||id==='xmark'){this.addText(id==='checkmark'?'✓':'✕',{fontSize:30,fill:id==='checkmark'?'#138447':'#bc2424',studioKind:'mark'});return;}
-    if(id==='delete-object'){this.deleteObjects();return;}if(id==='duplicate-object'){await this.copyObjects();await this.pasteObjects();return;}if(id==='copy'){await this.copyObjects();return;}if(id==='cut'){await this.copyObjects();this.deleteObjects();return;}if(id==='paste'){await this.pasteObjects();return;}
+    if(id==='delete-object'){await this.deleteObjects();return;}if(id==='duplicate-object'){await this.copyObjects();await this.pasteObjects();return;}if(id==='copy'){await this.copyObjects();return;}if(id==='cut'){await this.copyObjects();await this.deleteObjects();return;}if(id==='paste'){await this.pasteObjects();return;}
     if(id==='arrange'){this.arrangeDialog();return;}if(id==='unlock-all'){this.canvas?.getObjects().forEach(o=>{o.studioLocked=false;o.set({selectable:true,evented:true,lockMovementX:false,lockMovementY:false,lockScalingX:false,lockScalingY:false,lockRotation:false});});this.commit();this.canvas.requestRenderAll();return;}
     if(id==='crop-image'){this.cropImageDialog();return;}
     const obj=this.canvas?.getActiveObject();if(['bold','italic','underline','strike','flip-x','flip-y','lock','clear-background'].includes(id)){
@@ -2849,10 +3156,10 @@ class PDFStudio {
   async addImage(file){const c=await this.imageCanvas(file);await this.addImageURL(c.toDataURL('image/png'));c.width=c.height=1;}
   async addImageURL(url,opts={}){const image=await fabric.FabricImage.fromURL(url);const d=this.dimensions(this.pages[this.current]);const scale=Math.min(1,d.width*.6/image.width,d.height*.6/image.height);image.set({...this.objectDefaults(),scaleX:scale,scaleY:scale,...opts});this.addObject(image);}
   setDrawing(mode){
-    this.requireDocument();this.toolMode=mode;if(this.canvas){this.canvas.isDrawingMode=mode==='draw';this.canvas.selection=mode==='select';this.canvas.defaultCursor=mode==='select'?'default':'crosshair';if(mode==='draw'){const brush=new fabric.PencilBrush(this.canvas);brush.color='#24365a';brush.width=2;this.canvas.freeDrawingBrush=brush;}this.canvas.discardActiveObject();this.canvas.requestRenderAll();}if(mode!=='select'&&mode!=='draw')this.notify('Drag on the page to add '+(mode==='secure'?'a secure redaction region':mode.replaceAll('-',' '))+'.');
+    this.requireDocument();this.toolMode=mode;this.clearNativeSelection();this.$('#nativeControls').hidden=!this.isNativeMode();this.$('#nativeElementLayer').hidden=!this.isNativeMode();if(this.canvas){this.canvas.isDrawingMode=mode==='draw';this.canvas.selection=mode==='select';this.canvas.defaultCursor=mode==='select'?'default':'crosshair';if(mode==='draw'){const brush=new fabric.PencilBrush(this.canvas);brush.color='#24365a';brush.width=2;this.canvas.freeDrawingBrush=brush;}this.canvas.discardActiveObject();this.canvas.requestRenderAll();}if(mode!=='select'&&mode!=='draw'&&!this.isNativeMode())this.notify('Drag on the page to add '+(mode==='secure'?'a secure redaction region':mode.replaceAll('-',' '))+'.');
   }
   canvasDown(e){
-    if(this.suppress||this.toolMode==='select'||this.toolMode==='draw')return;const point=this.canvas.getScenePoint(e.e);this.drawStart=point;const mode=this.toolMode;
+    if(this.suppress||this.toolMode==='select'||this.toolMode==='draw'||this.isNativeMode())return;const point=this.canvas.getScenePoint(e.e);this.drawStart=point;const mode=this.toolMode;
     const base={left:point.x,top:point.y,originX:'left',originY:'top',width:1,height:1,fill:'transparent',stroke:'#3157da',strokeWidth:2,selectable:false,evented:false,studioKind:mode};
     if(['line','underline-line','strike-line','arrow'].includes(mode)){this.drawObject=new fabric.Line([point.x,point.y,point.x+1,point.y+1],{stroke:'#24365a',strokeWidth:mode==='line'||mode==='arrow'?2:1.5,selectable:false,evented:false,studioKind:mode});}
     else if(mode==='ellipse')this.drawObject=new fabric.Ellipse({...base,rx:.5,ry:.5});else{if(mode==='highlight')Object.assign(base,{fill:'#ffe23a',opacity:.35,strokeWidth:0});if(mode==='whiteout')Object.assign(base,{fill:'#fff',strokeWidth:0});if(mode==='visual-redact'||mode==='secure')Object.assign(base,{fill:'#000',strokeWidth:0});if(mode==='round-rect')Object.assign(base,{rx:10,ry:10});if(mode==='link')Object.assign(base,{fill:'#3157da18',stroke:'#3157da',studioLink:this.pendingLink});this.drawObject=new fabric.Rect(base);}this.canvas.add(this.drawObject);
@@ -2879,7 +3186,7 @@ class PDFStudio {
   updateLayers(){
     const objects=this.canvas?.getObjects()||[];this.$('#layersList').innerHTML=objects.map((o,i)=>({o,i})).reverse().map(({o,i})=>`<div class="layer-item ${this.canvas.getActiveObjects().includes(o)?'active':''}"><button class="icon-button" data-layer="${i}" ${o.studioLocked?'data-unlock="1"':''} title="${o.studioLocked?'Unlock':'Select'}" aria-label="${o.studioLocked?'Unlock':'Select'} layer"><i class="fa-solid ${o.studioLocked?'fa-lock':'fa-layer-group'}"></i></button><span>${this.escape(o.studioKind||o.text?.slice(0,26)||o.type)}</span><button class="icon-button" data-layer="${i}" aria-label="Select layer"><i class="fa-solid fa-arrow-pointer"></i></button></div>`).join('');
   }
-  deleteObjects(){if(!this.canvas)return;const objs=this.canvas.getActiveObjects();this.canvas.discardActiveObject();objs.forEach(o=>this.canvas.remove(o));this.canvas.requestRenderAll();this.commit();this.inspector();}
+  async deleteObjects(){if(this.isNativeMode()){if(!this.nativeSelection)throw new Error('Select an original PDF element first.');await this.applyNativeEdit({action:'delete',path:this.nativeSelection.path});return;}if(!this.canvas)return;const objs=this.canvas.getActiveObjects();this.canvas.discardActiveObject();objs.forEach(o=>this.canvas.remove(o));this.canvas.requestRenderAll();this.commit();this.inspector();}
   async copyObjects(){const objects=this.canvas?.getActiveObjects()||[];if(!objects.length)return;this.clipboard=objects.map(o=>o.toObject(this.overlayProps));}
   async pasteObjects(){if(!this.clipboard?.length)return;const objs=await fabric.util.enlivenObjects(this.clipboard);this.canvas.discardActiveObject();objs.forEach(o=>{o.set({left:o.left+15,top:o.top+15,selectable:true,evented:true});o.studioLocked=false;this.canvas.add(o);});if(objs.length===1)this.canvas.setActiveObject(objs[0]);else this.canvas.setActiveObject(new fabric.ActiveSelection(objs,{canvas:this.canvas}));this.canvas.requestRenderAll();this.commit();this.inspector();}
   arrangeDialog(){
@@ -2898,6 +3205,66 @@ class PDFStudio {
   cropImageDialog(){
     const o=this.canvas?.getActiveObject();if(!(o instanceof fabric.FabricImage))throw new Error('Select an image object first.');const original=o.getElement();this.dialog('Crop image','<div class="row g-2">'+[['x','Left',o.cropX||0],['y','Top',o.cropY||0],['width','Width',o.width],['height','Height',o.height]].map(([name,label,value])=>`<div class="col-6"><label class="form-label">${label} (source pixels)</label><input class="form-control" type="number" min="${name==='width'||name==='height'?1:0}" name="${name}" value="${Math.round(value)}" required></div>`).join('')+'</div><div class="form-text">Cropping adjusts the visible portion of this image without changing the original PDF.</div>',v=>{const x=Number(v.x),y=Number(v.y),w=Number(v.width),h=Number(v.height);if(x+w>original.naturalWidth||y+h>original.naturalHeight)throw new Error('The crop extends beyond this image.');o.set({cropX:x,cropY:y,width:w,height:h});o.setCoords();this.canvas.requestRenderAll();this.commit();this.inspector();});
   }
+  isNativeMode() { return this.toolMode==='native-text'||this.toolMode==='native-elements'; }
+  nativeType(type) { return ({1:'Original text',2:'Vector shape',3:'Original image',4:'Shading',5:'PDF group'})[type]||'Original element'; }
+  clearNativeSelection() {
+    this.nativeSelection=null;this.$('#nativeSelectionLabel').replaceChildren();
+    for(const button of this.$('#nativeElementLayer').querySelectorAll('[data-native-index]'))button.classList.remove('selected');
+    for(const id of ['nativeEditButton','nativeDeleteButton'])this.$('#'+id).disabled=true;
+  }
+  async startNativeMode(textOnly=false) {
+    this.requireDocument();const p=this.pages[this.current];await this.busy('Loading original PDF elements',job=>this.nativeEditor.resolve(p,job));
+    if(p!==this.pages[this.current])return;this.setDrawing(textOnly?'native-text':'native-elements');this.$('#nativeFilter').value=textOnly?'text':'all';await this.renderNativeElements(p,this.renderEpoch);
+  }
+  async renderNativeElements(p=this.pages[this.current],epoch=this.renderEpoch) {
+    const layer=this.$('#nativeElementLayer'),controls=this.$('#nativeControls');
+    if(!this.isNativeMode()||this.mode!=='pdf'){layer.hidden=true;controls.hidden=true;return;}
+    const previousSelection=this.nativeSelection;layer.hidden=true;controls.hidden=false;this.clearNativeSelection();const result=await this.nativeEditor.resolve(p);
+    if(epoch!==this.renderEpoch||p!==this.pages[this.current]||!this.isNativeMode())return;
+    const original=await this.sources.get(p.sourceId).pdfjs.getPage(p.index+1);if(epoch!==this.renderEpoch||p!==this.pages[this.current]||!this.isNativeMode())return;const viewport=original.getViewport({scale:this.scale,rotation:p.rotation});
+    const filter=this.$('#nativeFilter').value,types={text:1,shape:2,image:3,shading:4,group:5};this.nativeElements=result.elements;
+    const hits=result.elements.map((element,index)=>{
+      const points=element.quad.map(([x,y])=>viewport.convertToViewportPoint(x,y)),xs=points.map(v=>v[0]),ys=points.map(v=>v[1]);
+      const left=Math.max(0,Math.min(...xs)-2),top=Math.max(0,Math.min(...ys)-2),right=Math.min(viewport.width,Math.max(...xs)+2),bottom=Math.min(viewport.height,Math.max(...ys)+2);
+      return {element,index,left,top,width:right-left,height:bottom-top};
+    }).filter(hit=>(filter==='all'||hit.element.type===types[filter])&&hit.width>0&&hit.height>0);
+    hits.sort((a,b)=>b.width*b.height-a.width*a.height||a.element.path.length-b.element.path.length||a.index-b.index);layer.replaceChildren();
+    for(const hit of hits) {
+      const button=document.createElement('button');button.type='button';button.className='native-hit';button.dataset.nativeIndex=String(hit.index);button.dataset.nativeType=String(hit.element.type);
+      button.style.cssText=`left:${hit.left}px;top:${hit.top}px;width:${Math.max(5,hit.width)}px;height:${Math.max(5,hit.height)}px`;
+      button.setAttribute('aria-label',this.nativeType(hit.element.type));button.title=this.nativeType(hit.element.type);layer.append(button);
+    }
+    layer.hidden=false;const selection=this.nativeSelection||previousSelection;if(selection?.pageId===p.id&&selection.key===this.nativeEditor.key(p)){const index=result.elements.findIndex(e=>JSON.stringify(e.path)===JSON.stringify(selection.path));if(hits.some(hit=>hit.index===index))this.selectNative(index);}this.$('#nativeHint').textContent=hits.length?'Click an element to select it. Double-click text to edit. Use the element list when objects overlap.':'No matching elements on this page. Scanned text is part of an image; changing its appearance requires rebuilding it.';
+  }
+  selectNative(index) {
+    const element=this.nativeElements?.[index];if(!element)return;this.canvas?.discardActiveObject();this.canvas?.requestRenderAll();this.nativeSelection={...element,index,pageId:this.pages[this.current].id,key:this.nativeEditor.key(this.pages[this.current])};
+    for(const button of this.$('#nativeElementLayer').querySelectorAll('[data-native-index]'))button.classList.toggle('selected',Number(button.dataset.nativeIndex)===index);
+    const label=this.$('#nativeSelectionLabel'),type=document.createElement('span'),content=document.createElement('span');
+    type.textContent=this.nativeType(element.type);content.setAttribute('translate','no');content.textContent=element.text?' · '+element.text.slice(0,120):' · '+element.path.map(i=>i+1).join('.');label.replaceChildren(type,content);
+    this.$('#nativeEditButton').disabled=element.type!==1;this.$('#nativeDeleteButton').disabled=false;this.inspector();
+  }
+  nativeListDialog() {
+    const elements=this.nativeElements||[];
+    const body='<label class="form-label" for="nativeSearch">Find an element</label><input id="nativeSearch" class="form-control mb-3" type="search"><div id="nativeList" class="native-list">'+elements.map((element,index)=>`<button type="button" class="list-group-item list-group-item-action" data-native-list="${index}"><span>${this.escape(this.nativeType(element.type))}</span><span translate="no" class="ms-2">${this.escape(element.text||element.path.map(i=>i+1).join('.'))}</span><small class="d-block text-muted" translate="no">${this.escape(element.font)} ${element.size?Number(element.size.toFixed(2))+' pt':''}</small></button>`).join('')+'</div><p class="form-text">Selecting a PDF group selects everything inside that group. Its individual contents are listed separately.</p>';
+    const modal=this.dialog('Original PDF elements',body,null,{submit:false,wide:true});
+    modal.querySelector('#nativeSearch').addEventListener('input',event=>{const query=event.target.value.toLocaleLowerCase();for(const button of modal.querySelectorAll('[data-native-list]'))button.hidden=!button.textContent.toLocaleLowerCase().includes(query);});
+    modal.querySelector('#nativeList').addEventListener('click',event=>{const button=event.target.closest('[data-native-list]');if(!button)return;this.selectNative(Number(button.dataset.nativeList));bootstrap.Modal.getInstance(modal)?.hide();});
+  }
+  nativeTextDialog() {
+    const selection=this.nativeSelection;if(!selection||selection.type!==1)throw new Error('Select an original text element first.');
+    const html='<label class="form-label">Text</label><textarea class="form-control mb-3" name="text" rows="4" maxlength="10000" translate="no">'+this.escape(selection.text)+'</textarea><label class="form-label">Font</label><select class="form-select" name="font"><option value="original">Keep original font</option>'+this.nativeEditor.fonts().map(font=>`<option value="${font}" translate="no">${font}</option>`).join('')+'</select><p class="small text-muted mt-2"><span>Original font</span>: <span translate="no">'+this.escape(selection.font)+' · '+Number(selection.size.toFixed(2))+' pt</span></p><div class="form-text">Each box is an existing PDF text run. Replacement keeps its baseline and does not reflow surrounding text. If the embedded font lacks a new character, choose a replacement font. Empty text deletes the element.</div>';
+    this.dialog('Edit existing text',html,async values=>{if(/[\r\n]/.test(values.text))throw new Error('Edit one text run at a time. Use added text for multiple lines.');await this.applyNativeEdit(values.text.length?{action:'text',path:selection.path,text:values.text,font:values.font}:{action:'delete',path:selection.path},selection);},{submit:'Apply text change'});
+  }
+  async applyNativeEdit(edit,selection=this.nativeSelection) {
+    const p=this.pages[this.current];if(!selection||p?.id!==selection.pageId||this.nativeEditor.key(p)!==selection.key)throw new Error('Select the original PDF element again. The page has changed.');
+    const edits=this.nativeEditor.validate([...(p.nativeEdits||[]),edit]);
+    await this.busy('Applying original PDF edit',async job=>{
+      const candidate={...p,nativeEdits:edits};await this.nativeEditor.resolve(candidate,job);job.check();
+      if(this.pages[this.current]!==p)throw new Error('Select the original PDF element again. The page has changed.');
+      this.captureOverlay();p.nativeEdits=edits;this.clearNativeSelection();this.commit();await this.refresh();
+    });this.notify(edit.action==='delete'?'Original PDF element removed. Use Undo to restore it.':'Original PDF text updated.','success');
+  }
+
   async overlayPNG(p,multiplier=1,secureMask=false){
     if(!p.overlay?.objects?.length)return null;if(!window.fabric)throw new Error('Editable overlay export requires Fabric.js, which could not load.');const d=this.dimensions(p);const c=new fabric.StaticCanvas(document.createElement('canvas'),{width:d.width,height:d.height,enableRetinaScaling:false});try{let data=p.overlay;if(secureMask){data=JSON.parse(JSON.stringify(p.overlay));data.objects=data.objects.filter(o=>o.studioKind==='secure').map(o=>({...o,fill:'#000000',opacity:1,visible:true,strokeWidth:0,stroke:null,shadow:null,backgroundColor:'',globalCompositeOperation:'source-over'}));}await c.loadFromJSON(data);c.backgroundColor='';c.renderAll();return c.toDataURL({format:'png',multiplier});}finally{await c.dispose();}
   }
@@ -2916,6 +3283,7 @@ class PDFStudio {
       job?.check();const p=selected[i];let page;if(unchanged)page=dest.getPage(i);else{
         let source=preparedSources.get(p.sourceId);if(!source){const original=this.sources.get(p.sourceId);source=await PDFLib.PDFDocument.load(original.bytes,{updateMetadata:false});if(source.getForm().hasXFA())throw new Error('XFA forms cannot be reorganized safely. Convert this PDF to static pages first.');if(source.getForm().getFields().length){try{source.getForm().flatten();}catch(e){throw new Error('This form cannot be flattened for page organization: '+e.message);}if(!warnedForms){this.notify('Interactive fields are flattened when pages are reorganized or extracted. Their visible appearances are retained.');warnedForms=true;}}preparedSources.set(p.sourceId,source);}page=(await dest.copyPages(source,[p.index]))[0];dest.addPage(page);
       }
+      if(p.nativeEdits?.length){const edited=await this.nativeEditor.resolve(p,job);const content=(await dest.copyPages(edited.lib,[0]))[0];for(const key of ['Contents','Resources']){const name=PDFLib.PDFName.of(key),value=content.node.get(name);if(value)page.node.set(name,value);else page.node.delete(name);}}
       page.setRotation(PDFLib.degrees(p.rotation));if(p.crop)page.setCropBox(p.crop.x,p.crop.y,p.crop.width,p.crop.height);
       const png=await this.overlayPNG(p,2);if(png){const img=await dest.embedPng(png);const b=page.getCropBox();const r=p.rotation%360;const coords=r===90?{x:b.x+b.width,y:b.y,width:b.height,height:b.width,rotate:PDFLib.degrees(90)}:r===180?{x:b.x+b.width,y:b.y+b.height,width:b.width,height:b.height,rotate:PDFLib.degrees(180)}:r===270?{x:b.x,y:b.y+b.height,width:b.height,height:b.width,rotate:PDFLib.degrees(270)}:{x:b.x,y:b.y,width:b.width,height:b.height};page.drawImage(img,coords);}
       // Link regions remain real PDF annotations. The visible overlay is still editable in the project.
@@ -2962,9 +3330,9 @@ class PDFStudio {
     el.querySelector('#scanFile').addEventListener('change',async e=>{try{if(e.target.files[0]){source=await this.imageCanvas(e.target.files[0]);preview();}}catch(x){this.error(x);}});for(const control of el.querySelectorAll('input[type=range],input[type=number],select'))control.addEventListener('input',preview);el.addEventListener('hidden.bs.modal',()=>{if(source)source.width=source.height=1;},{once:true});
   }
   capabilitiesDialog(){
-    const browserLabels={pdfjs:'PDF viewer',pdfLib:'PDF editing',fabric:'PDF overlays and visual signatures',purify:'Document safety',sortable:'Page ordering',zip:'ZIP exports',bootstrap:'Interface'};
-    const browserGlobals={pdfjs:'pdfjsLib',pdfLib:'PDFLib',fabric:'fabric',purify:'DOMPurify',sortable:'Sortable',zip:'JSZip',bootstrap:'bootstrap'};
-    const browserRows=Object.entries(STUDIO_VERSIONS).map(([name,version])=>`<tr data-source="browser"><td><strong>${this.escape(browserLabels[name]||name)}</strong></td><td><span class="badge text-bg-primary">Browser</span></td><td><span class="badge ${window[browserGlobals[name]]?'text-bg-success':'text-bg-secondary'}">${window[browserGlobals[name]]?'Available':'Unavailable'}</span></td><td>${this.escape(version)}</td><td>Runs locally on your device.</td></tr>`).join('');
+    const browserLabels={pdfjs:'PDF viewer',pdfLib:'PDF editing',fabric:'PDF overlays and visual signatures',purify:'Document safety',sortable:'Page ordering',zip:'ZIP exports',bootstrap:'Interface',pdfium:'Original PDF text and elements'};
+    const browserGlobals={pdfjs:'pdfjsLib',pdfLib:'PDFLib',fabric:'fabric',purify:'DOMPurify',sortable:'Sortable',zip:'JSZip',bootstrap:'bootstrap',pdfium:'StudioNativePDFium'};
+    const browserRows=Object.entries(STUDIO_VERSIONS).map(([name,version])=>`<tr data-source="browser"><td><strong>${this.escape(browserLabels[name]||name)}</strong></td><td><span class="badge text-bg-primary">Browser</span></td><td><span class="badge ${window[browserGlobals[name]]?'text-bg-success':'text-bg-secondary'}">${window[browserGlobals[name]]?'Available':name==='pdfium'&&window.WebAssembly?'Loaded when needed':'Unavailable'}</span></td><td>${this.escape(version)}</td><td>Runs locally on your device.</td></tr>`).join('');
     const serverRows=Object.entries(this.server.tools||{}).map(([name,tool])=>`<tr data-source="server"><td><strong>${this.escape(tool.label||name)}</strong></td><td><span class="badge text-bg-dark">Server</span></td><td>${tool.available?'<span class="badge text-bg-success">Available</span>':`<span class="badge text-bg-secondary">Unavailable</span> <button type="button" class="btn btn-link btn-sm p-1" data-action="install-help" data-tool="${this.escape(name)}" title="Ubuntu installation help" aria-label="Ubuntu installation help for ${this.escape(tool.label||name)}"><i class="fa-solid fa-circle-info" aria-hidden="true"></i></button>`}</td><td>${this.escape(tool.version||'—')}</td><td>${this.escape((tool.features||[]).join(', '))}${tool.reason?`<div class="text-secondary mt-1">${this.escape(tool.reason)}</div>`:''}</td></tr>`).join('');
     const missingServer=serverRows?'':'<tr><td colspan="5" class="text-secondary">Server capabilities could not be checked. Reload this page to try again; browser capabilities are listed above.</td></tr>';
     const html=`<div class="d-flex flex-wrap align-items-center gap-2 mb-3"><span class="me-auto small">PDF Studio ${this.escape(window.PDF_STUDIO_BOOT.version)} · PHP ${this.escape(this.server.php||'unknown')}</span><button type="button" class="btn btn-outline-primary btn-sm" data-action="updates"><i class="fa-solid fa-cloud-arrow-down me-1"></i> Check for updates</button><button type="button" class="btn btn-outline-secondary btn-sm" data-action="changelog">What's new</button></div><p class="small text-secondary">Browser capabilities process documents on your device. Server capabilities use this installation; files are uploaded only when you choose a server operation.</p><div class="table-responsive"><table class="table capability-table"><thead><tr><th>Capability / dependency</th><th>Runs in</th><th>Status</th><th>Version</th><th>Features / details</th></tr></thead><tbody>${browserRows}${serverRows}${missingServer}</tbody></table></div><div class="alert alert-info mb-0">Click <i class="fa-solid fa-circle-info" aria-hidden="true"></i> beside an unavailable server capability for Ubuntu installation commands. Some installed tools also need permissions, extensions or server configuration before they can run.</div>`;
@@ -3008,7 +3376,7 @@ class PDFStudio {
     const relink=project.sources.filter(s=>!s.binary&&!Array.from(this.sources.values()).some(v=>v.hash===s.hash));let linked=[];if(relink.length){this.notify('Select the original PDFs to relink '+relink.map(s=>s.name).join(', ')+'.');linked=await this.pickFiles('.pdf',true);if(!linked.length)throw new Error('Original PDF files are required to reopen this project.');}
     const fileMap=new Map();for(const f of linked){const bytes=new Uint8Array(await f.arrayBuffer());fileMap.set(await this.hash(bytes),bytes);}const idMap=new Map();
     for(const s of project.sources){if(typeof s.id!=='string'||typeof s.hash!=='string')throw new Error('Invalid project source.');const existing=[...this.sources.values()].find(v=>v.hash===s.hash);if(existing){idMap.set(s.id,existing.id);continue;}const bytes=s.binary?this.unbase64(s.binary):fileMap.get(s.hash);if(!bytes)throw new Error('Could not relink '+s.name+'. The SHA-256 hash must match the original PDF.');if(await this.hash(bytes)!==s.hash)throw new Error('Embedded source hash does not match '+s.name+'.');const c=await this.source(bytes,String(s.name||'document.pdf'));idMap.set(s.id,c.src.id);}
-    const pages=project.pages.map(p=>{const sid=idMap.get(p.sourceId),src=this.sources.get(sid);if(!src||!Number.isInteger(p.index)||p.index<0||p.index>=src.lib.getPageCount())throw new Error('Project references an invalid PDF page.');if(![0,90,180,270].includes(p.rotation)||!Number.isFinite(p.width)||!Number.isFinite(p.height)||p.width<=0||p.height<=0||p.width>14400||p.height>14400)throw new Error('Invalid project page dimensions.');return {...p,id:this.id(),sourceId:sid,overlay:this.validateOverlay(p.overlay)};});
+    const pages=project.pages.map(p=>{const sid=idMap.get(p.sourceId),src=this.sources.get(sid);if(!src||!Number.isInteger(p.index)||p.index<0||p.index>=src.lib.getPageCount())throw new Error('Project references an invalid PDF page.');if(![0,90,180,270].includes(p.rotation)||!Number.isFinite(p.width)||!Number.isFinite(p.height)||p.width<=0||p.height<=0||p.width>14400||p.height>14400)throw new Error('Invalid project page dimensions.');return {...p,id:this.id(),sourceId:sid,overlay:this.validateOverlay(p.overlay),nativeEdits:this.nativeEditor.validate(p.nativeEdits)};});
     this.currentPageId=null;this.pages=pages;this.metadata=project.metadata||{};this.name=String(project.name||'document.pdf');this.current=Math.max(0,Math.min(pages.length-1,Number(project.settings?.current)||0));this.group=project.settings?.group||'Edit PDF';this.zoom=project.settings?.zoom||'fit-page';this.secureDPI=[150,300,450,600].includes(Number(project.settings?.secureDPI))?Number(project.settings.secureDPI):300;this.selected.clear();this.history=[];this.historyIndex=-1;
     if(project.document)await this.documentEditor.restore(project.document);if(pages.length){this.commit();this.setMode('pdf');await this.refresh();}else await this.documentEditor.show();this.dirty=false;this.status();
   }

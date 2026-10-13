@@ -5,7 +5,9 @@
     "test": "node --test tests/*.test.cjs"
   },
   "devDependencies": {
+    "@embedpdf/pdfium": "^2.15.1",
     "acorn": "^8.15.0",
-    "jsdom": "26.1.0"
+    "jsdom": "26.1.0",
+    "pdf-lib": "^1.17.1"
   }
 }

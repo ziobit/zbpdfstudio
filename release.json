@@ -1,7 +1,16 @@
 {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "minimumPhp": "7.2",
   "releases": [
+    {
+      "version": "1.3.0",
+      "date": "2026-10-13",
+      "changes": [
+        "Edit text already present in a PDF, keeping it searchable in the exported file.",
+        "Select and delete individual original text, images, vector shapes and PDF groups. An element list helps with overlapping objects.",
+        "Undo or redo original-content changes and keep them in editable projects and automatic recovery."
+      ]
+    },
     {
       "version": "1.2.0",
       "date": "2026-10-08",
